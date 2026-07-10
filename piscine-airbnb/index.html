@@ -545,7 +545,7 @@
   </div>
 
   <div id="listingModal" class="fixed inset-0 z-50 hidden items-end justify-center bg-black/55 p-0 sm:items-center sm:p-6">
-    <div class="w-full max-w-6xl overflow-hidden rounded-t-[30px] bg-white shadow-premium sm:rounded-cxl">
+    <div class="max-h-[94vh] w-full max-w-6xl overflow-y-auto rounded-t-[30px] bg-white shadow-premium sm:rounded-cxl">
       <div class="flex items-center justify-between border-b border-line px-5 py-4 sm:px-8">
         <div>
           <div id="modalRegion" class="text-sm font-extrabold text-primary"></div>
@@ -555,7 +555,7 @@
       </div>
       <div class="grid gap-6 p-5 sm:p-8 lg:grid-cols-[1.06fr_0.94fr]">
         <div>
-          <div id="modalVisual" class="min-h-[280px] rounded-cxl p-6 text-white shadow-card"></div>
+          <div id="modalVisual" class="relative aspect-[4/3] min-h-[280px] overflow-hidden rounded-cxl text-white shadow-card"></div>
           <div class="mt-5 grid gap-3 sm:grid-cols-3">
             <div class="rounded-clg bg-mist p-4"><div class="text-sm font-extrabold text-ink">Capacité</div><div id="modalGuests" class="mt-1 text-sm text-muted"></div></div>
             <div class="rounded-clg bg-mist p-4"><div class="text-sm font-extrabold text-ink">Occasion</div><div id="modalMood" class="mt-1 text-sm text-muted"></div></div>
@@ -671,6 +671,8 @@
         rating: 4.9,
         reviews: 18,
         gradient: 'listing-gradient-1',
+        image: 'assets/villa-panorama.png',
+        alt: 'Piscine à débordement de villa avec terrasse en pierre et vue panoramique sur le Léman',
         vibe: 'Vue lac, pin parasol, terrasse sculptée',
         description: 'Lieu signature pour une parenthèse premium. Très fort pour un afterwork de direction, un dîner d’été discret ou un moment relationnel calme.',
         features: ['vue-lac', 'chauffee', 'b2b'],
@@ -688,6 +690,8 @@
         rating: 4.8,
         reviews: 26,
         gradient: 'listing-gradient-2',
+        image: 'assets/maison-vignes.png',
+        alt: 'Piscine privée chauffée dans un jardin ombragé au milieu des vignes de Lavaux',
         vibe: 'Jardin ombragé, vue vignes, bassin chauffé',
         description: 'Un lieu très familial avec grand espace détente, coin goûter et logistique simple pour une vraie pause chaude autour de Lausanne.',
         features: ['chauffee', 'kids'],
@@ -705,6 +709,8 @@
         rating: 4.7,
         reviews: 11,
         gradient: 'listing-gradient-3',
+        image: 'assets/bassin-colline.png',
+        alt: 'Petit bassin contemporain bordé de haies et de bois clair sur une colline vaudoise',
         vibe: 'Silence, haie haute, lignes épurées',
         description: 'Le genre de lieu qu’on réserve pour lire, nager, respirer et ne voir personne. Petite capacité, maximum sérénité.',
         features: ['chauffee'],
@@ -722,6 +728,8 @@
         rating: 5.0,
         reviews: 9,
         gradient: 'listing-gradient-4',
+        image: 'assets/terrasse-riviera.png',
+        alt: 'Piscine privée sur une terrasse méditerranéenne dominant le Léman près de Vevey',
         vibe: 'Terrasse panoramique, coin repas, sunset',
         description: 'Très bon spot pour un anniversaire soft, photogénique et parfaitement cadré, sans dériver vers l’événement bruyant.',
         features: ['vue-lac'],
@@ -739,6 +747,8 @@
         rating: 4.7,
         reviews: 22,
         gradient: 'listing-gradient-5',
+        image: 'assets/jardin-cerisiers.png',
+        alt: 'Piscine familiale élégante dans un grand jardin arboré de cerisiers près de Nyon',
         vibe: 'Pelouse large, transats, coin goûter',
         description: 'Valeur sûre pour les familles qui veulent beaucoup d’espace extérieur, une bonne accessibilité et peu de friction terrain.',
         features: ['kids'],
@@ -756,6 +766,8 @@
         rating: 4.9,
         reviews: 14,
         gradient: 'listing-gradient-6',
+        image: 'assets/ligne-eau-pully.png',
+        alt: 'Longue piscine de nage contemporaine avec deck en bois et aperçu du lac à Pully',
         vibe: 'Design contemporain, deck bois, lumière dorée',
         description: 'Spot très propre visuellement, parfait pour un petit comité premium qui veut un lieu beau mais maîtrisable.',
         features: ['chauffee', 'b2b'],
@@ -773,6 +785,8 @@
         rating: 4.8,
         reviews: 19,
         gradient: 'listing-gradient-2',
+        image: 'assets/verger-secret.png',
+        alt: 'Piscine intime cachée entre des arbres fruitiers et un pool house en bois sombre',
         vibe: 'Haie haute, intimité, ton convivial',
         description: 'Pour un moment flexible entre amis ou famille élargie, avec assez d’intimité pour se sentir ailleurs sans logistique lourde.',
         features: ['kids'],
@@ -790,6 +804,8 @@
         rating: 5.0,
         reviews: 7,
         gradient: 'listing-gradient-3',
+        image: 'assets/residence-lac.png',
+        alt: 'Grande piscine privée aux lignes architecturales avec cabanas crème près du lac à Genève',
         vibe: 'Piscine miroir, jardin architectural, calme haut de gamme',
         description: 'Réservation signature pour clientèle exigeante, très utile pour tester le positionnement premium local le plus ambitieux.',
         features: ['vue-lac', 'chauffee'],
@@ -807,6 +823,8 @@
         rating: 4.6,
         reviews: 13,
         gradient: 'listing-gradient-4',
+        image: 'assets/patio-soleil.png',
+        alt: 'Petite piscine turquoise dans un patio minéral ensoleillé avec pergola en bois',
         vibe: 'Patio minéral, eau turquoise, format duo',
         description: 'Petit format à forte valeur perçue pour couples, duos et matinées détente qui cherchent un vrai beau cadre.',
         features: ['chauffee'],
@@ -824,6 +842,8 @@
         rating: 4.9,
         reviews: 8,
         gradient: 'listing-gradient-5',
+        image: 'assets/blue-deck-riviera.png',
+        alt: 'Piscine bleu profond sur un deck contemporain avec vue ouverte sur le lac et les Alpes',
         vibe: 'Vue lac XXL, deck lounge, fin de journée',
         description: 'Lieu calibré pour des moments marquants et photogéniques, sans aller vers le format événementiel trop exposé.',
         features: ['vue-lac', 'b2b'],
@@ -841,6 +861,8 @@
         rating: 4.8,
         reviews: 17,
         gradient: 'listing-gradient-6',
+        image: 'assets/clos-repos.png',
+        alt: 'Piscine privée calme dans un jardin clos avec terrasse en pierre et transats sable',
         vibe: 'Grand jardin, coin sieste, accès facile',
         description: 'Compromis très fort entre esthétique, accessibilité et confort familial pour les journées chaudes autour de Lausanne.',
         features: ['kids', 'chauffee'],
@@ -858,6 +880,8 @@
         rating: 4.9,
         reviews: 15,
         gradient: 'listing-gradient-1',
+        image: 'assets/oasis-cote.png',
+        alt: 'Piscine organique entourée de graminées et oliviers avec pavillon en bois sur La Côte',
         vibe: 'Ligne épurée, éclairage doux, grande table',
         description: 'Idéale pour un dîner estival discret autour de l’eau avec une sensation claire de lieu privé remarquable.',
         features: ['chauffee', 'b2b'],
@@ -914,6 +938,27 @@
       return map[mood] || mood;
     }
 
+    function attachImageFallbacks(scope = document) {
+      scope.querySelectorAll('img[data-fallback-image]').forEach(image => {
+        if (image.dataset.fallbackBound === 'true') return;
+        image.dataset.fallbackBound = 'true';
+        image.addEventListener('error', () => {
+          const fallbackSrc = image.dataset.fallbackSrc;
+          if (fallbackSrc && image.dataset.fallbackTried !== 'true') {
+            image.dataset.fallbackTried = 'true';
+            image.src = fallbackSrc;
+            return;
+          }
+          image.hidden = true;
+          image.setAttribute('aria-hidden', 'true');
+          image.parentElement.classList.add('image-fallback');
+        });
+        if (image.complete && image.naturalWidth === 0) {
+          image.dispatchEvent(new Event('error'));
+        }
+      });
+    }
+
     function renderListings() {
       const budgetValue = budgetFilter.value === 'all' ? Infinity : Number(budgetFilter.value);
       const filtered = listings.filter(listing => {
@@ -926,16 +971,18 @@
 
       resultsCount.textContent = filtered.length;
       grid.innerHTML = filtered.map(listing => `
-        <article class="overflow-hidden rounded-clg border border-line bg-white shadow-card transition duration-200 hover:-translate-y-1 hover:shadow-soft">
-          <div class="${listing.gradient} p-5">
-            <div class="flex items-center justify-between gap-3">
+        <article class="group overflow-hidden rounded-clg border border-line bg-white shadow-card transition duration-200 hover:-translate-y-1 hover:shadow-soft">
+          <div class="${listing.gradient} relative aspect-[4/3] overflow-hidden">
+            <img src="${listing.image}" alt="${listing.alt}" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]" width="1200" height="900" loading="lazy" decoding="async" data-fallback-image />
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-ink/15"></div>
+            <div class="absolute inset-x-0 top-0 flex items-center justify-between gap-3 p-5">
               <span class="rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-ink shadow-card">${listing.badge}</span>
               <span class="rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-muted shadow-card">⭐ ${listing.rating}</span>
             </div>
-            <div class="mt-16 rounded-cxl bg-white/92 p-5 shadow-card">
-              <div class="text-sm font-extrabold text-primary">${listing.town} · ${listing.region}</div>
-              <h3 class="mt-2 text-2xl font-extrabold tracking-[-0.04em] text-ink">${listing.title}</h3>
-              <p class="mt-2 text-sm leading-7 text-muted">${listing.vibe}</p>
+            <div class="absolute inset-x-0 bottom-0 p-5 text-white">
+              <div class="text-sm font-extrabold text-white/80">${listing.town} · ${listing.region}</div>
+              <h3 class="mt-1 text-2xl font-extrabold tracking-[-0.04em]">${listing.title}</h3>
+              <p class="mt-1 text-sm leading-6 text-white/80">${listing.vibe}</p>
             </div>
           </div>
           <div class="p-5">
@@ -962,6 +1009,7 @@
       document.querySelectorAll('.open-modal').forEach(button => {
         button.addEventListener('click', () => openModal(Number(button.dataset.open)));
       });
+      attachImageFallbacks(grid);
     }
 
     function openModal(id) {
@@ -976,19 +1024,23 @@
       document.getElementById('modalDescription').textContent = listing.description;
       document.getElementById('modalPrice').textContent = euroSwiss(listing.price);
       document.getElementById('modalFeatures').innerHTML = listing.features.map(feature => `<span class="rounded-full bg-white px-3 py-2 text-xs font-extrabold text-muted shadow-card">${labelFeature(feature)}</span>`).join('');
-      document.getElementById('modalVisual').className = `${listing.gradient} min-h-[280px] rounded-cxl p-6 text-white shadow-card`;
-      document.getElementById('modalVisual').innerHTML = `
-        <div class="flex h-full flex-col justify-between">
+      const modalVisual = document.getElementById('modalVisual');
+      modalVisual.className = `${listing.gradient} relative aspect-[4/3] min-h-[280px] overflow-hidden rounded-cxl text-white shadow-card`;
+      modalVisual.innerHTML = `
+        <img src="${listing.image}" alt="${listing.alt}" class="absolute inset-0 h-full w-full object-cover" width="1200" height="900" decoding="async" data-fallback-image />
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/20"></div>
+        <div class="absolute inset-0 flex flex-col justify-between p-5 sm:p-6">
           <div class="flex items-center justify-between gap-3">
             <span class="rounded-full bg-white/90 px-3 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-ink shadow-card">${listing.badge}</span>
             <span class="rounded-full bg-white/90 px-3 py-2 text-xs font-extrabold text-ink shadow-card">⭐ ${listing.rating}</span>
           </div>
-          <div class="rounded-cxl bg-white/92 p-5 text-ink shadow-card">
-            <div class="text-sm font-extrabold text-primary">${listing.vibe}</div>
-            <div class="mt-2 text-2xl font-extrabold tracking-[-0.04em]">${listing.title}</div>
-            <div class="mt-2 text-sm leading-7 text-muted">${listing.region} · ${listing.town} · ${listing.guests} invités max</div>
+          <div class="text-white">
+            <div class="text-sm font-extrabold text-white/80">${listing.vibe}</div>
+            <div class="mt-1 text-3xl font-extrabold tracking-[-0.04em]">${listing.title}</div>
+            <div class="mt-1 text-sm leading-7 text-white/75">${listing.region} · ${listing.town} · ${listing.guests} invités max</div>
           </div>
         </div>`;
+      attachImageFallbacks(modalVisual);
       buildAvailability();
       modal.classList.remove('hidden');
       modal.classList.add('flex');
@@ -1130,6 +1182,7 @@
     });
 
     renderListings();
+    attachImageFallbacks(document);
     updateHostScore();
     setHeroAudience('guest');
   </script>

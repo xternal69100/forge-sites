@@ -140,7 +140,7 @@ La profondeur doit être douce, jamais clinquante. On privilégie :
 - une **fine ligne de contour** sur les cartes claires ;
 - des **ombres diffuses** pour les cartes premium et les modales ;
 - des **halos colorés subtils** dans les zones hero ou CTA ;
-- des fonds dégradés ou “water glow” à très faible intensité pour rappeler l’univers piscine sans photo externe.
+- des fonds dégradés ou “water glow” à très faible intensité comme solution de repli derrière les photographies.
 
 La hiérarchie visuelle ne repose pas sur des ombres fortes mais sur la combinaison `surface + line + radius + contraste typographique`.
 
@@ -165,12 +165,23 @@ Ne pas mélanger des angles durs avec ces formes organiques. Tout le système do
 
 Les composants doivent rendre visibles les signaux de confiance : labels “hôte vérifié”, “règles claires”, “créneau calme”, “programme founding host”, etc.
 
+### Direction photographique
+
+Les images installent un luxe calme, local et crédible : architecture soignée, eau naturelle, lumière matinale ou dorée, végétation mature et horizons lémaniques. Les cadrages évitent toute énergie “pool party”, toute foule et toute mise en scène ostentatoire. Puisque le catalogue est une démo, les photographies sont toujours présentées comme des **visuels d’ambiance** et jamais comme la preuve de lieux réellement disponibles.
+
+- Le hero utilise un cadrage cinématographique `16:9`, lisible sans texte directement posé sur les zones détaillées de la photo.
+- Les annonces et la modale utilisent un ratio stable `4:3` avec `object-cover` ; le sujet principal doit rester visible au centre sur mobile comme sur desktop.
+- Chaque image porte un alt text descriptif utile, des dimensions intrinsèques et un décodage asynchrone ; les vignettes hors écran sont chargées en lazy-loading.
+- Un dégradé tokenisé reste sous chaque image. En cas d’asset absent ou illisible, il devient le fallback visuel et conserve la lisibilité des informations de l’annonce.
+- Ne jamais intégrer de texte, logo, donnée personnelle ou preuve sociale inventée dans une photographie.
+
 ## Do's and Don'ts
 
 - Do réserver `primary` aux actions majeures et aux micro-moments de tension positive.
 - Do utiliser `tertiary` pour tout ce qui parle de confiance, qualification, support et exécution.
 - Do maintenir un contraste AA minimum sur toutes les zones textuelles et boutons.
 - Do garder les sections premium aérées et peu chargées.
+- Do signaler explicitement le statut de visuel d’ambiance pour cette démo.
 - Don’t transformer le site en univers “pool party”.
 - Don’t employer plus de deux graisses simultanément dans une même petite carte.
 - Don’t utiliser des bleus saturés ou des couleurs additionnelles non définies dans les tokens.
