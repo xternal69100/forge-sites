@@ -1,0 +1,95 @@
+{
+  "theme": {
+    "extend": {
+      "colors": {
+        "primary": "#1e3a5f",
+        "primarySoft": "#d8e4f0",
+        "secondary": "#667085",
+        "tertiary": "#8c4f22",
+        "neutral": "#f6f3ee",
+        "surface": "#ffffff",
+        "ink": "#0f172a",
+        "muted": "#e8e1d7",
+        "success": "#22543d"
+      },
+      "fontFamily": {
+        "h1": [
+          "Manrope"
+        ],
+        "h2": [
+          "Manrope"
+        ],
+        "h3": [
+          "Manrope"
+        ],
+        "body-lg": [
+          "Inter"
+        ],
+        "body-md": [
+          "Inter"
+        ],
+        "label": [
+          "Inter"
+        ]
+      },
+      "fontSize": {
+        "h1": [
+          "3.75rem",
+          {
+            "letterSpacing": "-0.035em",
+            "fontWeight": "800"
+          }
+        ],
+        "h2": [
+          "2.4rem",
+          {
+            "letterSpacing": "-0.025em",
+            "fontWeight": "800"
+          }
+        ],
+        "h3": [
+          "1.5rem",
+          {
+            "letterSpacing": "-0.02em",
+            "fontWeight": "700"
+          }
+        ],
+        "body-lg": [
+          "1.125rem",
+          {
+            "letterSpacing": "0em",
+            "fontWeight": "400"
+          }
+        ],
+        "body-md": [
+          "1rem",
+          {
+            "letterSpacing": "0em",
+            "fontWeight": "400"
+          }
+        ],
+        "label": [
+          "0.78rem",
+          {
+            "letterSpacing": "0.08em",
+            "fontWeight": "700"
+          }
+        ]
+      },
+      "borderRadius": {
+        "sm": "12px",
+        "md": "18px",
+        "lg": "30px",
+        "xl": "40px"
+      },
+      "spacing": {
+        "xs": "8px",
+        "sm": "12px",
+        "md": "20px",
+        "lg": "32px",
+        "xl": "56px",
+        "2xl": "80px"
+      }
+    }
+  }
+}

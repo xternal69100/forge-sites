@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hermes Artisan Suisse — Pilote Atelier Intervention</title>
+  <meta name="description" content="Hermes Artisan Suisse met en place un back-office agentique supervisé pour artisans et petites structures suisses : demandes entrantes, relances de devis et suivi administratif simple." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' x='6' font-size='46'%3E%F0%9F%9B%A0%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E3A5F',
+            primarySoft: '#D8E4F0',
+            secondary: '#667085',
+            tertiary: '#8C4F22',
+            neutral: '#F6F3EE',
+            surface: '#FFFFFF',
+            ink: '#0F172A',
+            muted: '#E8E1D7',
+            success: '#22543D'
+          },
+          fontFamily: {
+            display: ['Manrope', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif']
+          },
+          borderRadius: {
+            sm: '12px',
+            md: '18px',
+            lg: '30px',
+            xl: '40px'
+          },
+          spacing: {
+            xs: '8px',
+            sm: '12px',
+            md: '20px',
+            lg: '32px',
+            xl: '56px',
+            '2xl': '80px'
+          },
+          boxShadow: {
+            calm: '0 18px 50px rgba(15, 23, 42, 0.08)',
+            card: '0 24px 60px rgba(15, 23, 42, 0.10)'
+          },
+          maxWidth: {
+            reading: '46rem'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --primary-rgb: 30, 58, 95;
+      --tertiary-rgb: 140, 79, 34;
+      --ink-rgb: 15, 23, 42;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(var(--primary-rgb), 0.12), transparent 36%),
+        radial-gradient(circle at 15% 0%, rgba(var(--tertiary-rgb), 0.09), transparent 26%),
+        #F6F3EE;
+      color: #0F172A;
+      text-wrap: pretty;
+    }
+
+    .hero-grid {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(246, 243, 238, 0.88)),
+        linear-gradient(135deg, rgba(var(--primary-rgb), 0.08), transparent 55%);
+    }
+
+    .mesh {
+      background-image:
+        linear-gradient(rgba(var(--primary-rgb), 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--primary-rgb), 0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 100%);
+    }
+
+    .focus-ring:focus-visible,
+    summary:focus-visible,
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(var(--primary-rgb), 0.35);
+      outline-offset: 4px;
+      border-radius: 18px;
+    }
+
+    details[open] summary svg {
+      transform: rotate(45deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-neutral text-ink antialiased">
+  <div class="min-h-screen">
+    <header class="sticky top-0 z-50 border-b border-primary/10 bg-surface/90 backdrop-blur">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        <a href="#top" class="focus-ring flex items-center gap-3 text-sm font-semibold tracking-[0.08em] text-primary uppercase">
+          <span class="flex h-10 w-10 items-center justify-center rounded-md bg-primary text-base text-white shadow-calm">🛠️</span>
+          <span>
+            Hermes Artisan Suisse
+            <span class="block text-[0.72rem] font-medium normal-case tracking-normal text-secondary">Pilote Atelier Intervention</span>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-8 text-sm font-medium text-secondary lg:flex">
+          <a class="focus-ring transition hover:text-primary" href="#douleur">Douleur</a>
+          <a class="focus-ring transition hover:text-primary" href="#cas-usage">Cas d’usage</a>
+          <a class="focus-ring transition hover:text-primary" href="#methode">Comment ça marche</a>
+          <a class="focus-ring transition hover:text-primary" href="#garde-fous">Garde-fous</a>
+          <a class="focus-ring transition hover:text-primary" href="#pilote">Pack pilote</a>
+          <a class="focus-ring inline-flex items-center rounded-md bg-primary px-5 py-3 text-white shadow-calm transition hover:bg-ink" href="#cta-final">Demander le pilote</a>
+        </nav>
+
+        <button id="menuButton" type="button" class="focus-ring inline-flex items-center rounded-md border border-primary/10 bg-surface px-4 py-3 text-sm font-semibold text-primary lg:hidden" aria-expanded="false" aria-controls="mobileMenu">
+          Menu
+        </button>
+      </div>
+      <div id="mobileMenu" class="hidden border-t border-primary/10 bg-surface px-6 py-5 lg:hidden">
+        <nav class="flex flex-col gap-4 text-sm font-medium text-secondary">
+          <a class="focus-ring rounded-md px-1 py-1 transition hover:text-primary" href="#douleur">Douleur</a>
+          <a class="focus-ring rounded-md px-1 py-1 transition hover:text-primary" href="#cas-usage">Cas d’usage</a>
+          <a class="focus-ring rounded-md px-1 py-1 transition hover:text-primary" href="#methode">Comment ça marche</a>
+          <a class="focus-ring rounded-md px-1 py-1 transition hover:text-primary" href="#garde-fous">Garde-fous</a>
+          <a class="focus-ring rounded-md px-1 py-1 transition hover:text-primary" href="#pilote">Pack pilote</a>
+          <a class="focus-ring inline-flex w-full items-center justify-center rounded-md bg-primary px-5 py-3 text-white shadow-calm transition hover:bg-ink" href="#cta-final">Demander le pilote</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="px-6 pb-14 pt-8 lg:px-8 lg:pt-12">
+        <div class="hero-grid mx-auto max-w-7xl overflow-hidden rounded-xl border border-primary/10 shadow-card">
+          <div class="grid gap-12 px-6 py-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-10 lg:py-12">
+            <div class="relative">
+              <div class="absolute inset-x-0 top-0 h-32 rounded-xl bg-primarySoft/40 blur-3xl"></div>
+              <div class="relative">
+                <div class="mb-6 flex flex-wrap gap-3">
+                  <span class="inline-flex items-center rounded-sm bg-muted px-3 py-2 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-primary">Suisse romande</span>
+                  <span class="inline-flex items-center rounded-sm bg-muted px-3 py-2 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-primary">2 à 10 personnes</span>
+                  <span class="inline-flex items-center rounded-sm bg-muted px-3 py-2 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-primary">Human-in-the-loop</span>
+                </div>
+                <p class="mb-4 font-body text-sm font-semibold uppercase tracking-[0.12em] text-tertiary">Back-office agentique packagé pour artisans et petites structures suisses</p>
+                <h1 class="max-w-3xl font-display text-5xl font-extrabold leading-[1.02] tracking-[-0.035em] text-ink md:text-6xl">Moins de suivis oubliés. Plus de temps sur le terrain.</h1>
+                <p class="mt-6 max-w-reading text-lg leading-8 text-secondary">
+                  Hermes Artisan Suisse met en place un pilote opératoire court pour traiter les demandes entrantes,
+                  relancer les devis et mieux suivre l’administratif simple — sans remplacer vos outils, sans promesse d’autonomie totale,
+                  et avec validation humaine dès que cela devient sensible.
+                </p>
+                <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                  <a href="#cta-final" class="focus-ring inline-flex items-center justify-center rounded-md bg-primary px-6 py-4 text-base font-semibold text-white shadow-calm transition hover:bg-ink">Demander le pilote Atelier Intervention</a>
+                  <a href="#garde-fous" class="focus-ring inline-flex items-center justify-center rounded-md border border-primary/10 bg-surface px-6 py-4 text-base font-semibold text-ink transition hover:border-primary/25 hover:text-primary">Voir les garde-fous</a>
+                </div>
+                <dl class="mt-8 grid gap-4 sm:grid-cols-3">
+                  <div class="rounded-lg border border-primary/10 bg-surface/80 p-4">
+                    <dt class="text-sm text-secondary">Durée</dt>
+                    <dd class="mt-2 text-2xl font-extrabold text-ink">6 semaines</dd>
+                  </div>
+                  <div class="rounded-lg border border-primary/10 bg-surface/80 p-4">
+                    <dt class="text-sm text-secondary">Onboarding</dt>
+                    <dd class="mt-2 text-2xl font-extrabold text-ink">14 jours</dd>
+                  </div>
+                  <div class="rounded-lg border border-primary/10 bg-surface/80 p-4">
+                    <dt class="text-sm text-secondary">Cible</dt>
+                    <dd class="mt-2 text-2xl font-extrabold text-ink">Demandes + relances</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="relative rounded-xl border border-primary/10 bg-ink p-6 text-white shadow-card">
+              <div class="mesh absolute inset-0 rounded-xl opacity-60"></div>
+              <div class="relative">
+                <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-5">
+                  <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.1em] text-primarySoft">Vue opératoire</p>
+                    <h2 class="mt-2 font-display text-2xl font-bold">Ce que le pilote rend visible dès la phase 1</h2>
+                  </div>
+                  <span class="rounded-sm bg-white/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-primarySoft">Mock crédible</span>
+                </div>
+
+                <div class="mt-6 space-y-4">
+                  <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                    <div class="flex items-center justify-between gap-4">
+                      <div>
+                        <p class="text-sm text-primarySoft">Demande entrante</p>
+                        <p class="mt-1 text-base font-semibold">WhatsApp — dépannage chauffe-eau à Nyon</p>
+                      </div>
+                      <span class="rounded-sm bg-white/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-primarySoft">À qualifier</span>
+                    </div>
+                    <p class="mt-3 text-sm leading-6 text-white/72">Pré-remplissage du brouillon, rappel des pièces manquantes, proposition de relance si aucune réponse sous 24 h.</p>
+                  </div>
+
+                  <div class="grid gap-4 md:grid-cols-2">
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                      <p class="text-sm text-primarySoft">Relance devis</p>
+                      <p class="mt-2 text-3xl font-extrabold">+ 80%</p>
+                      <p class="mt-2 text-sm leading-6 text-white/72">des relances prévues envoyées à temps sur le périmètre du pilote.</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                      <p class="text-sm text-primarySoft">Actions sensibles</p>
+                      <p class="mt-2 text-3xl font-extrabold">100%</p>
+                      <p class="mt-2 text-sm leading-6 text-white/72">des engagements, montants et sujets à risque restent en validation humaine.</p>
+                    </div>
+                  </div>
+
+                  <div class="rounded-lg border border-white/10 bg-white p-5 text-ink">
+                    <div class="flex items-center justify-between gap-4">
+                      <div>
+                        <p class="text-sm font-semibold uppercase tracking-[0.08em] text-tertiary">Journal du pilote</p>
+                        <p class="mt-2 text-lg font-bold">Vert / orange / rouge</p>
+                      </div>
+                      <span class="rounded-sm bg-muted px-3 py-2 text-xs font-bold uppercase tracking-[0.08em] text-primary">Toujours traçable</span>
+                    </div>
+                    <ul class="mt-4 space-y-3 text-sm leading-6 text-secondary">
+                      <li><strong class="text-ink">Vert :</strong> tri, classement, brouillons, rappels internes.</li>
+                      <li><strong class="text-ink">Orange :</strong> relances simples et confirmations non sensibles avec validation au départ.</li>
+                      <li><strong class="text-ink">Rouge :</strong> délais fermes, montants, litiges, sujets juridiques ou RH toujours validés par un humain.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="douleur" class="px-6 py-12 lg:px-8 lg:py-16">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.12em] text-tertiary">La douleur réelle</p>
+            <h2 class="mt-4 font-display text-4xl font-extrabold tracking-[-0.025em] text-ink md:text-5xl">Le problème n’est pas le manque d’outils. C’est la dispersion du suivi.</h2>
+            <p class="mt-6 max-w-reading text-lg leading-8 text-secondary">
+              Chez les artisans et petites structures, les demandes arrivent partout, les relances passent après le terrain,
+              et la charge administrative finit chez la même personne qui produit, vend et gère les urgences.
+              Hermes Artisan Suisse ne rajoute pas un gros logiciel de plus : il structure ce qui fuit déjà.
+            </p>
+          </div>
+
+          <div class="space-y-5">
+            <article class="rounded-xl border border-primary/10 bg-surface p-6 shadow-calm">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-tertiary">01 — messages dispersés</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Email, téléphone, WhatsApp, notes : personne ne voit tout au bon moment.</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">Une demande peut être lue, mais pas traitée. Un rappel peut être prévu, mais pas envoyé. Le coût n’est pas théorique : il se voit en devis non suivis, rendez-vous re-confirmés trop tard et charge mentale permanente.</p>
+            </article>
+            <article class="rounded-xl border border-primary/10 bg-surface p-6 shadow-calm">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-tertiary">02 — relances irrégulières</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Le suivi commercial simple reste souvent manuel, donc aléatoire.</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">Quand le patron ou le chef d’équipe est sur chantier, les relances passent derrière l’urgence du jour. Pourtant, ce sont ces relances régulières qui protègent le chiffre d’affaires et la réactivité perçue.</p>
+            </article>
+            <article class="rounded-xl border border-primary/10 bg-surface p-6 shadow-calm">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-tertiary">03 — trop de petites tâches, pas assez de cadence</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Le vrai manque n’est pas “une IA”. C’est un back-office léger, cadré et tenable.</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">L’objectif n’est pas d’automatiser tout l’administratif. L’objectif est de reprendre un périmètre étroit et rentable : demandes entrantes, brouillons, relances, rappels et visibilité de statut.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="cas-usage" class="px-6 py-12 lg:px-8 lg:py-16">
+        <div class="mx-auto max-w-7xl rounded-xl border border-primary/10 bg-surface p-6 shadow-card lg:p-10">
+          <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.12em] text-tertiary">Cas d’usage concrets</p>
+              <h2 class="mt-4 font-display text-4xl font-extrabold tracking-[-0.025em] text-ink md:text-5xl">Un pilote pensé pour des situations terrain, pas pour une démo abstraite.</h2>
+            </div>
+            <p class="max-w-2xl text-base leading-7 text-secondary">Le wedge de départ reste volontairement serré : suivi des demandes entrantes, relances de devis et rappels administratifs simples pour artisans d’intervention et petites structures de service en Suisse romande.</p>
+          </div>
+
+          <div class="mt-8 grid gap-5 lg:grid-cols-2">
+            <article class="rounded-lg bg-neutral p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-primary">Plomberie / chauffage</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Une demande urgente arrive sur WhatsApp pendant une journée de dépannage.</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">Le pilote peut qualifier la demande, préparer la réponse standard, rappeler les pièces utiles et garder le dossier visible jusqu’au retour du responsable.</p>
+            </article>
+            <article class="rounded-lg bg-neutral p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-primary">Électricité</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Un devis est parti, mais personne ne le relance au bon rythme.</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">Le système planifie la relance, prépare le message, journalise l’action et laisse la validation humaine quand la situation devient commerciale ou sensible.</p>
+            </article>
+            <article class="rounded-lg bg-neutral p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-primary">Paysagisme</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Les confirmations de rendez-vous et les pièces manquantes consomment la semaine.</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">Le pilote peut relancer les informations manquantes, vérifier les statuts et éviter qu’un rendez-vous glisse parce qu’un détail administratif est resté en attente.</p>
+            </article>
+            <article class="rounded-lg bg-neutral p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-primary">Maintenance / dépannage</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Le dirigeant veut mieux suivre ce qui entre sans changer toute sa stack.</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">Hermes agit comme une couche opératoire au-dessus des outils déjà en place. Pas de promesse de remplacement d’ERP, de CRM ou de logiciel comptable.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="methode" class="px-6 py-12 lg:px-8 lg:py-16">
+        <div class="mx-auto max-w-7xl">
+          <div class="max-w-3xl">
+            <p class="text-sm font-semibold uppercase tracking-[0.12em] text-tertiary">Comment ça marche</p>
+            <h2 class="mt-4 font-display text-4xl font-extrabold tracking-[-0.025em] text-ink md:text-5xl">Un pilote court, étroit et mesurable — pas un projet de transformation.</h2>
+          </div>
+
+          <div class="mt-8 grid gap-5 lg:grid-cols-4">
+            <article class="rounded-xl border border-primary/10 bg-surface p-6 shadow-calm">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-tertiary">Étape 1</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Cadrer le périmètre utile</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">Kickoff 60–90 minutes, choix du workflow principal, définition des règles d’escalade et identification claire des zones interdites.</p>
+            </article>
+            <article class="rounded-xl border border-primary/10 bg-surface p-6 shadow-calm">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-tertiary">Étape 2</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Brancher proprement l’existant</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">Collecte des modèles de réponse, cartographie légère des canaux, accès minimaux et environnement dédié par client.</p>
+            </article>
+            <article class="rounded-xl border border-primary/10 bg-surface p-6 shadow-calm">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-tertiary">Étape 3</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Opérer sous supervision</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">Mise en service restreinte, validation des messages sensibles, corrections rapides et revue hebdomadaire sponsor + Hermes.</p>
+            </article>
+            <article class="rounded-xl border border-primary/10 bg-neutral p-6 shadow-calm">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-tertiary">Étape 4</p>
+              <h3 class="mt-3 font-display text-2xl font-bold text-ink">Mesurer puis décider</h3>
+              <p class="mt-4 text-base leading-7 text-secondary">À la fin, on juge sur des faits : volume traité, relances à temps, incidents, utilité perçue et possibilité d’extension standardisée.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="garde-fous" class="px-6 py-12 lg:px-8 lg:py-16">
+        <div class="mx-auto max-w-7xl rounded-xl bg-ink px-6 py-8 text-white shadow-card lg:px-10 lg:py-10">
+          <div class="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:gap-12">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.12em] text-primarySoft">Garde-fous human-in-the-loop</p>
+              <h2 class="mt-4 font-display text-4xl font-extrabold tracking-[-0.025em] text-white md:text-5xl">Le pilote est vendable parce qu’il reste supervisé.</h2>
+              <p class="mt-6 text-lg leading-8 text-white/72">Hermes Artisan Suisse ne promet pas l’autonomie totale. Il promet une automatisation utile, traçable et prudente. Tout ce qui peut engager la responsabilité du client reste sous contrôle humain pendant le pilote.</p>
+              <ul class="mt-8 space-y-4 text-base leading-7 text-white/78">
+                <li>Journalisation des actions et des brouillons.</li>
+                <li>Accès minimaux, environnement séparé par client.</li>
+                <li>Modèles de messages validés avant mise en service.</li>
+                <li>Procédure d’arrêt rapide si un comportement semble risqué.</li>
+              </ul>
+            </div>
+
+            <div class="grid gap-4">
+              <article class="rounded-lg border border-white/10 bg-white/5 p-5">
+                <div class="flex items-center justify-between gap-4">
+                  <h3 class="font-display text-2xl font-bold text-white">Vert</h3>
+                  <span class="rounded-sm bg-white/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-primarySoft">Automatisable selon règles validées</span>
+                </div>
+                <p class="mt-3 text-base leading-7 text-white/72">Tri, classement, rappels internes, préparation de brouillons, suggestions de réponses standards.</p>
+              </article>
+              <article class="rounded-lg border border-white/10 bg-white/5 p-5">
+                <div class="flex items-center justify-between gap-4">
+                  <h3 class="font-display text-2xl font-bold text-white">Orange</h3>
+                  <span class="rounded-sm bg-white/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-primarySoft">Validation humaine requise au départ</span>
+                </div>
+                <p class="mt-3 text-base leading-7 text-white/72">Envois externes standardisés, relances commerciales simples, confirmations non sensibles et ajustements réévalués après observation.</p>
+              </article>
+              <article class="rounded-lg border border-white/10 bg-white p-5 text-ink">
+                <div class="flex items-center justify-between gap-4">
+                  <h3 class="font-display text-2xl font-bold text-ink">Rouge</h3>
+                  <span class="rounded-sm bg-muted px-3 py-2 text-xs font-bold uppercase tracking-[0.08em] text-primary">Validation humaine obligatoire</span>
+                </div>
+                <p class="mt-3 text-base leading-7 text-secondary">Montants, promesses de délai ferme, litiges, plaintes, sujets juridiques, RH, financiers ou contractuels. Aucun envoi automatique dans le pilote.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pilote" class="px-6 py-12 lg:px-8 lg:py-16">
+        <div class="mx-auto max-w-7xl rounded-xl border border-primary/10 bg-surface p-6 shadow-card lg:p-10">
+          <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.12em] text-tertiary">Pack pilote</p>
+              <h2 class="mt-4 font-display text-4xl font-extrabold tracking-[-0.025em] text-ink md:text-5xl">Pilote Atelier Intervention — CHF 3’700 pour un test sérieux, court et cadré.</h2>
+              <p class="mt-6 max-w-reading text-lg leading-8 text-secondary">Le format recommandé dure 6 semaines : 14 jours d’onboarding, puis 30 jours de phase opérée supervisée. L’objectif n’est pas de vendre une promesse large “IA pour artisans”, mais de prouver une amélioration concrète sur un périmètre précis.</p>
+
+              <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-lg bg-neutral p-5">
+                  <p class="text-sm font-semibold uppercase tracking-[0.08em] text-primary">Setup + cadrage</p>
+                  <p class="mt-2 text-3xl font-extrabold text-ink">CHF 2’500</p>
+                  <p class="mt-2 text-sm leading-6 text-secondary">Kickoff, audit léger, design du workflow principal, playbook, tests et mise en service.</p>
+                </div>
+                <div class="rounded-lg bg-neutral p-5">
+                  <p class="text-sm font-semibold uppercase tracking-[0.08em] text-primary">Phase opérée</p>
+                  <p class="mt-2 text-3xl font-extrabold text-ink">CHF 1’200</p>
+                  <p class="mt-2 text-sm leading-6 text-secondary">30 jours supervisés, point hebdomadaire, ajustements mineurs et restitution finale.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-xl bg-neutral p-6">
+              <div class="grid gap-6">
+                <div>
+                  <h3 class="font-display text-2xl font-bold text-ink">Inclus dans le pilote</h3>
+                  <ul class="mt-4 space-y-3 text-base leading-7 text-secondary">
+                    <li>1 workflow principal : demandes entrantes → qualification simple → brouillon → relance → suivi.</li>
+                    <li>1 routine secondaire légère si la stabilité est suffisante.</li>
+                    <li>Tableau de suivi simple, journal d’actions et point hebdomadaire.</li>
+                    <li>Restitution finale avec recommandation GO / ajustement / extension.</li>
+                  </ul>
+                </div>
+                <div class="border-t border-primary/10 pt-6">
+                  <h3 class="font-display text-2xl font-bold text-ink">Exclu par défaut</h3>
+                  <ul class="mt-4 space-y-3 text-base leading-7 text-secondary">
+                    <li>Remplacement d’un ERP, d’un CRM ou d’un logiciel comptable.</li>
+                    <li>Comptabilité, salaires, TVA, RH, juridique et automatisations irréversibles.</li>
+                    <li>Multi-sites, multi-entités, intégrations lourdes ou support 7j/7.</li>
+                  </ul>
+                </div>
+                <div class="rounded-lg border border-primary/10 bg-surface p-5">
+                  <p class="text-sm font-semibold uppercase tracking-[0.08em] text-tertiary">Politique commerciale</p>
+                  <p class="mt-3 text-base leading-7 text-secondary">Pas de pilote gratuit. Le périmètre est figé par écrit. Un crédit de conversion de CHF 1’000 peut être appliqué au futur setup si le client bascule rapidement en offre récurrente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 py-12 lg:px-8 lg:py-16">
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div class="rounded-xl border border-primary/10 bg-surface p-6 shadow-calm lg:p-8">
+            <p class="text-sm font-semibold uppercase tracking-[0.12em] text-tertiary">Preuves opératoires</p>
+            <h2 class="mt-4 font-display text-4xl font-extrabold tracking-[-0.025em] text-ink">Ce qui est déjà cadré avant même la première vente.</h2>
+            <ul class="mt-6 space-y-4 text-base leading-7 text-secondary">
+              <li><strong class="text-ink">Wedge resserré :</strong> demandes entrantes, relances devis et rappels administratifs simples.</li>
+              <li><strong class="text-ink">ICP explicite :</strong> artisans d’intervention et petites structures de service de 2 à 10 personnes en Suisse romande.</li>
+              <li><strong class="text-ink">Métriques de pilotage :</strong> mise en service à J14, 0 incident rouge non validé, sponsor à 8/10 ou plus sur l’utilité perçue.</li>
+              <li><strong class="text-ink">Positionnement clair :</strong> couche opératoire au-dessus des outils existants, pas un remplacement frontal de bexio, KLARA, Swiss21 ou d’un ERP.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl border border-primary/10 bg-surface p-6 shadow-calm lg:p-8">
+            <p class="text-sm font-semibold uppercase tracking-[0.12em] text-tertiary">Objections fréquentes</p>
+            <div class="mt-6 space-y-4">
+              <details class="rounded-lg bg-neutral p-5" open>
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-2xl font-bold text-ink">
+                  <span>“J’ai déjà bexio / KLARA / un autre outil.”</span>
+                  <svg class="h-5 w-5 shrink-0 transition" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </summary>
+                <p class="mt-4 text-base leading-7 text-secondary">Justement : Hermes Artisan Suisse n’est pas conçu pour remplacer votre existant. Il ajoute une couche opératoire qui aide à mieux traiter, relancer et organiser ce qui circule déjà.</p>
+              </details>
+              <details class="rounded-lg bg-neutral p-5">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-2xl font-bold text-ink">
+                  <span>“Je n’ai pas le temps de lancer un gros système.”</span>
+                  <svg class="h-5 w-5 shrink-0 transition" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </summary>
+                <p class="mt-4 text-base leading-7 text-secondary">Le pilote est pensé pour éviter cela : un sponsor, un workflow principal, 14 jours d’onboarding et 30 jours d’observation sur volume réel. Pas de transformation lourde.</p>
+              </details>
+              <details class="rounded-lg bg-neutral p-5">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-2xl font-bold text-ink">
+                  <span>“Je ne veux pas qu’une IA réponde n’importe quoi.”</span>
+                  <svg class="h-5 w-5 shrink-0 transition" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </summary>
+                <p class="mt-4 text-base leading-7 text-secondary">C’est précisément pour cela que la matrice vert / orange / rouge existe. Les sujets sensibles restent en validation humaine obligatoire pendant le pilote.</p>
+              </details>
+              <details class="rounded-lg bg-neutral p-5">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-2xl font-bold text-ink">
+                  <span>“Je suis trop petit pour ce type d’accompagnement.”</span>
+                  <svg class="h-5 w-5 shrink-0 transition" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </summary>
+                <p class="mt-4 text-base leading-7 text-secondary">Le cœur de cible est justement composé de petites structures où le dirigeant porte encore une partie du back-office. Le pilote est packagé pour ce niveau de taille et de maturité.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta-final" class="px-6 pb-16 pt-12 lg:px-8 lg:pb-20 lg:pt-16">
+        <div class="mx-auto max-w-7xl rounded-xl bg-primary px-6 py-8 text-white shadow-card lg:px-10 lg:py-12">
+          <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.12em] text-primarySoft">CTA final</p>
+              <h2 class="mt-4 font-display text-4xl font-extrabold tracking-[-0.025em] text-white md:text-5xl">Prenons 20 minutes pour identifier le workflow qui vous rendra du temps le plus vite.</h2>
+              <p class="mt-6 max-w-reading text-lg leading-8 text-white/78">Si le pilote ne peut pas rendre du temps concret sur un périmètre clair, il ne faut pas le lancer. S’il le peut, il doit être vendu comme un test court, payant, sécurisé et mesurable.</p>
+            </div>
+            <div class="rounded-xl bg-white/10 p-6 backdrop-blur-sm">
+              <p class="text-sm font-semibold uppercase tracking-[0.08em] text-primarySoft">Ce qui se passe ensuite</p>
+              <ol class="mt-4 space-y-3 text-base leading-7 text-white/80">
+                <li>1. Qualification rapide du fit et du périmètre.</li>
+                <li>2. Choix du workflow principal à traiter en premier.</li>
+                <li>3. Proposition d’un pilote Atelier Intervention cadré.</li>
+              </ol>
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a href="#top" class="focus-ring inline-flex items-center justify-center rounded-md bg-white px-5 py-4 text-base font-semibold text-primary transition hover:bg-neutral">Revenir au début</a>
+                <a href="#pilote" class="focus-ring inline-flex items-center justify-center rounded-md border border-white/20 bg-transparent px-5 py-4 text-base font-semibold text-white transition hover:bg-white/10">Relire le pack pilote</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-primary/10 px-6 py-8 lg:px-8">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 text-sm leading-6 text-secondary lg:flex-row lg:items-center lg:justify-between">
+        <p>Hermes Artisan Suisse — vitrine commerciale du pilote Atelier Intervention pour artisans et petites structures suisses.</p>
+        <p>Contenu réaliste en français ; visuels de workflow mockés ; périmètre, garde-fous et pricing alignés sur les documents projet.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', () => {
+        const open = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!open));
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          menuButton.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

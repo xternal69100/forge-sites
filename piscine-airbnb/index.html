@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poolbnb Léman — Piscines privées premium autour du Léman</title>
+  <meta name="description" content="Poolbnb Léman imagine une marketplace premium et trust-first pour réserver des piscines privées remarquables autour du Léman, avec onboarding hôte sélectif, règles claires et démo interactive du futur produit." />
+  <meta name="theme-color" content="#CC3450" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23CC3450'/%3E%3Ctext x='50' y='63' font-size='54' text-anchor='middle'%3E%F0%9F%8F%8A%3C/text%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['DM Sans', 'system-ui', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif']
+          },
+          colors: {
+            primary: '#CC3450',
+            primaryStrong: '#A92A42',
+            ink: '#161A21',
+            lake: '#0F766E',
+            neutral: '#FFF9F6',
+            surface: '#FFFFFF',
+            mist: '#F3F5FB',
+            line: '#E8E1DB',
+            muted: '#667085',
+            info: '#DFF5F1',
+            warm: '#FFE7E2'
+          },
+          boxShadow: {
+            card: 'rgba(15, 23, 42, 0.03) 0 0 0 1px, rgba(15, 23, 42, 0.06) 0 12px 30px',
+            premium: '0 24px 70px rgba(22,26,33,0.14)',
+            soft: '0 18px 42px rgba(22,26,33,0.08)'
+          },
+          borderRadius: {
+            smd: '12px',
+            cmd: '20px',
+            clg: '32px',
+            cxl: '36px'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { text-wrap: pretty; }
+    .water-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.55) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.55) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+    .water-glow {
+      background:
+        radial-gradient(circle at top left, rgba(204,52,80,0.22), transparent 33%),
+        radial-gradient(circle at right 15%, rgba(15,118,110,0.16), transparent 30%),
+        linear-gradient(135deg, #fff9f6 0%, #ffffff 45%, #f7fbff 100%);
+    }
+    .listing-gradient-1 { background: linear-gradient(145deg, #ffe3e8 0%, #fff0e9 45%, #ffffff 100%); }
+    .listing-gradient-2 { background: linear-gradient(145deg, #dff6ff 0%, #e7fff7 50%, #ffffff 100%); }
+    .listing-gradient-3 { background: linear-gradient(145deg, #f0e8ff 0%, #edf2ff 52%, #ffffff 100%); }
+    .listing-gradient-4 { background: linear-gradient(145deg, #fff0dc 0%, #fff8ef 50%, #ffffff 100%); }
+    .listing-gradient-5 { background: linear-gradient(145deg, #dff6ef 0%, #eefcf8 52%, #ffffff 100%); }
+    .listing-gradient-6 { background: linear-gradient(145deg, #ffe7e2 0%, #fff3f6 52%, #ffffff 100%); }
+    .pool-pattern {
+      background-image:
+        radial-gradient(circle at 18% 22%, rgba(255,255,255,0.58) 0 11%, transparent 11%),
+        radial-gradient(circle at 72% 26%, rgba(255,255,255,0.42) 0 10%, transparent 10%),
+        radial-gradient(circle at 62% 76%, rgba(255,255,255,0.3) 0 8%, transparent 8%),
+        linear-gradient(145deg, #4fd1c5 0%, #14b8a6 36%, #0ea5e9 100%);
+      background-size: 180px 180px, 210px 210px, 220px 220px, cover;
+      background-position: 0 0, 36px 60px, 90px 120px, center;
+    }
+    .glass {
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(18px);
+    }
+    .faq-answer[hidden] { display: none; }
+  </style>
+</head>
+<body class="bg-neutral font-sans text-ink antialiased">
+  <div class="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(204,52,80,0.10),_transparent_26%),radial-gradient(circle_at_top_right,_rgba(15,118,110,0.08),_transparent_24%),linear-gradient(#fff9f6,#fff9f6)]">
+    <header class="sticky top-0 z-40 border-b border-line/90 bg-white/85 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#top" class="flex items-center gap-3">
+          <span class="flex h-11 w-11 items-center justify-center rounded-[20px] bg-primary text-xl text-white shadow-card">🏊</span>
+          <div>
+            <div class="text-base font-extrabold tracking-[-0.03em] text-ink sm:text-lg">Poolbnb Léman</div>
+            <div class="mt-0.5 text-xs font-medium text-muted">Piscines privées premium · arc lémanique</div>
+          </div>
+        </a>
+        <nav class="hidden items-center gap-7 text-sm font-bold text-muted lg:flex">
+          <a href="#positioning" class="transition hover:text-ink">Positionnement</a>
+          <a href="#marketplace" class="transition hover:text-ink">Marketplace</a>
+          <a href="#hosts" class="transition hover:text-ink">Founding Host</a>
+          <a href="#journeys" class="transition hover:text-ink">Occasions</a>
+          <a href="#faq" class="transition hover:text-ink">FAQ</a>
+        </nav>
+        <div class="hidden items-center gap-3 lg:flex">
+          <a href="#hosts" class="rounded-full px-4 py-2 text-sm font-extrabold text-ink transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-primary">Je suis propriétaire</a>
+          <a href="#marketplace" class="rounded-full bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-primaryStrong focus:outline-none focus:ring-2 focus:ring-primary">Voir la démo</a>
+        </div>
+        <button id="menuBtn" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line text-lg lg:hidden" aria-label="Ouvrir le menu">☰</button>
+      </div>
+      <div id="mobileMenu" class="hidden border-t border-line bg-white lg:hidden">
+        <div class="mx-auto max-w-[1280px] space-y-2 px-4 py-4 sm:px-6">
+          <a href="#positioning" class="block rounded-2xl px-4 py-3 font-bold hover:bg-zinc-50">Positionnement</a>
+          <a href="#marketplace" class="block rounded-2xl px-4 py-3 font-bold hover:bg-zinc-50">Marketplace</a>
+          <a href="#hosts" class="block rounded-2xl px-4 py-3 font-bold hover:bg-zinc-50">Founding Host</a>
+          <a href="#journeys" class="block rounded-2xl px-4 py-3 font-bold hover:bg-zinc-50">Occasions</a>
+          <a href="#faq" class="block rounded-2xl px-4 py-3 font-bold hover:bg-zinc-50">FAQ</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="mx-auto grid max-w-[1280px] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
+        <div class="flex flex-col justify-center">
+          <div class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-primary sm:text-sm">
+            Pilote supply-first · trust-first · Léman 2026
+          </div>
+          <h1 class="mt-6 max-w-4xl text-5xl font-extrabold leading-[0.95] tracking-[-0.05em] text-ink sm:text-6xl xl:text-7xl">
+            Réserver une piscine privée
+            <span class="block font-serif text-[1.02em] font-semibold tracking-[-0.03em] text-lake">belle, calme et cadrée</span>
+            autour du Léman.
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+            Poolbnb Léman ne cherche pas à ouvrir une marketplace massive dès le départ. Nous montrons ici une version premium, locale et très sélective du concept&nbsp;: quelques lieux remarquables, des règles explicites, un onboarding hôte exigeant et un produit pensé pour les vraies frictions du terrain.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#marketplace" class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-base font-extrabold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-primaryStrong focus:outline-none focus:ring-2 focus:ring-primary">Explorer la marketplace mock</a>
+            <a href="#hosts" class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-4 text-base font-extrabold text-ink transition hover:border-zinc-300 hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-primary">Tester mon profil d’hôte</a>
+          </div>
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            <div class="rounded-clg border border-line bg-white p-5 shadow-card">
+              <div class="text-3xl font-extrabold tracking-[-0.04em] text-ink">10–15</div>
+              <div class="mt-2 text-sm leading-6 text-muted">hôtes fondateurs ciblés avant toute acquisition large</div>
+            </div>
+            <div class="rounded-clg border border-line bg-white p-5 shadow-card">
+              <div class="text-3xl font-extrabold tracking-[-0.04em] text-ink">3</div>
+              <div class="mt-2 text-sm leading-6 text-muted">occasions vendables au lancement&nbsp;: famille, anniversaire soft, afterwork privé</div>
+            </div>
+            <div class="rounded-clg border border-line bg-white p-5 shadow-card">
+              <div class="text-3xl font-extrabold tracking-[-0.04em] text-ink">0</div>
+              <div class="mt-2 text-sm leading-6 text-muted">tolérance pour la logique “pool party low-cost” ou inventaire non curé</div>
+            </div>
+          </div>
+          <div class="mt-6 rounded-clg border border-lake/15 bg-info px-5 py-4 text-sm leading-7 text-ink shadow-card">
+            <span class="font-extrabold text-lake">Ce site est une vitrine + démo produit.</span>
+            Les paiements, contrats, assurances actives et workflows incidents ne sont pas encore branchés&nbsp;; le but est d’aligner la marque, le sourcing hôte et le futur funnel de réservation.
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-4 top-12 hidden h-28 w-28 rounded-full bg-primary/15 blur-3xl lg:block"></div>
+          <div class="absolute -right-2 bottom-16 hidden h-32 w-32 rounded-full bg-lake/12 blur-3xl lg:block"></div>
+          <div class="overflow-hidden rounded-cxl border border-white/70 bg-white shadow-premium">
+            <div class="water-glow water-grid p-6 sm:p-8">
+              <div class="flex flex-wrap items-center gap-3">
+                <button id="heroGuestBtn" class="rounded-full bg-ink px-4 py-2 text-sm font-extrabold text-white shadow-card">Côté invité</button>
+                <button id="heroHostBtn" class="rounded-full bg-white/90 px-4 py-2 text-sm font-extrabold text-ink shadow-card">Côté hôte</button>
+                <div class="glass ml-auto rounded-full px-3 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-lake shadow-card">programme fondateur</div>
+              </div>
+
+              <div class="mt-8 rounded-clg border border-white/60 bg-white/90 p-6 shadow-soft">
+                <div id="heroPanelLabel" class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Invité premium</div>
+                <h2 id="heroPanelTitle" class="mt-3 text-3xl font-extrabold tracking-[-0.04em] text-ink">Choisir un lieu, comprendre les règles, réserver sans friction.</h2>
+                <p id="heroPanelText" class="mt-4 text-sm leading-7 text-muted">Le produit vend d’abord la clarté&nbsp;: capacité, ambiance, voisinage, options, durée et niveau de support sont visibles avant la demande.</p>
+
+                <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div class="rounded-cmd bg-mist p-4">
+                    <div class="text-sm font-extrabold text-ink">Clarté avant conversion</div>
+                    <p class="mt-2 text-sm leading-6 text-muted">Règles maison, usage autorisé, créneaux réalistes, extras lisibles.</p>
+                  </div>
+                  <div class="rounded-cmd bg-mist p-4">
+                    <div class="text-sm font-extrabold text-ink">Support humain</div>
+                    <p class="mt-2 text-sm leading-6 text-muted">On privilégie un démarrage concierge plutôt qu’un flux anonyme non maîtrisé.</p>
+                  </div>
+                </div>
+
+                <div class="mt-6 rounded-cmd bg-ink p-5 text-white">
+                  <div class="flex items-center justify-between gap-4 text-sm text-white/70">
+                    <span id="heroPanelFooterLabel">Collection pilote</span>
+                    <span class="font-extrabold text-white">Lausanne · Nyon · Genève</span>
+                  </div>
+                  <div id="heroPanelFooterValue" class="mt-3 text-3xl font-extrabold tracking-[-0.04em]">Expérience trust-first</div>
+                  <div id="heroPanelFooterText" class="mt-2 text-sm leading-7 text-white/72">Pas de catalogue infini&nbsp;: quelques lieux remarquables, mieux racontés et mieux cadrés qu’une marketplace ouverte.</div>
+                </div>
+              </div>
+
+              <div class="mt-6 grid gap-4 sm:grid-cols-3">
+                <div class="glass rounded-cmd p-4 shadow-card">
+                  <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Zone 1</div>
+                  <div class="mt-2 text-lg font-extrabold text-ink">Nyon · Rolle · Cologny</div>
+                </div>
+                <div class="glass rounded-cmd p-4 shadow-card">
+                  <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Zone 2</div>
+                  <div class="mt-2 text-lg font-extrabold text-ink">Pully · Morges · Lavaux</div>
+                </div>
+                <div class="glass rounded-cmd p-4 shadow-card">
+                  <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Wedge</div>
+                  <div class="mt-2 text-lg font-extrabold text-ink">inventaire curé + onboarding manuel</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="positioning" class="mx-auto max-w-[1280px] px-4 pb-8 sm:px-6 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="rounded-clg border border-line bg-white p-7 shadow-card">
+            <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">01 · Positionnement</div>
+            <h2 class="mt-4 text-2xl font-extrabold tracking-[-0.04em] text-ink">Pas l’“Airbnb des piscines”.</h2>
+            <p class="mt-4 text-sm leading-7 text-muted">Le bon angle n’est pas l’ouverture totale. C’est une marketplace premium, locale et très sélective, qui vend un micro-escape privé à moins d’une heure de chez soi.</p>
+          </article>
+          <article class="rounded-clg border border-line bg-white p-7 shadow-card">
+            <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-lake">02 · Supply-first</div>
+            <h2 class="mt-4 text-2xl font-extrabold tracking-[-0.04em] text-ink">On sécurise l’offre avant la demande.</h2>
+            <p class="mt-4 text-sm leading-7 text-muted">Le lancement vise d’abord 10 à 15 lieux désirables via piscinistes, conciergeries et réseau premium local, puis seulement ensuite l’acquisition client.</p>
+          </article>
+          <article class="rounded-clg border border-line bg-white p-7 shadow-card">
+            <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">03 · Trust-first</div>
+            <h2 class="mt-4 text-2xl font-extrabold tracking-[-0.04em] text-ink">La vraie valeur est dans le cadre.</h2>
+            <p class="mt-4 text-sm leading-7 text-muted">Voisinage, capacité, accès, bruit, sécurité enfants, horaires et niveau d’accompagnement sont visibles et assumés avant tout lancement réel.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="marketplace" class="mx-auto max-w-[1280px] px-4 py-12 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Marketplace mock</div>
+            <h2 class="mt-3 text-4xl font-extrabold tracking-[-0.05em] text-ink">Une démo qui aligne déjà la marque, le sourcing et la réservation.</h2>
+            <p class="mt-4 max-w-3xl text-base leading-8 text-muted">Filtres, cartes d’annonces, modale détaillée, calendrier de créneaux et calcul du panier sont mockés ici pour montrer le noyau du futur produit sans dette backend inutile.</p>
+          </div>
+          <div class="rounded-full border border-line bg-white px-4 py-3 text-sm font-extrabold text-muted shadow-card">
+            <span id="resultsCount">12</span> lieux correspondent à vos filtres
+          </div>
+        </div>
+
+        <div class="mt-8 rounded-cxl border border-line bg-white p-4 shadow-card sm:p-6">
+          <div class="grid gap-4 lg:grid-cols-[1.15fr_1fr_1fr_1fr_0.8fr]">
+            <label class="rounded-clg border border-line px-4 py-3">
+              <span class="block text-xs font-extrabold uppercase tracking-[0.18em] text-muted">Où</span>
+              <select id="regionFilter" class="mt-2 w-full bg-transparent text-sm font-extrabold text-ink outline-none">
+                <option value="all">Tout l’arc lémanique</option>
+                <option value="Lausanne">Lausanne & Pully</option>
+                <option value="Morges">Morges & Ouest lausannois</option>
+                <option value="Nyon">Nyon & La Côte</option>
+                <option value="Genève">Genève rive gauche</option>
+                <option value="Riviera">Riviera & Vevey</option>
+              </select>
+            </label>
+            <label class="rounded-clg border border-line px-4 py-3">
+              <span class="block text-xs font-extrabold uppercase tracking-[0.18em] text-muted">Moment</span>
+              <select id="momentFilter" class="mt-2 w-full bg-transparent text-sm font-extrabold text-ink outline-none">
+                <option value="all">Peu importe</option>
+                <option value="famille">Family Day</option>
+                <option value="anniversaire">Birthday Lite</option>
+                <option value="afterwork">Afterwork privé</option>
+                <option value="wellness">Pause détente</option>
+              </select>
+            </label>
+            <label class="rounded-clg border border-line px-4 py-3">
+              <span class="block text-xs font-extrabold uppercase tracking-[0.18em] text-muted">Budget</span>
+              <select id="budgetFilter" class="mt-2 w-full bg-transparent text-sm font-extrabold text-ink outline-none">
+                <option value="all">Tous les budgets</option>
+                <option value="180">Jusqu’à 180 CHF</option>
+                <option value="260">Jusqu’à 260 CHF</option>
+                <option value="350">Jusqu’à 350 CHF</option>
+              </select>
+            </label>
+            <label class="rounded-clg border border-line px-4 py-3">
+              <span class="block text-xs font-extrabold uppercase tracking-[0.18em] text-muted">Ambiance</span>
+              <select id="featureFilter" class="mt-2 w-full bg-transparent text-sm font-extrabold text-ink outline-none">
+                <option value="all">Toutes</option>
+                <option value="vue-lac">Vue lac</option>
+                <option value="chauffee">Chauffée</option>
+                <option value="kids">Famille friendly</option>
+                <option value="b2b">B2B calme</option>
+              </select>
+            </label>
+            <button id="resetFilters" class="rounded-clg bg-ink px-5 py-4 text-sm font-extrabold text-white transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-primary">Réinitialiser</button>
+          </div>
+        </div>
+
+        <div id="listingGrid" class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+      </section>
+
+      <section id="hosts" class="mx-auto max-w-[1280px] px-4 py-12 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div class="rounded-cxl bg-ink p-8 text-white shadow-premium sm:p-10">
+            <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Programme Founding Host</div>
+            <h2 class="mt-4 text-4xl font-extrabold tracking-[-0.05em]">Rentabiliser sa piscine sans ouvrir sa maison à n’importe qui.</h2>
+            <p class="mt-4 text-base leading-8 text-white/75">Poolbnb Léman cherche peu d’hôtes, mais les bons. L’onboarding est manuel, les demandes sont filtrées et les créneaux restent choisis. L’objectif n’est pas le volume brut&nbsp;: c’est la qualité d’exécution.</p>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-clg bg-white/10 p-5">
+                <div class="text-lg font-extrabold">Vous gardez la main</div>
+                <p class="mt-2 text-sm leading-7 text-white/70">Disponibilités, usages autorisés, jauges, accès maison, validation des demandes et seuil de confort.</p>
+              </div>
+              <div class="rounded-clg bg-white/10 p-5">
+                <div class="text-lg font-extrabold">On structure la présentation</div>
+                <p class="mt-2 text-sm leading-7 text-white/70">Narratif, pricing de départ, consignes, bundles, photos et promesse produit homogénéisés.</p>
+              </div>
+              <div class="rounded-clg bg-white/10 p-5">
+                <div class="text-lg font-extrabold">Trust & voisinage</div>
+                <p class="mt-2 text-sm leading-7 text-white/70">Capacité réaliste, bruit, enfants, stationnement, horaires et “no party” clarifiés avant toute mise en ligne réelle.</p>
+              </div>
+              <div class="rounded-clg bg-white/10 p-5">
+                <div class="text-lg font-extrabold">Upsell premium</div>
+                <p class="mt-2 text-sm leading-7 text-white/70">Brunch MONCO'PAIN, goûter anniversaire, afterwork calme, set détente ou hospitalité locale bien cadrée.</p>
+              </div>
+            </div>
+            <div class="mt-8 rounded-clg bg-white/10 p-5 text-sm leading-7 text-white/75">
+              <span class="font-extrabold text-white">Cohortes prioritaires&nbsp;:</span>
+              propriétaires déjà suivis par un pisciniste, villas gérées par conciergerie, résidences premium avec logistique simple et voisinage compatible.
+            </div>
+          </div>
+
+          <div class="rounded-cxl border border-line bg-white p-8 shadow-card sm:p-10">
+            <div class="flex items-center justify-between gap-4">
+              <div>
+                <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-lake">Scorecard hôte</div>
+                <h3 class="mt-3 text-3xl font-extrabold tracking-[-0.04em] text-ink">Votre piscine ressemble-t-elle à un bon founding host&nbsp;?</h3>
+              </div>
+              <div class="hidden rounded-full border border-line bg-mist px-4 py-2 text-sm font-extrabold text-muted sm:block">Mock interactif</div>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-muted">Cette grille ne remplace pas une visite ni une validation juridique. Elle sert à montrer le type de qualification produit/ops qu’on veut installer dès le pilote.</p>
+            <div class="mt-6 space-y-3">
+              <label class="flex items-center justify-between gap-4 rounded-clg border border-line bg-mist px-4 py-4">
+                <span class="text-sm font-extrabold text-ink">Accès simple et stationnement raisonnable</span>
+                <input type="checkbox" class="host-check h-5 w-5 accent-primary" data-weight="22" checked />
+              </label>
+              <label class="flex items-center justify-between gap-4 rounded-clg border border-line bg-mist px-4 py-4">
+                <span class="text-sm font-extrabold text-ink">Lieu photogénique et vraiment désirable</span>
+                <input type="checkbox" class="host-check h-5 w-5 accent-primary" data-weight="24" checked />
+              </label>
+              <label class="flex items-center justify-between gap-4 rounded-clg border border-line bg-mist px-4 py-4">
+                <span class="text-sm font-extrabold text-ink">Voisinage compatible avec des créneaux calmes</span>
+                <input type="checkbox" class="host-check h-5 w-5 accent-primary" data-weight="22" checked />
+              </label>
+              <label class="flex items-center justify-between gap-4 rounded-clg border border-line bg-mist px-4 py-4">
+                <span class="text-sm font-extrabold text-ink">Règles maison claires et faciles à faire respecter</span>
+                <input type="checkbox" class="host-check h-5 w-5 accent-primary" data-weight="18" checked />
+              </label>
+              <label class="flex items-center justify-between gap-4 rounded-clg border border-line bg-mist px-4 py-4">
+                <span class="text-sm font-extrabold text-ink">Potentiel d’usage premium ou bundle additionnel</span>
+                <input type="checkbox" class="host-check h-5 w-5 accent-primary" data-weight="14" />
+              </label>
+            </div>
+            <div class="mt-6 rounded-cxl bg-ink p-6 text-white shadow-soft">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <div class="text-sm text-white/60">Fit founding host</div>
+                  <div id="hostScore" class="mt-2 text-4xl font-extrabold tracking-[-0.04em]">86%</div>
+                </div>
+                <div class="rounded-full bg-white/10 px-4 py-2 text-sm font-extrabold text-white/90">sélectif par design</div>
+              </div>
+              <p id="hostScoreText" class="mt-4 text-sm leading-7 text-white/75">Très bon profil pour une pré-qualification. Le prochain vrai filtre serait la visite terrain, la charte d’usage et la validation assurance / responsabilité.</p>
+            </div>
+            <div class="mt-6 grid gap-3 sm:grid-cols-3">
+              <div class="rounded-clg bg-info p-4">
+                <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-lake">Step 1</div>
+                <p class="mt-2 text-sm leading-6 text-ink">Audit rapide du lieu et des usages autorisables.</p>
+              </div>
+              <div class="rounded-clg bg-info p-4">
+                <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-lake">Step 2</div>
+                <p class="mt-2 text-sm leading-6 text-ink">Annonce homogénéisée, pricing pilote, bundles adaptés.</p>
+              </div>
+              <div class="rounded-clg bg-info p-4">
+                <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-lake">Step 3</div>
+                <p class="mt-2 text-sm leading-6 text-ink">Demandes filtrées, support humain et créneaux maîtrisés.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="journeys" class="mx-auto max-w-[1280px] px-4 py-12 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Occasions vendables</div>
+          <h2 class="mt-3 text-4xl font-extrabold tracking-[-0.05em] text-ink">Trois usages d’abord, bien exécutés, avant tout élargissement.</h2>
+          <p class="mx-auto mt-4 max-w-3xl text-base leading-8 text-muted">Le projet se tient si l’on vend des moments nets, avec un prix assumé et une logistique claire&nbsp;— pas si l’on court après tous les cas d’usage en même temps.</p>
+        </div>
+        <div class="mt-8 grid gap-6 lg:grid-cols-4">
+          <article class="rounded-clg border border-line bg-white p-6 shadow-card">
+            <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">Family Day</div>
+            <h3 class="mt-4 text-2xl font-extrabold tracking-[-0.04em] text-ink">Pause fraîcheur sans quitter le Léman</h3>
+            <p class="mt-4 text-sm leading-7 text-muted">Petite ou demi-journée, jauge réaliste, goûter ou brunch possible, mise en avant de la simplicité logistique.</p>
+          </article>
+          <article class="rounded-clg border border-line bg-white p-6 shadow-card">
+            <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">Birthday Lite</div>
+            <h3 class="mt-4 text-2xl font-extrabold tracking-[-0.04em] text-ink">Anniversaire discret, pas fête incontrôlée</h3>
+            <p class="mt-4 text-sm leading-7 text-muted">Petit groupe, cadre clair, horaire maîtrisé, voisinage respecté, panier snack / gâteau / déco légère possible.</p>
+          </article>
+          <article class="rounded-clg border border-line bg-white p-6 shadow-card">
+            <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-lake">Afterwork privé</div>
+            <h3 class="mt-4 text-2xl font-extrabold tracking-[-0.04em] text-ink">Moment B2B ou relationnel à basse intensité</h3>
+            <p class="mt-4 text-sm leading-7 text-muted">Sunset, table dressée, petit comité, pas de sonorisation forte, usage premium et très lisible pour l’hôte.</p>
+          </article>
+          <article class="rounded-clg border border-line bg-white p-6 shadow-card">
+            <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-lake">Work & Dip</div>
+            <h3 class="mt-4 text-2xl font-extrabold tracking-[-0.04em] text-ink">Format calme à forte marge potentielle</h3>
+            <p class="mt-4 text-sm leading-7 text-muted">Micro-évasion locale, lecture, télétravail d’été, silence et esthétique. Petit volume, valeur perçue élevée.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-[1280px] px-4 py-12 sm:px-6 lg:px-8">
+        <div class="rounded-cxl bg-ink px-8 py-10 text-white shadow-premium sm:px-10 sm:py-12">
+          <div class="grid gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-center">
+            <div>
+              <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Mode opératoire trust-first</div>
+              <h2 class="mt-4 text-4xl font-extrabold tracking-[-0.05em]">Le beau design ne suffit pas&nbsp;: il faut un cadre opératoire qui tient.</h2>
+              <p class="mt-4 max-w-2xl text-base leading-8 text-white/75">Poolbnb Léman n’a de sens que si l’expérience produit et la réalité terrain racontent la même histoire. Cette vitrine met donc en avant ce qui compte vraiment au démarrage&nbsp;: qualification, clarté des règles, filtrage des usages et support humain.</p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-clg bg-white/10 p-5">
+                <div class="text-sm font-extrabold text-white">01 · Qualifier</div>
+                <p class="mt-2 text-sm leading-7 text-white/70">Accès, parking, enfants, bruit, équipements, potentiel premium, friction de voisinage.</p>
+              </div>
+              <div class="rounded-clg bg-white/10 p-5">
+                <div class="text-sm font-extrabold text-white">02 · Structurer l’annonce</div>
+                <p class="mt-2 text-sm leading-7 text-white/70">Prix d’appel, capacité réelle, créneaux, règles, ton de l’annonce, bundles optionnels.</p>
+              </div>
+              <div class="rounded-clg bg-white/10 p-5">
+                <div class="text-sm font-extrabold text-white">03 · Filtrer la demande</div>
+                <p class="mt-2 text-sm leading-7 text-white/70">Pas de volume aveugle. Les demandes doivent rester compatibles avec la promesse de calme.</p>
+              </div>
+              <div class="rounded-clg bg-white/10 p-5">
+                <div class="text-sm font-extrabold text-white">04 · Supporter l’exécution</div>
+                <p class="mt-2 text-sm leading-7 text-white/70">Arrivée, rappels, exceptions, incident flow et qualité perçue forment la vraie barrière à l’entrée.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">FAQ</div>
+          <h2 class="mt-3 text-4xl font-extrabold tracking-[-0.05em] text-ink">Les questions qui apparaissent immédiatement.</h2>
+        </div>
+        <div class="mt-8 space-y-4">
+          <div class="faq-item rounded-clg border border-line bg-white p-6 shadow-card">
+            <button class="faq-toggle flex w-full items-center justify-between gap-4 text-left text-lg font-extrabold" aria-expanded="false">
+              <span>Peut-on déjà réserver et payer pour de vrai&nbsp;?</span>
+              <span class="text-primary">+</span>
+            </button>
+            <div class="faq-answer mt-4 text-sm leading-7 text-muted" hidden>Non. Cette version sert à montrer la marque, le funnel et le niveau d’exigence du pilote. Les paiements, assurances actives, contrats et automatisations ne seront branchés qu’après cadrage juridique et opérationnel.</div>
+          </div>
+          <div class="faq-item rounded-clg border border-line bg-white p-6 shadow-card">
+            <button class="faq-toggle flex w-full items-center justify-between gap-4 text-left text-lg font-extrabold" aria-expanded="false">
+              <span>Pourquoi insister autant sur les règles, le voisinage et la sélection&nbsp;?</span>
+              <span class="text-primary">+</span>
+            </button>
+            <div class="faq-answer mt-4 text-sm leading-7 text-muted" hidden>Parce que c’est la vraie difficulté du modèle. Une jolie interface sans cadre trust-first créerait plus de friction que de valeur sur des actifs privés sensibles comme des piscines de villa.</div>
+          </div>
+          <div class="faq-item rounded-clg border border-line bg-white p-6 shadow-card">
+            <button class="faq-toggle flex w-full items-center justify-between gap-4 text-left text-lg font-extrabold" aria-expanded="false">
+              <span>Quels hôtes cherchez-vous au lancement&nbsp;?</span>
+              <span class="text-primary">+</span>
+            </button>
+            <div class="faq-answer mt-4 text-sm leading-7 text-muted" hidden>Des lieux remarquables mais opérables&nbsp;: beaux, bien tenus, faciles d’accès, avec un voisinage compatible et des propriétaires qui préfèrent quelques créneaux premium à une exposition permanente.</div>
+          </div>
+          <div class="faq-item rounded-clg border border-line bg-white p-6 shadow-card">
+            <button class="faq-toggle flex w-full items-center justify-between gap-4 text-left text-lg font-extrabold" aria-expanded="false">
+              <span>Pourquoi une marketplace locale et pas un déploiement large tout de suite&nbsp;?</span>
+              <span class="text-primary">+</span>
+            </button>
+            <div class="faq-answer mt-4 text-sm leading-7 text-muted" hidden>Parce que la qualité de l’inventaire, la densité locale et le support humain comptent plus que l’échelle immédiate. Un wedge local bien exécuté vaut mieux qu’une place de marché ouverte sans liquidité ni cadre.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-[1280px] px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+        <div class="rounded-cxl water-glow border border-white/70 px-8 py-10 shadow-premium sm:px-10 sm:py-12">
+          <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Prochaine étape logique</div>
+              <h2 class="mt-4 font-serif text-5xl font-semibold leading-none tracking-[-0.03em] text-ink sm:text-6xl">Passer de la belle démo au kit d’exécution hôte.</h2>
+              <p class="mt-5 max-w-3xl text-base leading-8 text-muted">Le site est maintenant mieux aligné avec la thèse produit. La suite utile n’est pas de rajouter des animations&nbsp;: c’est de brancher le dossier founding host, la grille de qualification, la charte d’usage et le flux incident/support.</p>
+            </div>
+            <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <a href="#hosts" class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-extrabold text-white transition hover:bg-primaryStrong">Évaluer un hôte pilote</a>
+              <a href="#marketplace" class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-4 text-sm font-extrabold text-ink transition hover:bg-white/80">Revoir la démo produit</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-line bg-white">
+      <div class="mx-auto flex max-w-[1280px] flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div>© 2026 Poolbnb Léman — concept Forge en validation avancée.</div>
+        <div class="flex flex-wrap gap-4">
+          <span>Démo réelle&nbsp;: filtres, listings, calendrier mock, calcul prix, scorecard hôte</span>
+          <span>Non branché&nbsp;: backend, paiement, assurance active, contrats, CRM</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="listingModal" class="fixed inset-0 z-50 hidden items-end justify-center bg-black/55 p-0 sm:items-center sm:p-6">
+    <div class="w-full max-w-6xl overflow-hidden rounded-t-[30px] bg-white shadow-premium sm:rounded-cxl">
+      <div class="flex items-center justify-between border-b border-line px-5 py-4 sm:px-8">
+        <div>
+          <div id="modalRegion" class="text-sm font-extrabold text-primary"></div>
+          <h3 id="modalTitle" class="mt-1 text-2xl font-extrabold tracking-[-0.04em] text-ink"></h3>
+        </div>
+        <button id="closeModal" class="flex h-11 w-11 items-center justify-center rounded-full border border-line text-lg font-bold text-ink" aria-label="Fermer">✕</button>
+      </div>
+      <div class="grid gap-6 p-5 sm:p-8 lg:grid-cols-[1.06fr_0.94fr]">
+        <div>
+          <div id="modalVisual" class="min-h-[280px] rounded-cxl p-6 text-white shadow-card"></div>
+          <div class="mt-5 grid gap-3 sm:grid-cols-3">
+            <div class="rounded-clg bg-mist p-4"><div class="text-sm font-extrabold text-ink">Capacité</div><div id="modalGuests" class="mt-1 text-sm text-muted"></div></div>
+            <div class="rounded-clg bg-mist p-4"><div class="text-sm font-extrabold text-ink">Occasion</div><div id="modalMood" class="mt-1 text-sm text-muted"></div></div>
+            <div class="rounded-clg bg-mist p-4"><div class="text-sm font-extrabold text-ink">Trust badge</div><div id="modalTrust" class="mt-1 text-sm text-muted"></div></div>
+          </div>
+          <p id="modalDescription" class="mt-5 text-sm leading-8 text-muted"></p>
+          <div id="modalFeatures" class="mt-5 flex flex-wrap gap-2"></div>
+        </div>
+        <div class="rounded-cxl border border-line bg-neutral p-5 sm:p-6">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <div class="text-sm font-extrabold text-muted">Pré-réserver ce lieu</div>
+              <div class="mt-1 text-2xl font-extrabold tracking-[-0.04em] text-ink"><span id="modalPrice"></span> <span class="text-sm font-bold text-muted">/ base 4h</span></div>
+            </div>
+            <div class="rounded-full bg-white px-3 py-2 text-sm font-extrabold text-muted shadow-card">Mock produit</div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between gap-4">
+              <div class="text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Calendrier 14 jours</div>
+              <div id="selectedDateLabel" class="text-sm font-extrabold text-ink"></div>
+            </div>
+            <div id="availabilityGrid" class="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-7"></div>
+          </div>
+
+          <div class="mt-5 grid gap-3 sm:grid-cols-2">
+            <label class="rounded-clg border border-line bg-white px-4 py-3">
+              <span class="block text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Invités</span>
+              <select id="guestCount" class="mt-2 w-full bg-transparent text-sm font-extrabold text-ink outline-none">
+                <option value="4">4 invités</option>
+                <option value="6">6 invités</option>
+                <option value="8">8 invités</option>
+                <option value="10">10 invités</option>
+                <option value="12">12 invités</option>
+              </select>
+            </label>
+            <label class="rounded-clg border border-line bg-white px-4 py-3">
+              <span class="block text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Arrivée</span>
+              <select id="startTime" class="mt-2 w-full bg-transparent text-sm font-extrabold text-ink outline-none">
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13" selected>13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+              </select>
+            </label>
+            <label class="rounded-clg border border-line bg-white px-4 py-3">
+              <span class="block text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Départ</span>
+              <select id="endTime" class="mt-2 w-full bg-transparent text-sm font-extrabold text-ink outline-none">
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+                <option value="17" selected>17:00</option>
+                <option value="18">18:00</option>
+                <option value="19">19:00</option>
+              </select>
+            </label>
+            <div class="rounded-clg border border-line bg-info px-4 py-3">
+              <span class="block text-xs font-extrabold uppercase tracking-[0.16em] text-lake">Rappel</span>
+              <div class="mt-2 text-sm font-extrabold text-ink">Créneau validé après rappel des règles et confirmation hôte.</div>
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-3">
+            <label class="flex items-center justify-between rounded-clg border border-line bg-white px-4 py-4 text-sm font-extrabold text-ink">
+              <span>Brunch MONCO'PAIN</span>
+              <input type="checkbox" class="addon-toggle h-5 w-5 accent-primary" data-price="48" />
+            </label>
+            <label class="flex items-center justify-between rounded-clg border border-line bg-white px-4 py-4 text-sm font-extrabold text-ink">
+              <span>Set anniversaire discret</span>
+              <input type="checkbox" class="addon-toggle h-5 w-5 accent-primary" data-price="65" />
+            </label>
+            <label class="flex items-center justify-between rounded-clg border border-line bg-white px-4 py-4 text-sm font-extrabold text-ink">
+              <span>Afterwork premium</span>
+              <input type="checkbox" class="addon-toggle h-5 w-5 accent-primary" data-price="96" />
+            </label>
+          </div>
+
+          <div class="mt-5 rounded-cxl bg-ink p-5 text-white">
+            <div class="space-y-2 text-sm text-white/70">
+              <div class="flex items-center justify-between"><span>Base créneau</span><span id="lineBase">0 CHF</span></div>
+              <div class="flex items-center justify-between"><span>Frais de service</span><span id="lineService">0 CHF</span></div>
+              <div class="flex items-center justify-between"><span>Extras</span><span id="lineExtras">0 CHF</span></div>
+            </div>
+            <div class="mt-4 flex items-end justify-between gap-4 border-t border-white/10 pt-4">
+              <div>
+                <div class="text-sm text-white/60">Total estimatif</div>
+                <div id="bookingTotal" class="text-3xl font-extrabold tracking-[-0.04em]">0 CHF</div>
+              </div>
+              <button class="rounded-full bg-white px-4 py-2 text-sm font-extrabold text-ink">Envoyer une demande</button>
+            </div>
+            <div class="mt-3 text-xs leading-6 text-white/60">Calcul indicatif uniquement. Aucun paiement réel, contrat ni assurance active n’est branché dans cette démo.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const listings = [
+      {
+        id: 1,
+        title: 'Villa Panorama',
+        region: 'Genève',
+        town: 'Cologny',
+        mood: 'afterwork',
+        price: 280,
+        guests: 8,
+        rating: 4.9,
+        reviews: 18,
+        gradient: 'listing-gradient-1',
+        vibe: 'Vue lac, pin parasol, terrasse sculptée',
+        description: 'Lieu signature pour une parenthèse premium. Très fort pour un afterwork de direction, un dîner d’été discret ou un moment relationnel calme.',
+        features: ['vue-lac', 'chauffee', 'b2b'],
+        badge: 'Hôte vérifié · créneau calme',
+        trust: 'Règles strictes + arrivée accompagnée'
+      },
+      {
+        id: 2,
+        title: 'Maison des Vignes',
+        region: 'Lausanne',
+        town: 'Lutry',
+        mood: 'famille',
+        price: 210,
+        guests: 6,
+        rating: 4.8,
+        reviews: 26,
+        gradient: 'listing-gradient-2',
+        vibe: 'Jardin ombragé, vue vignes, bassin chauffé',
+        description: 'Un lieu très familial avec grand espace détente, coin goûter et logistique simple pour une vraie pause chaude autour de Lausanne.',
+        features: ['chauffee', 'kids'],
+        badge: 'Kids-friendly · parking simple',
+        trust: 'Accueil propriétaire + consignes enfants'
+      },
+      {
+        id: 3,
+        title: 'Bassin de la Colline',
+        region: 'Nyon',
+        town: 'Rolle',
+        mood: 'wellness',
+        price: 175,
+        guests: 4,
+        rating: 4.7,
+        reviews: 11,
+        gradient: 'listing-gradient-3',
+        vibe: 'Silence, haie haute, lignes épurées',
+        description: 'Le genre de lieu qu’on réserve pour lire, nager, respirer et ne voir personne. Petite capacité, maximum sérénité.',
+        features: ['chauffee'],
+        badge: 'Slow day · lieu discret',
+        trust: 'Check-in autonome encadré'
+      },
+      {
+        id: 4,
+        title: 'Terrasse Riviera',
+        region: 'Riviera',
+        town: 'Vevey',
+        mood: 'anniversaire',
+        price: 320,
+        guests: 10,
+        rating: 5.0,
+        reviews: 9,
+        gradient: 'listing-gradient-4',
+        vibe: 'Terrasse panoramique, coin repas, sunset',
+        description: 'Très bon spot pour un anniversaire soft, photogénique et parfaitement cadré, sans dériver vers l’événement bruyant.',
+        features: ['vue-lac'],
+        badge: 'Sunset signature',
+        trust: 'Horaires stricts + voisinage sensible'
+      },
+      {
+        id: 5,
+        title: 'Jardin des Cerisiers',
+        region: 'Morges',
+        town: 'Morges',
+        mood: 'famille',
+        price: 160,
+        guests: 8,
+        rating: 4.7,
+        reviews: 22,
+        gradient: 'listing-gradient-5',
+        vibe: 'Pelouse large, transats, coin goûter',
+        description: 'Valeur sûre pour les familles qui veulent beaucoup d’espace extérieur, une bonne accessibilité et peu de friction terrain.',
+        features: ['kids'],
+        badge: 'Format famille',
+        trust: 'Capacité claire + accès facile'
+      },
+      {
+        id: 6,
+        title: 'Ligne d’Eau Pully',
+        region: 'Lausanne',
+        town: 'Pully',
+        mood: 'afterwork',
+        price: 245,
+        guests: 6,
+        rating: 4.9,
+        reviews: 14,
+        gradient: 'listing-gradient-6',
+        vibe: 'Design contemporain, deck bois, lumière dorée',
+        description: 'Spot très propre visuellement, parfait pour un petit comité premium qui veut un lieu beau mais maîtrisable.',
+        features: ['chauffee', 'b2b'],
+        badge: 'Design pick',
+        trust: 'Hôte proactif + briefing concis'
+      },
+      {
+        id: 7,
+        title: 'Verger Secret',
+        region: 'Nyon',
+        town: 'Nyon',
+        mood: 'anniversaire',
+        price: 230,
+        guests: 8,
+        rating: 4.8,
+        reviews: 19,
+        gradient: 'listing-gradient-2',
+        vibe: 'Haie haute, intimité, ton convivial',
+        description: 'Pour un moment flexible entre amis ou famille élargie, avec assez d’intimité pour se sentir ailleurs sans logistique lourde.',
+        features: ['kids'],
+        badge: 'Convivialité maîtrisée',
+        trust: 'Voisinage calme après 18h'
+      },
+      {
+        id: 8,
+        title: 'Résidence du Lac',
+        region: 'Genève',
+        town: 'Vandoeuvres',
+        mood: 'wellness',
+        price: 355,
+        guests: 6,
+        rating: 5.0,
+        reviews: 7,
+        gradient: 'listing-gradient-3',
+        vibe: 'Piscine miroir, jardin architectural, calme haut de gamme',
+        description: 'Réservation signature pour clientèle exigeante, très utile pour tester le positionnement premium local le plus ambitieux.',
+        features: ['vue-lac', 'chauffee'],
+        badge: 'Signature collection',
+        trust: 'Hôte premium + arrivée sur confirmation'
+      },
+      {
+        id: 9,
+        title: 'Patio Soleil',
+        region: 'Morges',
+        town: 'Saint-Prex',
+        mood: 'wellness',
+        price: 185,
+        guests: 4,
+        rating: 4.6,
+        reviews: 13,
+        gradient: 'listing-gradient-4',
+        vibe: 'Patio minéral, eau turquoise, format duo',
+        description: 'Petit format à forte valeur perçue pour couples, duos et matinées détente qui cherchent un vrai beau cadre.',
+        features: ['chauffee'],
+        badge: 'Petit comité',
+        trust: 'Créneau clean & simple'
+      },
+      {
+        id: 10,
+        title: 'Blue Deck Riviera',
+        region: 'Riviera',
+        town: 'Montreux',
+        mood: 'afterwork',
+        price: 340,
+        guests: 10,
+        rating: 4.9,
+        reviews: 8,
+        gradient: 'listing-gradient-5',
+        vibe: 'Vue lac XXL, deck lounge, fin de journée',
+        description: 'Lieu calibré pour des moments marquants et photogéniques, sans aller vers le format événementiel trop exposé.',
+        features: ['vue-lac', 'b2b'],
+        badge: 'Afterwork collection',
+        trust: 'Horaire sunset très demandé'
+      },
+      {
+        id: 11,
+        title: 'Clos du Repos',
+        region: 'Lausanne',
+        town: 'La Conversion',
+        mood: 'famille',
+        price: 190,
+        guests: 8,
+        rating: 4.8,
+        reviews: 17,
+        gradient: 'listing-gradient-6',
+        vibe: 'Grand jardin, coin sieste, accès facile',
+        description: 'Compromis très fort entre esthétique, accessibilité et confort familial pour les journées chaudes autour de Lausanne.',
+        features: ['kids', 'chauffee'],
+        badge: 'Best family value',
+        trust: 'Check-list sécurité enfants'
+      },
+      {
+        id: 12,
+        title: 'Oasis de la Côte',
+        region: 'Nyon',
+        town: 'Gland',
+        mood: 'afterwork',
+        price: 265,
+        guests: 8,
+        rating: 4.9,
+        reviews: 15,
+        gradient: 'listing-gradient-1',
+        vibe: 'Ligne épurée, éclairage doux, grande table',
+        description: 'Idéale pour un dîner estival discret autour de l’eau avec une sensation claire de lieu privé remarquable.',
+        features: ['chauffee', 'b2b'],
+        badge: 'Dîner & sunset',
+        trust: 'Support hôte ultra-réactif'
+      }
+    ];
+
+    const grid = document.getElementById('listingGrid');
+    const resultsCount = document.getElementById('resultsCount');
+    const regionFilter = document.getElementById('regionFilter');
+    const momentFilter = document.getElementById('momentFilter');
+    const budgetFilter = document.getElementById('budgetFilter');
+    const featureFilter = document.getElementById('featureFilter');
+    const resetFilters = document.getElementById('resetFilters');
+    const modal = document.getElementById('listingModal');
+    const closeModal = document.getElementById('closeModal');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const heroGuestBtn = document.getElementById('heroGuestBtn');
+    const heroHostBtn = document.getElementById('heroHostBtn');
+    const availabilityGrid = document.getElementById('availabilityGrid');
+    const selectedDateLabel = document.getElementById('selectedDateLabel');
+    const hostScore = document.getElementById('hostScore');
+    const hostScoreText = document.getElementById('hostScoreText');
+    let currentListing = listings[0];
+    let selectedDate = null;
+
+    function euroSwiss(number) {
+      return new Intl.NumberFormat('fr-CH', { maximumFractionDigits: 0 }).format(number) + ' CHF';
+    }
+
+    function formatDate(date) {
+      return new Intl.DateTimeFormat('fr-CH', { weekday: 'short', day: '2-digit', month: 'short' }).format(date);
+    }
+
+    function labelFeature(feature) {
+      const map = {
+        'vue-lac': 'Vue lac',
+        'chauffee': 'Piscine chauffée',
+        'kids': 'Famille friendly',
+        'b2b': 'B2B calme'
+      };
+      return map[feature] || feature;
+    }
+
+    function labelMood(mood) {
+      const map = {
+        famille: 'Family Day',
+        anniversaire: 'Birthday Lite',
+        afterwork: 'Afterwork privé',
+        wellness: 'Pause détente'
+      };
+      return map[mood] || mood;
+    }
+
+    function renderListings() {
+      const budgetValue = budgetFilter.value === 'all' ? Infinity : Number(budgetFilter.value);
+      const filtered = listings.filter(listing => {
+        const regionOk = regionFilter.value === 'all' || listing.region === regionFilter.value;
+        const momentOk = momentFilter.value === 'all' || listing.mood === momentFilter.value;
+        const budgetOk = listing.price <= budgetValue;
+        const featureOk = featureFilter.value === 'all' || listing.features.includes(featureFilter.value);
+        return regionOk && momentOk && budgetOk && featureOk;
+      });
+
+      resultsCount.textContent = filtered.length;
+      grid.innerHTML = filtered.map(listing => `
+        <article class="overflow-hidden rounded-clg border border-line bg-white shadow-card transition duration-200 hover:-translate-y-1 hover:shadow-soft">
+          <div class="${listing.gradient} p-5">
+            <div class="flex items-center justify-between gap-3">
+              <span class="rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-ink shadow-card">${listing.badge}</span>
+              <span class="rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-muted shadow-card">⭐ ${listing.rating}</span>
+            </div>
+            <div class="mt-16 rounded-cxl bg-white/92 p-5 shadow-card">
+              <div class="text-sm font-extrabold text-primary">${listing.town} · ${listing.region}</div>
+              <h3 class="mt-2 text-2xl font-extrabold tracking-[-0.04em] text-ink">${listing.title}</h3>
+              <p class="mt-2 text-sm leading-7 text-muted">${listing.vibe}</p>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <div class="text-sm font-bold text-muted">Dès</div>
+                <div class="mt-1 text-3xl font-extrabold tracking-[-0.04em] text-ink">${listing.price}</div>
+                <div class="text-sm text-muted">CHF / 4h</div>
+              </div>
+              <div class="rounded-cmd bg-mist px-3 py-2 text-right text-sm font-extrabold text-ink">${labelMood(listing.mood)}<br><span class="font-medium text-muted">jusqu’à ${listing.guests} invités</span></div>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-muted">${listing.description}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              ${listing.features.map(feature => `<span class="rounded-full bg-mist px-3 py-2 text-xs font-extrabold text-muted">${labelFeature(feature)}</span>`).join('')}
+            </div>
+            <div class="mt-5 flex items-center justify-between gap-4">
+              <div class="text-sm font-bold text-muted">${listing.trust}</div>
+              <button data-open="${listing.id}" class="open-modal rounded-full bg-ink px-5 py-3 text-sm font-extrabold text-white transition hover:bg-zinc-800">Voir le lieu</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      document.querySelectorAll('.open-modal').forEach(button => {
+        button.addEventListener('click', () => openModal(Number(button.dataset.open)));
+      });
+    }
+
+    function openModal(id) {
+      const listing = listings.find(item => item.id === id);
+      if (!listing) return;
+      currentListing = listing;
+      document.getElementById('modalRegion').textContent = listing.town + ' · ' + listing.region;
+      document.getElementById('modalTitle').textContent = listing.title;
+      document.getElementById('modalGuests').textContent = 'jusqu’à ' + listing.guests + ' invités';
+      document.getElementById('modalMood').textContent = labelMood(listing.mood);
+      document.getElementById('modalTrust').textContent = listing.trust;
+      document.getElementById('modalDescription').textContent = listing.description;
+      document.getElementById('modalPrice').textContent = euroSwiss(listing.price);
+      document.getElementById('modalFeatures').innerHTML = listing.features.map(feature => `<span class="rounded-full bg-white px-3 py-2 text-xs font-extrabold text-muted shadow-card">${labelFeature(feature)}</span>`).join('');
+      document.getElementById('modalVisual').className = `${listing.gradient} min-h-[280px] rounded-cxl p-6 text-white shadow-card`;
+      document.getElementById('modalVisual').innerHTML = `
+        <div class="flex h-full flex-col justify-between">
+          <div class="flex items-center justify-between gap-3">
+            <span class="rounded-full bg-white/90 px-3 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-ink shadow-card">${listing.badge}</span>
+            <span class="rounded-full bg-white/90 px-3 py-2 text-xs font-extrabold text-ink shadow-card">⭐ ${listing.rating}</span>
+          </div>
+          <div class="rounded-cxl bg-white/92 p-5 text-ink shadow-card">
+            <div class="text-sm font-extrabold text-primary">${listing.vibe}</div>
+            <div class="mt-2 text-2xl font-extrabold tracking-[-0.04em]">${listing.title}</div>
+            <div class="mt-2 text-sm leading-7 text-muted">${listing.region} · ${listing.town} · ${listing.guests} invités max</div>
+          </div>
+        </div>`;
+      buildAvailability();
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      updateBookingSummary();
+    }
+
+    function closeModalNow() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function buildAvailability() {
+      availabilityGrid.innerHTML = '';
+      const today = new Date();
+      selectedDate = null;
+      for (let i = 1; i <= 14; i++) {
+        const date = new Date(today);
+        date.setDate(today.getDate() + i);
+        const day = date.getDay();
+        const prime = day === 6 || day === 0 || i === 5 || i === 9;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'rounded-clg border border-line bg-white px-3 py-3 text-left shadow-card transition hover:border-primary hover:bg-primary/5';
+        button.dataset.date = date.toISOString();
+        button.innerHTML = `<div class="text-[11px] font-extrabold uppercase tracking-[0.14em] text-muted">${new Intl.DateTimeFormat('fr-CH', { weekday: 'short' }).format(date)}</div><div class="mt-1 text-lg font-extrabold text-ink">${date.getDate()}</div><div class="text-xs font-bold ${prime ? 'text-lake' : 'text-muted'}">${prime ? 'créneau fort' : 'disponible'}</div>`;
+        button.addEventListener('click', () => selectDate(button));
+        availabilityGrid.appendChild(button);
+        if (i === 4) selectDate(button);
+      }
+    }
+
+    function selectDate(button) {
+      Array.from(availabilityGrid.children).forEach(item => {
+        item.setAttribute('aria-pressed', 'false');
+        item.classList.remove('border-primary', 'bg-primary/5');
+      });
+      button.setAttribute('aria-pressed', 'true');
+      button.classList.add('border-primary', 'bg-primary/5');
+      selectedDate = new Date(button.dataset.date);
+      selectedDateLabel.textContent = formatDate(selectedDate);
+      updateBookingSummary();
+    }
+
+    function updateBookingSummary() {
+      const start = Number(document.getElementById('startTime').value);
+      const end = Number(document.getElementById('endTime').value);
+      const duration = Math.max(2, end - start);
+      const extras = Array.from(document.querySelectorAll('.addon-toggle:checked')).reduce((sum, input) => sum + Number(input.dataset.price), 0);
+      const guestCount = Number(document.getElementById('guestCount').value);
+      const guestAdjustment = guestCount > currentListing.guests ? (guestCount - currentListing.guests) * 12 : 0;
+      const timeAdjustment = (duration - 4) * 24;
+      const primeAdjustment = selectedDate && [0, 6].includes(selectedDate.getDay()) ? 28 : 0;
+      const base = currentListing.price + timeAdjustment + guestAdjustment + primeAdjustment;
+      const service = Math.round(base * 0.08);
+      const total = base + service + extras;
+      document.getElementById('lineBase').textContent = euroSwiss(base);
+      document.getElementById('lineService').textContent = euroSwiss(service);
+      document.getElementById('lineExtras').textContent = euroSwiss(extras);
+      document.getElementById('bookingTotal').textContent = euroSwiss(total);
+    }
+
+    function updateHostScore() {
+      const checked = Array.from(document.querySelectorAll('.host-check:checked'));
+      const total = checked.reduce((sum, input) => sum + Number(input.dataset.weight), 0);
+      hostScore.textContent = total + '%';
+      if (total >= 80) {
+        hostScoreText.textContent = 'Très bon profil pour une pré-qualification. Le prochain vrai filtre serait la visite terrain, la charte d’usage et la validation assurance / responsabilité.';
+      } else if (total >= 60) {
+        hostScoreText.textContent = 'Profil potentiellement intéressant, mais il faudra résoudre quelques points de friction (accès, règles, voisinage ou présentation) avant un pilote premium.';
+      } else {
+        hostScoreText.textContent = 'Le lieu semble encore trop fragile pour un pilote trust-first. Sans clarté opératoire, la promesse premium tiendrait mal dans le réel.';
+      }
+    }
+
+    function setHeroAudience(mode) {
+      const label = document.getElementById('heroPanelLabel');
+      const title = document.getElementById('heroPanelTitle');
+      const text = document.getElementById('heroPanelText');
+      const footerLabel = document.getElementById('heroPanelFooterLabel');
+      const footerValue = document.getElementById('heroPanelFooterValue');
+      const footerText = document.getElementById('heroPanelFooterText');
+      const guestActive = mode === 'guest';
+
+      heroGuestBtn.className = guestActive
+        ? 'rounded-full bg-ink px-4 py-2 text-sm font-extrabold text-white shadow-card'
+        : 'rounded-full bg-white/90 px-4 py-2 text-sm font-extrabold text-ink shadow-card';
+      heroHostBtn.className = guestActive
+        ? 'rounded-full bg-white/90 px-4 py-2 text-sm font-extrabold text-ink shadow-card'
+        : 'rounded-full bg-ink px-4 py-2 text-sm font-extrabold text-white shadow-card';
+
+      if (guestActive) {
+        label.textContent = 'Invité premium';
+        title.textContent = 'Choisir un lieu, comprendre les règles, réserver sans friction.';
+        text.textContent = 'Le produit vend d’abord la clarté : capacité, ambiance, voisinage, options, durée et niveau de support sont visibles avant la demande.';
+        footerLabel.textContent = 'Collection pilote';
+        footerValue.textContent = 'Expérience trust-first';
+        footerText.textContent = 'Pas de catalogue infini : quelques lieux remarquables, mieux racontés et mieux cadrés qu’une marketplace ouverte.';
+      } else {
+        label.textContent = 'Propriétaire sélectionné';
+        title.textContent = 'Monétiser quelques créneaux sans dégrader la tranquillité du lieu.';
+        text.textContent = 'L’offre founding host promet un onboarding manuel, des usages choisis, des demandes filtrées et une présentation cohérente du lieu.';
+        footerLabel.textContent = 'Promesse hôte';
+        footerValue.textContent = 'Contrôle + qualité';
+        footerText.textContent = 'Le but n’est pas de remplir un calendrier à tout prix mais de rendre monétisables quelques créneaux premium très bien cadrés.';
+      }
+    }
+
+    [regionFilter, momentFilter, budgetFilter, featureFilter].forEach(input => input.addEventListener('change', renderListings));
+    resetFilters.addEventListener('click', () => {
+      regionFilter.value = 'all';
+      momentFilter.value = 'all';
+      budgetFilter.value = 'all';
+      featureFilter.value = 'all';
+      renderListings();
+    });
+
+    closeModal.addEventListener('click', closeModalNow);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModalNow();
+    });
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    heroGuestBtn.addEventListener('click', () => setHeroAudience('guest'));
+    heroHostBtn.addEventListener('click', () => setHeroAudience('host'));
+
+    ['guestCount', 'startTime', 'endTime'].forEach(id => {
+      document.getElementById(id).addEventListener('change', updateBookingSummary);
+    });
+    document.querySelectorAll('.addon-toggle').forEach(input => input.addEventListener('change', updateBookingSummary));
+    document.querySelectorAll('.host-check').forEach(input => input.addEventListener('change', updateHostScore));
+
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const answer = button.parentElement.querySelector('.faq-answer');
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        button.querySelector('span:last-child').textContent = expanded ? '+' : '–';
+        answer.hidden = expanded;
+      });
+    });
+
+    renderListings();
+    updateHostScore();
+    setHeroAudience('guest');
+  </script>
+</body>
+</html>
