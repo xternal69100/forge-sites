@@ -1,0 +1,4 @@
+COMMAND: python3 rounds-6-7-report-sync-check.py
+EXIT: 0
+
+PASS report sync: 3 archétypes génériques, prix/scénarios hypothétiques, aucun flux réel
