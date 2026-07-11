@@ -127,6 +127,26 @@ components:
     textColor: "{colors.secondary}"
     rounded: "{rounded.full}"
     padding: 10px
+  price-breakdown:
+    backgroundColor: "{colors.info}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.md}"
+    padding: 16px
+  credit-ledger:
+    backgroundColor: "{colors.surface-muted}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.md}"
+    padding: 16px
+  referral-status:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.md}"
+    padding: 16px
+  confirmation-dialog:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.lg}"
+    padding: 24px
 ---
 
 # Poolbnb Léman Design System
@@ -210,6 +230,10 @@ Ne pas mélanger des angles durs avec ces formes organiques. Tout le système do
 - **dossier-step** : carte de progression pour le dossier hôte, les checklists de types/statuts et la visite simulée ; aucun contrôle d’upload.
 - **event-journal** : journal chronologique append-only, lisible dans les espaces loueur et admin.
 - **status-conditional** : pastille chaude réservée aux décisions conditionnelles, toujours non publiables.
+- **price-breakdown** : ventilation calme et ordonnée `sous-total → réduction → crédit → total`, visible avant et après confirmation ; les montants CHF utilisent toujours deux décimales.
+- **credit-ledger** : liste append-only des écritures promotionnelles et de parrainage. Le type, le statut, le montant, la date et la référence objet restent lisibles sans faire passer un crédit fictif pour de l'argent.
+- **referral-status** : carte d'état agrégé sans identité ni activité du filleul, avec actions locales de copie et de simulation clairement séparées.
+- **confirmation-dialog** : dialogue HTML modal accessible, titré, descriptif et testable, utilisé notamment à la place des confirmations natives pour les actions destructrices.
 
 Les espaces membre et loueur sont des surfaces distinctes. Ils réutilisent les cartes, chips et statuts mais n’exposent que des alias et adresses `example.test`. Les montants de portefeuille, crédits, réservations et revenus sont explicitement simulés.
 

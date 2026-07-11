@@ -1,0 +1,10 @@
+Commande: python3 rounds-4-5-check.py
+Résultat: RED attendu (exit 1)
+
+HTML OK index.html
+HTML OK member.html
+HTML OK host.html
+HTML OK admin.html
+AssertionError: élément absent: discoveryPack
+
+Cause vérifiée: le store et le moteur du pack découverte n’existent pas encore; échec comportemental attendu, pas une erreur de syntaxe du test.
