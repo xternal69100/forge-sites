@@ -1,0 +1,9 @@
+HTML OK index.html
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/rounds-2-3-check.py", line 47, in <module>
+    if __name__=="__main__": raise SystemExit(main())
+                                              ~~~~^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/rounds-2-3-check.py", line 25, in main
+    assert path.exists(), f"page absente: {name}"
+           ~~~~~~~~~~~^^
+AssertionError: page absente: member.html

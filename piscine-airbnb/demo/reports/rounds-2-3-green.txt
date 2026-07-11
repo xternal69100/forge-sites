@@ -1,0 +1,5 @@
+HTML OK index.html
+HTML OK member.html
+HTML OK host.html
+HTML OK admin.html
+PASS rounds 2–3: 4 pages, 4 scripts

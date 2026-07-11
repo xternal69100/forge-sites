@@ -10,8 +10,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SITE = ROOT.parent
-PAGES = [SITE / "index.html", ROOT / "index.html", ROOT / "admin.html"]
+PAGES = [SITE / "index.html", ROOT / "index.html", ROOT / "member.html", ROOT / "host.html", ROOT / "admin.html"]
 KEY = "forge:piscine-airbnb:demo:v1"
+DISCLOSURE = "Mode démonstration — aucune donnée envoyée, aucun débit réel"
 FORBIDDEN = [r"\bTODO\b", r"\bFIXME\b", r"reste à faire", r"équipe dev", r"bug connu", r"non branché"]
 
 
@@ -37,14 +38,19 @@ def main() -> int:
         print(f"HTML OK {path.relative_to(SITE)}")
 
     client = sources[ROOT / "index.html"]
+    member = sources[ROOT / "member.html"]
+    host = sources[ROOT / "host.html"]
     admin = sources[ROOT / "admin.html"]
     landing = sources[SITE / "index.html"]
-    assert KEY in client and KEY in admin
-    assert "Mode démonstration — aucun débit réel" in client and "Mode démonstration — aucun débit réel" in admin
-    assert 'href="admin.html"' in client and 'href="index.html"' in admin
+    demos = [client, member, host, admin]
+    assert all(KEY in source for source in demos)
+    assert all(DISCLOSURE in source for source in demos)
+    assert all(link in client for link in ('href="member.html"', 'href="host.html"', 'href="admin.html"'))
+    assert 'href="index.html"' in admin
     assert landing.count('href="demo/"') >= 3
-    assert all(item in client and item in admin for item in ("LST-DEMO-001", "HST-DEMO-001", "BKG-DEMO-260711-001"))
-    assert all(not re.search(pattern, client + admin, re.I) for pattern in FORBIDDEN)
+    combined = client + member + host + admin
+    assert all(item in combined for item in ("LST-DEMO-001", "HST-DEMO-001", "BKG-DEMO-260711-001"))
+    assert all(not re.search(pattern, combined, re.I) for pattern in FORBIDDEN)
     print(f"CONTRACT OK key={KEY} landing_demo_links={landing.count('href=\"demo/\"')}")
 
     scripts: list[tuple[str, str]] = []

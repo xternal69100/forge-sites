@@ -107,6 +107,26 @@ components:
     textColor: "{colors.secondary}"
     rounded: "{rounded.md}"
     padding: 16px
+  workspace-nav:
+    backgroundColor: "{colors.secondary}"
+    textColor: "{colors.surface}"
+    rounded: "{rounded.full}"
+    padding: 12px
+  dossier-step:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.md}"
+    padding: 16px
+  event-journal:
+    backgroundColor: "{colors.surface-muted}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.md}"
+    padding: 16px
+  status-conditional:
+    backgroundColor: "{colors.accent-warm}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.full}"
+    padding: 10px
 ---
 
 # Poolbnb Léman Design System
@@ -186,6 +206,12 @@ Ne pas mélanger des angles durs avec ces formes organiques. Tout le système do
 - **status-active** : pastille vert lac à texte blanc, réservée aux artefacts opérationnels effectivement rédigés et utilisables comme projets pilotes.
 - **status-planned** : pastille neutre à texte encre pour les capacités non branchées ou encore soumises à validation humaine.
 - **qualification-check** : ligne interactive vert très pâle pour la mini-checklist propriétaire ; la sélection reste strictement locale au navigateur et ne collecte aucune donnée.
+- **workspace-nav** : navigation compacte et persistante entre marketplace, espace membre, espace loueur et administration.
+- **dossier-step** : carte de progression pour le dossier hôte, les checklists de types/statuts et la visite simulée ; aucun contrôle d’upload.
+- **event-journal** : journal chronologique append-only, lisible dans les espaces loueur et admin.
+- **status-conditional** : pastille chaude réservée aux décisions conditionnelles, toujours non publiables.
+
+Les espaces membre et loueur sont des surfaces distinctes. Ils réutilisent les cartes, chips et statuts mais n’exposent que des alias et adresses `example.test`. Les montants de portefeuille, crédits, réservations et revenus sont explicitement simulés.
 
 Les composants doivent rendre visibles les signaux de confiance : labels “hôte vérifié”, “règles claires”, “créneau calme”, “programme founding host”, etc.
 
