@@ -28,11 +28,13 @@ Forme validée à chaque lecture :
   workflows: [{
     id, subscriptionId, name, channel, cadence, hil, status, createdAt
   }],
+  tasks: [{ id, subscriptionId, title, owner, status, due }],
+  approvals: [{ id, subscriptionId, level, title, summary, status, createdAt }],
   journal: [{ id, at, type, subscriptionId, message }]
 }
 ```
 
-Un store absent ou malformé est remplacé par un store vide valide. Aucune baseline ne représente un client. Le formulaire refuse les emails qui ne finissent pas par le domaine réservé `.test`.
+Un store absent ou malformé est remplacé et persisté par un `emptyStore` valide dont les cinq collections sont des tableaux vides. Aucune baseline ne représente un client et le reload ne réinjecte aucune donnée. Le formulaire refuse les emails qui ne finissent pas par le domaine réservé `.test`.
 
 ## États fictifs
 

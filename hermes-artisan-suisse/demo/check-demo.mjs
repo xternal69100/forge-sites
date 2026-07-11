@@ -26,11 +26,15 @@ try {
   const landing = readFileSync(pages[0], 'utf8');
   const client = readFileSync(pages[1], 'utf8');
   const admin = readFileSync(pages[2], 'utf8');
-  if ((landing.match(/href="demo\/index\.html"/g) || []).length < 3) throw new Error('Liens landing → client insuffisants');
+  const regressions = [];
+  if ((landing.match(/href="demo\/index\.html"/g) || []).length < 3) regressions.push('Liens landing → client insuffisants');
+  if (!client.includes(banner) || !admin.includes(banner)) regressions.push('Bannière obligatoire absente');
+  const emptyAdminStore = /const emptyStore=\(\)=>\(\{version:1,subscriptions:\[\],workflows:\[\],tasks:\[\],approvals:\[\],journal:\[\]\}\);/.test(admin);
+  if (!emptyAdminStore || /const baseline=/.test(admin) || !/write\(emptyStore\(\)\)/.test(admin)) regressions.push('Reset admin ne vide pas le store');
+  if (regressions.length) throw new Error(regressions.join('\n'));
   if (!client.includes(key) || !admin.includes(key)) throw new Error('Clé localStorage non partagée');
-  if (!client.includes(banner) || !admin.includes(banner)) throw new Error('Bannière obligatoire absente');
   if (!client.includes('admin.html') || !admin.includes('../demo.html') || !admin.includes('index.html')) throw new Error('Chaîne de navigation incomplète');
   if (!existsSync(resolve(site, 'demo.html'))) throw new Error('Console historique absente');
   if (/type=["'](?:text\/["']?card|card)|stripe|paypal|adyen/i.test(client)) throw new Error('Champ/provider de paiement interdit détecté');
-  console.log('CONTRACT PASS key, disclosures, navigation, legacy console, no payment provider');
+  console.log('CONTRACT PASS links, banner, empty reset, key, navigation, legacy console, no payment provider');
 } finally { rmSync(temp, { recursive: true, force: true }); }
