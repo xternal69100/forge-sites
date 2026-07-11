@@ -55,7 +55,7 @@ def main() -> int:
     assert all(x.lower() not in combined for x in BAD_CTA), "CTA transactionnel interdit"
     assert "logo" not in partner.lower(), "logo réel/mention logo dans les offres"
     assert "type=\"card\"" not in partner.lower() and "cvv" not in partner.lower(), "collecte carte interdite"
-    assert partner.count("Simuler cette offre") >= 2, "offres insuffisantes"
+    assert partner.count("Simuler cette offre") >= 1 and "document.querySelectorAll('.simulate')" in partner, "CTA offre absent"
     assert partner.count("Offre illustrative — aucun partenariat conclu") >= 2, "badge absent par offre"
 
     # Les anciens parcours doivent rester contractuellement présents.

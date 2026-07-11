@@ -1,0 +1,6 @@
+HTML OK index.html
+HTML OK member.html
+HTML OK host.html
+HTML OK partners.html
+HTML OK admin.html
+PASS rounds 6–7: 5 pages, 5 scripts

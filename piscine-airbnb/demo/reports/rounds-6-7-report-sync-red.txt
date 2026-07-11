@@ -1,0 +1,9 @@
+COMMAND: python3 rounds-6-7-report-sync-check.py
+EXIT: 1 (RED attendu)
+
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/rounds-6-7-report-sync-check.py", line 41, in <module>
+    raise SystemExit(main())
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/rounds-6-7-report-sync-check.py", line 17, in main
+    assert "referencePrice:null" not in page and "scenarioPrice:null" not in page, "offres encore non chiffrées"
+AssertionError: offres encore non chiffrées
