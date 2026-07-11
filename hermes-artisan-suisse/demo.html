@@ -9,8 +9,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' x='6' font-size='46'%3E%F0%9F%9B%A0%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <script>
+    const tailwindConsoleWarn = console.warn;
+    console.warn = (...args) => {
+      if (!String(args[0]).includes('cdn.tailwindcss.com should not be used in production')) tailwindConsoleWarn(...args);
+    };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    console.warn = tailwindConsoleWarn;
     tailwind.config = { theme: { extend: {
       colors: { primary:'#1E3A5F', primarySoft:'#D8E4F0', secondary:'#667085', tertiary:'#8C4F22', neutral:'#F6F3EE', surface:'#FFFFFF', ink:'#0F172A', muted:'#E8E1D7', success:'#22543D' },
       fontFamily: { display:['Manrope','system-ui','sans-serif'], body:['Inter','system-ui','sans-serif'] },
@@ -49,30 +56,73 @@
       <div class="mx-auto max-w-7xl">
         <div class="grid gap-7 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
           <div>
-            <p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Répétition interne · 11 juillet 2026</p>
+            <p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Rejeu canonique correctif · 11 juillet 2026</p>
             <h1 class="mt-3 max-w-4xl font-display text-4xl font-extrabold leading-[1.04] tracking-[-.035em] text-ink sm:text-5xl lg:text-6xl">15 dossiers fictifs. Une file supervisée, visible de bout en bout.</h1>
             <p class="mt-5 max-w-3xl text-base leading-7 text-secondary sm:text-lg">Explorez une simulation documentaire du workflow demande → qualification → brouillon → validation HIL → action simulée → clôture. Aucun client, connecteur, envoi, stockage ou donnée personnelle réelle.</p>
           </div>
           <div class="rounded-xl bg-ink p-6 text-white shadow-card">
-            <div class="flex items-center justify-between gap-4"><span class="text-sm font-semibold uppercase tracking-[.1em] text-primarySoft">Décision de gate</span><span class="rounded-sm bg-white/10 px-3 py-2 text-xs font-bold uppercase tracking-[.08em] text-primarySoft">Simulation</span></div>
-            <p class="mt-4 font-display text-4xl font-extrabold">AJUSTER</p>
-            <p class="mt-3 text-sm leading-6 text-white/75">Garde-fous et rollback tenus. Qualification, relances à temps et QC restent sous les cibles hypothétiques.</p>
+            <div class="flex items-center justify-between gap-4"><span class="text-sm font-semibold uppercase tracking-[.1em] text-primarySoft">Gate actuelle</span><span class="rounded-sm bg-success px-3 py-2 text-xs font-bold uppercase tracking-[.08em] text-white">Interne uniquement</span></div>
+            <p class="mt-4 font-display text-4xl font-extrabold">PASS interne correctif</p>
+            <p class="mt-3 text-sm leading-6 text-white/75">Le rejeu canonique atteint ses gates déterministes. <strong class="text-white">STOP réel maintenu</strong> : aucune activation client, aucun GO commercial.</p>
+            <p class="mt-4 border-t border-white/10 pt-4 text-[10px] font-bold uppercase tracking-[.08em] text-primarySoft">DÉMO — DONNÉES FICTIVES — AUCUNE TRACTION RÉELLE</p>
           </div>
         </div>
 
-        <dl class="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <dl class="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-5">
           <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Cas</dt><dd class="mt-2 text-3xl font-extrabold">15</dd></div>
           <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">HIL</dt><dd class="mt-2 text-3xl font-extrabold">6 · 5 · 4</dd><p class="mt-1 text-xs text-secondary">vert · orange · rouge</p></div>
-          <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Événements</dt><dd class="mt-2 text-3xl font-extrabold">118</dd></div>
+          <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Journal canonique</dt><dd class="mt-2 text-3xl font-extrabold">140</dd><p class="mt-1 text-xs text-secondary">événements uniques</p></div>
+          <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">KPI canoniques</dt><dd class="mt-2 text-3xl font-extrabold">19</dd></div>
           <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Envois réels</dt><dd class="mt-2 text-3xl font-extrabold text-success">0</dd></div>
         </dl>
+      </div>
+    </section>
+
+    <section id="rejeu-correctif" aria-labelledby="replayTitle" class="px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl rounded-xl border border-primary/10 bg-surface p-4 shadow-card sm:p-6 lg:p-8">
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl">
+            <p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Rejeu correctif · avant → après</p>
+            <h2 id="replayTitle" class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">La baseline AJUSTER reste visible. Le correctif devient la gate actuelle.</h2>
+            <p class="mt-4 text-sm leading-6 text-secondary">Comparaison documentaire vérifiable sur les mêmes 15 fixtures synthétiques. Aucun résultat client ni signal de marché n’est inféré.</p>
+          </div>
+          <div class="shrink-0 rounded-lg bg-primarySoft px-5 py-4 text-primary">
+            <p class="text-xs font-bold uppercase tracking-[.08em]">Source canonique</p>
+            <p class="mt-1 font-display text-xl font-extrabold">140 événements · 19 KPI</p>
+          </div>
+        </div>
+
+        <div class="mt-7 grid gap-4 lg:grid-cols-[.72fr_1.28fr]">
+          <article class="rounded-lg border border-tertiary/25 bg-neutral p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3"><h3 class="font-display text-2xl font-extrabold">Baseline conservée</h3><span class="rounded-sm bg-tertiary px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-white">AJUSTER</span></div>
+            <p class="mt-3 text-sm leading-6 text-secondary">Journal historique : <strong class="text-ink">118 événements</strong>. Trois métriques sous gate :</p>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div class="flex items-center justify-between gap-4 border-b border-primary/10 pb-3"><dt>Qualification</dt><dd class="font-bold">14/15</dd></div>
+              <div class="flex items-center justify-between gap-4 border-b border-primary/10 pb-3"><dt>Relances à temps</dt><dd class="font-bold">2/3</dd></div>
+              <div class="flex items-center justify-between gap-4"><dt>Erreurs QC</dt><dd class="font-bold">1/15</dd></div>
+            </dl>
+          </article>
+
+          <article class="rounded-lg border border-success/20 bg-neutral p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3"><h3 class="font-display text-2xl font-extrabold">Rejeu canonique</h3><span class="rounded-sm bg-success px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-white">PASS interne correctif</span></div>
+            <div class="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              <div class="rounded-md bg-surface p-4"><p class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Qualification</p><p class="mt-2 text-xl font-extrabold"><span class="text-secondary line-through">14/15</span> <span aria-hidden="true">→</span> 15/15</p></div>
+              <div class="rounded-md bg-surface p-4"><p class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Relances</p><p class="mt-2 text-xl font-extrabold"><span class="text-secondary line-through">2/3</span> <span aria-hidden="true">→</span> 3/3</p></div>
+              <div class="rounded-md bg-surface p-4"><p class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Erreurs QC</p><p class="mt-2 text-xl font-extrabold"><span class="text-secondary line-through">1/15</span> <span aria-hidden="true">→</span> 0/15</p></div>
+              <div class="rounded-md bg-surface p-4"><p class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Invalidations</p><p class="mt-2 text-xl font-extrabold">2/2</p></div>
+              <div class="rounded-md bg-surface p-4"><p class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Réconciliation</p><p class="mt-2 text-xl font-extrabold">3/3</p></div>
+              <div class="rounded-md bg-surface p-4"><p class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Non-régression</p><p class="mt-2 text-xl font-extrabold">5/5</p></div>
+            </div>
+          </article>
+        </div>
+        <div class="mt-5 rounded-lg bg-ink p-5 text-white"><p class="text-sm font-bold uppercase tracking-[.08em] text-primarySoft">STOP réel maintenu</p><p class="mt-2 text-sm leading-6 text-white/75">PASS de préparation interne uniquement. Aucun client ou contact réel, aucun backend, stockage, connecteur, envoi, paiement, gain observé ou traction.</p></div>
       </div>
     </section>
 
     <section aria-labelledby="queueTitle" class="px-4 py-8 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-7xl rounded-xl border border-primary/10 bg-surface p-4 shadow-card sm:p-6 lg:p-8">
         <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-          <div><p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Vue file & dossier</p><h2 id="queueTitle" class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">La file des 15 cas synthétiques</h2></div>
+          <div><p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Fixtures communes · traces de la baseline</p><h2 id="queueTitle" class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">La file historique des 15 cas synthétiques</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-secondary">Cette vue conserve les états observés avant correction ; la comparaison canonique ci-dessus porte la gate actuelle.</p></div>
           <div class="flex flex-col gap-3 sm:flex-row sm:items-end">
             <fieldset><legend class="mb-2 text-xs font-bold uppercase tracking-[.08em] text-secondary">Niveau HIL</legend><div id="levelFilters" class="flex flex-wrap gap-2"></div></fieldset>
             <label class="text-xs font-bold uppercase tracking-[.08em] text-secondary">État
@@ -92,7 +142,7 @@
     <section aria-labelledby="incidentTitle" class="px-4 py-8 sm:px-6 lg:px-8">
       <div class="mx-auto grid max-w-7xl gap-7 lg:grid-cols-[.78fr_1.22fr]">
         <div class="rounded-xl bg-ink p-6 text-white shadow-card lg:p-8">
-          <p class="text-xs font-bold uppercase tracking-[.12em] text-primarySoft">Incident injecté · INC-DEMO-2026-001</p>
+          <p class="text-xs font-bold uppercase tracking-[.12em] text-primarySoft">Baseline historique · incident injecté · INC-DEMO-2026-001</p>
           <h2 id="incidentTitle" class="mt-3 font-display text-3xl font-extrabold sm:text-4xl">Pause, rollback, preuve, reprise.</h2>
           <p class="mt-5 text-base leading-7 text-white/75">La règle V002 sous-classe volontairement le jeton synthétique sensible et tente une approbation obsolète. Le contrôle runtime refuse l’action avant tout effet externe.</p>
           <div class="mt-6 rounded-lg bg-white/10 p-5"><p class="text-sm font-semibold text-primarySoft">Résultat de sécurité</p><p class="mt-2 text-2xl font-extrabold">5/5 tests passent</p><p class="mt-2 text-sm leading-6 text-white/70">Reprise limitée à V001, mode brouillon uniquement, avec double autorité simulée.</p></div>
@@ -105,9 +155,9 @@
 
     <section aria-labelledby="kpiTitle" class="px-4 py-8 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-7xl">
-        <div class="max-w-3xl"><p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Mesures de simulation</p><h2 id="kpiTitle" class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">Les garde-fous passent. Trois métriques demandent un rejeu.</h2></div>
+        <div class="max-w-3xl"><p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Baseline historique · 118 événements</p><h2 id="kpiTitle" class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">AJUSTER : les trois métriques faibles qui ont déclenché le rejeu.</h2></div>
         <div id="kpiGrid" class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4"></div>
-        <p class="mt-4 text-sm leading-6 text-secondary">Ces valeurs proviennent exclusivement des fixtures et du journal synthétiques. Elles ne mesurent ni gain client, ni satisfaction, ni demande marché.</p>
+        <p class="mt-4 text-sm leading-6 text-secondary">Baseline conservée pour ne pas effacer l’historique. Ces valeurs proviennent exclusivement des fixtures et du journal synthétiques. Elles ne mesurent ni gain client, ni satisfaction, ni demande marché.</p>
       </div>
     </section>
 
@@ -119,12 +169,12 @@
           <article class="rounded-lg border border-tertiary/25 bg-neutral p-5"><span class="inline-flex rounded-full bg-tertiary px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-white">Orange</span><h3 class="mt-4 font-display text-xl font-bold">Validation au démarrage</h3><p class="mt-2 text-sm leading-6 text-secondary">Accusés, rappels et relances externes standardisés. Sans approbation explicite, aucune action ne part.</p></article>
           <article class="rounded-lg border border-ink/20 bg-neutral p-5"><span class="inline-flex rounded-full bg-ink px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-white">Rouge</span><h3 class="mt-4 font-display text-xl font-bold">Validation sans exception</h3><p class="mt-2 text-sm leading-6 text-secondary">Prix, délai ferme, litige, donnée sensible ou mauvais destinataire. Validation individualisée à chaque occurrence.</p></article>
         </div>
-        <div class="mt-6 rounded-lg bg-primarySoft p-5 text-sm leading-6 text-primary"><strong>Portée :</strong> interface illustrative sans backend ni stockage. Toutes les identités visibles sont des jetons `DEMO`; aucune coordonnée réelle n’est incluse.</div>
+        <div class="mt-6 rounded-lg bg-primarySoft p-5 text-sm leading-6 text-primary"><strong>Portée :</strong> interface illustrative sans backend ni stockage. Toutes les identités visibles sont des jetons `DEMO`; aucune coordonnée réelle n’est incluse. <strong>DÉMO — DONNÉES FICTIVES — AUCUNE TRACTION RÉELLE.</strong></div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-primary/10 px-4 py-8 sm:px-6 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-3 text-sm leading-6 text-secondary sm:flex-row sm:items-center sm:justify-between"><p>Hermes Artisan Suisse · Démo opératoire publique fictive.</p><a class="font-semibold text-primary underline decoration-primary/30 underline-offset-4" href="index.html">Retour à la présentation du pilote</a></div></footer>
+  <footer class="border-t border-primary/10 px-4 py-8 sm:px-6 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-3 text-sm leading-6 text-secondary sm:flex-row sm:items-center sm:justify-between"><p><strong>DÉMO — DONNÉES FICTIVES — AUCUNE TRACTION RÉELLE</strong><br>Hermes Artisan Suisse · Démo opératoire publique fictive, sans backend ni stockage.</p><a class="font-semibold text-primary underline decoration-primary/30 underline-offset-4" href="index.html">Retour à la présentation du pilote</a></div></footer>
 
   <script>
     const cases = [
