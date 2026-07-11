@@ -27,7 +27,7 @@ try {
   const client = readFileSync(pages[1], 'utf8');
   const admin = readFileSync(pages[2], 'utf8');
   const regressions = [];
-  if ((landing.match(/href="demo\/index\.html"/g) || []).length < 3) regressions.push('Liens landing → client insuffisants');
+  if ((landing.match(/href="demo\/"/g) || []).length !== 3) regressions.push('Les 3 liens landing → client doivent cibler explicitement demo/');
   if (!client.includes(banner) || !admin.includes(banner)) regressions.push('Bannière obligatoire absente');
   const emptyAdminStore = /const emptyStore=\(\)=>\(\{version:1,subscriptions:\[\],workflows:\[\],tasks:\[\],approvals:\[\],journal:\[\]\}\);/.test(admin);
   if (!emptyAdminStore || /const baseline=/.test(admin) || !/write\(emptyStore\(\)\)/.test(admin)) regressions.push('Reset admin ne vide pas le store');
