@@ -147,6 +147,21 @@ components:
     textColor: "{colors.secondary}"
     rounded: "{rounded.lg}"
     padding: 24px
+  partner-offer:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.lg}"
+    padding: 24px
+  partner-model-disclosure:
+    backgroundColor: "{colors.info}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.md}"
+    padding: 16px
+  partner-checkout:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.lg}"
+    padding: 24px
 ---
 
 # Poolbnb Léman Design System
@@ -234,6 +249,9 @@ Ne pas mélanger des angles durs avec ces formes organiques. Tout le système do
 - **credit-ledger** : liste append-only des écritures promotionnelles et de parrainage. Le type, le statut, le montant, la date et la référence objet restent lisibles sans faire passer un crédit fictif pour de l'argent.
 - **referral-status** : carte d'état agrégé sans identité ni activité du filleul, avec actions locales de copie et de simulation clairement séparées.
 - **confirmation-dialog** : dialogue HTML modal accessible, titré, descriptif et testable, utilisé notamment à la place des confirmations natives pour les actions destructrices.
+- **partner-offer** : carte d’archétype sans marque ni logo ; le badge d’absence de partenariat, le modèle commercial, les conditions et la provenance du prix de référence restent visibles avant toute action.
+- **partner-model-disclosure** : panneau distinguant sans ambiguïté affiliation, apporteur d’affaires et revente ; dans la démo, aucun redirect, lead ou flux réel n’est activé.
+- **partner-checkout** : dialogue de simulation sans moyen de paiement, récapitulant quantité, total, comparaison calculée seulement si les deux prix sont sourcés, vendeur/modèle hypothétique et absence de transmission.
 
 Les espaces membre et loueur sont des surfaces distinctes. Ils réutilisent les cartes, chips et statuts mais n’exposent que des alias et adresses `example.test`. Les montants de portefeuille, crédits, réservations et revenus sont explicitement simulés.
 
