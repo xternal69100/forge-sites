@@ -8,18 +8,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <script>const tailwindConsoleWarn=console.warn;console.warn=(...args)=>{if(!String(args[0]).includes('cdn.tailwindcss.com should not be used in production'))tailwindConsoleWarn(...args);};</script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{primary:'#1E3A5F',primarySoft:'#D8E4F0',secondary:'#667085',tertiary:'#8C4F22',neutral:'#F6F3EE',ink:'#0F172A',muted:'#E8E1D7',success:'#22543D'},fontFamily:{display:['Manrope','sans-serif'],body:['Inter','sans-serif']},borderRadius:{md:'18px',lg:'30px',xl:'40px'},boxShadow:{calm:'0 18px 50px rgba(15,23,42,.08)'}}}};</script>
+  <script>console.warn=tailwindConsoleWarn;tailwind.config={theme:{extend:{colors:{primary:'#1E3A5F',primarySoft:'#D8E4F0',secondary:'#667085',tertiary:'#8C4F22',neutral:'#F6F3EE',ink:'#0F172A',muted:'#E8E1D7',success:'#22543D'},fontFamily:{display:['Manrope','sans-serif'],body:['Inter','sans-serif']},borderRadius:{md:'18px',lg:'30px',xl:'40px'},boxShadow:{calm:'0 18px 50px rgba(15,23,42,.08)'}}}};</script>
   <style>
     html{overflow-x:hidden} body{font-family:Inter,system-ui,sans-serif;background:#F6F3EE;color:#0F172A;text-wrap:pretty;overflow-x:hidden}.step[hidden]{display:none}.step-dot[aria-current="step"]{background:#1E3A5F;color:#fff;border-color:#1E3A5F}.choice:has(input:checked){border-color:#1E3A5F;background:#D8E4F0;box-shadow:inset 4px 0 #1E3A5F}input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid rgba(30,58,95,.35);outline-offset:3px}.field-error{color:#8C4F22;font-size:.8rem;font-weight:700;margin-top:.35rem;min-height:1.1rem}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
 <body class="antialiased">
-  <div class="fixed inset-x-0 top-0 z-[70] flex min-h-10 items-center justify-center bg-tertiary px-3 py-2 text-center text-[10px] font-extrabold uppercase tracking-[.08em] text-white sm:text-xs">DÉMO — AUCUNE DONNÉE, SOUSCRIPTION OU PAIEMENT RÉEL</div>
+  <div class="fixed inset-x-0 top-0 z-[70] flex min-h-10 items-center justify-center bg-tertiary px-3 py-2 text-center text-[10px] font-extrabold uppercase tracking-[.08em] text-white sm:text-xs">Mode démonstration — aucun débit réel · aucune transmission</div>
   <header class="sticky top-10 z-50 border-b border-primary/10 bg-white/95 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
       <a href="../index.html" class="flex min-w-0 items-center gap-3 rounded-md"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary text-white">🛠️</span><span class="min-w-0"><strong class="block truncate text-xs uppercase tracking-[.08em] text-primary sm:text-sm">Hermes Artisan Suisse</strong><span class="block truncate text-xs text-secondary">Parcours client fictif</span></span></a>
-      <a href="admin.html" class="shrink-0 rounded-md border border-primary/15 bg-white px-3 py-2 text-sm font-bold text-primary hover:border-primary/40">Administration <span aria-hidden="true">→</span></a>
+      <a href="admin.html" class="shrink-0 rounded-md border border-primary/15 bg-white px-3 py-2 text-sm font-bold text-primary hover:border-primary/40">Espace équipe <span aria-hidden="true">→</span></a>
     </div>
   </header>
 
@@ -27,9 +28,9 @@
     <div class="mx-auto max-w-6xl">
       <div class="grid gap-7 lg:grid-cols-[.68fr_1.32fr]">
         <aside class="h-fit rounded-xl bg-ink p-6 text-white shadow-calm lg:sticky lg:top-32">
-          <p class="text-xs font-extrabold uppercase tracking-[.12em] text-primarySoft">Parcours simulé sécurisé</p>
-          <h1 class="mt-3 font-display text-3xl font-extrabold">Configurez un pilote étroit, sans engagement réel.</h1>
-          <p class="mt-4 text-sm leading-6 text-white/75">Le parcours simule le choix, le cadrage, un checkout et l’activation. Aucun moyen de paiement n’est demandé et aucune information n’est transmise.</p>
+          <p class="text-xs font-extrabold uppercase tracking-[.12em] text-primarySoft">Votre pilote en quatre étapes</p>
+          <h1 class="mt-3 font-display text-3xl font-extrabold">Voyez concrètement comment votre pilote prend forme.</h1>
+          <p class="mt-4 text-sm leading-6 text-white/75">Choisissez le périmètre, cadrez votre premier workflow et retrouvez immédiatement le pilote dans l’espace équipe. Aucun moyen de paiement n’est demandé et aucune information n’est transmise.</p>
           <ol class="mt-7 space-y-3" aria-label="Progression">
             <li class="flex items-center gap-3"><span data-dot="1" aria-current="step" class="step-dot flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-xs font-bold">1</span><span class="text-sm font-semibold">Choisir le pilote</span></li>
             <li class="flex items-center gap-3"><span data-dot="2" class="step-dot flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-xs font-bold">2</span><span class="text-sm font-semibold">Cadrer le workflow</span></li>
@@ -43,7 +44,7 @@
           <form id="journey" novalidate>
             <section class="step" data-step="1">
               <p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Étape 1 · Offre</p>
-              <h2 class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">Un seul pilote, un périmètre assumé.</h2>
+              <h2 class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">Commencez petit. Mesurez ce qui change.</h2>
               <label class="choice mt-7 block cursor-pointer rounded-lg border-2 border-primary/15 p-5 transition">
                 <span class="flex flex-col justify-between gap-4 sm:flex-row sm:items-start"><span><span class="flex items-center gap-3"><input id="offer" name="offer" type="radio" value="Atelier Intervention" required checked class="h-5 w-5 accent-primary"><strong class="font-display text-xl">Pilote Atelier Intervention</strong></span><span class="mt-3 block text-sm leading-6 text-secondary">14 jours d’onboarding + 30 jours opérés, un workflow principal, supervision humaine et restitution finale.</span></span><span class="shrink-0 text-left sm:text-right"><strong class="block text-2xl">CHF 3’700</strong><span class="text-xs text-secondary">prix hypothétique · simulé</span></span></span>
               </label>
@@ -53,7 +54,7 @@
 
             <section class="step" data-step="2" hidden>
               <p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Étape 2 · Configuration fictive</p>
-              <h2 class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">Figez un workflow principal.</h2>
+              <h2 class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">Choisissez le suivi qui vous ferait respirer.</h2>
               <p class="mt-3 text-sm leading-6 text-secondary"><strong>Exemples fictifs uniquement.</strong> Remplacez-les seulement par d’autres valeurs fictives. N’inscrivez aucun nom, email, canal ou information d’entreprise réel.</p>
               <div class="mt-6 grid gap-5 sm:grid-cols-2">
                 <div><label for="company" class="text-sm font-bold">Entreprise fictive</label><input id="company" name="company" required minlength="3" value="Atelier Démo Sàrl" class="mt-2 w-full rounded-md border border-primary/20 px-4 py-3"><p class="field-error" data-error="company"></p></div>
@@ -79,22 +80,22 @@
 
           <section class="step" data-step="4" hidden tabindex="-1">
             <span class="inline-flex rounded-full bg-success px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-white">Activation simulée</span>
-            <h2 class="mt-4 font-display text-3xl font-extrabold sm:text-4xl">Le pilote fictif est visible dans l’administration.</h2>
-            <p class="mt-4 text-sm leading-6 text-secondary">Le paiement porte le statut <strong>simulé</strong> et l’activation reste locale. Rien n’a été envoyé, encaissé ou branché.</p>
+            <h2 class="mt-4 font-display text-3xl font-extrabold sm:text-4xl">Votre espace de pilotage est prêt.</h2>
+            <p class="mt-4 text-sm leading-6 text-secondary">Le paiement porte le statut <strong>simulé</strong> et l’activation reste locale. Rien n’a été envoyé, encaissé ou mis en service.</p>
             <div id="activationCard" class="mt-6 rounded-lg bg-neutral p-5"></div>
-            <div class="mt-7 flex flex-col gap-3 sm:flex-row"><a href="admin.html" class="rounded-md bg-primary px-5 py-3 text-center font-bold text-white">Ouvrir l’administration</a><button id="newJourney" type="button" class="rounded-md border border-primary/20 px-5 py-3 font-bold text-primary">Créer une autre simulation</button></div>
+            <div class="mt-7 flex flex-col gap-3 sm:flex-row"><a href="admin.html" class="rounded-md bg-primary px-5 py-3 text-center font-bold text-white">Voir le pilote dans l’espace équipe</a><a href="../index.html#contact" class="rounded-md border border-primary/20 px-5 py-3 text-center font-bold text-primary">Découvrir le pilote accompagné</a><button id="newJourney" type="button" class="rounded-md border border-primary/20 px-5 py-3 font-bold text-primary">Créer une autre simulation</button></div>
           </section>
         </section>
       </div>
     </div>
   </main>
-  <footer class="border-t border-primary/10 bg-white px-4 py-7 text-center text-xs font-bold uppercase tracking-[.07em] text-tertiary">DÉMO — AUCUNE DONNÉE, SOUSCRIPTION OU PAIEMENT RÉEL</footer>
+  <footer class="border-t border-primary/10 bg-white px-4 py-7 text-center text-xs font-bold uppercase tracking-[.07em] text-tertiary">Mode démonstration — aucun débit réel</footer>
 
   <script>
   (()=>{'use strict';
     const STORE_KEY='forge:hermes-artisan-suisse:demo:v1';
-    const emptyStore=()=>({version:1,subscriptions:[],workflows:[],journal:[]});
-    const safeStore=()=>{try{const x=JSON.parse(localStorage.getItem(STORE_KEY));if(x&&x.version===1&&Array.isArray(x.subscriptions)&&Array.isArray(x.workflows)&&Array.isArray(x.journal))return x;}catch(_){}const x=emptyStore();localStorage.setItem(STORE_KEY,JSON.stringify(x));return x;};
+    const emptyStore=()=>({version:1,subscriptions:[],workflows:[],tasks:[],approvals:[],journal:[]});
+    const safeStore=()=>{try{const x=JSON.parse(localStorage.getItem(STORE_KEY));if(x&&x.version===1&&Array.isArray(x.subscriptions)&&Array.isArray(x.workflows)&&Array.isArray(x.journal)){x.tasks=Array.isArray(x.tasks)?x.tasks:[];x.approvals=Array.isArray(x.approvals)?x.approvals:[];localStorage.setItem(STORE_KEY,JSON.stringify(x));return x;}}catch(_){}const x=emptyStore();localStorage.setItem(STORE_KEY,JSON.stringify(x));return x;};
     const save=x=>localStorage.setItem(STORE_KEY,JSON.stringify(x));
     const form=document.getElementById('journey');let step=1;
     const fields=['company','contact','email','workflow','channel','demoConsent'];
@@ -106,7 +107,7 @@
     document.querySelectorAll('[data-next]').forEach(btn=>btn.addEventListener('click',()=>{if(step===2&&!validate(['company','contact','email','workflow','channel']))return;if(step===2)summary();show(step+1);}));
     document.querySelectorAll('[data-back]').forEach(btn=>btn.addEventListener('click',()=>show(step-1)));
     fields.forEach(id=>document.getElementById(id)?.addEventListener('input',e=>{if(e.target.checkValidity()){e.target.removeAttribute('aria-invalid');document.querySelector(`[data-error="${id}"]`).textContent='';}}));
-    form.addEventListener('submit',event=>{event.preventDefault();if(!validate(['demoConsent']))return;const d=new FormData(form),now=new Date().toISOString(),token=(Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7)).toUpperCase(),sid='SUB-DEMO-'+token,wid='WF-DEMO-'+token,store=safeStore();const sub={id:sid,company:d.get('company'),contact:d.get('contact'),email:d.get('email'),offer:'Atelier Intervention',price:3700,paymentStatus:'SIMULÉ — AUCUN DÉBIT',status:'ACTIF_SIMULÉ',workflowId:wid,createdAt:now};const workflow={id:wid,subscriptionId:sid,name:d.get('workflow'),channel:d.get('channel'),cadence:d.get('cadence'),hil:d.get('hil'),status:'ACTIF_SIMULÉ',createdAt:now};store.subscriptions.unshift(sub);store.workflows.unshift(workflow);store.journal.unshift({id:'LOG-'+token,at:now,type:'ACTIVATION_SIMULÉE',subscriptionId:sid,message:`Souscription fictive activée pour ${d.get('company')} — paiement simulé, aucun débit.`});save(store);document.getElementById('activationCard').innerHTML=`<p class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Référence locale fictive</p><p class="mt-2 break-all font-mono text-sm">${sid}</p><p class="mt-3 font-bold">${escapeHTML(d.get('company'))} · CHF 3’700 · paiement simulé</p>`;show(4);document.querySelector('[data-step="4"]').focus();});
+    form.addEventListener('submit',event=>{event.preventDefault();if(!validate(['demoConsent']))return;const d=new FormData(form),now=new Date().toISOString(),token=(Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7)).toUpperCase(),sid='SUB-DEMO-'+token,wid='WF-DEMO-'+token,store=safeStore();const sub={id:sid,company:d.get('company'),contact:d.get('contact'),email:d.get('email'),offer:'Atelier Intervention',price:3700,paymentStatus:'SIMULÉ — AUCUN DÉBIT',status:'ACTIF_SIMULÉ',workflowId:wid,createdAt:now};const workflow={id:wid,subscriptionId:sid,name:d.get('workflow'),channel:d.get('channel'),cadence:d.get('cadence'),hil:d.get('hil'),status:'ACTIF_SIMULÉ',createdAt:now};store.subscriptions.unshift(sub);store.workflows.unshift(workflow);store.tasks.unshift({id:'TASK-'+token+'-01',subscriptionId:sid,title:'Valider le périmètre du workflow',owner:'Sponsor fictif',status:'BLOQUÉ_HIL',due:'J1'},{id:'TASK-'+token+'-02',subscriptionId:sid,title:'Préparer les règles de qualification',owner:'Opérateur démo',status:'À_FAIRE',due:'J2'});store.approvals.unshift({id:'APR-'+token,subscriptionId:sid,level:'ORANGE',title:'Valider le périmètre initial',summary:`Workflow « ${d.get('workflow')} » sur ${d.get('channel')}, sans envoi externe.`,status:'EN_ATTENTE',createdAt:now});store.journal.unshift({id:'LOG-'+token,at:now,type:'ACTIVATION_SIMULÉE',subscriptionId:sid,message:`Pilote fictif activé pour ${d.get('company')} — paiement simulé, aucun débit.`});save(store);document.getElementById('activationCard').innerHTML=`<p class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Référence locale fictive</p><p class="mt-2 break-all font-mono text-sm">${sid}</p><p class="mt-3 font-bold">${escapeHTML(d.get('company'))} · CHF 3’700 · paiement simulé</p><p class="mt-3 text-sm text-secondary">Une approbation humaine et deux tâches d’onboarding vous attendent dans l’espace équipe.</p>`;show(4);document.querySelector('[data-step="4"]').focus();});
     document.getElementById('newJourney').addEventListener('click',()=>{form.reset();document.getElementById('company').value='Atelier Démo Sàrl';document.getElementById('contact').value='Camille Exemple';document.getElementById('email').value='camille@atelier-demo.test';show(1);});
     safeStore();
   })();
