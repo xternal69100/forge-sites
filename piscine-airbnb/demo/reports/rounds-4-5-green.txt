@@ -1,0 +1,12 @@
+Commande: python3 rounds-4-5-check.py
+Résultat: GREEN (exit 0)
+
+HTML OK index.html
+HTML OK member.html
+HTML OK host.html
+HTML OK admin.html
+PASS rounds 4–5: 4 pages, 4 scripts
+
+Régressions rejouées après la dernière modification source:
+- python3 rounds-2-3-check.py → PASS rounds 2–3: 4 pages, 4 scripts
+- python3 self-check.py → PASS 5 pages, 6 scripts
