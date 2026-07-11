@@ -87,6 +87,26 @@ components:
     textColor: "{colors.secondary}"
     rounded: "{rounded.full}"
     padding: 10px
+  trust-gate:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.lg}"
+    padding: 24px
+  status-active:
+    backgroundColor: "{colors.tertiary}"
+    textColor: "{colors.surface}"
+    rounded: "{rounded.full}"
+    padding: 10px
+  status-planned:
+    backgroundColor: "{colors.surface-muted}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.full}"
+    padding: 10px
+  qualification-check:
+    backgroundColor: "{colors.info}"
+    textColor: "{colors.secondary}"
+    rounded: "{rounded.md}"
+    padding: 16px
 ---
 
 # Poolbnb Léman Design System
@@ -162,8 +182,18 @@ Ne pas mélanger des angles durs avec ces formes organiques. Tout le système do
 - **button-secondary** : surface blanche, texte encre, contour doux. Sert d’action d’exploration ou de bascule d’audience.
 - **card-surface** : fond blanc, rayon large, padding généreux, pensée pour contenir des récits courts, des données ou des formulaires.
 - **chip-filter** : fond `surface-muted`, texte sombre, rondeur totale. Utilisée pour filtres, statuts, zones pilotes et tags de listing.
+- **trust-gate** : carte blanche calme pour matérialiser une étape de publication ; quatre cartes reliées montrent le passage droit de proposer → confirmation d’assurance écrite → revue sécurité → GO limité.
+- **status-active** : pastille vert lac à texte blanc, réservée aux artefacts opérationnels effectivement rédigés et utilisables comme projets pilotes.
+- **status-planned** : pastille neutre à texte encre pour les capacités non branchées ou encore soumises à validation humaine.
+- **qualification-check** : ligne interactive vert très pâle pour la mini-checklist propriétaire ; la sélection reste strictement locale au navigateur et ne collecte aucune donnée.
 
 Les composants doivent rendre visibles les signaux de confiance : labels “hôte vérifié”, “règles claires”, “créneau calme”, “programme founding host”, etc.
+
+Toute architecture trust/safety doit distinguer visuellement et textuellement :
+
+- ce qui existe comme **document ou processus pilote** (charte, questionnaire/screening, matrice incident) ;
+- ce qui n’est **pas encore actif dans le produit public** (paiement, protection secondaire, annonces réelles) ;
+- une revue Poolbnb d’une certification, d’une garantie de sécurité ou d’une confirmation de couverture.
 
 ### Direction photographique
 
@@ -182,7 +212,10 @@ Les images installent un luxe calme, local et crédible : architecture soignée,
 - Do maintenir un contraste AA minimum sur toutes les zones textuelles et boutons.
 - Do garder les sections premium aérées et peu chargées.
 - Do signaler explicitement le statut de visuel d’ambiance pour cette démo.
+- Do qualifier chaque GO comme limité aux paramètres et à la version du dossier examinés.
+- Do préciser que les interactions de qualification sont locales, sans envoi ni conservation de données.
 - Don’t transformer le site en univers “pool party”.
 - Don’t employer plus de deux graisses simultanément dans une même petite carte.
 - Don’t utiliser des bleus saturés ou des couleurs additionnelles non définies dans les tokens.
 - Don’t publier des preuves sociales inventées ; préférer signaux opératoires, cohortes pilotes et preuves de cadrage réelles.
+- Don’t employer « assuré », « certifié » ou « sécurité garantie » sans préciser exactement l’auteur, le périmètre, les conditions et le statut réel de la validation.
