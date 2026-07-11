@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Démo opératoire — Hermes Artisan Suisse</title>
+  <meta name="description" content="Démonstration publique, interactive et entièrement fictive de la file opératoire human-in-the-loop Hermes Artisan Suisse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' x='6' font-size='46'%3E%F0%9F%9B%A0%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { primary:'#1E3A5F', primarySoft:'#D8E4F0', secondary:'#667085', tertiary:'#8C4F22', neutral:'#F6F3EE', surface:'#FFFFFF', ink:'#0F172A', muted:'#E8E1D7', success:'#22543D' },
+      fontFamily: { display:['Manrope','system-ui','sans-serif'], body:['Inter','system-ui','sans-serif'] },
+      borderRadius: { sm:'12px', md:'18px', lg:'30px', xl:'40px' },
+      spacing: { xs:'8px', sm:'12px', md:'20px', lg:'32px', xl:'56px', '2xl':'80px' },
+      boxShadow: { calm:'0 18px 50px rgba(15,23,42,.08)', card:'0 24px 60px rgba(15,23,42,.10)' }
+    } } };
+  </script>
+  <style>
+    :root{color-scheme:light;--primary-rgb:30,58,95;--ink-rgb:15,23,42}
+    body{font-family:'Inter',system-ui,sans-serif;background:radial-gradient(circle at top right,rgba(var(--primary-rgb),.12),transparent 34%),#F6F3EE;color:#0F172A;text-wrap:pretty}
+    button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid rgba(var(--primary-rgb),.35);outline-offset:3px}
+    .case-button[aria-current="true"]{border-color:#1E3A5F;background:#D8E4F0;box-shadow:inset 4px 0 #1E3A5F}
+    .timeline-line::before{content:"";position:absolute;left:15px;top:31px;bottom:-17px;width:1px;background:#E8E1D7}
+    .timeline-line:last-child::before{display:none}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body class="bg-neutral text-ink antialiased">
+  <div class="fixed inset-x-0 top-0 z-[60] flex h-9 items-center justify-center bg-tertiary px-3 text-center text-[10px] font-extrabold uppercase tracking-[.09em] text-white sm:text-xs">DÉMO — DONNÉES FICTIVES — AUCUNE TRACTION RÉELLE</div>
+  <header class="sticky top-9 z-50 border-b border-primary/10 bg-surface/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <a href="index.html" class="flex min-w-0 items-center gap-3 rounded-md">
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary text-white shadow-calm">🛠️</span>
+        <span class="min-w-0"><span class="block truncate text-xs font-bold uppercase tracking-[.08em] text-primary sm:text-sm">Hermes Artisan Suisse</span><span class="block truncate text-xs text-secondary">Console de répétition</span></span>
+      </a>
+      <div class="flex items-center gap-2">
+        <span class="hidden rounded-sm bg-muted px-3 py-2 text-xs font-bold uppercase tracking-[.08em] text-primary md:inline-flex">Bac à sable local</span>
+        <a href="index.html" class="rounded-md border border-primary/15 bg-surface px-3 py-2 text-sm font-semibold text-primary transition hover:border-primary/40">← Retour au site</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="px-4 pb-8 pt-8 sm:px-6 lg:px-8 lg:pt-12">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-7 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Répétition interne · 11 juillet 2026</p>
+            <h1 class="mt-3 max-w-4xl font-display text-4xl font-extrabold leading-[1.04] tracking-[-.035em] text-ink sm:text-5xl lg:text-6xl">15 dossiers fictifs. Une file supervisée, visible de bout en bout.</h1>
+            <p class="mt-5 max-w-3xl text-base leading-7 text-secondary sm:text-lg">Explorez une simulation documentaire du workflow demande → qualification → brouillon → validation HIL → action simulée → clôture. Aucun client, connecteur, envoi, stockage ou donnée personnelle réelle.</p>
+          </div>
+          <div class="rounded-xl bg-ink p-6 text-white shadow-card">
+            <div class="flex items-center justify-between gap-4"><span class="text-sm font-semibold uppercase tracking-[.1em] text-primarySoft">Décision de gate</span><span class="rounded-sm bg-white/10 px-3 py-2 text-xs font-bold uppercase tracking-[.08em] text-primarySoft">Simulation</span></div>
+            <p class="mt-4 font-display text-4xl font-extrabold">AJUSTER</p>
+            <p class="mt-3 text-sm leading-6 text-white/75">Garde-fous et rollback tenus. Qualification, relances à temps et QC restent sous les cibles hypothétiques.</p>
+          </div>
+        </div>
+
+        <dl class="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Cas</dt><dd class="mt-2 text-3xl font-extrabold">15</dd></div>
+          <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">HIL</dt><dd class="mt-2 text-3xl font-extrabold">6 · 5 · 4</dd><p class="mt-1 text-xs text-secondary">vert · orange · rouge</p></div>
+          <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Événements</dt><dd class="mt-2 text-3xl font-extrabold">118</dd></div>
+          <div class="rounded-lg border border-primary/10 bg-surface p-4 shadow-calm"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Envois réels</dt><dd class="mt-2 text-3xl font-extrabold text-success">0</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section aria-labelledby="queueTitle" class="px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl rounded-xl border border-primary/10 bg-surface p-4 shadow-card sm:p-6 lg:p-8">
+        <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+          <div><p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Vue file & dossier</p><h2 id="queueTitle" class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">La file des 15 cas synthétiques</h2></div>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-end">
+            <fieldset><legend class="mb-2 text-xs font-bold uppercase tracking-[.08em] text-secondary">Niveau HIL</legend><div id="levelFilters" class="flex flex-wrap gap-2"></div></fieldset>
+            <label class="text-xs font-bold uppercase tracking-[.08em] text-secondary">État
+              <select id="stateFilter" class="mt-2 block w-full min-w-44 rounded-md border border-primary/15 bg-surface px-3 py-2 text-sm font-semibold normal-case tracking-normal text-ink"><option value="TOUS">Tous les états</option><option value="TRAITE">Traité / simulé</option><option value="RETARD">Retard</option><option value="REFUSE">Refusé</option><option value="BLOQUE">Bloqué</option><option value="INCIDENT">Incident</option><option value="DOUBLON">Doublon</option></select>
+            </label>
+          </div>
+        </div>
+        <p id="resultCount" class="mt-5 text-sm text-secondary" aria-live="polite"></p>
+
+        <div class="mt-4 grid gap-5 lg:grid-cols-[.82fr_1.18fr]">
+          <div id="caseList" class="max-h-[42rem] space-y-2 overflow-y-auto rounded-lg bg-neutral p-2" aria-label="Dossiers filtrés"></div>
+          <article id="caseDetail" class="min-w-0 rounded-lg border border-primary/10 bg-surface p-5 sm:p-7" aria-live="polite"></article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="incidentTitle" class="px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mx-auto grid max-w-7xl gap-7 lg:grid-cols-[.78fr_1.22fr]">
+        <div class="rounded-xl bg-ink p-6 text-white shadow-card lg:p-8">
+          <p class="text-xs font-bold uppercase tracking-[.12em] text-primarySoft">Incident injecté · INC-DEMO-2026-001</p>
+          <h2 id="incidentTitle" class="mt-3 font-display text-3xl font-extrabold sm:text-4xl">Pause, rollback, preuve, reprise.</h2>
+          <p class="mt-5 text-base leading-7 text-white/75">La règle V002 sous-classe volontairement le jeton synthétique sensible et tente une approbation obsolète. Le contrôle runtime refuse l’action avant tout effet externe.</p>
+          <div class="mt-6 rounded-lg bg-white/10 p-5"><p class="text-sm font-semibold text-primarySoft">Résultat de sécurité</p><p class="mt-2 text-2xl font-extrabold">5/5 tests passent</p><p class="mt-2 text-sm leading-6 text-white/70">Reprise limitée à V001, mode brouillon uniquement, avec double autorité simulée.</p></div>
+        </div>
+        <div class="rounded-xl border border-primary/10 bg-surface p-6 shadow-calm lg:p-8">
+          <ol id="incidentTimeline" class="space-y-4"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="kpiTitle" class="px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl"><p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Mesures de simulation</p><h2 id="kpiTitle" class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">Les garde-fous passent. Trois métriques demandent un rejeu.</h2></div>
+        <div id="kpiGrid" class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4"></div>
+        <p class="mt-4 text-sm leading-6 text-secondary">Ces valeurs proviennent exclusivement des fixtures et du journal synthétiques. Elles ne mesurent ni gain client, ni satisfaction, ni demande marché.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="hilTitle" class="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl rounded-xl border border-primary/10 bg-surface p-6 shadow-card lg:p-8">
+        <p class="text-xs font-bold uppercase tracking-[.12em] text-tertiary">Légende human-in-the-loop</p><h2 id="hilTitle" class="mt-2 font-display text-3xl font-extrabold sm:text-4xl">Le risque prime sur la vitesse.</h2>
+        <div class="mt-6 grid gap-4 lg:grid-cols-3">
+          <article class="rounded-lg border border-success/20 bg-neutral p-5"><span class="inline-flex rounded-full bg-success px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-white">Vert</span><h3 class="mt-4 font-display text-xl font-bold">Règle validée</h3><p class="mt-2 text-sm leading-6 text-secondary">Classement, statut, brouillon non envoyé, rappel interne. Automatisable selon règles écrites, toujours journalisé.</p></article>
+          <article class="rounded-lg border border-tertiary/25 bg-neutral p-5"><span class="inline-flex rounded-full bg-tertiary px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-white">Orange</span><h3 class="mt-4 font-display text-xl font-bold">Validation au démarrage</h3><p class="mt-2 text-sm leading-6 text-secondary">Accusés, rappels et relances externes standardisés. Sans approbation explicite, aucune action ne part.</p></article>
+          <article class="rounded-lg border border-ink/20 bg-neutral p-5"><span class="inline-flex rounded-full bg-ink px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-white">Rouge</span><h3 class="mt-4 font-display text-xl font-bold">Validation sans exception</h3><p class="mt-2 text-sm leading-6 text-secondary">Prix, délai ferme, litige, donnée sensible ou mauvais destinataire. Validation individualisée à chaque occurrence.</p></article>
+        </div>
+        <div class="mt-6 rounded-lg bg-primarySoft p-5 text-sm leading-6 text-primary"><strong>Portée :</strong> interface illustrative sans backend ni stockage. Toutes les identités visibles sont des jetons `DEMO`; aucune coordonnée réelle n’est incluse.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-primary/10 px-4 py-8 sm:px-6 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-3 text-sm leading-6 text-secondary sm:flex-row sm:items-center sm:justify-between"><p>Hermes Artisan Suisse · Démo opératoire publique fictive.</p><a class="font-semibold text-primary underline decoration-primary/30 underline-offset-4" href="index.html">Retour à la présentation du pilote</a></div></footer>
+
+  <script>
+    const cases = [
+      {id:'CASE-SIM-001',time:'08:00',level:'VERT',type:'classement_demande',scenario:'Classer une demande standard de dépannage fictive',state:'CLOS-TRAITE',outcome:'Clôturé · traité',source:'SRC-DEMO-001',sender:'EXP-DEMO-001',recipient:'DEST-DEMO-001',note:'Action interne exécutée selon la règle V001.'},
+      {id:'CASE-SIM-002',time:'08:07',level:'VERT',type:'brouillon_interne',scenario:'Préparer un brouillon non envoyé pour demande incomplète fictive',state:'CLOS-TRAITE',outcome:'Clôturé · traité',source:'SRC-DEMO-002',sender:'EXP-DEMO-002',recipient:'DEST-DEMO-002',note:'Brouillon local préparé, jamais envoyé.'},
+      {id:'CASE-SIM-003',time:'08:14',level:'VERT',type:'rappel_interne',scenario:'Créer un rappel interne sans émission externe',state:'CLOS-TRAITE',outcome:'Clôturé · traité',source:'SRC-DEMO-003',sender:'EXP-DEMO-003',recipient:'DEST-DEMO-003',note:'Rappel interne journalisé.'},
+      {id:'CASE-SIM-004',time:'08:21',level:'VERT',type:'mise_a_jour_statut',scenario:'Mettre à jour le statut de suivi interne',state:'CLOS-TRAITE',outcome:'Clôturé · traité',source:'SRC-DEMO-004',sender:'EXP-DEMO-004',recipient:'DEST-DEMO-004',note:'Statut interne mis à jour.'},
+      {id:'CASE-SIM-005',time:'08:28',level:'VERT',type:'doublon',scenario:'Détecter un doublon source du cas 004 et sortir du flux',state:'DOUBLON',outcome:'Doublon · sortie contrôlée',source:'SRC-DEMO-005',sender:'EXP-DEMO-005',recipient:'DEST-DEMO-004',note:'Doublon de CASE-SIM-004; aucune génération.'},
+      {id:'CASE-SIM-006',time:'08:35',level:'VERT',type:'detection_piece_manquante',scenario:'Détecter une pièce manquante et préparer une note interne',state:'CLOS-TRAITE',outcome:'Clôturé · traité',source:'SRC-DEMO-006',sender:'EXP-DEMO-006',recipient:'DEST-DEMO-006',note:'Pièce manquante détectée; note interne seulement.'},
+      {id:'CASE-SIM-007',time:'08:42',level:'ORANGE',type:'accuse_reception',scenario:'Accusé de réception externe standard fictif',state:'CLOS-SIMULE',outcome:'Clôturé · action simulée',source:'SRC-DEMO-007',sender:'EXP-DEMO-007',recipient:'DEST-DEMO-007',note:'Approbation SPONSOR-DEMO; SIM-OUT-007 non envoyé.'},
+      {id:'CASE-SIM-008',time:'08:49',level:'ORANGE',type:'rappel_piece',scenario:'Rappel externe fictif de pièce manquante',state:'CLOS-SIMULE',outcome:'Clôturé · relance à temps',source:'SRC-DEMO-008',sender:'EXP-DEMO-008',recipient:'DEST-DEMO-008',note:'Validation tracée; relance simulée dans la fenêtre.'},
+      {id:'CASE-SIM-009',time:'08:56',level:'ORANGE',type:'relance_devis',scenario:'Relance fictive sur devis déjà validé',state:'CLOS-SIMULE',outcome:'Clôturé · relance à temps',source:'SRC-DEMO-009',sender:'EXP-DEMO-009',recipient:'DEST-DEMO-009',note:'Validation tracée; relance simulée dans la fenêtre.'},
+      {id:'CASE-SIM-010',time:'09:03',level:'ORANGE',type:'rappel_rendez_vous',scenario:'Rappel fictif de rendez-vous sans engagement nouveau',state:'CLOS-SIMULE',outcome:'Clôturé · action simulée',source:'SRC-DEMO-010',sender:'EXP-DEMO-010',recipient:'DEST-DEMO-010',note:'Contrôle 6 points PASS; aucune émission.'},
+      {id:'CASE-SIM-011',time:'09:10',level:'ORANGE',type:'relance_devis_retardee',scenario:'Relance fictive retardée par la pause de file',state:'RETARD',outcome:'Clôturé · retard de 35 min',source:'SRC-DEMO-011',sender:'EXP-DEMO-011',recipient:'DEST-DEMO-011',note:'Relance simulée après la pause; fenêtre dépassée de 35 minutes.'},
+      {id:'CASE-SIM-012',time:'09:17',level:'ROUGE',type:'prix_remise',scenario:'Demande fictive de prix et remise ferme',state:'CLOS-SIMULE',outcome:'Clôturé · approuvé',source:'SRC-DEMO-012',sender:'EXP-DEMO-012',recipient:'DEST-DEMO-012',note:'Approbation rouge individualisée; action simulée, non envoyée.'},
+      {id:'CASE-SIM-013',time:'09:24',level:'ROUGE',type:'delai_ferme',scenario:'Demande fictive de promesse de délai ferme',state:'REFUSE',outcome:'Clôturé · refus explicite',source:'SRC-DEMO-013',sender:'EXP-DEMO-013',recipient:'DEST-DEMO-013',note:'SPONSOR-DEMO refuse; exécution bloquée.'},
+      {id:'CASE-SIM-014',time:'09:31',level:'ROUGE',type:'mauvais_destinataire',scenario:'Destinataire fictif modifié après validation; contrôle 6 points',state:'BLOQUE',outcome:'Clôturé · quasi-incident contenu',source:'SRC-DEMO-014',sender:'EXP-DEMO-014',recipient:'DEST-DEMO-ERRONE',note:'QI-DEMO-2026-001; approbation expirée, rollback R0.'},
+      {id:'CASE-SIM-015',time:'09:38',level:'ROUGE',type:'demande_sensible',scenario:'Jeton synthétique SENSIBLE-DEMO injecté; défaut HIL volontaire',state:'INCIDENT',outcome:'Clôturé · incident S2',source:'SRC-DEMO-015',sender:'EXP-DEMO-015',recipient:'DEST-DEMO-015',note:'INC-DEMO-2026-001; V002 retirée, V001 restaurée, sortie hors flux.'}
+    ];
+    const timeline=[
+      ['09:44','Détection','Approbation obsolète refusée par le contrôle runtime.','tertiary'],
+      ['09:45','Pause','Kill switch; toute la file simulée est stoppée.','tertiary'],
+      ['09:46','Préservation','Événements et périmètre de preuve conservés.','primary'],
+      ['09:48','Rollback R1 + R2','V002 désactivée; retour à V001 en mode brouillon.','primary'],
+      ['09:51','Correction','Le jeton sensible est requalifié rouge.','primary'],
+      ['09:53','Non-régression','5 cas rejoués, dont les limites 014 et 015: 5/5 PASS.','success'],
+      ['09:54','Reprise','Accord simulé sponsor + responsable pilote; V001 uniquement.','success']
+    ];
+    const kpis=[
+      ['Capture','100 %','12 / 12','PASS'],['Qualification initiale','93,33 %','14 / 15','AJUSTER'],['Relances à temps','66,67 %','2 / 3','AJUSTER'],['HIL orange','100 %','5 / 5','PASS'],['HIL rouge exécuté','100 %','1 / 1','PASS'],['Erreur QC','6,67 %','1 / 15','AJUSTER'],['Délai médian brouillon','4 min','14 cas','INFO'],['Incidents réels','0','aucun envoi','PASS']
+    ];
+    const levelColors={VERT:'bg-success text-white',ORANGE:'bg-tertiary text-white',ROUGE:'bg-ink text-white'};
+    let level='TOUS'; let selected='CASE-SIM-001';
+    const escapeHTML=(value)=>String(value).replace(/[&<>'"]/g,(char)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+    const matchesState=(item,filter)=>filter==='TOUS'||(filter==='TRAITE'&&['CLOS-TRAITE','CLOS-SIMULE'].includes(item.state))||item.state===filter;
+    function renderFilters(){
+      document.getElementById('levelFilters').innerHTML=['TOUS','VERT','ORANGE','ROUGE'].map(value=>`<button type="button" data-level="${value}" aria-pressed="${level===value}" class="rounded-md border px-3 py-2 text-sm font-semibold transition ${level===value?'border-primary bg-primary text-white':'border-primary/15 bg-surface text-primary hover:border-primary/40'}">${value==='TOUS'?'Tous':value[0]+value.slice(1).toLowerCase()} <span class="opacity-70">${value==='TOUS'?15:cases.filter(c=>c.level===value).length}</span></button>`).join('');
+      document.querySelectorAll('[data-level]').forEach(button=>button.addEventListener('click',()=>{level=button.dataset.level;render();}));
+    }
+    function renderDetail(item){
+      if(!item){document.getElementById('caseDetail').innerHTML='<p class="text-secondary">Aucun dossier ne correspond à ces filtres.</p>';return;}
+      document.getElementById('caseDetail').innerHTML=`
+        <div class="flex flex-wrap items-start justify-between gap-4"><div><p class="text-xs font-bold uppercase tracking-[.1em] text-tertiary">Détail du dossier</p><h3 class="mt-2 font-display text-2xl font-extrabold sm:text-3xl">${escapeHTML(item.id)}</h3></div><span class="rounded-full px-3 py-1 text-xs font-bold tracking-[.08em] ${levelColors[item.level]}">${item.level}</span></div>
+        <p class="mt-5 text-lg font-semibold leading-7 text-ink">${escapeHTML(item.scenario)}</p>
+        <dl class="mt-6 grid gap-3 sm:grid-cols-2">
+          <div class="rounded-md bg-neutral p-4"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">État final</dt><dd class="mt-2 font-semibold">${escapeHTML(item.outcome)}</dd></div>
+          <div class="rounded-md bg-neutral p-4"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Type</dt><dd class="mt-2 break-words font-mono text-sm">${escapeHTML(item.type)}</dd></div>
+          <div class="rounded-md bg-neutral p-4"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Source fictive</dt><dd class="mt-2 font-mono text-sm">${escapeHTML(item.source)} · ${escapeHTML(item.time)} UTC</dd></div>
+          <div class="rounded-md bg-neutral p-4"><dt class="text-xs font-bold uppercase tracking-[.08em] text-secondary">Jetons fictifs</dt><dd class="mt-2 break-words font-mono text-sm">${escapeHTML(item.sender)} → ${escapeHTML(item.recipient)}</dd></div>
+        </dl>
+        <div class="mt-5 rounded-lg border border-primary/10 bg-primarySoft/60 p-5"><p class="text-xs font-bold uppercase tracking-[.08em] text-primary">Trace de décision</p><p class="mt-2 text-sm leading-6 text-primary">${escapeHTML(item.note)}</p></div>
+        <p class="mt-5 text-xs font-semibold uppercase tracking-[.08em] text-secondary">DRAFT / SIMULATED — aucune transmission externe</p>`;
+    }
+    function render(){
+      renderFilters(); const state=document.getElementById('stateFilter').value; const filtered=cases.filter(item=>(level==='TOUS'||item.level===level)&&matchesState(item,state));
+      if(!filtered.some(item=>item.id===selected)) selected=filtered[0]?.id;
+      document.getElementById('resultCount').textContent=`${filtered.length} dossier${filtered.length>1?'s':''} affiché${filtered.length>1?'s':''} sur 15`;
+      document.getElementById('caseList').innerHTML=filtered.map(item=>`<button type="button" class="case-button w-full rounded-md border border-transparent p-4 text-left transition hover:border-primary/25" data-case="${item.id}" aria-current="${item.id===selected}"><span class="flex items-start justify-between gap-3"><span><span class="block text-xs font-bold uppercase tracking-[.08em] text-secondary">${item.id} · ${item.time} UTC</span><span class="mt-1 block text-sm font-semibold leading-5 text-ink">${escapeHTML(item.scenario)}</span><span class="mt-2 block text-xs text-secondary">${escapeHTML(item.outcome)}</span></span><span class="shrink-0 rounded-full px-2 py-1 text-[10px] font-bold ${levelColors[item.level]}">${item.level}</span></span></button>`).join('');
+      document.querySelectorAll('[data-case]').forEach(button=>button.addEventListener('click',()=>{selected=button.dataset.case;render();}));
+      renderDetail(cases.find(item=>item.id===selected));
+    }
+    document.getElementById('stateFilter').addEventListener('change',render);
+    document.getElementById('incidentTimeline').innerHTML=timeline.map(([time,title,text,color])=>`<li class="timeline-line relative grid grid-cols-[32px_1fr] gap-4"><span class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-${color} text-[10px] font-bold text-white">${time.slice(0,2)}</span><div class="pb-3"><div class="flex flex-wrap items-baseline gap-x-3"><h3 class="font-display text-lg font-bold">${title}</h3><time class="font-mono text-xs text-secondary">${time} UTC</time></div><p class="mt-1 text-sm leading-6 text-secondary">${text}</p></div></li>`).join('');
+    document.getElementById('kpiGrid').innerHTML=kpis.map(([name,value,basis,status])=>`<article class="rounded-lg border border-primary/10 bg-surface p-5 shadow-calm"><div class="flex items-start justify-between gap-3"><p class="text-sm font-semibold text-secondary">${name}</p><span class="rounded-sm px-2 py-1 text-[10px] font-bold ${status==='PASS'?'bg-success text-white':status==='AJUSTER'?'bg-tertiary text-white':'bg-muted text-primary'}">${status}</span></div><p class="mt-4 text-3xl font-extrabold">${value}</p><p class="mt-1 text-xs text-secondary">Base: ${basis}</p></article>`).join('');
+    render();
+  </script>
+</body>
+</html>
