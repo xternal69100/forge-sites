@@ -1,0 +1,11 @@
+HTML OK index.html
+HTML OK member.html
+HTML OK host.html
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/rounds-6-7-check.py", line 79, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/rounds-6-7-check.py", line 26, in main
+    assert path.exists(), f"page absente: {name}"
+           ~~~~~~~~~~~^^
+AssertionError: page absente: partners.html
