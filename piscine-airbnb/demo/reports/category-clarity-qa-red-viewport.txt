@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/category-clarity-qa-check.py", line 97, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/category-clarity-qa-check.py", line 62, in main
+    assert 'class="flex flex-col justify-start"' in landing, "landing: message 3 secondes repoussé sous le viewport desktop"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: landing: message 3 secondes repoussé sous le viewport desktop

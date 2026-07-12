@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/category-clarity-qa-check.py", line 96, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/category-clarity-qa-check.py", line 77, in main
+    assert forbidden not in landing, f"landing: libellé non pool-first: {forbidden}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: landing: libellé non pool-first: >Voir la vitrine<

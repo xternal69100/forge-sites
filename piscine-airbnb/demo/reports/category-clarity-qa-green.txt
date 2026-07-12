@@ -1,0 +1,1 @@
+PASS category clarity QA: 6 surfaces, message 3 secondes, metadata, fallback, labels et dialogue

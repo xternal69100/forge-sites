@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/category-clarity-qa-check.py", line 88, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/category-clarity-qa-check.py", line 62, in main
+    assert "image-fallback::after" in landing and "Piscine privée" in landing.split("image-fallback::after", 1)[1].split("}", 1)[0], "landing: fallback hero ne nomme pas la piscine privée"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: landing: fallback hero ne nomme pas la piscine privée

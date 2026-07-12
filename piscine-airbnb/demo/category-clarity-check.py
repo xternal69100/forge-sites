@@ -40,7 +40,7 @@ def main() -> int:
         for item in ("Piscine privée", "Plage ou terrasse autorisée", "Créneau", "villa, nuitée, logement"):
             assert item in source, f"{name}: détail de périmètre absent: {item}"
 
-    assert "Piscine privée · créneau de ${" in landing and " h · sans hébergement" in landing, "landing: ligne constante des cartes absente"
+    assert "Piscine privée · créneau de 4 h · sans hébergement" in landing, "landing: ligne constante des cartes absente"
     assert "Piscine privée · créneau de 4 h · sans hébergement" in demo, "demo: ligne constante des cartes absente"
     assert all(name not in combined for name in BAD_NAMES), "ancien nom immobilier présent dans une surface publique/store seed"
     assert "Pas l’“Airbnb des piscines”" not in landing and "Pas l’Airbnb des piscines" not in landing, "formulation contradictoire présente"
