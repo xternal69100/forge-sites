@@ -1,0 +1,16 @@
+Commande: python3 pricing-pilot-check.py
+Résultat: RED attendu (exit 1)
+
+Le test historique appelait l’adaptateur ambigu:
+  p.quote({rentalValueG:69,promo:false})
+
+Sortie décisive:
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  0.17 !== 17.25
+
+Trace d’unités:
+- quote25({rentalValueGMinor:6900}) => commissionGrossMinor 1725, hostNetMinor 5175 (GREEN dédié)
+- quote({rentalValueG:69}) => rentalValueGMinor 69, commissionGross 0.17 (RED)
+- quote({rentalValueG:99.36}) => rentalValueGMinor 9936, commissionGross 24.84
+
+Root cause: l’adaptateur `quote` utilisait `asMinor`, qui interprétait les entiers comme déjà exprimés en centimes et les décimaux comme des francs. Le moteur canonique `quote25` en unités mineures est correct; l’API/callsite de présentation était ambigu et cassait les montants CHF entiers. Le correctif doit conserver `quote25` canonique et, si une frontière CHF est nécessaire, lui donner un nom explicite sans inférence par magnitude.

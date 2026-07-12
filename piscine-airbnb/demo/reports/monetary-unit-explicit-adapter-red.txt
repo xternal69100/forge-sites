@@ -1,0 +1,41 @@
+HTML OK landing
+HTML OK market
+HTML OK member
+HTML OK host
+HTML OK admin
+HTML OK partners
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/pricing-pilot-check.py", line 119, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/pricing-pilot-check.py", line 103, in main
+    assert done.returncode == 0, done.stderr
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: node:assert:150
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: API quote ambiguë interdite
++ actual - expected
+
++ [Function: quote]
+- undefined
+
+    at [eval]:4:8
+    at runScriptInThisContext (node:internal/vm:209:10)
+    at node:internal/process/execution:446:12
+    at [eval]-wrapper:6:24
+    at runScriptInContext (node:internal/process/execution:444:60)
+    at evalFunction (node:internal/process/execution:279:30)
+    at evalTypeScript (node:internal/process/execution:291:3)
+    at node:internal/main/eval_string:74:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [Function: quote],
+  expected: undefined,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.22.3
+

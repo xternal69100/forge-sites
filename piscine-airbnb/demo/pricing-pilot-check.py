@@ -49,10 +49,10 @@ def main() -> int:
         print(f"HTML OK {name}")
 
     landing, market, member, host, admin = (sources[x] for x in ("landing", "market", "member", "host", "admin"))
-    require(landing, "price-total", "total groupe", "frais obligatoires inclus", "soit CHF", HYPOTHESIS)
-    require(market, "price-total", "Prix hôte", "Frais invité inclus", "Total avant promo", "Extension 1 h", HYPOTHESIS)
-    require(member, "Prix hôte", "Frais invité inclus", "Total avant promo", "Revenu hôte")
-    require(admin, "Prix hôte", "Frais invité inclus", "Total avant promo", "Revenu hôte")
+    require(landing, "price-total", "total groupe", "commission Poolbnb 25 % incluse", "soit CHF", HYPOTHESIS)
+    require(market, "price-total", "Valeur de location G", "commission Poolbnb 25 % incluse", "Net hôte 75 %", "Extension 1 h", HYPOTHESIS)
+    require(member, "commission Poolbnb 25 % incluse", "net hôte", "promo", "politique")
+    require(admin, "Commission brute", "Net hôte", "Contribution avant coûts", "Politique")
     require(landing, 'value="75"', 'value="100"', 'value="150"')
     require(market, 'data-total="75"', 'data-total="100"', 'data-total="150"')
 
@@ -64,7 +64,7 @@ def main() -> int:
     combined_pricing = "\n".join(without_styles(x) for x in (landing, market, member, admin))
     for amount in OLD_TOTALS:
         visible_old_price = rf"(?:CHF\s*{amount}(?:\.00)?|(?<![\d.]){amount}(?:\.00)?\s*CHF)"
-        legacy_data_price = rf"(?:price|guestTotal2h)\s*:\s*{amount}(?![\d.])"
+        legacy_data_price = rf"(?:price|rentalValueG)\s*:\s*{amount}(?![\d.])"
         assert not re.search(visible_old_price, combined_pricing), f"ancien montant public présent: {amount}"
         assert not re.search(legacy_data_price, combined_pricing), f"ancienne fixture tarifaire présente: {amount}"
     for amount in OLD_FILTERS:
@@ -77,39 +77,41 @@ def main() -> int:
     assert landing_data == market_data, "catalogues pricing landing/démo divergents"
     offers = landing_data["offers"]
     assert len(offers) == 12, "12 offres attendues"
-    assert any(o["guestTotal2h"] == 69 and o["includedGuests"] == 4 and o["bookable"] for o in offers), "offre CHF 69 réservable absente"
-    assert sum(o["guestTotal2h"] < 150 for o in offers) >= 9, "la majorité des offres standard doit être sous CHF 150/2 h"
+    assert any(o["rentalValueG"] == 69 and o["includedGuests"] == 4 and o["bookable"] for o in offers), "offre CHF 69 réservable absente"
+    assert sum(o["rentalValueG"] < 150 for o in offers) >= 9, "la majorité des offres standard doit être sous CHF 150/2 h"
     premium = [o for o in offers if o["level"] == "Exception"]
     assert 1 <= len(premium) <= 2 and all(o.get("premiumReason") for o in premium), "premium rare et justifié attendu"
     assert all(o["durationHours"] == 2 for o in offers), "durée carte par défaut différente de 2 h"
-    assert all(abs(o["perPersonAt4"] - round(o["guestTotal2h"] / 4, 2)) < 0.001 for o in offers), "ventilation /personne incorrecte"
+    assert all(abs(o["perPersonAt4"] - round(o["rentalValueG"] / 4, 2)) < 0.001 for o in offers), "ventilation /personne incorrecte"
 
     assert ENGINE.exists(), "pricing-engine.js absent"
     node_test = r"""
 const assert = require('node:assert/strict');
 const p = require(process.argv[1]);
-assert.equal(p.guestFee(63), 6);
-assert.equal(p.guestFee(92), 7.36);
-assert.equal(p.guestFee(300), 18);
-assert.deepEqual(p.quote({hostBase:63, extensionHourly:25, extraGuest:8, partySize:4, extensionHours:0, weekend:false, promo:false}), {hostPrice:63, guestFee:6, guestTotalBeforePromo:69, discountAmount:0, creditUsed:0, finalTotal:69, hostPayout:56.7});
-assert.deepEqual(p.quote({hostBase:92, extensionHourly:32, extraGuest:10, partySize:4, extensionHours:0, weekend:false, promo:true}), {hostPrice:92, guestFee:7.36, guestTotalBeforePromo:99.36, discountAmount:19.87, creditUsed:20, finalTotal:59.49, hostPayout:82.8});
-assert.equal(p.quote({hostBase:63, extensionHourly:25, extraGuest:8, partySize:6, extensionHours:1, weekend:true, promo:false}).hostPrice, 119.6);
-assert.equal(p.quote({hostBase:63, extensionHourly:25, extraGuest:8, partySize:6, extensionHours:1, weekend:true, promo:false}).guestTotalBeforePromo, 129.17);
-assert.equal(p.quote({hostBase:92, extensionHourly:32, extraGuest:10, partySize:4, extensionHours:0, weekend:false, promo:false}).finalTotal, 99.36);
-console.log('ENGINE OK fee=min6/max18; groupes 2/4/6/8; extension; week-end +15%; pack; second booking; payout');
+assert.equal(p.quote,undefined,'API quote ambiguë interdite');
+let minor=p.quote25({rentalValueGMinor:6900,promoEligible:false,promoAvailable:false});
+assert.equal(minor.commissionGrossMinor,1725);assert.equal(minor.hostNetMinor,5175);
+let q=p.quoteCHF({rentalValueGCHF:69,promo:false});
+assert.equal(q.commissionGross,17.25);assert.equal(q.hostNet,51.75);assert.equal(q.finalTotal,69);
+q=p.quoteCHF({rentalValueGCHF:99.36,promo:true});
+assert.equal(q.commissionGross,24.84);assert.equal(q.hostNet,74.52);assert.equal(q.discountAmount,19.87);assert.equal(q.creditUsed,20);assert.equal(q.finalTotal,59.49);assert.equal(q.contributionBeforeCosts,-15.03);
+assert.equal(p.quoteCHF({rentalValueGCHF:129.17,promo:false}).commissionGross,32.29);
+assert.equal(p.quoteCHF({rentalValueGCHF:99.36,promo:false}).finalTotal,99.36);
+console.log('ENGINE OK commission incluse 25%; groupes/durée/week-end pré-calculés; pack; second booking; net hôte 75%');
 """
     done = subprocess.run(["node", "-e", node_test, str(ENGINE)], text=True, capture_output=True, check=False)
     assert done.returncode == 0, done.stderr
     print(done.stdout.strip())
 
-    require(market, "guestFee", "extensionHours", "weekend", "partySize", "discountAmount", "creditUsed", "hostPayout")
+    require(market, "PoolbnbPricing.quoteCHF", "rentalValueGCHF", "commissionGross", "extensionHours", "weekend", "partySize", "discountAmount", "creditUsed", "hostNet")
+    assert "PoolbnbPricing.quote(" not in market, "appel runtime ambigu quote() encore présent"
     require(market, "partnerOrders", "hostApplications", "referrals", "creditLedger")
-    require(market, "BKG-DEMO-260711-001", "hostPrice", "guestFee", "guestTotalBeforePromo", "hostPayout")
+    require(market, "BKG-DEMO-260711-001", "rentalValueG", "commissionGross", "commissionPolicyVersion", "hostNet")
     require(market, "status:i===2?'CONDITIONNEL':([0,1,3].includes(i)?'VALIDÉ':'BROUILLON')", "published:[0,1,3].includes(i)")
     require(admin, "Baseline exacte restaurée", "3 réservations", "0 commande partenaire")
     assert STORE_KEY in "\n".join(sources.values())
     assert "surgeMultiplier" not in combined_pricing and "surgePrice" not in combined_pricing, "mécanique surge interdite"
-    print("PASS pricing pilot: CHF69 réservable, 12 offres 2h, frais, groupes/durée/week-end, pack, payout, historique et baseline")
+    print("PASS pricing pilot: CHF69 réservable, 12 offres 2h, commission 25% incluse, groupes/durée/week-end, pack, net hôte, historique et baseline")
     return 0
 
 

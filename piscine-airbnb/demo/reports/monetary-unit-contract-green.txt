@@ -1,0 +1,8 @@
+HTML OK landing
+HTML OK market
+HTML OK member
+HTML OK host
+HTML OK admin
+HTML OK partners
+ENGINE OK commission incluse 25%; groupes/durée/week-end pré-calculés; pack; second booking; net hôte 75%
+PASS pricing pilot: CHF69 réservable, 12 offres 2h, commission 25% incluse, groupes/durée/week-end, pack, net hôte, historique et baseline

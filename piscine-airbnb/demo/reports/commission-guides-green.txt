@@ -1,0 +1,11 @@
+HTML OK landing
+HTML OK market
+HTML OK member
+HTML OK host
+HTML OK admin
+HTML OK memberGuide
+HTML OK hostGuide
+ENGINE 25/75 OK: 4 exemples, seuil, null costs, invariants
+PASS commission 25 % + guides: 7 surfaces, liens, ancres, checklists, impression
+
+EXIT_CODE=0

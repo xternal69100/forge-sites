@@ -1,0 +1,3 @@
+PASS commission engine: 4/4 exacts, seuil promo, invariant centime, coûts null
+
+EXIT_CODE=0

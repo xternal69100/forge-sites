@@ -1176,7 +1176,7 @@
       const duration = Math.max(2, end - start);
       const extras = Array.from(document.querySelectorAll('.addon-toggle:checked')).reduce((sum, input) => sum + Number(input.dataset.price), 0);
       const guestCount = Number(document.getElementById('guestCount').value);
-      const pricing = PoolbnbPricing.quote({rentalValueG:currentListing.standardRentalValues[`${guestCount}-${Math.max(0,duration-2)}-${selectedDate&&[0,6].includes(selectedDate.getDay())?1:0}`],promo:false});
+      const pricing = PoolbnbPricing.quoteCHF({rentalValueGCHF:currentListing.standardRentalValues[`${guestCount}-${Math.max(0,duration-2)}-${selectedDate&&[0,6].includes(selectedDate.getDay())?1:0}`],promo:false});
       const base = pricing.rentalValueG;
       const service = pricing.commissionGross;
       const total = pricing.rentalValueG + extras;
