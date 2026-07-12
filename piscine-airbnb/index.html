@@ -96,6 +96,7 @@
       text-transform: uppercase;
     }
     .faq-answer[hidden] { display: none; }
+    .price-total { background:#161A21; color:#fff; border-radius:20px; padding:16px; }
   </style>
 </head>
 <body class="bg-neutral font-sans text-ink antialiased">
@@ -384,9 +385,9 @@
               <span class="block text-xs font-extrabold uppercase tracking-[0.18em] text-muted">Budget</span>
               <select id="budgetFilter" class="mt-2 w-full bg-transparent text-sm font-extrabold text-ink outline-none">
                 <option value="all">Tous les budgets</option>
-                <option value="180">Jusqu’à 180 CHF</option>
-                <option value="260">Jusqu’à 260 CHF</option>
-                <option value="350">Jusqu’à 350 CHF</option>
+                <option value="75">≤ CHF 75 total / 2 h</option>
+                <option value="100">≤ CHF 100 total / 2 h</option>
+                <option value="150">≤ CHF 150 total / 2 h</option>
               </select>
             </label>
             <label class="rounded-clg border border-line px-4 py-3">
@@ -645,7 +646,7 @@
           <div class="flex items-center justify-between gap-4">
             <div>
               <div class="text-sm font-extrabold text-muted">Pré-réserver cette piscine</div>
-              <div class="mt-1 text-2xl font-extrabold tracking-[-0.04em] text-ink"><span id="modalPrice"></span> <span class="text-sm font-bold text-muted">/ base 4h</span></div>
+              <div class="price-total mt-2"><span id="modalPrice" class="text-3xl font-extrabold"></span><span class="block text-sm font-bold"> total groupe · 2 h</span><small>frais obligatoires inclus · <span id="modalPerPerson"></span></small></div>
             </div>
             <div class="rounded-full bg-white px-3 py-2 text-sm font-extrabold text-muted shadow-card">Mock produit</div>
           </div>
@@ -662,11 +663,10 @@
             <label class="rounded-clg border border-line bg-white px-4 py-3">
               <span class="block text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Invités</span>
               <select id="guestCount" class="mt-2 w-full bg-transparent text-sm font-extrabold text-ink outline-none">
-                <option value="4">4 invités</option>
+                <option value="2">2 invités</option>
+                <option value="4" selected>4 invités</option>
                 <option value="6">6 invités</option>
                 <option value="8">8 invités</option>
-                <option value="10">10 invités</option>
-                <option value="12">12 invités</option>
               </select>
             </label>
             <label class="rounded-clg border border-line bg-white px-4 py-3">
@@ -687,9 +687,9 @@
                 <option value="12">12:00</option>
                 <option value="13">13:00</option>
                 <option value="14">14:00</option>
-                <option value="15">15:00</option>
+                <option value="15" selected>15:00</option>
                 <option value="16">16:00</option>
-                <option value="17" selected>17:00</option>
+                <option value="17">17:00</option>
                 <option value="18">18:00</option>
                 <option value="19">19:00</option>
               </select>
@@ -717,25 +717,30 @@
 
           <div class="mt-5 rounded-cxl bg-ink p-5 text-white">
             <div class="space-y-2 text-sm text-white/70">
-              <div class="flex items-center justify-between"><span>Base créneau</span><span id="lineBase">0 CHF</span></div>
-              <div class="flex items-center justify-between"><span>Frais de service</span><span id="lineService">0 CHF</span></div>
+              <div class="flex items-center justify-between"><span>Prix hôte</span><span id="lineBase">0 CHF</span></div>
+              <div class="flex items-center justify-between"><span>Frais invité inclus</span><span id="lineService">0 CHF</span></div>
               <div class="flex items-center justify-between"><span>Extras</span><span id="lineExtras">0 CHF</span></div>
             </div>
             <div class="mt-4 flex items-end justify-between gap-4 border-t border-white/10 pt-4">
               <div>
-                <div class="text-sm text-white/60">Total estimatif</div>
+                <div class="text-sm text-white/60">Total groupe · frais obligatoires inclus</div>
                 <div id="bookingTotal" class="text-3xl font-extrabold tracking-[-0.04em]">0 CHF</div>
               </div>
               <button class="rounded-full bg-white px-4 py-2 text-sm font-extrabold text-ink">Envoyer une demande</button>
             </div>
-            <div class="mt-3 text-xs leading-6 text-white/60">Calcul indicatif uniquement. Aucun paiement réel, contrat ni assurance active n’est branché dans cette démo.</div>
+            <div class="mt-3 text-xs leading-6 text-white/60">Hypothèses de démonstration — aucun vrai tarif ni traction. Calcul indicatif uniquement.</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <script id="pricing-data" type="application/json">
+{"version":"17-pilote","offers":[{"id":"LST-DEMO-001","level":"Essentielle","hostBase":63,"guestTotal2h":69,"includedGuests":4,"extraGuest":8,"extensionHourly":25,"durationHours":2,"perPersonAt4":17.25,"bookable":true},{"id":"LST-DEMO-002","level":"Signature","hostBase":92,"guestTotal2h":99.36,"includedGuests":4,"extraGuest":10,"extensionHourly":32,"durationHours":2,"perPersonAt4":24.84,"bookable":true},{"id":"LST-DEMO-003","level":"Essentielle","hostBase":69,"guestTotal2h":75,"includedGuests":4,"extraGuest":8,"extensionHourly":25,"durationHours":2,"perPersonAt4":18.75,"bookable":true},{"id":"LST-DEMO-004","level":"Signature","hostBase":80,"guestTotal2h":86.4,"includedGuests":4,"extraGuest":10,"extensionHourly":32,"durationHours":2,"perPersonAt4":21.6,"bookable":true},{"id":"LST-DEMO-005","level":"Essentielle","hostBase":72,"guestTotal2h":78,"includedGuests":4,"extraGuest":8,"extensionHourly":25,"durationHours":2,"perPersonAt4":19.5,"bookable":true},{"id":"LST-DEMO-006","level":"Signature","hostBase":84,"guestTotal2h":90.72,"includedGuests":4,"extraGuest":10,"extensionHourly":32,"durationHours":2,"perPersonAt4":22.68,"bookable":true},{"id":"LST-DEMO-007","level":"Signature","hostBase":88,"guestTotal2h":95.04,"includedGuests":4,"extraGuest":10,"extensionHourly":32,"durationHours":2,"perPersonAt4":23.76,"bookable":true},{"id":"LST-DEMO-008","level":"Signature","hostBase":96,"guestTotal2h":103.68,"includedGuests":4,"extraGuest":10,"extensionHourly":32,"durationHours":2,"perPersonAt4":25.92,"bookable":true},{"id":"LST-DEMO-009","level":"Signature","hostBase":105,"guestTotal2h":113.4,"includedGuests":4,"extraGuest":10,"extensionHourly":32,"durationHours":2,"perPersonAt4":28.35,"bookable":true},{"id":"LST-DEMO-010","level":"Signature","hostBase":110,"guestTotal2h":118.8,"includedGuests":4,"extraGuest":10,"extensionHourly":32,"durationHours":2,"perPersonAt4":29.7,"bookable":true},{"id":"LST-DEMO-011","level":"Signature","hostBase":118,"guestTotal2h":127.44,"includedGuests":4,"extraGuest":10,"extensionHourly":32,"durationHours":2,"perPersonAt4":31.86,"bookable":true},{"id":"LST-DEMO-012","level":"Exception","hostBase":138,"guestTotal2h":149.04,"includedGuests":4,"extraGuest":12,"extensionHourly":44,"durationHours":2,"perPersonAt4":37.26,"bookable":true,"premiumReason":"Vue Léman, bassin chauffé, douche dédiée et serviettes incluses"}]}
+  </script>
+  <script src="demo/pricing-engine.js"></script>
   <script>
+    const pricingCatalog = JSON.parse(document.getElementById('pricing-data').textContent).offers;
     const listings = [
       {
         id: 1,
@@ -743,7 +748,7 @@
         region: 'Genève',
         town: 'Cologny',
         mood: 'afterwork',
-        price: 280,
+        price: 63,
         guests: 8,
         rating: 4.9,
         reviews: 18,
@@ -762,7 +767,7 @@
         region: 'Lausanne',
         town: 'Lutry',
         mood: 'famille',
-        price: 210,
+        price: 92,
         guests: 6,
         rating: 4.8,
         reviews: 26,
@@ -781,7 +786,7 @@
         region: 'Nyon',
         town: 'Rolle',
         mood: 'wellness',
-        price: 175,
+        price: 69,
         guests: 4,
         rating: 4.7,
         reviews: 11,
@@ -800,8 +805,8 @@
         region: 'Riviera',
         town: 'Vevey',
         mood: 'anniversaire',
-        price: 320,
-        guests: 10,
+        price: 80,
+        guests: 8,
         rating: 5.0,
         reviews: 9,
         gradient: 'listing-gradient-4',
@@ -819,7 +824,7 @@
         region: 'Morges',
         town: 'Morges',
         mood: 'famille',
-        price: 160,
+        price: 72,
         guests: 8,
         rating: 4.7,
         reviews: 22,
@@ -838,7 +843,7 @@
         region: 'Lausanne',
         town: 'Pully',
         mood: 'afterwork',
-        price: 245,
+        price: 84,
         guests: 6,
         rating: 4.9,
         reviews: 14,
@@ -857,7 +862,7 @@
         region: 'Nyon',
         town: 'Nyon',
         mood: 'anniversaire',
-        price: 230,
+        price: 88,
         guests: 8,
         rating: 4.8,
         reviews: 19,
@@ -876,7 +881,7 @@
         region: 'Genève',
         town: 'Vandoeuvres',
         mood: 'wellness',
-        price: 355,
+        price: 96,
         guests: 6,
         rating: 5.0,
         reviews: 7,
@@ -895,7 +900,7 @@
         region: 'Morges',
         town: 'Saint-Prex',
         mood: 'wellness',
-        price: 185,
+        price: 105,
         guests: 4,
         rating: 4.6,
         reviews: 13,
@@ -914,8 +919,8 @@
         region: 'Riviera',
         town: 'Montreux',
         mood: 'afterwork',
-        price: 340,
-        guests: 10,
+        price: 110,
+        guests: 8,
         rating: 4.9,
         reviews: 8,
         gradient: 'listing-gradient-5',
@@ -933,7 +938,7 @@
         region: 'Lausanne',
         town: 'La Conversion',
         mood: 'famille',
-        price: 190,
+        price: 118,
         guests: 8,
         rating: 4.8,
         reviews: 17,
@@ -952,7 +957,7 @@
         region: 'Nyon',
         town: 'Gland',
         mood: 'afterwork',
-        price: 265,
+        price: 138,
         guests: 8,
         rating: 4.9,
         reviews: 15,
@@ -966,6 +971,7 @@
         trust: 'Support hôte ultra-réactif'
       }
     ];
+    listings.forEach((listing, index) => Object.assign(listing, pricingCatalog[index], {id:index + 1, guests:8}));
 
     const grid = document.getElementById('listingGrid');
     const resultsCount = document.getElementById('resultsCount');
@@ -989,7 +995,7 @@
     let selectedDate = null;
 
     function euroSwiss(number) {
-      return new Intl.NumberFormat('fr-CH', { maximumFractionDigits: 0 }).format(number) + ' CHF';
+      return new Intl.NumberFormat('fr-CH', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(number) + ' CHF';
     }
 
     function formatDate(date) {
@@ -1064,15 +1070,13 @@
             </div>
           </div>
           <div class="p-5">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <div class="text-sm font-bold text-muted">Dès</div>
-                <div class="mt-1 text-3xl font-extrabold tracking-[-0.04em] text-ink">${listing.price}</div>
-                <div class="text-sm text-muted">CHF / 4h</div>
-              </div>
-              <div class="rounded-cmd bg-mist px-3 py-2 text-right text-sm font-extrabold text-ink">${labelMood(listing.mood)}<br><span class="font-medium text-muted">jusqu’à ${listing.guests} invités</span></div>
+            <div class="price-total">
+              <div class="text-xs font-extrabold uppercase tracking-[0.12em] text-white/70">${listing.level} · total groupe</div>
+              <div class="mt-1 text-3xl font-extrabold tracking-[-0.04em]">CHF ${listing.guestTotal2h.toFixed(2)}</div>
+              <div class="text-sm text-white/80">2 h · jusqu’à 4 · frais obligatoires inclus</div>
+              <div class="mt-1 text-xs text-white/65">soit CHF ${listing.perPersonAt4.toFixed(2)}/personne à 4</div>
             </div>
-            <p class="mt-4 rounded-cmd bg-info px-3 py-2 text-sm font-extrabold text-ink">Piscine privée · créneau de 4 h · sans hébergement</p>
+            <p class="mt-4 rounded-cmd bg-info px-3 py-2 text-sm font-extrabold text-ink">Piscine privée · créneau de 2 h · sans hébergement</p>
             <p class="mt-4 text-sm leading-7 text-muted">${listing.description}</p>
             <div class="mt-4 flex flex-wrap gap-2">
               ${listing.features.map(feature => `<span class="rounded-full bg-mist px-3 py-2 text-xs font-extrabold text-muted">${labelFeature(feature)}</span>`).join('')}
@@ -1101,7 +1105,8 @@
       document.getElementById('modalMood').textContent = labelMood(listing.mood);
       document.getElementById('modalTrust').textContent = listing.trust;
       document.getElementById('modalDescription').textContent = listing.description;
-      document.getElementById('modalPrice').textContent = euroSwiss(listing.price);
+      document.getElementById('modalPrice').textContent = 'CHF ' + listing.guestTotal2h.toFixed(2);
+      document.getElementById('modalPerPerson').textContent = 'soit CHF ' + listing.perPersonAt4.toFixed(2) + '/personne à 4';
       document.getElementById('modalFeatures').innerHTML = listing.features.map(feature => `<span class="rounded-full bg-white px-3 py-2 text-xs font-extrabold text-muted shadow-card">${labelFeature(feature)}</span>`).join('');
       const modalVisual = document.getElementById('modalVisual');
       modalVisual.className = `${listing.gradient} relative aspect-[4/3] min-h-[280px] overflow-hidden rounded-cxl text-white shadow-card`;
@@ -1169,12 +1174,10 @@
       const duration = Math.max(2, end - start);
       const extras = Array.from(document.querySelectorAll('.addon-toggle:checked')).reduce((sum, input) => sum + Number(input.dataset.price), 0);
       const guestCount = Number(document.getElementById('guestCount').value);
-      const guestAdjustment = guestCount > currentListing.guests ? (guestCount - currentListing.guests) * 12 : 0;
-      const timeAdjustment = (duration - 4) * 24;
-      const primeAdjustment = selectedDate && [0, 6].includes(selectedDate.getDay()) ? 28 : 0;
-      const base = currentListing.price + timeAdjustment + guestAdjustment + primeAdjustment;
-      const service = Math.round(base * 0.08);
-      const total = base + service + extras;
+      const pricing = PoolbnbPricing.quote({hostBase:currentListing.hostBase,extensionHourly:currentListing.extensionHourly,extraGuest:currentListing.extraGuest,partySize:guestCount,extensionHours:Math.max(0,duration-2),weekend:Boolean(selectedDate&&[0,6].includes(selectedDate.getDay())),promo:false});
+      const base = pricing.hostPrice;
+      const service = pricing.guestFee;
+      const total = pricing.guestTotalBeforePromo + extras;
       document.getElementById('lineBase').textContent = euroSwiss(base);
       document.getElementById('lineService').textContent = euroSwiss(service);
       document.getElementById('lineExtras').textContent = euroSwiss(extras);

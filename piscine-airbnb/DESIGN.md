@@ -132,6 +132,12 @@ components:
     textColor: "{colors.secondary}"
     rounded: "{rounded.md}"
     padding: 16px
+  price-total:
+    backgroundColor: "{colors.secondary}"
+    textColor: "{colors.surface}"
+    typography: "{typography.headline-md}"
+    rounded: "{rounded.md}"
+    padding: 16px
   credit-ledger:
     backgroundColor: "{colors.surface-muted}"
     textColor: "{colors.secondary}"
@@ -258,6 +264,9 @@ Ne pas mélanger des angles durs avec ces formes organiques. Tout le système do
 - **event-journal** : journal chronologique append-only, lisible dans les espaces loueur et admin.
 - **status-conditional** : pastille chaude réservée aux décisions conditionnelles, toujours non publiables.
 - **price-breakdown** : ventilation calme et ordonnée `sous-total → réduction → crédit → total`, visible avant et après confirmation ; les montants CHF utilisent toujours deux décimales.
+- **price-total** : ancrage tarifaire dominant des cartes, du checkout, de la confirmation et des espaces membre/admin. Il affiche en grand le **total du groupe pour le créneau**, avec la durée et la capacité incluse sur la même lecture. La mention **« frais obligatoires inclus »** est immédiatement adjacente. La ventilation **« soit CHF X/personne à 4 »** est calculée et strictement secondaire : le prix par personne n’est jamais le titre, le bouton, le filtre principal ni un « dès ».
+- **Règle tarifaire transversale** : toutes les surfaces utilisent `prix hôte + frais invité = total avant promo`, où les frais invité valent `min(CHF 18 ; max(CHF 6 ; 8 % × prix hôte))`. Le total groupe/créneau frais inclus précède toute promotion. Le pack suit exclusivement `total avant promo → −20 % → −CHF 20 → total final`, sans réduire le revenu hôte (`90 % × prix hôte`). La durée par défaut est 2 h, les extensions et suppléments de groupe restent explicites, et la seule modulation temporelle est `week-end +15 %` — jamais de surge.
+- Tous les montants Poolbnb sont libellés **« hypothèses de démonstration »** : aucune carte, réservation, ventilation ou KPI ne doit être interprété comme un vrai tarif, une transaction ou de la traction.
 - **credit-ledger** : liste append-only des écritures promotionnelles et de parrainage. Le type, le statut, le montant, la date et la référence objet restent lisibles sans faire passer un crédit fictif pour de l'argent.
 - **referral-status** : carte d'état agrégé sans identité ni activité du filleul, avec actions locales de copie et de simulation clairement séparées.
 - **confirmation-dialog** : dialogue HTML modal accessible, titré, descriptif et testable, utilisé notamment à la place des confirmations natives pour les actions destructrices.

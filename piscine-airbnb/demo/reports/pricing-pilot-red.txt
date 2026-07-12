@@ -1,0 +1,17 @@
+HTML OK landing
+HTML OK market
+HTML OK member
+HTML OK host
+HTML OK admin
+HTML OK partners
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/pricing-pilot-check.py", line 108, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/pricing-pilot-check.py", line 52, in main
+    require(landing, "price-total", "total groupe", "frais obligatoires inclus", "soit CHF", HYPOTHESIS)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/pricing-pilot-check.py", line 34, in require
+    assert needle in source, f"élément absent: {needle}"
+           ^^^^^^^^^^^^^^^^
+AssertionError: élément absent: price-total
