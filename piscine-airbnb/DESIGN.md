@@ -203,6 +203,18 @@ Ne jamais mélanger plus de deux familles. Les titres serif restent rares et pr�
 
 Le layout suit une logique **mobile-first**, avec conteneur fixe large sur desktop (`1280px`) et un rythme de section généreux. L’espace doit respirer comme une marque premium, mais sans perdre l’efficacité d’une landing de conversion.
 
+### Règle de clarté catégorie — pool-first
+
+La catégorie doit être comprise en moins de trois secondes, y compris en lecture rapide ou à basse acuité visuelle. Chaque surface publique est **pool-first, jamais villa-first** :
+
+- le hero commence par un gros libellé contrasté avec pictogramme `🏊` : **LOCATION DE PISCINE PRIVÉE** ;
+- le H1 nomme explicitement la location d’une piscine privée **à l’heure ou à la journée** ;
+- la phrase immédiatement visible précise : **« Vous louez la piscine et ses espaces autorisés — jamais la villa, jamais un hébergement »** ;
+- le CTA principal dit **« Voir les piscines à louer »** ;
+- les cartes portent des noms centrés sur le bassin ou la piscine, jamais sur la villa, maison ou résidence, et répètent une ligne stable : **« Piscine privée · créneau de X h · sans hébergement »** ;
+- une section proche du hero résume ce qui est réservé (piscine, plage/terrasse autorisée, créneau) et ce qui est exclu (villa, nuitée, logement) ;
+- aucun jargon stratégique comme « supply-first » ou « trust-first » ne doit précéder cette explication de catégorie au-dessus de la ligne de flottaison.
+
 - Le hero doit combiner **promesse**, **CTAs**, **preuves de cadrage** et **aperçu produit**.
 - Les grandes sections alternent entre fond neutre, surfaces blanches et blocs encre pour installer un tempo.
 - Les éléments de filtre, scorecards et mocks doivent rester extrêmement lisibles dès 375px.
