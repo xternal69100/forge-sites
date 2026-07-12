@@ -1,0 +1,27 @@
+TOUR 2 — contrôle navigateur local réel
+URL locale : http://127.0.0.1:8877/
+
+Premier viewport landing
+- 1280×720 : « LOCATION DE PISCINE PRIVÉE » top 179 / bottom 227, 16 px, blanc sur #161A21 ; H1 « Louez une piscine privée à l’heure ou à la journée » top 251 / bottom 467, 72 px ; « Vous louez la piscine… jamais un hébergement » top 491 / bottom 583, 20 px. Trois éléments entièrement visibles. Overflow horizontal : 0.
+- 390×844 : badge top 125 / bottom 169, 14 px, blanc sur #161A21 ; H1 top 193 / bottom 375.375, 48 px ; exclusion hébergement top 399.375 / bottom 519.375, 18 px. Trois éléments entièrement visibles. Overflow horizontal : 0.
+
+Fallback hero réellement provoqué
+- image invalide : image hidden=true, aria-hidden=true, classe image-fallback=true ; pseudo-contenu « Piscine privée à louer · visuel d’ambiance indisponible » ; overlay « 🏊 LOCATION DE PISCINE PRIVÉE » toujours visible.
+
+Mesures des six surfaces
+- Desktop 1200×800 : overflow 0 sur index.html, demo/index.html, member.html, host.html, partners.html, admin.html. Images : 17/17 décodées, 0 cassée.
+- Mobile 390×844 : overflow 0 sur les six surfaces. Images : 17/17 décodées, 0 cassée.
+- Console : 0 erreur JS. Avertissement non bloquant observé : usage du CDN Tailwind sur la landing.
+
+Rejeu E2E global exécuté dans les scripts réels
+- baseline avant : 0 dossier, 3 annonces publiées, 3 réservations, 0 commande partenaire, pack éligible, parrainage CRÉÉ ;
+- réservation Piscine Panorama du Léman : confirmation visible, réservations 4, pack consommé ;
+- parrainage : CRÉDIT_ACQUIS, écriture sponsor AVAILABLE ;
+- onboarding : 1 dossier, 4/4 documents, 4/4 sécurité, DOSSIER_COMPLET ;
+- admin : CONDITIONNEL non publié, puis VALIDÉ publié avec annonce créée ;
+- partenaire : 1 commande SIMULÉE, quantité 2 ;
+- reset final : 0 dossier, 3 annonces publiées, 3 réservations, 0 commande partenaire, pack éligible/non utilisé, un parrainage CRÉÉ, 1 écriture ledger.
+
+Propagation publique
+- Cache-bust contrôlé : https://xternal69100.github.io/forge-sites/piscine-airbnb/?qa=tour2-20260712
+- Au contrôle, l’ancienne version restait servie (title « Poolbnb Léman — Piscines privées premium autour du Léman », hero supply-first). Propagation Tour 2 non revendiquée.
