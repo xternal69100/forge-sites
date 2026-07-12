@@ -1,0 +1,15 @@
+HTML OK landing
+HTML OK market
+HTML OK member
+HTML OK host
+HTML OK admin
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/commission-guides-check.py", line 63, in <module>
+    if __name__=='__main__': main()
+                             ~~~~^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/commission-guides-check.py", line 26, in main
+    assert path.exists(),f'page absente: {path.name}'
+           ~~~~~~~~~~~^^
+AssertionError: page absente: guide-membre.html
+
+EXIT=1
