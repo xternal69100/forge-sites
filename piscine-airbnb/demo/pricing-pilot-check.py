@@ -105,6 +105,7 @@ console.log('ENGINE OK fee=min6/max18; groupes 2/4/6/8; extension; week-end +15%
     require(market, "guestFee", "extensionHours", "weekend", "partySize", "discountAmount", "creditUsed", "hostPayout")
     require(market, "partnerOrders", "hostApplications", "referrals", "creditLedger")
     require(market, "BKG-DEMO-260711-001", "hostPrice", "guestFee", "guestTotalBeforePromo", "hostPayout")
+    require(market, "status:i===2?'CONDITIONNEL':([0,1,3].includes(i)?'VALIDÉ':'BROUILLON')", "published:[0,1,3].includes(i)")
     require(admin, "Baseline exacte restaurée", "3 réservations", "0 commande partenaire")
     assert STORE_KEY in "\n".join(sources.values())
     assert "surgeMultiplier" not in combined_pricing and "surgePrice" not in combined_pricing, "mécanique surge interdite"
