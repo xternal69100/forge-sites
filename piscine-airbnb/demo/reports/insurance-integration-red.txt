@@ -1,0 +1,24 @@
+HTML OK landing
+HTML OK market
+HTML OK host
+HTML OK member
+HTML OK admin
+Traceback (most recent call last):
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/insurance-integration-check.py", line 108, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/insurance-integration-check.py", line 54, in main
+    require(landing,
+    ~~~~~~~^^^^^^^^^
+        "Réservez l’usage d’une piscine privée proposée par un hôte.",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "Démonstration uniquement : aucune annonce réelle, aucun paiement, aucune réservation commerciale et aucune assurance Poolbnb par réservation ne sont actifs.",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        CURRENT_INSURANCE, "observation non certifiante", "Informations de démonstration",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "Poolbnb fournit un service d’intermédiation et de réservation entre hôtes et invités.")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/data/workspace/forge/projects/piscine-airbnb/site/demo/insurance-integration-check.py", line 38, in require
+    assert needle in source, f"élément absent: {needle}"
+           ^^^^^^^^^^^^^^^^
+AssertionError: élément absent: Réservez l’usage d’une piscine privée proposée par un hôte.
