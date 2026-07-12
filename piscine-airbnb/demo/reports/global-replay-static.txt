@@ -1,0 +1,35 @@
+$ python3 self-check.py
+HTML OK index.html
+HTML OK demo/index.html
+HTML OK demo/member.html
+HTML OK demo/host.html
+HTML OK demo/admin.html
+CONTRACT OK key=forge:piscine-airbnb:demo:v1 landing_demo_links=3
+JS OK index.html-2
+JS OK index.html-3
+JS OK index.html-1
+JS OK member.html-1
+JS OK host.html-1
+JS OK admin.html-1
+PASS 5 pages, 6 scripts
+$ python3 rounds-2-3-check.py
+HTML OK index.html
+HTML OK member.html
+HTML OK host.html
+HTML OK admin.html
+PASS rounds 2–3: 4 pages, 4 scripts
+$ python3 rounds-4-5-check.py
+HTML OK index.html
+HTML OK member.html
+HTML OK host.html
+HTML OK admin.html
+PASS rounds 4–5: 4 pages, 4 scripts
+$ python3 rounds-6-7-check.py
+HTML OK index.html
+HTML OK member.html
+HTML OK host.html
+HTML OK partners.html
+HTML OK admin.html
+PASS rounds 6–7: 5 pages, 5 scripts
+$ python3 rounds-6-7-report-sync-check.py
+PASS report sync: 3 archétypes génériques, prix/scénarios hypothétiques, aucun flux réel
