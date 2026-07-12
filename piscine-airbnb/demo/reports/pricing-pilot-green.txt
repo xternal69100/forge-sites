@@ -1,0 +1,8 @@
+HTML OK landing
+HTML OK market
+HTML OK member
+HTML OK host
+HTML OK admin
+HTML OK partners
+ENGINE OK fee=min6/max18; groupes 2/4/6/8; extension; week-end +15%; pack; second booking; payout
+PASS pricing pilot: CHF69 réservable, 12 offres 2h, frais, groupes/durée/week-end, pack, payout, historique et baseline

@@ -19,7 +19,7 @@ def require(source:str,*needles:str)->None:
 def main()->int:
     for name,source in PAGES.items(): Parser().feed(source); require(source,KEY); print("HTML OK",name)
     market=PAGES["index.html"]; member=PAGES["member.html"]; admin=PAGES["admin.html"]
-    require(market,"discoveryPack","creditLedger","calculateDiscoveryQuote","subtotal","discountAmount","creditUsed","finalTotal","Math.min(20","PACK_DISCOUNT","PACK_CREDIT_REDEEMED","bookingId","Ventilation avant confirmation")
+    require(market,"discoveryPack","creditLedger","calculateDiscoveryQuote","subtotal","discountAmount","creditUsed","finalTotal","PoolbnbPricing.quote","PACK_DISCOUNT","PACK_CREDIT_REDEEMED","bookingId","Ventilation avant confirmation")
     require(member,"Solde disponible","Pack découverte","Écritures du ledger","Parrainage","INVITATION_COPIÉE","ÉLIGIBILITÉ_EN_REVUE","CRÉDIT_ACQUIS","REFUS_ANTI_ABUS","EXPIRÉ","simulateEligibleReferral","simulateAntiAbuse","Hypothèse de démonstration : CHF 10","PENDING","AVAILABLE","REFUSED","s.discoveryPack.creditBalance+")
     require(admin,"Réservations et ventilation","Parrainages agrégés","Ledger append-only","KPI synthétiques — démonstration, pas traction","resetDialog","showModal","Baseline exacte restaurée")
     combined="\n".join(PAGES.values())

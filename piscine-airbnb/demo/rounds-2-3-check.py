@@ -36,7 +36,7 @@ def main()->int:
     require(combined,"Round suivant","−20 % + CHF 20","abonnements partenaires")
     scripts=[]
     for name,source in sources.items():
-        scripts += [(name+f"-{i}",body) for i,body in enumerate(re.findall(r"<script(?:\s[^>]*)?>(.*?)</script>",source,re.S),1) if body.strip()]
+        scripts += [(name+f"-{i}",body) for i,(attrs,body) in enumerate(re.findall(r"<script([^>]*)>(.*?)</script>",source,re.S),1) if body.strip() and 'type="application/json"' not in attrs]
     with tempfile.TemporaryDirectory() as tmp:
         for name,body in scripts:
             path=Path(tmp)/(name+".js"); path.write_text(body,encoding="utf-8")

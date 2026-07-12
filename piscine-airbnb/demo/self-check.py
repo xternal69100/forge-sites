@@ -55,8 +55,8 @@ def main() -> int:
 
     scripts: list[tuple[str, str]] = []
     for path in PAGES:
-        for number, script in enumerate(re.findall(r"<script(?:\s[^>]*)?>(.*?)</script>", sources[path], re.S), 1):
-            if script.strip():
+        for number, (attrs, script) in enumerate(re.findall(r"<script([^>]*)>(.*?)</script>", sources[path], re.S), 1):
+            if script.strip() and 'type="application/json"' not in attrs:
                 scripts.append((f"{path.name}-{number}", script))
     with tempfile.TemporaryDirectory() as tmp:
         for name, script in scripts:

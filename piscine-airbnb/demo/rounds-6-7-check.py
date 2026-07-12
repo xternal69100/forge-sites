@@ -64,8 +64,9 @@ def main() -> int:
 
     scripts = []
     for name, source in pages.items():
-        scripts += [(f"{name}-{i}", body) for i, body in enumerate(
-            re.findall(r"<script(?:\s[^>]*)?>(.*?)</script>", source, re.S), 1) if body.strip()]
+        scripts += [(f"{name}-{i}", body) for i, (attrs, body) in enumerate(
+            re.findall(r"<script([^>]*)>(.*?)</script>", source, re.S), 1)
+            if body.strip() and 'type="application/json"' not in attrs]
     with tempfile.TemporaryDirectory() as tmp:
         for name, body in scripts:
             path = Path(tmp) / f"{name}.js"

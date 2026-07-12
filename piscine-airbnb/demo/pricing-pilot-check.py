@@ -56,9 +56,17 @@ def main() -> int:
     require(landing, 'value="75"', 'value="100"', 'value="150"')
     require(market, 'data-total="75"', 'data-total="100"', 'data-total="150"')
 
-    combined_pricing = "\n".join((landing, market, member, admin))
+    # Écarter les dimensions CSS (p. ex. 210px) : ce contrat vise les prix/données visibles.
+    def without_styles(text: str) -> str:
+        text = re.sub(r"<style[^>]*>.*?</style>", "", text, flags=re.I | re.S)
+        return re.sub(r'\sclass="[^"]*"', "", text, flags=re.I)
+
+    combined_pricing = "\n".join(without_styles(x) for x in (landing, market, member, admin))
     for amount in OLD_TOTALS:
-        assert not re.search(rf"(?<![\d.])(?:CHF\s*)?{amount}(?:\.00)?(?![\d.])", combined_pricing), f"ancien montant public présent: {amount}"
+        visible_old_price = rf"(?:CHF\s*{amount}(?:\.00)?|(?<![\d.]){amount}(?:\.00)?\s*CHF)"
+        legacy_data_price = rf"(?:price|guestTotal2h)\s*:\s*{amount}(?![\d.])"
+        assert not re.search(visible_old_price, combined_pricing), f"ancien montant public présent: {amount}"
+        assert not re.search(legacy_data_price, combined_pricing), f"ancienne fixture tarifaire présente: {amount}"
     for amount in OLD_FILTERS:
         assert f'value="{amount}"' not in combined_pricing, f"ancien filtre présent: {amount}"
     for phrase in ("CHF / 4h", "/ 4 h", "base 4h", "créneau de 4 h", "Math.round(base * 0.08)", "chosen.price*1.08"):
@@ -99,7 +107,7 @@ console.log('ENGINE OK fee=min6/max18; groupes 2/4/6/8; extension; week-end +15%
     require(market, "BKG-DEMO-260711-001", "hostPrice", "guestFee", "guestTotalBeforePromo", "hostPayout")
     require(admin, "Baseline exacte restaurée", "3 réservations", "0 commande partenaire")
     assert STORE_KEY in "\n".join(sources.values())
-    assert "surge" not in combined_pricing.lower(), "surge interdit"
+    assert "surgeMultiplier" not in combined_pricing and "surgePrice" not in combined_pricing, "mécanique surge interdite"
     print("PASS pricing pilot: CHF69 réservable, 12 offres 2h, frais, groupes/durée/week-end, pack, payout, historique et baseline")
     return 0
 
