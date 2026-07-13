@@ -1,65 +1,47 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-13T00:15:53Z",
-  "source": "registre Forge sanitizé",
-  "projects": [
-    {
-      "slug": "forge-capital",
-      "name": "💹 Forge Capital",
-      "status": "active",
-      "phase": 3,
-      "score": null,
-      "capital": {
-        "authorized_usdt": 100,
-        "committed_usdt": 0,
-        "invested_usdt": 0,
-        "liquid_usdt": 0,
-        "net_value_usdt": 0,
-        "received_usdt": 0
-      }
+  "generatedAt": "2026-07-13T00:35:55Z",
+  "source": "Forge Capital — registre sanitizé + résultats Kraken publics exportés",
+  "capital": {
+    "authorized_usdt": 100,
+    "received_usdt": 0,
+    "liquid_usdt": 0,
+    "invested_usdt": 0,
+    "committed_usdt": 0,
+    "net_value_usdt": 0
+  },
+  "marketObservation": {
+    "source": "Kraken OHLC public",
+    "observedAt": "2026-07-13T00:31:12.049016+00:00",
+    "freshness": "DIFFÉRÉ",
+    "execution": "AUCUNE"
+  },
+  "paperLearning": {
+    "mode": "PAPER UNIQUEMENT",
+    "candidateCount": 24,
+    "best": {
+      "mode": "PAPER",
+      "pair": "ETHUSDT",
+      "side": "long",
+      "window": 24,
+      "observations": 24,
+      "netPnlUsdt": 1.4074947259427972,
+      "finalBalanceUsdt": 101.4074947259428,
+      "maxDrawdown": 0.0046342722978925405,
+      "trades": 1
     },
-    {
-      "slug": "forge-capital",
-      "name": "🟢 Forge Capital Matrix",
-      "status": "archived",
-      "phase": 1,
-      "score": null,
-      "capital": null
+    "worst": {
+      "mode": "PAPER",
+      "pair": "ETHUSDT",
+      "side": "short",
+      "window": 24,
+      "observations": 24,
+      "netPnlUsdt": -2.014337933563226,
+      "finalBalanceUsdt": 97.98566206643677,
+      "maxDrawdown": 0.02437199861209365,
+      "trades": 1
     },
-    {
-      "slug": "hermes-artisan-suisse",
-      "name": "🛠️ Hermes Artisan Suisse",
-      "status": "mature",
-      "phase": 4,
-      "score": {
-        "total": 8.785,
-        "breakdown": {
-          "completude": 9.2,
-          "realisme_faisabilite": 8.3,
-          "alignement_profil_utilisateur": 9.0,
-          "innovation_synergies": 8.3,
-          "qualite_livrables": 9.1
-        }
-      },
-      "capital": null
-    },
-    {
-      "slug": "piscine-airbnb",
-      "name": "🏊 Poolbnb Léman",
-      "status": "active",
-      "phase": 4,
-      "score": {
-        "total": 9.615,
-        "breakdown": {
-          "completude": 10.0,
-          "realisme_faisabilite": 9.4,
-          "alignement_profil_utilisateur": 9.8,
-          "innovation_synergies": 8.8,
-          "qualite_livrables": 9.9
-        }
-      },
-      "capital": null
-    }
-  ]
+    "disclaimer": "Résultats paper : ils ne sont ni encaissés ni ajoutés à la valeur nette réelle."
+  }
 }
