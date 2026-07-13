@@ -16,14 +16,14 @@ COPYRIGHT = "Copyright 2026 The Studio Typographique Forge Project Authors"
 STORE_KEY = "forge:studio-typographique:demo:v1"
 EXPECTED = {
     "downloads/Elanovre-Open-Edition-v1.000.zip": {
-        "Elanovre-Regular.ttf": "c0594a4610c495599a9f5ec4521a64d456e82c6dc5e397c32280032f986896a4",
-        "Elanovre-Regular.otf": "f6fa27675792fae738777654fcf109b530946d0bee8d88f0c9ae73e60617d18f",
-        "Elanovre-Regular.woff2": "49d49a4dc393f2457ec342a9396091e5913068886017a3a91b0dbd4ad0235f05",
+        "Elanovre-Regular.ttf": "6bdbb174249edec2de480ccda3212cf471518f6b301df70bb1ee883d9ee6133f",
+        "Elanovre-Regular.otf": "01433752aaa46806660f35eae4978ee03488c255ba4c96e8dcb103bfb305413d",
+        "Elanovre-Regular.woff2": "b61bd6330074f3d25c7d2d47bd9916d44158984d0fc6a2af6862fe2374ca4a08",
     },
     "downloads/KeraVolt-Optical-Open-Edition-v1.100.zip": {
-        "KeraVoltOptical-Regular.ttf": "fa98aa04c353af85bb2addcbd446ae6ecdcdd5d9b278af8ded971ef4b4f6da08",
-        "KeraVoltOptical-Regular.otf": "f73628141da8733c4b54b20bc22c758378ef52abacbbff48a88421f6f3b3ddac",
-        "KeraVoltOptical-Regular.woff2": "f3b3252b0662e20abfb4c0733584e88ece6ab27fe109fc2472bbe5f7bf1aa4fc",
+        "KeraVoltOptical-Regular.ttf": "0049c87b5df568a7f3cff992490318e7c3ff9123b4f3ac27c21091a14335e179",
+        "KeraVoltOptical-Regular.otf": "683e6a43149bd589f22a316e8c99e5d9c227ecac2d90f4f215ddd1d725c840b2",
+        "KeraVoltOptical-Regular.woff2": "b649534a3d04f24918474adda690007c0866a6077864d01a79db6d55153ea162",
     },
 }
 REQUIRED = {
@@ -103,6 +103,7 @@ def validate_copy() -> None:
     demo = (ROOT / "demo/index.html").read_text(encoding="utf-8")
     admin = (ROOT / "demo/admin.html").read_text(encoding="utf-8")
     store = (ROOT / "demo/store.js").read_text(encoding="utf-8")
+    css = (ROOT / "assets/site.css").read_text(encoding="utf-8").replace(" ", "")
     for needle in ("Elanovre", "KeraVolt Optical", "SIL Open Font License 1.1", "CHF 0", "aucun Reserved Font Name"):
         check(needle in landing, f"mention catalogue absente: {needle}")
     for needle in ("Mode démonstration — aucun débit réel", "aucune carte", "CHF 0"):
@@ -112,6 +113,7 @@ def validate_copy() -> None:
     check("orders: []" in store, "baseline vide absente")
     check("stripe" not in (demo + store).lower() and "paypal" not in (demo + store).lower(), "provider de paiement détecté")
     check(COPYRIGHT in landing, "notice copyright absente du catalogue")
+    check("[hidden]{display:none!important}" in css, "le CSS doit préserver l’attribut hidden des filtres")
 
 
 def validate_zips() -> int:

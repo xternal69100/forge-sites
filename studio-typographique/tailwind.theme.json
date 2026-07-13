@@ -2,6 +2,7 @@
   "theme": {
     "extend": {
       "colors": {
+        "primary": "#c4432c",
         "ink": "#151512",
         "paper": "#f2efe5",
         "surface": "#fffcf5",
