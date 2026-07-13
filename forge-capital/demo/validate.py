@@ -80,7 +80,7 @@ def main() -> None:
     check("Valider" in combined and "Modifier" in combined and "Refuser" in combined, "actions d’approbation absentes")
     check(all(command in combined for command in ["/aujourdhui", "/clients", "/factures", "/contenu", "/priorites"]), "commandes Telegram incomplètes")
 
-    forbidden_network = [r"\bfetch\s*\(", r"XMLHttpRequest", r"new\s+WebSocket", r"navigator\.sendBeacon", r"https?://"]
+    forbidden_network = [r"\bfetch\s*\(", r"XMLHttpRequest", r"new\s+WebSocket", r"navigator\.sendBeacon", r"https?://(?!www\.w3\.org/2000/svg)"]
     for pattern in forbidden_network:
         check(not re.search(pattern, all_public, re.I), f"appel réseau ou URL externe interdit: {pattern}")
 

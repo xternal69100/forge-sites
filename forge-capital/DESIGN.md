@@ -3,17 +3,18 @@ version: alpha
 name: Studio Office — Telegram-first
 description: Un office manager numérique chaleureux et précis pour coach indépendante, piloté par conversation et gardé sous contrôle humain.
 colors:
+  primary: "#B83B25"
   ink: "#16231F"
   inkSoft: "#344A42"
   canvas: "#F4F1E8"
   paper: "#FFFCF5"
   paperStrong: "#FFFFFF"
   line: "#D7D0C1"
-  accent: "#E95435"
-  accentDark: "#A82E1A"
+  accent: "#B83B25"
+  accentDark: "#842518"
   sage: "#CBE4D7"
   sageDark: "#1E684D"
-  telegram: "#2389C7"
+  telegram: "#176D9D"
   warning: "#A96500"
   danger: "#A12C2C"
 typography:
@@ -98,9 +99,9 @@ Marque de release : `coach-office-v2`.
 - **Ink (#16231F)** porte la confiance, les titres et le cockpit.
 - **Canvas (#F4F1E8)** évoque un carnet de travail sans paraître rétro.
 - **Paper (#FFFCF5)** sépare les modules et les fiches opérationnelles.
-- **Accent (#E95435)** signale les actions commerciales importantes, jamais les métriques décoratives.
+- **Accent (#B83B25)** signale les actions commerciales importantes, jamais les métriques décoratives.
 - **Sage (#CBE4D7)** distingue les éléments validés, planifiés ou sous contrôle.
-- **Telegram (#2389C7)** n’apparaît que dans la simulation conversationnelle.
+- **Telegram (#176D9D)** n’apparaît que dans la simulation conversationnelle.
 - Tous les statuts ont un libellé ; la couleur seule ne porte aucune décision.
 
 ## Typography
