@@ -132,7 +132,7 @@ Angles techniques mais non agressifs : rayon 6 px pour commandes, 12 px pour car
 - **Bannière DÉMO** : persistante sur toutes les surfaces transactionnelles ; elle rappelle qu’aucun ordre, débit, provider ou transmission réelle n’est possible.
 - **Cartes de preuve** : titre, état textuel, source publique autorisée et fraîcheur. Une preuve absente reste affichée comme absente.
 - **Terminal** : journal synthétique append-only, horodatage et identifiant ; jamais de prompts ou logs privés.
-- **Transaction Lab** : étapes OBSERVÉ → ÉTUDIÉ → PAPER ou REJETÉ → preuve. Les états PROPOSÉ, AUTORISÉ et EXÉCUTÉ sont visibles comme vocabulaire de gouvernance ; EXÉCUTÉ exige un `proofId` non vide.
+- **Transaction Lab** : étapes OBSERVÉ → ÉTUDIÉ → PAPER, REJETÉ ou TICKET À VALIDER non signé. Les cinq classes publiques sont `LIVE PUBLIC`, `DIFFÉRÉ`, `PAPER`, `TICKET À VALIDER` et `EXÉCUTÉ AVEC PREUVE` ; ce dernier état exige `proofId`, `proofSource` et `proofTimestamp` non vides.
 - **Boutons** : libellés verbaux, états disabled explicites, aucune action financière réelle.
 
 ## Do's and Don'ts
