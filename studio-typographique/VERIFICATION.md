@@ -122,5 +122,5 @@ Le contrôle ZIP indépendant a ouvert les deux archives, obtenu `bad_member=nul
 
 - Les noms sont des **labels d’édition**. Cette publication ne revendique ni clearance de marque, ni droit enregistré, ni titularité vérifiée.
 - La SIL Open Font License 1.1 porte sur les fichiers distribués ; elle ne constitue pas un avis juridique ou une garantie d’absence de droits de tiers.
-- La validation navigateur est locale. Aucune URL publique de production n’a été fournie pour contrôler une éventuelle propagation CDN après auto-publication.
+- La propagation publique a été contrôlée sur `https://xternal69100.github.io/forge-sites/studio-typographique/?release=20260713-2151` : HTTP 200, deux fontes chargées, filtre corrigé, ZIP publics aux hashes attendus et parcours client→admin→reset rejoué.
 - Le store a été laissé à sa baseline exacte : `{ "version": 1, "orders": [] }`.
