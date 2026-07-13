@@ -1,22 +1,70 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Forge Capital Cyber Operations — cockpit public de marché, risque, agents et preuves.">
-<meta name="release" content="cyber-ops-v1"><title>Forge Capital — Cyber Operations</title>
-<link rel="stylesheet" href="demo/styles.css"><script defer src="demo/app.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Un office manager numérique Telegram-first pour coach indépendante : agenda, clients, contenus, facturation, pré-compta et approbations dans un seul flux supervisé.">
+  <title>Studio Office — L’office manager Telegram-first des coachs</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
+  <link rel="stylesheet" href="demo/styles.css">
 </head>
-<body>
-<header class="system-bar"><div class="system-inner"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span><span>FORGE CAPITAL</span><span class="release">cyber-ops-v1</span></a><nav class="nav-links" aria-label="Surfaces"><a aria-current="page" href="./">Manifeste</a><a href="demo/">Cockpit</a><a href="demo/transaction.html">Transaction Lab</a><a href="demo/admin.html">Admin</a></nav><div class="system-state"><span class="pulse"></span><span class="clock" data-clock>--:--:--</span></div></div></header>
-<main class="container">
-<div class="landing-shell">
-<section class="landing-core" aria-labelledby="title"><div class="scanline"></div><div><div class="eyebrow">Poste public de supervision · Monitor / Operate</div><h1 id="title">Observer.<br><span>Éprouver.</span><br>Prouver.</h1><p class="lead">Forge Capital expose ce qui peut être contrôlé sans exposer ce qui doit rester privé : marché public en lecture seule, stratégie PAPER, risque, agents et preuves. Aucune commande web ne signe, ne transmet ou n’exécute un ordre.</p><div class="actions"><a class="button" href="demo/">Entrer dans le cockpit</a><a class="button secondary" href="demo/transaction.html">Ouvrir le laboratoire</a></div></div><div><div class="status-row"><span class="badge live">LIVE PUBLIC</span><span class="badge deferred">DIFFÉRÉ</span><span class="badge PAPER">PAPER</span><span class="badge">TICKET À VALIDER</span><span class="badge success">EXÉCUTÉ AVEC PREUVE</span></div><p class="micro muted">Cinq classes explicites. Aucune équivalence implicite entre observation, simulation et capital réel.</p></div></section>
-<aside class="landing-rail" aria-label="Accès opératoires">
-<section class="panel"><div class="panel-head"><div><div class="panel-kicker">État système</div><h2>Gate live</h2></div><span class="badge NO_GO">NO_GO</span></div><div class="panel-body"><div class="data-row"><div><strong>Capital autorisé</strong><small>Mandat public</small></div><b class="data">100 USDT</b></div><div class="data-row"><div><strong>Capital reçu prouvé</strong><small>Registre sanitizé</small></div><b class="data warning-text">0 USDT</b></div><div class="data-row"><div><strong>Valeur nette réelle</strong><small>PAPER exclu</small></div><b class="data">0 USDT</b></div><div class="notice warning"><strong>Mode actuel : PAPER.</strong><br>Le testnet signé et les gates stratégiques restent bloquants.</div></div></section>
-<section class="manifest"><a href="demo/"><span class="manifest-index">01</span><span><strong>Cockpit marché & agents</strong><br><small class="muted">Radar, ticker, top of book, topologie, risque, provenance.</small></span><span aria-hidden="true">→</span></a><a href="demo/transaction.html"><span class="manifest-index">02</span><span><strong>Transaction Lab</strong><br><small class="muted">Fixture DÉMO : signal → étude → PAPER / rejet / ticket non signé.</small></span><span aria-hidden="true">→</span></a><a href="demo/admin.html"><span class="manifest-index">03</span><span><strong>Administration</strong><br><small class="muted">Journal, preuve complète, filtres et reset exact.</small></span><span aria-hidden="true">→</span></a></section>
-<section class="panel"><div class="panel-head"><div><div class="panel-kicker">Contrat public</div><h2>Preuve &gt; récit</h2></div><span class="badge deferred">DIFFÉRÉ</span></div><div class="panel-body micro muted">Le snapshot est construit par allowlist. Une lecture Kraken réussie devient LIVE PUBLIC avec timestamp. En échec, aucune valeur obsolète ne conserve ce badge. `EXÉCUTÉ AVEC PREUVE` exige identifiant, source et horodatage.</div></section>
-</aside></div>
+<body data-release="coach-office-v2">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<nav class="site-nav" aria-label="Navigation principale"><div class="nav-inner">
+  <a class="brand" href="./"><span class="brand-mark">SO</span><span>Studio Office</span></a>
+  <div class="nav-links"><a href="#mission">Mission</a><a href="#couverture">Couverture</a><a href="#offre">Offre fondatrice</a><a class="button" href="demo/">Voir le parcours fictif</a></div>
+</div></nav>
+<main id="contenu">
+  <section class="container hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Office manager numérique · Telegram-first</div>
+      <h1>Votre studio avance. Même quand l’administratif s’accumule.</h1>
+      <p class="lead">Agenda, messages, clients, prospects, contenus, devis, factures et pré-compta réunis dans un flux quotidien. Vous échangez dans Telegram ; les décisions sensibles restent entre vos mains.</p>
+      <div class="hero-actions"><a class="button" href="demo/">Explorer la démonstration fictive</a><a class="button secondary" href="#couverture">Voir tout ce qui est couvert</a></div>
+      <p class="tiny muted">Démonstrateur synthétique : aucun client réel, aucune donnée réelle, aucun envoi ni paiement.</p>
+    </div>
+    <aside id="offre" class="offer-board" aria-labelledby="offer-title">
+      <div class="eyebrow" style="color:#ffad9b">Première cohorte · places limitées</div>
+      <h2 id="offer-title">Installer votre office manager, ensemble.</h2>
+      <div class="offer-price">CHF 300 <small>installation fondatrice, une fois</small></div>
+      <div class="price-row"><span>Puis, pour cette offre fondatrice</span><strong>CHF 150/mois</strong></div>
+      <div class="price-row"><span>Onboarding</span><strong>2 × 1 h</strong></div>
+      <div class="note"><strong>Un prix fondateur, pas un tarif standard.</strong><br>Cette proposition sert à co-construire la première version avec quelques indépendantes. Le futur tarif standard n’est pas annoncé.</div>
+    </aside>
+  </section>
+
+  <section id="mission" class="section alt"><div class="container">
+    <div class="section-head"><div><div class="eyebrow">Une journée pilotée, pas un chatbot de plus</div><h2>Le travail invisible devient une file claire.</h2></div><p class="lead">Chaque matin : priorités, rendez-vous, réponses à préparer et décisions à prendre. Le système exécute le travail réversible, et vous demande un accord avant toute action engageante.</p></div>
+    <div class="grid grid-3">
+      <article class="card"><div class="card-index">01</div><h3>Demandez dans Telegram</h3><p>« /aujourdhui », « /clients », « /factures » ou une question en langage naturel. Les réponses restent lisibles et actionnables.</p></article>
+      <article class="card"><div class="card-index">02</div><h3>L’office se met en ordre</h3><p>Les informations synthétiques du cockpit sont classées par agenda, CRM, inbox, marketing, factures, pièces et tâches.</p></article>
+      <article class="card"><div class="card-index">03</div><h3>Vous gardez le dernier mot</h3><p>Valider, modifier ou refuser un contenu, une relance ou un devis. L’autonomie augmente seulement quand le cadre est clair.</p></article>
+    </div>
+  </div></section>
+
+  <section id="couverture" class="section"><div class="container">
+    <div class="section-head"><div><div class="eyebrow">Office manager complet</div><h2>Huit domaines reliés, un seul fil de décision.</h2></div><p class="muted">La démonstration active volontairement toute la couverture fonctionnelle. Elle ne contient que des fixtures `.test` et aucune donnée de santé.</p></div>
+    <div class="grid grid-4">
+      <article class="card domain-card"><h3>Agenda & RDV</h3><p>Préparation, confirmations, points du jour et créneaux à arbitrer.</p></article>
+      <article class="card domain-card"><h3>Inbox & email</h3><p>Tri, réponses proposées, urgences et suivi sans envoi automatique.</p></article>
+      <article class="card domain-card"><h3>CRM & clients</h3><p>Fiches de contact, échéances administratives et historique de relation.</p></article>
+      <article class="card domain-card"><h3>Prospects & relances</h3><p>Demandes entrantes, prochaines étapes et relances commerciales.</p></article>
+      <article class="card domain-card"><h3>Marketing & contenus</h3><p>Brouillons, calendrier éditorial et validation avant publication.</p></article>
+      <article class="card domain-card"><h3>Devis & factures</h3><p>Préparation, statuts, montants et décisions avant envoi.</p></article>
+      <article class="card domain-card"><h3>Pièces & pré-compta</h3><p>Collecte des justificatifs, catégorisation et lots prêts à exporter.</p></article>
+      <article class="card domain-card"><h3>Reporting & approbations</h3><p>KPIs opérationnels, tâches, journal et file de décisions sensibles.</p></article>
+    </div>
+  </div></section>
+
+  <section class="section alt"><div class="container grid grid-2" style="align-items:center">
+    <div><div class="eyebrow">Telegram-first</div><h2>Votre cockpit tient dans une conversation.</h2><p class="lead">La vue complète existe quand vous en avez besoin. Au quotidien, les commandes courtes et les boutons de décision suffisent.</p><ul class="promise-list"><li>Aucune carte bancaire dans la démonstration</li><li>Aucun message, email ou contenu réellement envoyé</li><li>Aucune donnée de santé demandée ou générée</li><li>Autonomie graduée et journal visible</li></ul><a class="button" href="demo/">Jouer le parcours complet</a></div>
+    <div class="telegram-preview" aria-label="Aperçu fictif de Telegram"><div class="telegram-head"><span class="avatar">SO</span><span><strong>Studio Office</strong><br><small>simulation locale</small></span></div><div class="chat"><div class="bubble me"><span class="command">/aujourdhui</span></div><div class="bubble"><strong>Bonjour Léa 👋</strong><br>2 rendez-vous · 2 réponses à préparer · 1 devis en attente · 2 décisions à valider.</div><div class="bubble"><strong>Carrousel Instagram prêt.</strong><br>« La régularité commence par un créneau réaliste. »<div class="chat-actions"><button type="button">Valider</button><button type="button">Modifier</button><button type="button">Refuser</button></div></div></div></div>
+  </div></section>
+
+  <section class="section"><div class="container"><div class="section-head"><div><div class="eyebrow">Onboarding fondateur</div><h2>Deux rendez-vous d’une heure pour rendre le système utile.</h2></div><p class="muted">Rendez-vous 1 : priorités, outils et règles. Rendez-vous 2 : réglages, validations et mise en route. La démonstration simule ce parcours sans prise de rendez-vous réelle.</p></div><div class="grid grid-2"><article class="card"><div class="card-index">1 h</div><h3>Cartographier votre studio</h3><p>Canaux, fichiers, habitudes, responsabilités et points de friction. On choisit ce qui peut être préparé automatiquement et ce qui doit rester approuvé.</p></article><article class="card"><div class="card-index">1 h</div><h3>Activer votre rythme</h3><p>Commandes Telegram, briefing quotidien, files de travail et seuils d’approbation. Vous repartez avec un cadre observable et réversible.</p></article></div></div></section>
+
+  <section class="section" style="padding-top:0"><div class="container card" style="background:var(--sage);border-color:var(--sage-dark);padding:clamp(1.5rem,5vw,3.5rem)"><div class="eyebrow">Mode démonstration</div><h2>Suivez le parcours comme une coach fictive.</h2><p class="lead">Choisissez deux rendez-vous, activez les huit domaines, confirmez le checkout simulé puis ouvrez le cockpit rempli de données synthétiques.</p><div class="actions"><a class="button" href="demo/">Commencer</a></div></div></section>
 </main>
-<footer class="footer"><div class="container"><span>FORGE CAPITAL · CYBER OPERATIONS · cyber-ops-v1</span><span>PUBLIC-SAFE · AUCUNE CLÉ · AUCUN ORDRE TRANSMIS</span></div></footer>
-<script>document.addEventListener('DOMContentLoaded',()=>ForgeCapitalMatrix.mountClock());</script>
-</body></html>
+<footer class="footer"><div class="container"><strong>Studio Office · démonstrateur coach</strong><span class="muted">Aucun client réel · aucune transmission · <span class="release">coach-office-v2</span></span></div></footer>
+</body>
+</html>
