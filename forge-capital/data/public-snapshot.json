@@ -3,7 +3,7 @@
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
   "generatedAt": "2026-07-13T22:23:05Z",
-  "source": "Registre Forge Capital sanitizé + documents allowlistés + résultats Kraken publics",
+  "source": "Registre Forge Capital sanitizé + documents allowlistés + données publiques Hyperliquid on-chain primaires",
   "capital": {
     "authorized_usdt": 100,
     "received_usdt": 0,
@@ -26,7 +26,7 @@
       "status": "LIVRÉ"
     },
     {
-      "mission": "Transactions live/étudiées : connexion en lecture seule aux tickers publics Kraken et au",
+      "mission": "Transactions live/étudiées : lecture seule de l’API publique Hyperliquid on-chain ; historique CEX au plus DATA-ONLY EXOGÈNE secondaire.",
       "status": "LIVRÉ"
     },
     {
@@ -42,7 +42,7 @@
       "status": "EN COURS"
     },
     {
-      "mission": "Scanner de marché spot reproductible et walk-forward : données publiques Kraken XBT/ETH/SOL,",
+      "mission": "Scanner historique reproductible : anciennes données CEX reclassées DATA-ONLY EXOGÈNE secondaire ; activité/custody/hedge exclusivement on-chain.",
       "status": "LIVRÉ"
     },
     {
@@ -193,7 +193,7 @@
     }
   ],
   "marketObservation": {
-    "source": "Kraken OHLC public",
+    "source": "Hyperliquid public on-chain (snapshot différé)",
     "observedAt": "2026-07-13T04:06:12.066685+00:00",
     "freshness": "DIFFÉRÉ",
     "execution": "AUCUNE"
@@ -393,7 +393,7 @@
     }
   },
   "transactionClasses": [
-    "LIVE PUBLIC",
+    "ON-CHAIN LIVE",
     "DIFFÉRÉ",
     "PAPER",
     "TICKET À VALIDER",

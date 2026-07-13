@@ -1,1 +1,75 @@
-{"theme":{"extend":{"colors":{"primary":"#b83b25","ink":"#16231f","inkSoft":"#344a42","canvas":"#f4f1e8","paper":"#fffcf5","paperStrong":"#ffffff","line":"#d7d0c1","accent":"#b83b25","accentDark":"#842518","sage":"#cbe4d7","sageDark":"#1e684d","telegram":"#176d9d","warning":"#a96500","danger":"#a12c2c"},"fontFamily":{"display":["Georgia, Times New Roman, serif"],"h1":["Georgia, Times New Roman, serif"],"h2":["Arial, Helvetica, sans-serif"],"body":["Arial, Helvetica, sans-serif"],"label":["ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"]},"fontSize":{"display":["4rem",{"letterSpacing":"-0.04em","fontWeight":"700"}],"h1":["2.75rem",{"letterSpacing":"-0.03em","fontWeight":"700"}],"h2":["1.5rem",{"letterSpacing":"-0.02em","fontWeight":"800"}],"body":["1rem",{"letterSpacing":"0em","fontWeight":"400"}],"label":["0.75rem",{"letterSpacing":"0.08em","fontWeight":"700"}]},"borderRadius":{"sm":"6px","md":"12px","lg":"22px","pill":"999px"},"spacing":{"xs":"4px","sm":"8px","md":"16px","lg":"24px","xl":"40px","xxl":"72px"}}}}
+{
+  "theme": {
+    "extend": {
+      "colors": {
+        "primary": "#02080d",
+        "panel": "#07131b",
+        "panelStrong": "#0b1c26",
+        "line": "#173746",
+        "cyan": "#35e7ff",
+        "cyanSoft": "#99f4ff",
+        "text": "#d9f3f7",
+        "muted": "#7799a4",
+        "warning": "#ff9b42",
+        "danger": "#ff5d62",
+        "success": "#43f0a1"
+      },
+      "fontFamily": {
+        "display": [
+          "Arial Narrow, Impact, Arial, sans-serif"
+        ],
+        "h1": [
+          "Arial Narrow, Impact, Arial, sans-serif"
+        ],
+        "body": [
+          "Arial, Helvetica, sans-serif"
+        ],
+        "data": [
+          "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        ]
+      },
+      "fontSize": {
+        "display": [
+          "5rem",
+          {
+            "letterSpacing": "0.025em",
+            "fontWeight": "900"
+          }
+        ],
+        "h1": [
+          "3rem",
+          {
+            "letterSpacing": "0.025em",
+            "fontWeight": "900"
+          }
+        ],
+        "body": [
+          "0.9375rem",
+          {
+            "letterSpacing": "0em",
+            "fontWeight": "400"
+          }
+        ],
+        "data": [
+          "0.75rem",
+          {
+            "letterSpacing": "0.04em",
+            "fontWeight": "700"
+          }
+        ]
+      },
+      "borderRadius": {
+        "sm": "2px",
+        "md": "4px",
+        "lg": "6px"
+      },
+      "spacing": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "12px",
+        "lg": "20px",
+        "xl": "32px"
+      }
+    }
+  }
+}
