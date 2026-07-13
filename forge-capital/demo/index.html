@@ -1,146 +1,37 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Cockpit Matrix public et sanitizé de Forge Capital : équipe, résultats, apprentissages, marché public et paper trading.">
-  <title>Forge Capital — Cockpit Matrix</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💹</text></svg>">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="agent-cell.css">
-  <script defer src="app.js"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Cockpit public Forge Capital : marché, capital, agents, risque et preuves."><meta name="release" content="cyber-ops-v1">
+<title>Forge Capital — Cockpit Cyber Operations</title><link rel="stylesheet" href="styles.css"><script defer src="app.js"></script>
 </head>
 <body>
-  <div class="demo-banner">Mode démonstration — aucun débit réel · aucune transaction réelle · marché public en lecture seule · paper trading séparé du capital réel</div>
-  <nav class="nav"><div class="nav-inner">
-    <a class="brand" href="../">[ FORGE CAPITAL / MATRIX ]</a>
-    <div class="nav-links"><a aria-current="page" href="./">Cockpit</a><a href="transaction.html">Transaction Lab</a><a href="admin.html">Administration</a></div>
-  </div></nav>
-  <main><div class="container">
-    <header class="section">
-      <div class="eyebrow">Centre de commandement · <span class="badge demo">PUBLIC-SAFE</span></div>
-      <h1 style="font:800 clamp(2.4rem,6vw,4.5rem)/1 ui-monospace,monospace;letter-spacing:-.06em;margin:.7rem 0">Le capital, les agents et les preuves.</h1>
-      <p class="lead">Une vue Forge Capital de l’équipe, des résultats, des apprentissages et des signaux étudiés. Les prix LIVE PUBLIC sont lus sans clé ; les résultats PAPER ne modifient jamais la valeur nette réelle.</p>
-    </header>
-
-    <section aria-labelledby="kpi-title">
-      <div class="section-head"><div><div class="eyebrow">Registre</div><h2 id="kpi-title">Capital réel</h2></div><span class="badge deferred">0 USDT reçu · exécution bloquée</span></div>
-      <div id="kpis" class="grid grid-4"></div>
-    </section>
-
-    <section class="section" aria-labelledby="market-title">
-      <div class="section-head"><div><div class="eyebrow">Kraken API publique · lecture seule</div><h2 id="market-title">Marché observé</h2></div><button id="refresh-market" class="button secondary" type="button">Rafraîchir LIVE PUBLIC</button></div>
-      <p id="market-status" class="notice" role="status">Connexion au flux public…</p>
-      <div id="market-cards" class="grid grid-3"></div>
-    </section>
-
-    <section class="section" aria-labelledby="paper-title">
-      <div class="section-head"><div><div class="eyebrow">Dernier cycle local exporté</div><h2 id="paper-title">Centre d’apprentissage</h2></div><span id="snapshot-badge" class="badge deferred">DIFFÉRÉ</span></div>
-      <div id="paper-results" class="grid grid-3"><article class="card"><p class="muted">Chargement du snapshot sanitizé…</p></article></div>
-    </section>
-
-    <section id="agent-cell" class="section" aria-labelledby="agent-cell-title">
-      <div class="section-head"><div><div class="eyebrow">Cellule multi-agents · PAPER_ONLY</div><h2 id="agent-cell-title">Recherche news → protocole → veto</h2></div><span id="agent-freshness" class="badge deferred">DIFFÉRÉ</span></div>
-      <p class="notice"><strong>Lecture stricte.</strong> Les 11 sources HTTP réussies n’impliquent ni edge ni performance. Une news entre au plus dans la file de recherche; elle ne déclenche ni spec automatique, ni backtest, ni exécution.</p>
-      <div id="agent-cycle-kpis" class="grid grid-4"><article class="card"><p class="muted">Chargement du dernier cycle sanitizé…</p></article></div>
-      <div class="agent-cell-columns">
-        <div><h3>7 responsabilités séparées</h3><div id="agent-roles" class="grid"></div></div>
-        <div><h3>États non fusionnés</h3><div id="agent-lifecycle" class="lifecycle-ledger" aria-label="OBSERVÉ, RESEARCH_QUEUE, DRAFT_PROTOCOL, PREREGISTERED_PAPER, PAPER, EXÉCUTÉ"></div><p class="muted">EXÉCUTÉ reste fail-closed sans <code>proofId</code>.</p></div>
-      </div>
-      <div class="agent-cell-columns">
-        <div><h3>Santé des 11 sources</h3><div id="agent-source-health" class="source-health"></div></div>
-        <div><h3>Protocoles et verdicts</h3><div id="agent-verdicts" class="grid"></div></div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="pipeline-title">
-      <div class="section-head"><div><div class="eyebrow">Pipeline public sanitizé</div><h2 id="pipeline-title">Missions, résultats et risques</h2></div><span class="badge deferred">DIFFÉRÉ</span></div>
-      <div class="grid grid-3"><div><h3>Missions</h3><div id="snapshot-missions" class="grid"></div></div><div><h3>Résultats</h3><div id="snapshot-results" class="grid"></div></div><div><h3>Risques</h3><div id="snapshot-risks" class="grid"></div></div></div>
-    </section>
-
-    <section class="section" aria-labelledby="team-title">
-      <div class="section-head"><div><div class="eyebrow">8 personas</div><h2 id="team-title">Équipe Forge Capital</h2></div><span class="muted">missions et garde-fous visibles</span></div>
-      <div id="experts" class="grid grid-4"></div>
-    </section>
-
-    <section class="section" aria-labelledby="projects-title">
-      <div class="section-head"><div><div class="eyebrow">Chaîne opératoire</div><h2 id="projects-title">Chantiers</h2></div></div>
-      <div id="projects" class="grid grid-2"></div>
-    </section>
-
-    <section class="section" aria-labelledby="learn-title">
-      <div class="section-head"><div><div class="eyebrow">Mémoire contrôlée</div><h2 id="learn-title">Apprentissages</h2></div></div>
-      <div id="learnings" class="grid grid-3"></div>
-    </section>
-
-    <section class="section" aria-labelledby="flow-title">
-      <div class="section-head"><div><div class="eyebrow">Journal append-only de démonstration</div><h2 id="flow-title">Flux étudiés</h2></div><form action="transaction.html"><button class="button secondary" type="submit">Étudier et confirmer un signal DÉMO</button></form></div>
-      <div class="card"><ol id="flow" class="timeline"></ol></div>
-    </section>
-  </div></main>
-  <footer class="footer"><div class="container"><span>Aucune clé, aucun ordre transmis, aucune performance garantie</span><a href="admin.html">Administration</a></div></footer>
-
+<header class="system-bar"><div class="system-inner"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true"></span><span>FORGE CAPITAL</span><span class="release">cyber-ops-v1</span></a><nav class="nav-links" aria-label="Surfaces"><a href="../">Manifeste</a><a aria-current="page" href="./">Cockpit</a><a href="transaction.html">Transaction Lab</a><a href="admin.html">Admin</a></nav><div class="system-state"><span class="pulse"></span><span class="clock" data-clock>--:--:--</span></div></div></header>
+<div class="truth-strip"><strong>MODE PUBLIC / PAPER</strong> · 0 USDT reçu · aucun débit réel · aucun ordre signé ou transmis · marché public en lecture seule · capital réel séparé du PAPER</div>
+<main><div class="container">
+<header class="screen-title"><div><div class="eyebrow">Centre de commandement · Forge Capital uniquement</div><h1>Cockpit de marché & preuve</h1><p>Marché observé, Centre d’apprentissage, Équipe Forge Capital, résultats, apprentissages et flux étudiés réunis dans une seule vue opératoire.</p></div><div class="status-row"><span id="global-freshness" class="badge deferred">DIFFÉRÉ · CHARGEMENT</span><button id="refresh-market" class="secondary" type="button">Rafraîchir le marché</button></div></header>
+<div id="market-ticker" class="ticker-wrap" aria-label="Ticker marché"><div class="ticker"><div class="ticker-item"><strong>FLUX</strong><b>EN LECTURE</b><small>Kraken API publique · aucun ordre</small></div></div></div>
+<div class="ops-grid">
+<section class="panel area-market" aria-labelledby="market-title"><div class="panel-head"><div><div class="panel-kicker">Kraken / lecture seule</div><h2 id="market-title">Marché observé</h2></div><span id="market-status" class="badge deferred">DIFFÉRÉ</span></div><div id="market-cards" class="panel-body"><div class="notice">Lecture du ticker public…</div></div></section>
+<section id="market-radar" class="panel area-radar" aria-labelledby="radar-title"><div class="panel-head"><div><div class="panel-kicker">Matrice abstraite / non géographique</div><h2 id="radar-title">Radar de marché</h2></div><span class="badge demo">OBSERVATION</span></div><div class="radar-shell"><div class="radar-visual" aria-label="Radar abstrait BTC, ETH, SOL et pipeline de recherche"><svg viewBox="0 0 240 240" role="img"><title>Radar abstrait des actifs observés et du pipeline PAPER</title><circle class="radar-ring" cx="120" cy="120" r="102"/><circle class="radar-ring hot" cx="120" cy="120" r="78"/><circle class="radar-ring" cx="120" cy="120" r="52"/><circle class="radar-ring" cx="120" cy="120" r="26"/><path class="radar-axis" d="M18 120H222M120 18V222M48 48L192 192M192 48L48 192"/><g class="radar-sweep"><path d="M120 120L120 18A102 102 0 0 1 192 48Z" fill="rgba(53,231,255,.06)"/><path d="M120 120L120 18" stroke="#35e7ff"/></g><path class="radar-route" d="M72 86Q120 42 169 77T183 151Q126 204 68 161T72 86Z"/><circle class="radar-node" cx="72" cy="86" r="5"/><circle class="radar-node" cx="169" cy="77" r="5"/><circle class="radar-node" cx="183" cy="151" r="5"/><circle class="radar-node paper" cx="68" cy="161" r="5"/><circle class="radar-core" cx="120" cy="120" r="15"/><text x="120" y="124" text-anchor="middle" fill="#35e7ff" font-size="8" font-family="monospace">FC</text><text x="59" y="76" fill="#8daeba" font-size="7" font-family="monospace">BTC</text><text x="173" y="70" fill="#8daeba" font-size="7" font-family="monospace">ETH</text><text x="187" y="155" fill="#8daeba" font-size="7" font-family="monospace">SOL</text><text x="45" y="177" fill="#b6a3ff" font-size="7" font-family="monospace">PAPER</text></svg></div><div class="radar-legend"><div class="radar-stat"><span class="label">Source</span><b id="radar-source">Kraken public</b><small class="muted">top of book uniquement</small></div><div class="radar-stat"><span class="label">Agents</span><b id="radar-agents">7</b><small class="muted">rôles séparés</small></div><div class="radar-stat"><span class="label">Gate</span><b class="negative">NO_GO</b><small class="muted">exécution réelle</small></div></div></div></section>
+<section id="risk-map" class="panel area-risk" aria-labelledby="risk-title"><div class="panel-head"><div><div class="panel-kicker">Registre allowlisté</div><h2 id="risk-title">Carte des risques</h2></div><span class="badge warning">OUVERT</span></div><div id="risk-items" class="panel-body"><div class="notice">Chargement des risques…</div></div></section>
+<section id="order-books" class="panel area-books" aria-labelledby="books-title"><div class="panel-head"><div><div class="panel-kicker">Mini carnets</div><h2 id="books-title">Top of book</h2></div><span class="badge live">PUBLIC</span></div><div id="book-content" class="panel-body"><div class="notice">Bid / ask courant en lecture…</div></div></section>
+<section id="market-topology" class="panel area-topology" aria-labelledby="topology-title"><div class="panel-head"><div><div class="panel-kicker">États non fusionnés</div><h2 id="topology-title">Topologie des flux</h2></div><span class="badge PAPER">PAPER_ONLY</span></div><div id="agent-lifecycle" class="topology" aria-label="OBSERVÉ, RESEARCH_QUEUE, DRAFT_PROTOCOL, PREREGISTERED_PAPER, PAPER, EXÉCUTÉ"></div></section>
+<section id="bot-health" class="panel area-bots" aria-labelledby="bot-title"><div class="panel-head"><div><div class="panel-kicker">Collecte & gates</div><h2 id="bot-title">Health des bots</h2></div><span id="health-summary" class="badge deferred">DIFFÉRÉ</span></div><div id="health-rows" class="panel-body"></div></section>
+</div>
+<section id="provenance-ledger" class="section" aria-labelledby="provenance-title"><div class="section-head"><div><div class="eyebrow">Classe de vérité / timestamp / source</div><h2 id="provenance-title">Provenance & fraîcheur</h2></div><span id="snapshot-badge" class="badge deferred">DIFFÉRÉ</span></div><div id="provenance-grid" class="provenance-grid"></div></section>
+<section id="agent-cell" class="section" aria-labelledby="agent-cell-title"><div class="section-head"><div><div class="eyebrow">Cellule multi-agents · PAPER_ONLY</div><h2 id="agent-cell-title">Équipe Forge Capital</h2></div><span id="agent-freshness" class="badge deferred">DIFFÉRÉ</span></div><div class="notice"><strong>Lecture stricte.</strong> Les sources HTTP réussies n’impliquent ni edge ni performance. Une news peut alimenter la recherche ; elle ne déclenche ni spec, ni backtest, ni exécution.</div><div id="agent-cycle-kpis" class="grid grid-4 section"></div><div class="agent-cell-columns"><div class="panel"><div class="panel-head"><h2>Responsabilités</h2></div><div id="agent-roles"></div></div><div class="panel"><div class="panel-head"><h2>Santé des sources</h2></div><div id="agent-source-health" class="source-health"></div></div></div><div class="section-head section"><div><div class="eyebrow">Veto mécanique</div><h2>Résultats protocoles</h2></div></div><div id="agent-verdicts" class="grid grid-3"></div></section>
+<section class="section" aria-labelledby="capital-title"><div class="section-head"><div><div class="eyebrow">Capital réel ≠ simulation</div><h2 id="capital-title">Capital, résultats & apprentissages</h2></div><span class="badge warning">0 USDT REÇU</span></div><div id="kpis" class="grid grid-4"></div><div class="grid grid-3 section"><div><h2>Chantiers</h2><div id="projects" class="grid"></div></div><div><h2>Apprentissages</h2><div id="learnings" class="grid"></div></div><div><h2>Flux étudiés</h2><ol id="flow" class="timeline panel-body panel"></ol></div></div></section>
+<section class="section"><div class="section-head"><div><div class="eyebrow">Pipeline public sanitizé</div><h2>Missions, résultats et risques</h2></div><a class="button secondary" href="transaction.html">Étudier un signal DÉMO</a></div><div class="grid grid-3"><div><h3>Missions</h3><div id="snapshot-missions" class="grid"></div></div><div><h3>Résultats</h3><div id="snapshot-results" class="grid"></div></div><div><h3>Risques</h3><div id="snapshot-risks" class="grid"></div></div></div></section>
+</div></main>
+<footer class="footer"><div class="container"><span>cyber-ops-v1 · aucune clé · aucun ordre transmis · aucune performance garantie</span><a href="admin.html">Administration locale</a></div></footer>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
-  const M=ForgeCapitalMatrix;
-  const PUBLIC_STORE_KEY='forge:forge-capital:demo:v1'; void localStorage.getItem(PUBLIC_STORE_KEY);
-  const esc=M.escapeHTML;
-  function render(){
-    const s=M.loadStore(),capital=s.projects.find(p=>p.slug==='execution').capital;
-    document.querySelector('#kpis').innerHTML=[
-      ['Autorisé',`${capital.authorized_usdt} USDT`,'plafond du mandat'],
-      ['Reçu',`${capital.received_usdt} USDT`,'preuve requise'],
-      ['Investi',`${capital.invested_usdt} USDT`,'spot réel'],
-      ['Valeur nette',`${capital.net_value_usdt} USDT`,'paper exclu']
-    ].map(x=>`<article class="card"><div class="label">${esc(x[0])}</div><div class="metric">${esc(x[1])}</div><span class="muted">${esc(x[2])}</span></article>`).join('');
-    document.querySelector('#experts').innerHTML=s.experts.map(e=>`<article class="card"><span class="badge demo">${esc(e.status)}</span><h3>${esc(e.name)}</h3><p class="muted">${esc(e.mission)}</p></article>`).join('');
-    document.querySelector('#projects').innerHTML=s.projects.map(p=>`<article class="card"><div class="label">PHASE ${esc(p.phase)} · ${esc(p.status)}</div><h3>${esc(p.name)}</h3>${p.capital?`<p class="notice">Reçu ${p.capital.received_usdt} · investi ${p.capital.invested_usdt} · valeur nette ${p.capital.net_value_usdt} USDT</p>`:'<p class="muted">Preuves et résultats séparés.</p>'}</article>`).join('');
-    document.querySelector('#learnings').innerHTML=s.learnings.map(l=>`<article class="card"><span class="badge demo">${esc(l.provenance)}</span><h3>${esc(l.domain)}</h3><p class="muted">${esc(l.text)}</p></article>`).join('');
-    document.querySelector('#flow').innerHTML=s.journal.slice(-6).reverse().map(e=>`<li><time>${esc(e.at.slice(11,19))} UTC</time><div><strong>${esc(e.type)}</strong><br><span class="muted">${esc(e.message)}</span> <span class="badge demo">DÉMO</span></div></li>`).join('');
-  }
-  async function loadSnapshot(){
-    const target=document.querySelector('#paper-results'),badge=document.querySelector('#snapshot-badge');
-    try{
-      const response=await fetch('../data/public-snapshot.json',{cache:'no-store'}); if(!response.ok)throw new Error(`HTTP ${response.status}`);
-      const data=await response.json(),paper=data.paperLearning||{},best=paper.best||{},worst=paper.worst||{},agentCell=data.agentCell||{};
-      badge.textContent=`${data.provenance} · ${String(data.generatedAt||'').replace('T',' ').replace('Z',' UTC')}`;
-      target.innerHTML=[
-        ['Candidats',paper.candidateCount??'—','scénarios paper'],
-        ['Meilleur PAPER',best.pair?`${best.pair} ${best.side}`:'—',best.netPnlUsdt==null?'non disponible':`${Number(best.netPnlUsdt).toFixed(4)} USDT · fenêtre ${best.window}`],
-        ['Pire PAPER',worst.pair?`${worst.pair} ${worst.side}`:'—',worst.netPnlUsdt==null?'non disponible':`${Number(worst.netPnlUsdt).toFixed(4)} USDT · fenêtre ${worst.window}`]
-      ].map(x=>`<article class="card"><div class="label">${esc(x[0])}</div><div class="metric">${esc(x[1])}</div><span class="muted">${esc(x[2])}</span></article>`).join('');
-      const counts=agentCell.counts||{},sourceSummary=agentCell.sourceSummary||{},protocols=agentCell.protocols||[];
-      document.querySelector('#agent-freshness').textContent=`${agentCell.freshness?.label||'DIFFÉRÉ'} · ${String(agentCell.freshness?.cycleGeneratedAt||'horodatage absent').replace('T',' ')}`;
-      document.querySelector('#agent-cycle-kpis').innerHTML=[
-        ['Sources HTTP',`${sourceSummary.httpSuccess??0}/${sourceSummary.expected??11}`,'santé au dernier cycle'],
-        ['RESEARCH_QUEUE',`${counts.researchQueue??0}/${agentCell.researchQueueLimit??3}`,'budget dur ≤ 3'],
-        ['Protocoles',counts.preregisteredPaper??0,'PREREGISTERED_PAPER'],
-        ['Automatisation news',`${counts.newsGeneratedSpecs??0} spec · ${counts.backtestsStarted??0} backtest`,'aucun lancement direct']
-      ].map(x=>`<article class="card"><div class="label">${esc(x[0])}</div><div class="metric compact">${esc(x[1])}</div><span class="muted">${esc(x[2])}</span></article>`).join('');
-      document.querySelector('#agent-roles').innerHTML=(agentCell.roles||[]).map((role,index)=>`<article class="role-row"><span class="role-index">${esc(String(index+1).padStart(2,'0'))}</span><strong>${esc(role)}</strong></article>`).join('');
-      document.querySelector('#agent-lifecycle').innerHTML=(agentCell.lifecycle||[]).map(item=>`<div class="lifecycle-row"><span class="badge ${esc(item.stage)}">${esc(item.stage)}</span><strong>${esc(item.count)}</strong></div>`).join('');
-      document.querySelector('#agent-source-health').innerHTML=(agentCell.sourceHealth||[]).map(item=>`<div class="source-row"><span class="health-dot" aria-hidden="true"></span><strong>${esc(item.sourceId)}</strong><span class="muted">${esc(item.tier)} · HTTP ${esc(item.httpStatus)}</span></div>`).join('');
-      document.querySelector('#agent-verdicts').innerHTML=(agentCell.verdicts||[]).map((item,index)=>`<article class="card"><div class="status-row"><span class="badge PAPER">${esc(protocols[index]?.status||'PREREGISTERED_PAPER')}</span><span class="badge REJETÉ">${esc(item.verdict)}</span></div><h3>${esc(item.label)}</h3><div class="metric">${esc(item.score)}/100</div><span class="muted">Métriques ${esc(String(item.metrics).toLowerCase())} · veto mécanique</span></article>`).join('');
-      document.querySelector('#snapshot-missions').innerHTML=(data.missions||[]).map(x=>`<article class="card"><span class="badge demo">${esc(x.status)}</span><p>${esc(x.mission)}</p></article>`).join('');
-      document.querySelector('#snapshot-results').innerHTML=(data.results||[]).map(x=>`<article class="card"><div class="label">${esc(x.type)}</div><p>${esc(x.result)}</p></article>`).join('');
-      document.querySelector('#snapshot-risks').innerHTML=(data.risks||[]).map(x=>`<article class="card"><span class="badge REJETÉ">${esc(x.id)} · ${esc(x.impact)}</span><p>${esc(x.risk)}</p><span class="muted">${esc(x.state)}</span></article>`).join('');
-    }catch(error){target.innerHTML=`<article class="card"><span class="badge REJETÉ">INDISPONIBLE</span><p class="muted">Snapshot non chargé : ${esc(error.message)}</p></article>`;}
-  }
-  async function refreshMarket(){
-    const status=document.querySelector('#market-status'),cards=document.querySelector('#market-cards');
-    status.textContent='Lecture des tickers publics Kraken…';
-    try{
-      const pairs=['XBTUSDT','ETHUSDT','SOLUSDT'];
-      const rows=await Promise.all(pairs.map(async pair=>{const r=await fetch(`https://api.kraken.com/0/public/Ticker?pair=${pair}`,{cache:'no-store'});if(!r.ok)throw new Error(`${pair} HTTP ${r.status}`);const j=await r.json();if(j.error?.length)throw new Error(j.error.join(', '));const ticker=Object.values(j.result||{})[0];if(!ticker)throw new Error(`${pair} sans donnée`);return {pair,price:Number(ticker.c[0]),bid:Number(ticker.b[0]),ask:Number(ticker.a[0])};}));
-      const stamp=new Date().toISOString();
-      status.innerHTML=`<strong>LIVE PUBLIC</strong> · Kraken · ${esc(stamp)} · observation seulement, aucun ordre`;
-      cards.innerHTML=rows.map(r=>`<article class="card"><span class="badge OBSERVÉ">LIVE PUBLIC</span><h3>${esc(r.pair)}</h3><div class="metric">${esc(r.price.toLocaleString('fr-CH',{maximumFractionDigits:6}))}</div><span class="muted">bid ${esc(r.bid)} · ask ${esc(r.ask)}</span></article>`).join('');
-    }catch(error){status.innerHTML=`<strong>DIFFÉRÉ</strong> · LIVE PUBLIC indisponible : ${esc(error.message)}. Le snapshot paper reste consultable.`;cards.innerHTML='';}
-  }
-  render();loadSnapshot();refreshMarket();
-  document.querySelector('#refresh-market').addEventListener('click',refreshMarket);
-  addEventListener('forge-capital-change',render);addEventListener('storage',render);
+const M=ForgeCapitalMatrix,esc=M.escapeHTML;M.mountClock();let snapshot=null;const pairLabels={XBTUSDT:'BTC/USDT',ETHUSDT:'ETH/USDT',SOLUSDT:'SOL/USDT'};
+function renderStore(){const s=M.loadStore(),capital=s.projects.find(p=>p.slug==='execution').capital;document.querySelector('#kpis').innerHTML=[['Autorisé',capital.authorized_usdt,'USDT · plafond'],['Reçu',capital.received_usdt,'USDT · preuve requise'],['Investi',capital.invested_usdt,'USDT · réel'],['Valeur nette',capital.net_value_usdt,'USDT · PAPER exclu']].map(x=>`<article class="card"><div class="label">${esc(x[0])}</div><div class="metric">${esc(x[1])} <small>${esc(x[2])}</small></div></article>`).join('');document.querySelector('#projects').innerHTML=s.projects.map(p=>`<article class="card"><span class="badge ${p.status.includes('PAPER')?'PAPER':'deferred'}">${esc(p.status)}</span><h3>${esc(p.name)}</h3></article>`).join('');document.querySelector('#learnings').innerHTML=s.learnings.map(l=>`<article class="card"><span class="label">${esc(l.domain)}</span><p class="muted">${esc(l.text)}</p></article>`).join('');document.querySelector('#flow').innerHTML=s.journal.slice(-5).reverse().map(e=>`<li><time>${esc(e.at)}</time><div><strong>${esc(e.type)}</strong><br><span class="muted">${esc(e.message)}</span></div></li>`).join('')}
+function cardRows(rows,target,kind){document.querySelector(target).innerHTML=rows.map(x=>`<article class="card"><span class="badge ${kind}">${esc(x.status||x.type||'DIFFÉRÉ')}</span><p>${esc(x.mission||x.result||x.risk||'Non disponible')}</p>${x.state?`<small class="muted">${esc(x.state)}</small>`:''}</article>`).join('')||'<div class="notice">Aucune entrée publiée.</div>'}
+async function loadSnapshot(){try{const r=await fetch('../data/public-snapshot.json',{cache:'no-store'});if(!r.ok)throw new Error(`HTTP ${r.status}`);snapshot=await r.json();const cell=snapshot.agentCell||{},counts=cell.counts||{},summary=cell.sourceSummary||{},capital=snapshot.capital||{};document.querySelector('#snapshot-badge').textContent=`${snapshot.provenance} · ${snapshot.generatedAt}`;document.querySelector('#global-freshness').textContent=`${snapshot.provenance} · SNAPSHOT`;document.querySelector('#agent-freshness').textContent=`${cell.freshness?.label||'DIFFÉRÉ'} · ${cell.freshness?.cycleGeneratedAt||'HORODATAGE ABSENT'}`;document.querySelector('#provenance-grid').innerHTML=[['Registre capital',snapshot.provenance,snapshot.generatedAt,`${capital.received_usdt??'—'} USDT reçu`],['Marché OHLC',snapshot.marketObservation?.freshness||'DIFFÉRÉ',snapshot.marketObservation?.observedAt||'absent',snapshot.marketObservation?.source||'source absente'],['Cellule agents',cell.freshness?.label||'DIFFÉRÉ',cell.freshness?.cycleGeneratedAt||'absent',`${summary.httpSuccess??0}/${summary.expected??0} sources`],['Transaction demo','DÉMO','store local namespacé','aucune transmission']].map(x=>`<article class="provenance-item"><span class="badge ${x[1].includes('PAPER')?'PAPER':'deferred'}">${esc(x[1])}</span><strong>${esc(x[0])}</strong><div class="micro muted">${esc(x[2])}<br>${esc(x[3])}</div></article>`).join('');const agentCell=cell;document.querySelector('#agent-cycle-kpis').innerHTML=[['Sources',`${summary.httpSuccess??0}/${summary.expected??0}`,'collecte technique'],['Observés',counts.observed??0,'événements allowlistés'],['Research queue',`${counts.researchQueue??0}/${cell.researchQueueLimit??3}`,'budget dur'],['Specs / backtests',`${counts.newsGeneratedSpecs??0} / ${counts.backtestsStarted??0}`,'depuis news']].map(x=>`<article class="card"><span class="label">${esc(x[0])}</span><div class="metric">${esc(x[1])}</div><small class="muted">${esc(x[2])}</small></article>`).join('');document.querySelector('#agent-roles').innerHTML=(agentCell.roles||[]).map((role,i)=>`<div class="role-row"><span class="label">${String(i+1).padStart(2,'0')}</span><strong>${esc(role)}</strong></div>`).join('');document.querySelector('#agent-source-health').innerHTML=(agentCell.sourceHealth||[]).map(item=>`<div class="source-row"><span class="health-dot"></span><strong>${esc(item.sourceId)}</strong><span class="muted">${esc(item.tier)} · HTTP ${esc(item.httpStatus)}</span></div>`).join('');document.querySelector('#agent-verdicts').innerHTML=(agentCell.verdicts||[]).map(item=>`<article class="card"><div class="status-row"><span class="badge PAPER">PREREGISTERED_PAPER</span><span class="badge NO_GO">${esc(item.verdict)}</span></div><h3>${esc(item.label)}</h3><div class="metric">${esc(item.score)}<small>/100</small></div><small class="muted">Métriques ${esc(String(item.metrics).toLowerCase())}</small></article>`).join('');document.querySelector('#agent-lifecycle').innerHTML=(agentCell.lifecycle||[]).map(item=>`<div class="topo-node"><div class="topo-dot">${esc(item.count)}</div><strong>${esc(item.stage)}</strong></div>`).join('');document.querySelector('#health-summary').textContent=`${summary.httpSuccess??0}/${summary.expected??0} SOURCES`;document.querySelector('#health-rows').innerHTML=[['News Sentinel',summary.expected?Math.round(100*(summary.httpSuccess||0)/summary.expected):0,'source'],['Strategy Factory',counts.preregisteredPaper?100:0,'paper'],['Red-Team Validator',100,'source'],['Execution Gate',0,'stop']].map(x=>`<div class="bot-row"><span class="bot-led ${x[2]}"></span><div><strong>${esc(x[0])}</strong><div class="health-bar"><i style="--health:${x[1]}%"></i></div></div><b class="data">${x[1]}%</b></div>`).join('');document.querySelector('#risk-items').innerHTML=(snapshot.risks||[]).slice(0,5).map((r,i)=>`<div class="risk-item"><div class="risk-head"><strong>${esc(r.id)} · ${esc(r.risk)}</strong><span class="badge ${r.impact==='critique'?'warning':'deferred'}">${esc(r.impact)}</span></div><p>${esc(r.state)}</p><div class="risk-gauge"><i style="--risk:${r.impact==='critique'?92:64}%"></i></div></div>`).join('');cardRows(snapshot.missions||[],'#snapshot-missions','deferred');cardRows(snapshot.results||[],'#snapshot-results','deferred');cardRows(snapshot.risks||[],'#snapshot-risks','warning');}catch(error){document.querySelector('#global-freshness').textContent='DIFFÉRÉ · SNAPSHOT INDISPONIBLE';document.querySelector('#provenance-grid').innerHTML=`<div class="notice warning">Snapshot public indisponible : ${esc(error.message)}</div>`}}
+async function refreshMarket(){const status=document.querySelector('#market-status'),cards=document.querySelector('#market-cards'),ticker=document.querySelector('#market-ticker .ticker'),books=document.querySelector('#book-content');status.className='badge deferred';status.textContent='LECTURE…';try{const pairs=Object.keys(pairLabels);const rows=await Promise.all(pairs.map(async pair=>{const r=await fetch(`https://api.kraken.com/0/public/Ticker?pair=${pair}`,{cache:'no-store'});if(!r.ok)throw new Error(`${pair} HTTP ${r.status}`);const j=await r.json();if(j.error?.length)throw new Error(j.error.join(', '));const t=Object.values(j.result||{})[0];if(!t)throw new Error(`${pair} sans donnée`);return{pair,label:pairLabels[pair],last:Number(t.c[0]),bid:Number(t.b[0]),ask:Number(t.a[0]),open:Number(t.o)}}));const stamp=new Date().toISOString();status.className='badge live';status.textContent='LIVE PUBLIC';document.querySelector('#radar-source').textContent='Kraken · LIVE';cards.innerHTML=rows.map(r=>{const pct=r.open?((r.last/r.open)-1)*100:null;return`<div class="data-row"><div><strong>${esc(r.label)}</strong><small>Kraken · ${esc(stamp)}</small></div><div style="text-align:right"><b class="data">${esc(r.last.toLocaleString('fr-CH',{maximumFractionDigits:6}))}</b><small class="${pct>=0?'positive':'negative'}">${pct==null?'—':`${pct>=0?'+':''}${pct.toFixed(2)} %`} / 24 h</small></div></div>`}).join('');ticker.innerHTML=rows.map(r=>`<div class="ticker-item"><strong>${esc(r.label)}</strong><b>${esc(r.last.toLocaleString('fr-CH',{maximumFractionDigits:4}))}</b><small>LIVE PUBLIC · ${esc(stamp.slice(11,19))} UTC</small></div>`).join('');books.innerHTML=rows.map(r=>{const spread=r.ask-r.bid;return`<div class="orderbook"><div class="book-symbol"><strong>${esc(r.label)}</strong><small class="muted">spread ${esc(spread.toPrecision(4))}</small></div><div class="book-line ask" style="--depth:70%"><span>ASK · top</span><span>${esc(r.ask)}</span></div><div class="book-line" style="--depth:62%"><span>BID · top</span><span>${esc(r.bid)}</span></div></div>`}).join('')}catch(error){status.className='badge deferred';status.textContent='DIFFÉRÉ';document.querySelector('#radar-source').textContent='Kraken indisponible';cards.innerHTML=`<div class="notice warning"><strong>LIVE PUBLIC indisponible.</strong><br>${esc(error.message)}. Aucune valeur périmée n’est conservée comme live.</div>`;ticker.innerHTML='<div class="ticker-item"><strong>DIFFÉRÉ</strong><b>INDISPONIBLE</b><small>Dernier snapshot sans prix courant publié</small></div>';books.innerHTML='<div class="notice">Top of book indisponible — aucune profondeur inventée.</div>'}}
+renderStore();loadSnapshot();refreshMarket();document.querySelector('#refresh-market').addEventListener('click',refreshMarket);addEventListener('forge-capital-change',renderStore);addEventListener('storage',renderStore);
 });
 </script>
-</body>
-</html>
+</body></html>
