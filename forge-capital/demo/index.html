@@ -38,6 +38,11 @@
       <div id="paper-results" class="grid grid-3"><article class="card"><p class="muted">Chargement du snapshot sanitizé…</p></article></div>
     </section>
 
+    <section class="section" aria-labelledby="pipeline-title">
+      <div class="section-head"><div><div class="eyebrow">Pipeline public sanitizé</div><h2 id="pipeline-title">Missions, résultats et risques</h2></div><span class="badge deferred">DIFFÉRÉ</span></div>
+      <div class="grid grid-3"><div><h3>Missions</h3><div id="snapshot-missions" class="grid"></div></div><div><h3>Résultats</h3><div id="snapshot-results" class="grid"></div></div><div><h3>Risques</h3><div id="snapshot-risks" class="grid"></div></div></div>
+    </section>
+
     <section class="section" aria-labelledby="team-title">
       <div class="section-head"><div><div class="eyebrow">8 personas</div><h2 id="team-title">Équipe Forge Capital</h2></div><span class="muted">missions et garde-fous visibles</span></div>
       <div id="experts" class="grid grid-4"></div>
@@ -89,6 +94,9 @@ document.addEventListener('DOMContentLoaded',()=>{
         ['Meilleur PAPER',best.pair?`${best.pair} ${best.side}`:'—',best.netPnlUsdt==null?'non disponible':`${Number(best.netPnlUsdt).toFixed(4)} USDT · fenêtre ${best.window}`],
         ['Pire PAPER',worst.pair?`${worst.pair} ${worst.side}`:'—',worst.netPnlUsdt==null?'non disponible':`${Number(worst.netPnlUsdt).toFixed(4)} USDT · fenêtre ${worst.window}`]
       ].map(x=>`<article class="card"><div class="label">${esc(x[0])}</div><div class="metric">${esc(x[1])}</div><span class="muted">${esc(x[2])}</span></article>`).join('');
+      document.querySelector('#snapshot-missions').innerHTML=(data.missions||[]).map(x=>`<article class="card"><span class="badge demo">${esc(x.status)}</span><p>${esc(x.mission)}</p></article>`).join('');
+      document.querySelector('#snapshot-results').innerHTML=(data.results||[]).map(x=>`<article class="card"><div class="label">${esc(x.type)}</div><p>${esc(x.result)}</p></article>`).join('');
+      document.querySelector('#snapshot-risks').innerHTML=(data.risks||[]).map(x=>`<article class="card"><span class="badge REJETÉ">${esc(x.id)} · ${esc(x.impact)}</span><p>${esc(x.risk)}</p><span class="muted">${esc(x.state)}</span></article>`).join('');
     }catch(error){target.innerHTML=`<article class="card"><span class="badge REJETÉ">INDISPONIBLE</span><p class="muted">Snapshot non chargé : ${esc(error.message)}</p></article>`;}
   }
   async function refreshMarket(){
