@@ -259,7 +259,7 @@ Ne pas mélanger des angles durs avec ces formes organiques. Tout le système do
 - **status-active** : pastille vert lac à texte blanc, réservée aux artefacts opérationnels effectivement rédigés et utilisables comme projets pilotes.
 - **status-planned** : pastille neutre à texte encre pour les capacités non branchées ou encore soumises à validation humaine.
 - **qualification-check** : ligne interactive vert très pâle pour la mini-checklist propriétaire ; la sélection reste strictement locale au navigateur et ne collecte aucune donnée.
-- **workspace-nav** : navigation compacte et persistante entre marketplace, espace membre, espace loueur et administration.
+- **workspace-nav** : navigation compacte et persistante entre marketplace, profil unifié, catégorie Guides unique et administration.
 - **dossier-step** : carte de progression pour le dossier hôte, les checklists de types/statuts et la visite simulée ; aucun contrôle d’upload.
 - **event-journal** : journal chronologique append-only, lisible dans les espaces loueur et admin.
 - **status-conditional** : pastille chaude réservée aux décisions conditionnelles, toujours non publiables.
@@ -274,7 +274,7 @@ Ne pas mélanger des angles durs avec ces formes organiques. Tout le système do
 - **partner-model-disclosure** : panneau distinguant sans ambiguïté affiliation, apporteur d’affaires et revente ; dans la démo, aucun redirect, lead ou flux réel n’est activé.
 - **partner-checkout** : dialogue de simulation sans moyen de paiement, récapitulant quantité, total, comparaison calculée seulement si les deux prix sont sourcés, vendeur/modèle hypothétique et absence de transmission.
 
-Les espaces membre et loueur sont des surfaces distinctes. Ils réutilisent les cartes, chips et statuts mais n’exposent que des alias et adresses `example.test`. Les montants de portefeuille, crédits, réservations et revenus sont explicitement simulés.
+Le membre et le loueur partagent **un seul compte** et un **profil unifié**. Le rôle loueur s’ajoute progressivement après son guide et sa checklist obligatoires ; il ne duplique jamais l’identité, les réservations, crédits, parrainages, ledgers ou journaux. L’activation du compte, la demande du rôle loueur et la publication d’une piscine restent trois gates distincts. Les anciennes routes membre/loueur ne sont que des redirections de compatibilité. Toutes les données restent des alias et adresses `example.test`, et les montants de portefeuille, crédits, réservations et revenus sont explicitement simulés.
 
 Les composants doivent rendre visibles les signaux de confiance : labels “hôte vérifié”, “règles claires”, “créneau calme”, “programme founding host”, etc.
 

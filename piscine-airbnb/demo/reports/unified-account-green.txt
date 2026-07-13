@@ -1,0 +1,12 @@
+HTML OK landing
+HTML OK market
+HTML OK account
+HTML OK member
+HTML OK host
+HTML OK admin
+HTML OK partners
+HTML OK guides
+HTML OK memberGuide
+HTML OK hostGuide
+HTML OK legal
+PASS compte unifié: 11 pages, onboarding/checklists, demande loueur, footer légal

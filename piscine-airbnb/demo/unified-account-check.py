@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SITE = ROOT.parent
+PROJECT = SITE.parent
 KEY = "forge:piscine-airbnb:demo:v1"
 LEGAL_ID = "Poolbnb Démo SA — société fictive, non constituée et non inscrite au registre du commerce"
 PAGES = {
@@ -48,6 +49,12 @@ def main() -> int:
     require(pages["legal"], "Adresse de démonstration — non réelle", "RC : NON CONSTITUÉ — PLACEHOLDER NON VALABLE",
             "IDE : CHE-XXX.XXX.XXX — PLACEHOLDER NON VALABLE", 'id="cgu"', 'id="confidentialite"', "Statut démo")
     combined = "\n".join(pages.values())
+    design = (SITE / "DESIGN.md").read_text(encoding="utf-8")
+    host_guide = (PROJECT / "25-guide-loueur.md").read_text(encoding="utf-8")
+    require(design, "profil unifié", "un seul compte")
+    require(host_guide, "profil unifié", "même compte", "demander le rôle loueur")
+    assert "Les espaces membre et loueur sont des surfaces distinctes" not in design, "DESIGN.md conserve l’ancien modèle séparé"
+    assert "Le compte loueur est distinct du compte membre/invité" not in host_guide, "guide source conserve l’ancien modèle séparé"
     assert not re.search(r"CHE-\d{3}\.\d{3}\.\d{3}", combined), "IDE apparemment valable interdit"
     assert "capital-actions" not in combined.casefold() and "capital social" not in combined.casefold(), "capital inventé"
     assert "type=\"file\"" not in pages["account"].casefold(), "upload interdit"
