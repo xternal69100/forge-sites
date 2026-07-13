@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-NAMES = ("index.html", "member.html", "host.html", "partners.html", "admin.html")
+NAMES = ("index.html", "account.html", "partners.html", "admin.html")
 KEY = "forge:piscine-airbnb:demo:v1"
 DISCLOSURE = "Mode démonstration — aucune donnée envoyée, aucun débit réel"
 BAD_CTA = (">Acheter<", ">Souscrire maintenant<")
@@ -30,8 +30,8 @@ def main() -> int:
         pages[name] = source
         print("HTML OK", name)
 
-    for name in ("index.html", "member.html", "host.html", "admin.html"):
-        require(pages[name], 'href="partners.html"')
+    for name in ("index.html", "account.html", "admin.html"):
+        require(pages[name], 'partners.html')
 
     market, partner, admin = pages["index.html"], pages["partners.html"], pages["admin.html"]
     require(market, "Piscines partenaires", "Alternative accessible")

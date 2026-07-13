@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "provenance": "DIFFÉRÉ",
+  "generatedAt": "2026-07-13T00:15:53Z",
+  "source": "registre Forge sanitizé",
+  "projects": [
+    {
+      "slug": "forge-capital",
+      "name": "💹 Forge Capital",
+      "status": "active",
+      "phase": 3,
+      "score": null,
+      "capital": {
+        "authorized_usdt": 100,
+        "committed_usdt": 0,
+        "invested_usdt": 0,
+        "liquid_usdt": 0,
+        "net_value_usdt": 0,
+        "received_usdt": 0
+      }
+    },
+    {
+      "slug": "forge-matrix",
+      "name": "🟢 Forge Matrix",
+      "status": "archived",
+      "phase": 1,
+      "score": null,
+      "capital": null
+    },
+    {
+      "slug": "hermes-artisan-suisse",
+      "name": "🛠️ Hermes Artisan Suisse",
+      "status": "mature",
+      "phase": 4,
+      "score": {
+        "total": 8.785,
+        "breakdown": {
+          "completude": 9.2,
+          "realisme_faisabilite": 8.3,
+          "alignement_profil_utilisateur": 9.0,
+          "innovation_synergies": 8.3,
+          "qualite_livrables": 9.1
+        }
+      },
+      "capital": null
+    },
+    {
+      "slug": "piscine-airbnb",
+      "name": "🏊 Poolbnb Léman",
+      "status": "active",
+      "phase": 4,
+      "score": {
+        "total": 9.615,
+        "breakdown": {
+          "completude": 10.0,
+          "realisme_faisabilite": 9.4,
+          "alignement_profil_utilisateur": 9.8,
+          "innovation_synergies": 8.8,
+          "qualite_livrables": 9.9
+        }
+      },
+      "capital": null
+    }
+  ]
+}

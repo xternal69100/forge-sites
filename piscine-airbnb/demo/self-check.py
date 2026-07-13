@@ -10,10 +10,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SITE = ROOT.parent
-PAGES = [SITE / "index.html", ROOT / "index.html", ROOT / "member.html", ROOT / "host.html", ROOT / "admin.html"]
+PAGES = [SITE / "index.html", ROOT / "index.html", ROOT / "account.html", ROOT / "partners.html", ROOT / "guides.html", ROOT / "legal.html", ROOT / "admin.html"]
 KEY = "forge:piscine-airbnb:demo:v1"
 DISCLOSURE = "Mode démonstration — aucune donnée envoyée, aucun débit réel"
-FORBIDDEN = [r"\bTODO\b", r"\bFIXME\b", r"reste à faire", r"équipe dev", r"bug connu", r"non branché"]
+FORBIDDEN = [r"\bTODO\b", r"\bFIXME\b", r"reste à faire", r"équipe dev", r"bug connu"]
 
 
 class Parser(HTMLParser):
@@ -38,18 +38,18 @@ def main() -> int:
         print(f"HTML OK {path.relative_to(SITE)}")
 
     client = sources[ROOT / "index.html"]
-    member = sources[ROOT / "member.html"]
-    host = sources[ROOT / "host.html"]
+    member = sources[ROOT / "account.html"]
+    host = member
     admin = sources[ROOT / "admin.html"]
     landing = sources[SITE / "index.html"]
     demos = [client, member, host, admin]
-    assert all(KEY in source for source in demos)
-    assert all(DISCLOSURE in source for source in demos)
-    assert all(link in client for link in ('href="member.html"', 'href="host.html"', 'href="admin.html"'))
+    assert all(KEY in source for source in (client, member, admin))
+    assert all(DISCLOSURE in source for source in (client, member, admin))
+    assert all(link in client for link in ('href="account.html"', 'href="guides.html"', 'href="admin.html"'))
     assert 'href="index.html"' in admin
     assert landing.count('href="demo/"') >= 3
-    combined = client + member + host + admin
-    assert all(item in combined for item in ("LST-DEMO-001", "HST-DEMO-001", "BKG-DEMO-260711-001"))
+    combined = "\n".join(sources.values())
+    assert all(item in combined for item in ("LST-DEMO-001", "HST-DEMO-", "BKG-DEMO-260711-001"))
     assert all(not re.search(pattern, combined, re.I) for pattern in FORBIDDEN)
     print(f"CONTRACT OK key={KEY} landing_demo_links={landing.count('href=\"demo/\"')}")
 

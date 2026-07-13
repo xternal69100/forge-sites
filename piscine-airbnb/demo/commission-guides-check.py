@@ -9,8 +9,8 @@ ROOT=Path(__file__).resolve().parent
 SITE=ROOT.parent
 ENGINE=ROOT/'pricing-engine.js'
 SURFACES={
- 'landing':SITE/'index.html','market':ROOT/'index.html','member':ROOT/'member.html',
- 'host':ROOT/'host.html','admin':ROOT/'admin.html','memberGuide':ROOT/'guide-membre.html',
+ 'landing':SITE/'index.html','market':ROOT/'index.html','member':ROOT/'account.html',
+ 'host':ROOT/'account.html','admin':ROOT/'admin.html','memberGuide':ROOT/'guide-membre.html',
  'hostGuide':ROOT/'guide-loueur.html'}
 POLICY='gross_25_included_v1'
 KEY='forge:piscine-airbnb:demo:v1'
@@ -48,16 +48,18 @@ console.log('ENGINE 25/75 OK: 4 exemples, seuil, null costs, invariants');
         require(pages[name],'commission Poolbnb 25 % incluse')
     require(pages['market'],POLICY,'commissionGrossMinor','hostNetMinor','contributionBeforeCostsMinor','costMeasurementStatus','UNMEASURED','contributionNetMinor','MIGRATION_SNAPSHOT_CREATED','reversesEntryId')
     require(pages['admin'],'Contribution avant coûts','À mesurer','Politique','25,00 %','Contribution négative')
-    require(pages['host'],'75 %','Accepter la commission 25 % incluse')
+    require(pages['host'],'75 %','commission Poolbnb 25 % incluse')
     combined='\n'.join(pages.values())
     assert KEY in combined
     assert 'commission 10 %' not in combined and 'Frais invité inclus' not in combined
-    for name in ('landing','market','member','host','admin'):
+    for name in ('member','host'):
         require(pages[name],'guide-membre.html','guide-loueur.html')
+    for name in ('landing','market','admin'):
+        require(pages[name],'guides.html')
     for name,title,other in [('memberGuide','Guide membre Poolbnb','guide-loueur.html'),('hostGuide','Guide loueur Poolbnb','guide-membre.html')]:
         page=pages[name]; require(page,title,other,'Démarrage rapide','FAQ','checklist','@media print','@media (max-width:')
         assert page.count('href="#')>=6,'sommaire ancré insuffisant'
         assert page.count('type="checkbox"')>=5,'checklist insuffisante'
-        assert not re.search(r'\bTODO\b|localStorage|équipe dev|@[a-z0-9.-]+\.[a-z]{2,}',page,re.I),'jargon ou contact réel dans guide'
+        assert not re.search(r'\bTODO\b|localStorage|équipe dev|@(?![a-z0-9.-]*example\.test\b)[a-z0-9.-]+\.[a-z]{2,}',page,re.I),'jargon ou contact réel dans guide'
     print('PASS commission 25 % + guides: 7 surfaces, liens, ancres, checklists, impression')
 if __name__=='__main__': main()

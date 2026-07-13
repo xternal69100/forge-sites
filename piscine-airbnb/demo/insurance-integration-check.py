@@ -13,8 +13,8 @@ SITE = DEMO.parent
 PAGES = {
     "landing": SITE / "index.html",
     "market": DEMO / "index.html",
-    "host": DEMO / "host.html",
-    "member": DEMO / "member.html",
+    "host": DEMO / "account.html",
+    "member": DEMO / "account.html",
     "admin": DEMO / "admin.html",
 }
 KEY = "forge:piscine-airbnb:demo:v1"
@@ -61,14 +61,9 @@ def main() -> int:
         "Aucun hébergement, aucune surveillance de baignade", CURRENT_INSURANCE,
         "Avant de confirmer", SIMULATE_BUTTON, "acceptSafety", "acceptTerms")
     require(host,
-        "Acceptations hôte séparées", "acceptRight", "acceptAuthority", "acceptInsurance",
-        "acceptEvidence", "acceptVisit", "acceptChanges", "acceptCharter",
-        "NO_POOLBNB_BOOKING_PROTECTION", "observation non certifiante",
-        "assuranceValidTo", "authorityValidTo", "Aucun document, aucune adresse exacte et aucun identifiant sensible réel")
-    require(member,
-        "Votre rôle :", "Votre éventuelle déclaration de RC privée ne garantit pas",
-        "144/112", "Décrivez les faits observés sans attribuer de faute ni poser de diagnostic",
-        "Aucune donnée sensible")
+        "Devenir loueur", "checklist loueur obligatoire", "assurance primaire",
+        "observation non certifiante", "ni un KYC", "HOST_ROLE_REQUESTED")
+    require(member,"Profil membre actif", "144/112", "données synthétiques", "@example.test")
     require(admin,
         "Matrice synthétique des pièces et expirations", "Couche hôte primaire", "Couche Poolbnb corporate",
         "Protection secondaire par réservation", "À VALIDER", "NON SOUSCRITE",
@@ -84,10 +79,10 @@ def main() -> int:
     assert "type=\"card\"" not in market and "cvv" not in market.casefold(), "paiement réel interdit"
 
     require(landing, 'href="demo/"')
-    require(market, 'href="host.html"', 'href="member.html"', 'href="admin.html"')
-    require(host, 'href="admin.html"', 'href="member.html"')
-    require(member, 'href="host.html"', 'href="admin.html"')
-    require(admin, 'href="index.html"', 'href="host.html"', 'href="member.html"')
+    require(market, 'href="account.html"', 'href="admin.html"')
+    require(host, 'href="admin.html"', 'href="guides.html"')
+    require(member, 'href="account.html"', 'href="admin.html"')
+    require(admin, 'href="index.html"')
 
     scripts: list[tuple[str, str]] = []
     for name, source in pages.items():

@@ -14,8 +14,8 @@ ENGINE = DEMO / "pricing-engine.js"
 PAGES = {
     "landing": SITE / "index.html",
     "market": DEMO / "index.html",
-    "member": DEMO / "member.html",
-    "host": DEMO / "host.html",
+    "member": DEMO / "account.html",
+    "host": DEMO / "account.html",
     "admin": DEMO / "admin.html",
     "partners": DEMO / "partners.html",
 }
