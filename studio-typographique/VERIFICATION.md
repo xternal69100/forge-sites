@@ -101,6 +101,23 @@ Les 15 px de différence correspondent à la barre de défilement du contexte me
 
 Le scan public refuse les PNG QA, journaux, manifestes, SBOM, provenance, générateurs et spécimens de prépublication. Le site ne contient que les pages, styles/scripts nécessaires, deux WOFF2, deux ZIP, les artefacts de design, le validateur et ce rapport.
 
+## Correction de release — 2026-07-13T21:51:02Z
+
+Le replay indépendant de l’Orchestrateur a détecté puis corrigé une régression de filtrage : la règle auteur `.font-card { display:grid }` neutralisait l’affichage implicite de l’attribut HTML `hidden`. La feuille publique impose désormais `[hidden]{display:none!important}` et le validateur refuse toute suppression de cette règle.
+
+Après rechargement forcé de la CSS :
+
+```text
+recherche KeraVolt => compteur 1 famille
+Elanovre: hidden=true; display=none; height=0
+KeraVolt Optical: hidden=false
+mode Glyphes => 42 px; spécimen synchronisé
+```
+
+Le parcours a été rejoué après cette correction : référence fictive `OE-DEMO-MRJR9JRA`, total CHF 0, apparition admin 1/CHF 0, statut Nouvelle→Vérifiée, puis reset exact 0/CHF 0/0 ligne. Probe same-origin demandé à 390 px : `innerWidth=390`, `clientWidth=375`, `scrollWidth=375`, `overflow=0` sur catalogue, client et admin. Console finale : 0 message, 0 erreur JavaScript.
+
+Le contrôle ZIP indépendant a ouvert les deux archives, obtenu `bad_member=null`, retrouvé exactement 5 fichiers par paquet et les SHA-256 publiés. Le texte OFL contient les cinq marqueurs structurels contrôlés de la version 1.1 ; l’endpoint SIL officiel a opposé Cloudflare aux téléchargements automatisés de cette session, donc aucune égalité octet-par-octet distante n’est revendiquée.
+
 ## Réserves
 
 - Les noms sont des **labels d’édition**. Cette publication ne revendique ni clearance de marque, ni droit enregistré, ni titularité vérifiée.
