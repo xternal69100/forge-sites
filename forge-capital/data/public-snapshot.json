@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-13T00:45:30Z",
+  "generatedAt": "2026-07-13T01:00:05Z",
   "source": "Registre Forge Capital sanitizé + documents allowlistés + résultats Kraken publics",
   "capital": {
     "authorized_usdt": 100,
@@ -178,7 +178,7 @@
   ],
   "marketObservation": {
     "source": "Kraken OHLC public",
-    "observedAt": "2026-07-13T00:41:12.070059+00:00",
+    "observedAt": "2026-07-13T00:56:12.072292+00:00",
     "freshness": "DIFFÉRÉ",
     "execution": "AUCUNE"
   },
@@ -187,24 +187,24 @@
     "candidateCount": 24,
     "best": {
       "mode": "PAPER",
-      "pair": "XBTUSDT",
-      "side": "short",
-      "window": 48,
-      "observations": 48,
-      "netPnlUsdt": 0.6377990646497835,
-      "finalBalanceUsdt": 100.63779906464978,
-      "maxDrawdown": 0.008844185621334653,
+      "pair": "ETHUSDT",
+      "side": "long",
+      "window": 24,
+      "observations": 24,
+      "netPnlUsdt": 1.0914766720424467,
+      "finalBalanceUsdt": 101.09147667204245,
+      "maxDrawdown": 0.017160964885533182,
       "trades": 1
     },
     "worst": {
       "mode": "PAPER",
-      "pair": "XBTUSDT",
-      "side": "long",
-      "window": 48,
-      "observations": 48,
-      "netPnlUsdt": -1.2340549109108565,
-      "finalBalanceUsdt": 98.76594508908914,
-      "maxDrawdown": 0.0118459720951563,
+      "pair": "ETHUSDT",
+      "side": "short",
+      "window": 24,
+      "observations": 24,
+      "netPnlUsdt": -1.6970532756642172,
+      "finalBalanceUsdt": 98.30294672433578,
+      "maxDrawdown": 0.023446604811131807,
       "trades": 1
     },
     "disclaimer": "Résultats paper : ni encaissés ni ajoutés à la valeur nette réelle."
