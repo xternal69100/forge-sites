@@ -1,0 +1,92 @@
+{
+  "theme": {
+    "extend": {
+      "colors": {
+        "ink": "#151512",
+        "paper": "#f2efe5",
+        "surface": "#fffcf5",
+        "muted": "#5c5b54",
+        "line": "#c7c1b3",
+        "ember": "#c4432c",
+        "emberDark": "#772617",
+        "acid": "#d9e35d",
+        "success": "#1d6440",
+        "danger": "#8e2e24"
+      },
+      "fontFamily": {
+        "elanovre": [
+          "Elanovre, Arial, sans-serif"
+        ],
+        "keravolt": [
+          "KeraVolt Optical, Impact, sans-serif"
+        ],
+        "h1": [
+          "Georgia, serif"
+        ],
+        "h2": [
+          "Georgia, serif"
+        ],
+        "body": [
+          "Arial, sans-serif"
+        ],
+        "label": [
+          "Arial, sans-serif"
+        ]
+      },
+      "fontSize": {
+        "elanovre": [
+          "4rem",
+          {
+            "letterSpacing": "-0.02em",
+            "fontWeight": "400"
+          }
+        ],
+        "keravolt": [
+          "4rem",
+          {
+            "letterSpacing": "-0.015em",
+            "fontWeight": "400"
+          }
+        ],
+        "h1": [
+          "3rem",
+          {
+            "letterSpacing": "-0.025em",
+            "fontWeight": "600"
+          }
+        ],
+        "h2": [
+          "1.5rem",
+          {
+            "fontWeight": "600"
+          }
+        ],
+        "body": [
+          "1rem",
+          {
+            "fontWeight": "400"
+          }
+        ],
+        "label": [
+          "0.75rem",
+          {
+            "letterSpacing": "0.08em",
+            "fontWeight": "700"
+          }
+        ]
+      },
+      "borderRadius": {
+        "sm": "2px",
+        "md": "6px",
+        "lg": "14px"
+      },
+      "spacing": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "24px",
+        "xl": "40px"
+      }
+    }
+  }
+}

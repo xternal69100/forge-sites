@@ -1,0 +1,15 @@
+'use strict';
+const assert = require('node:assert/strict');
+const Store = require('./store.js');
+assert.equal(Store.KEY, 'forge:studio-typographique:demo:v1');
+const memory = Store.memoryStorage();
+const client = Store.create(memory);
+assert.deepEqual(client.read(), { version: 1, orders: [] });
+const order = client.addOrder({ id:'OE-DEMO-TEST', createdAt:'2026-07-13T20:00:00.000Z', family:'Elanovre', name:'Camille Exemple', email:'camille@example.test' });
+assert.equal(order.amountCHF, 0);
+assert.equal(Store.create(memory).read().orders[0].id, 'OE-DEMO-TEST');
+assert.equal(Store.create(memory).updateStatus(order.id, 'Vérifiée').status, 'Vérifiée');
+assert.deepEqual(Store.create(memory).reset(), { version: 1, orders: [] });
+assert.deepEqual(Store.create(memory).read(), { version: 1, orders: [] });
+assert.deepEqual(Store.create(Store.memoryStorage({ version: 1, orders: [{ nope:true }] })).read(), { version: 1, orders: [] });
+console.log('STORE PASS — clé exacte, création CHF 0, persistance, statut, récupération et reset vide.');
