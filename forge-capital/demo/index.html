@@ -1,14 +1,113 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Cockpit Forge Capital ON-CHAIN ONLY : Hyperliquid public BTC, ETH, SOL, recherche PAPER, risque et provenance."><title>Forge Capital — Cockpit Cyber Operations</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="agent-cell.css"><script defer src="app.js"></script></head>
-<body data-release="cyber-ops-v1"><a class="skip" href="#cockpit">Aller au cockpit</a><header class="system-bar"><div class="bar-inner"><a class="brand" href="../"><span class="brand-mark">FC</span><span>CYBER OPERATIONS</span></a><span class="release">cyber-ops-v1 · ON-CHAIN ONLY</span><nav class="nav"><a href="transaction.html">Transaction Lab</a><a href="admin.html">Administration</a><a href="../">Manifeste</a></nav></div></header><div class="truth-strip"><span id="market-status" class="tag delayed"><span class="dot"></span>DIFFÉRÉ · CONNEXION</span><span class="tag paper">PAPER</span><span class="tag proof">EXÉCUTÉ AVEC PREUVE</span><span class="tag cex">DATA-ONLY EXOGÈNE · SECONDAIRE</span><span class="tag cex">AUCUN COMPTE CEX</span></div>
-<main id="cockpit" class="shell"><div class="ops-header"><div><div class="eyebrow">Marché observé · Monitor / Operate</div><h1>On-chain signal room.</h1></div><div><div id="market-source" class="tiny">Hyperliquid public · lecture seule · connexion…</div><div id="market-time" class="tiny">Timestamp en attente</div></div></div><section class="ops-grid">
-<section id="market-ticker" class="panel ticker"><div class="ticker-title"><div class="eyebrow">ON-CHAIN FEED</div><strong>BTC · ETH · SOL</strong></div><div class="ticker-asset" data-coin="BTC"><small>BTC / USD</small><strong data-mid>—</strong><small data-freshness>DIFFÉRÉ</small></div><div class="ticker-asset" data-coin="ETH"><small>ETH / USD</small><strong data-mid>—</strong><small data-freshness>DIFFÉRÉ</small></div><div class="ticker-asset" data-coin="SOL"><small>SOL / USD</small><strong data-mid>—</strong><small data-freshness>DIFFÉRÉ</small></div></section>
-<section id="market-radar" class="panel"><div class="panel-head"><h2>Radar abstrait / actifs suivis</h2><span class="tag live">HYPERLIQUID</span></div><div class="radar" aria-label="Radar abstrait non géographique"><span class="blip b1"></span><span class="blip b2"></span><span class="blip b3"></span></div><p class="tiny">Instrument focal non géographique · trois actifs suivis · aucune carte, aucune profondeur inventée.</p></section>
-<section id="order-books" class="panel"><div class="panel-head"><h2>Top of book</h2><span class="tiny">bid / ask courant</span></div><div class="book"><strong>ACTIF</strong><strong class="bid">BID</strong><strong class="ask">ASK</strong></div><div class="book" data-book="BTC"><span>BTC</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div><div class="book" data-book="ETH"><span>ETH</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div><div class="book" data-book="SOL"><span>SOL</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div><p class="tiny">API officielle <code>l2Book</code>. Seul le meilleur bid/ask est rendu.</p></section>
-<section id="risk-map" class="panel"><div class="panel-head"><h2>Risk map</h2><span class="tag delayed">OUVERT</span></div><div class="risk-item"><span class="risk-level">CRITIQUE</span><br>Clés / smart contract / oracle</div><div class="risk-item"><span class="risk-level">ÉLEVÉ</span><br>Funding / liquidation / slippage</div><div class="risk-item"><span class="risk-level">ÉLEVÉ</span><br>Fragmentation cross-protocole interdite sans preuve</div><div class="risk-item"><span class="risk-level">DOCTRINE</span><br>Aucun compte, custody, dépôt ou hedge CEX</div></section>
-<section id="market-topology" class="panel"><div class="panel-head"><h2>Topologie de vérité</h2><span class="tag live">READ ONLY</span></div><div class="flow"><div class="node">HYPERLIQUID<br>API PUBLIQUE</div><span class="arrow">→</span><div class="node">OBSERVATION<br>ON-CHAIN LIVE</div><span class="arrow">→</span><div class="node">ÉTUDE<br>PAPER</div><span class="arrow">→</span><div class="node">GATE<br>PREUVE × 3</div></div><p class="tiny">Aucune branche navigateur vers un wallet, une signature ou une transmission. Les signaux CEX éventuels restent DATA-ONLY EXOGÈNE, hors chemin d’activité.</p></section>
-<section id="bot-health" class="panel"><div class="panel-head"><h2>Santé système</h2><span class="tag paper">PAPER ONLY</span></div><div class="health-row"><span>Hyperliquid public</span><strong id="hl-health">CONNEXION</strong></div><div class="health-row"><span>Snapshot différé</span><strong id="snapshot-health">CONNEXION</strong></div><div class="health-row"><span>Signer navigateur</span><strong class="ok">ABSENT</strong></div><div class="health-row"><span>Provider réel</span><strong class="ok">ABSENT</strong></div><div class="health-row"><span>Compte CEX</span><strong class="ok">INTERDIT</strong></div></section>
-<section id="agent-cell" class="panel"><div class="panel-head"><h2>Équipe Forge Capital — Centre d’apprentissage v3 · 16 rôles + Sentinel</h2><span class="tag delayed">PAPER / DIFFÉRÉ</span></div><div class="agent-grid"><div id="agent-roles" class="micro-panel"><div class="eyebrow">Équipe v3</div><ul><li>Intelligence marché ×5</li><li>Recherche stratégies ×3</li><li>Expérimentation ×3</li><li>Risque / qualité ×3</li><li>Conseil / coordination ×2</li><li>News Sentinel déterministe</li></ul></div><div id="agent-source-health" class="micro-panel"><div class="eyebrow">Sources</div><p class="tiny">Collecte technique différée. Elle n’implique ni edge ni performance.</p><strong id="agent-source-count">—</strong></div><div id="agent-lifecycle" class="micro-panel"><div class="eyebrow">Flux étudiés</div><ul id="agent-stages"><li>OBSERVÉ</li><li>RESEARCH_QUEUE</li><li>DRAFT_PROTOCOL</li><li>PREREGISTERED_PAPER</li><li>PAPER</li><li>EXÉCUTÉ</li></ul></div><div id="agent-verdicts" class="micro-panel"><div class="eyebrow">Résultats</div><p id="agent-results" class="tiny">NO_GO · métriques absentes</p><div class="eyebrow">Apprentissages</div><p class="tiny">PAPER séparé du capital réel.</p></div></div></section>
-<section id="provenance-ledger" class="panel"><div class="panel-head"><h2>Provenance ledger</h2><span class="tag proof">FAIL CLOSED</span></div><div class="provenance-row"><span class="source">ON-CHAIN LIVE PRIMAIRE</span>Hyperliquid Info API publique · aucun compte ni clé</div><div class="provenance-row"><span class="source">DIFFÉRÉ</span><span id="snapshot-provenance">Snapshot public sanitizé</span></div><div class="provenance-row"><span class="source">PAPER</span>Simulations et tickets locaux non signés</div><div class="provenance-row"><span class="source">EXÉCUTÉ AVEC PREUVE</span>proofId + proofSource + proofTimestamp obligatoires</div><div class="provenance-row"><span class="source">DATA-ONLY EXOGÈNE · SECONDAIRE</span>Références CEX éventuelles, jamais venue d’activité/custody/hedge</div><p class="alert">0 USDT reçu dans le snapshot public. Une cotation live ne prouve ni position, ni ordre, ni performance.</p></section>
-</section></main>
-<script>document.addEventListener('DOMContentLoaded',async()=>{const endpoint='https://api.hyperliquid.xyz/info',coins=['BTC','ETH','SOL'];const post=body=>fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(response=>{if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.json()});function price(value){const n=Number(value);return Number.isFinite(n)?n.toLocaleString('fr-CH',{minimumFractionDigits:n<100?2:1,maximumFractionDigits:n<100?4:1}):'—'}function degrade(reason){document.querySelector('#market-status').className='tag delayed';document.querySelector('#market-status').innerHTML='<span class="dot"></span>DIFFÉRÉ · LIVE INDISPONIBLE';document.querySelector('#market-source').textContent=`Hyperliquid indisponible · fallback différé (${reason})`;document.querySelector('#market-time').textContent='Aucune valeur live conservée';document.querySelector('#hl-health').textContent='INDISPONIBLE';coins.forEach(coin=>{const ticker=document.querySelector(`[data-coin="${coin}"]`),book=document.querySelector(`[data-book="${coin}"]`);ticker.querySelector('[data-mid]').textContent='—';ticker.querySelector('[data-freshness]').textContent='DIFFÉRÉ';book.querySelector('[data-bid]').textContent='—';book.querySelector('[data-ask]').textContent='—'})}try{const [mids,...books]=await Promise.all([post({type:'allMids'}),...coins.map(coin=>post({type:'l2Book',coin}))]);if(coins.some(coin=>!mids[coin]))throw new Error('actif manquant');const observedAt=new Date();coins.forEach((coin,index)=>{const ticker=document.querySelector(`[data-coin="${coin}"]`),book=document.querySelector(`[data-book="${coin}"]`),levels=books[index]?.levels;if(!levels?.[0]?.[0]?.px||!levels?.[1]?.[0]?.px)throw new Error(`book ${coin} incomplet`);ticker.querySelector('[data-mid]').textContent=price(mids[coin]);ticker.querySelector('[data-freshness]').textContent='ON-CHAIN LIVE';book.querySelector('[data-bid]').textContent=price(levels[0][0].px);book.querySelector('[data-ask]').textContent=price(levels[1][0].px)});document.querySelector('#market-status').className='tag live';document.querySelector('#market-status').innerHTML='<span class="dot"></span>ON-CHAIN LIVE';document.querySelector('#market-source').textContent='Hyperliquid Info API officielle · lecture seule · sans compte ni clé';document.querySelector('#market-time').textContent=`Observé ${observedAt.toLocaleString('fr-CH')} · ${observedAt.toISOString()}`;document.querySelector('#hl-health').textContent='HTTP SUCCESS'}catch(error){degrade(error.message)}try{const response=await fetch('../data/public-snapshot.json',{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const snapshot=await response.json(),agentCell=snapshot.agentCell;document.querySelector('#snapshot-health').textContent='HTTP SUCCESS';document.querySelector('#snapshot-provenance').textContent=`${snapshot.source} · ${snapshot.generatedAt}`;document.querySelector('#agent-source-count').textContent=`${agentCell.sourceSummary.httpSuccess}/${agentCell.sourceSummary.expected} HTTP`;document.querySelector('#agent-roles').querySelector('ul').innerHTML=agentCell.roles.map(role=>`<li>${role}</li>`).join('');document.querySelector('#agent-stages').innerHTML=agentCell.lifecycle.map(item=>`<li>${item.stage} · ${item.count}</li>`).join('');document.querySelector('#agent-results').textContent=agentCell.verdicts.map(item=>`${item.label} ${item.verdict}`).join(' · ');void agentCell.sourceHealth;void agentCell.lifecycle;void agentCell.verdicts}catch(_error){document.querySelector('#snapshot-health').textContent='INDISPONIBLE';document.querySelector('#snapshot-provenance').textContent='Snapshot différé indisponible'}});</script></body></html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Forge Capital Matrix Learning : cockpit public de stratégies PAPER, méthodes, rapports sourcés et observation Hyperliquid read-only.">
+  <title>Forge Capital — Matrix Learning</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="agent-cell.css">
+  <script defer src="app.js"></script>
+  <script defer src="matrix.js"></script>
+</head>
+<body data-release="matrix-learning-v1">
+<a class="skip" href="#cockpit">Aller au cockpit</a>
+<header class="system-bar">
+  <div class="bar-inner">
+    <a class="brand" href="../"><span class="brand-mark">FC</span><span>MATRIX LEARNING</span></a>
+    <span class="release">matrix-learning-v1 · MONITOR / OPERATE</span>
+    <nav class="nav" aria-label="Navigation principale"><a href="transaction.html">Transaction Lab</a><a href="admin.html">Administration</a><a href="../">Index</a></nav>
+  </div>
+</header>
+<div class="truth-strip" aria-label="Classes de vérité">
+  <span id="market-status" class="tag delayed"><span class="dot"></span>DIFFÉRÉ · CONNEXION</span>
+  <span class="tag paper">PAPER</span><span class="tag research">RESEARCH</span><span class="tag veto">VETO</span><span class="tag noop">NOOP</span>
+  <span class="tag cex">AUCUN COMPTE CEX · DATA-ONLY EXOGÈNE</span>
+</div>
+<main id="cockpit" class="matrix-shell">
+  <header class="ops-header matrix-command">
+    <div><div class="eyebrow">Forge Capital / Centre d’apprentissage / Marché observé</div><h1>Stratégies sous contrainte.</h1></div>
+    <div class="command-status"><span>CHAMPION</span><strong>CASH/NOOP</strong><small>aucun ordre · aucun fill · capital réel 0</small></div>
+    <div class="command-status danger-status"><span>Experiment Runner</span><strong>PAUSED</strong><small>budget / Trial / Dataset non prouvés</small></div>
+  </header>
+
+  <section class="matrix-grid">
+    <section id="market-ticker" class="panel market-ticker" aria-label="Marché on-chain observé">
+      <div class="ticker-title"><div class="eyebrow">ON-CHAIN LIVE · READ ONLY</div><strong>HYPERLIQUID PUBLIC</strong><small id="market-time">Connexion…</small></div>
+      <div class="ticker-asset" data-coin="BTC"><small>BTC / USD</small><strong data-mid>—</strong><span data-freshness>DIFFÉRÉ</span></div>
+      <div class="ticker-asset" data-coin="ETH"><small>ETH / USD</small><strong data-mid>—</strong><span data-freshness>DIFFÉRÉ</span></div>
+      <div class="ticker-asset" data-coin="SOL"><small>SOL / USD</small><strong data-mid>—</strong><span data-freshness>DIFFÉRÉ</span></div>
+    </section>
+
+    <section id="order-books" class="panel market-book">
+      <div class="panel-head"><h2>TOP-OF-BOOK</h2><span id="hl-health" class="tag delayed">CONNEXION</span></div>
+      <div class="book book-head"><strong>ACTIF</strong><strong>BID</strong><strong>ASK</strong></div>
+      <div class="book" data-book="BTC"><span>BTC</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div>
+      <div class="book" data-book="ETH"><span>ETH</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div>
+      <div class="book" data-book="SOL"><span>SOL</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div>
+      <p class="tiny">API officielle <code>l2Book</code> · meilleur bid/ask seulement · fallback différé sans valeur conservée.</p>
+    </section>
+
+    <section id="market-radar" class="panel strategy-tape" aria-labelledby="tape-title">
+      <div class="panel-head"><div><div class="eyebrow">REPLAY BORNÉ / PAS UN FLUX D’ORDRES</div><h2 id="tape-title">STRATEGY TAPE</h2></div><span id="tape-count" class="counter">—</span></div>
+      <div class="tape-controls" aria-label="Filtres du replay">
+        <label>Rôle<select id="tape-role"><option value="">TOUS</option></select></label>
+        <label>Méthode<select id="tape-method"><option value="">TOUTES</option></select></label>
+        <label>Statut<select id="tape-status"><option value="">TOUS</option></select></label>
+        <button id="tape-pause" class="secondary compact-button" type="button" aria-pressed="false">PAUSE</button>
+      </div>
+      <div id="tape-viewport" class="tape-viewport" aria-live="polite"><div id="tape-track" class="tape-track"><p class="muted">Chargement du snapshot public…</p></div></div>
+      <p class="tape-legend"><span>TRACE D’APPRENTISSAGE</span><span>PAPER</span><span>RESEARCH</span><span>VETO</span><span>NOOP</span></p>
+      <p class="tiny">Chaque ligne est une vue de replay d’un artefact réel, classée <code>ARTEFACT_REPLAY</code>. Le compteur reste celui du snapshot et ne monte jamais artificiellement.</p>
+    </section>
+
+    <section id="risk-map" class="panel decision-synthesis">
+      <div class="panel-head"><h2>SYNTHÈSE DÉCISIONNELLE</h2><span class="tag noop">CASH/NOOP</span></div>
+      <div id="decision-synthesis" class="decision-columns">
+        <div><h3>Ce qui a été appris</h3><ul id="learned-list"><li>Chargement…</li></ul></div>
+        <div><h3>Ce qui a échoué</h3><ul id="failed-list"><li>Chargement…</li></ul></div>
+        <div><h3>Ce qui change ensuite</h3><ul id="next-list"><li>Chargement…</li></ul></div>
+      </div>
+    </section>
+
+    <section id="learning-reports" class="panel learning-reports">
+      <div class="panel-head"><div><div class="eyebrow">POURQUOI RETENIR / REJETER</div><h2>LEARNING REPORTS</h2></div><span class="tag veto">PREUVE AVANT SCORE</span></div>
+      <div id="report-grid" class="report-grid"><p class="muted">Chargement des rapports sourcés…</p></div>
+    </section>
+
+    <section id="market-topology" class="panel method-lab">
+      <div class="panel-head"><div><div class="eyebrow">PROTOCOLE EN FRANÇAIS HUMAIN</div><h2>METHOD LAB</h2></div><span class="tag research">FAIL CLOSED</span></div>
+      <div id="method-lab" class="method-chain"><p class="muted">Chargement de la méthodologie…</p></div>
+    </section>
+
+    <section id="agent-cell" class="panel agent-mesh" data-bind="agentCell.roles agentCell.sourceHealth agentCell.lifecycle agentCell.verdicts">
+      <div class="panel-head"><div><div class="eyebrow">16 RÔLES + SENTINEL / AUCUN FAUX CONSENSUS</div><h2>AGENT MESH</h2></div><span class="tag paper">PAPER_ONLY</span></div>
+      <div id="agent-roles" class="agent-summary"><span>Équipe Forge Capital</span><strong>17 composants</strong></div>
+      <div id="agent-source-health" class="tiny">Collecte technique différée ; elle n’implique ni edge ni performance.</div>
+      <div id="agent-lifecycle" class="sr-only">OBSERVÉ · RESEARCH_QUEUE · DRAFT_PROTOCOL · PREREGISTERED_PAPER · PAPER · EXÉCUTÉ</div>
+      <div id="agent-verdicts" class="sr-only">Aucune promotion sans gates.</div>
+      <div id="agent-mesh" class="mesh-list"><p class="muted">Chargement des états dérivables…</p></div>
+    </section>
+
+    <section id="bot-health" class="panel runtime-gate">
+      <div class="panel-head"><h2>RUNTIME GATE</h2><span class="tag veto">STOP_FAIL_CLOSED</span></div>
+      <dl id="runtime-gate" class="runtime-list"><div><dt>Experiment Runner</dt><dd>PAUSED</dd></div><div><dt>Token scheduler</dt><dd>UNKNOWN</dd></div></dl>
+      <p class="alert">Aucune expérience tant que runtime budget, Trial Ledger et Dataset Registry ne sont pas prouvés.</p>
+    </section>
+
+    <section id="provenance-ledger" class="panel provenance-ledger">
+      <div class="panel-head"><h2>PROVENANCE / FRONTIÈRES</h2><span id="snapshot-health" class="tag delayed">DIFFÉRÉ</span></div>
+      <div class="provenance-row"><span class="source">ON-CHAIN LIVE</span>Hyperliquid Info API publique · lecture seule</div>
+      <div class="provenance-row"><span class="source">DIFFÉRÉ</span><span id="snapshot-provenance">Snapshot public sanitizé</span></div>
+      <div class="provenance-row"><span class="source">PAPER</span>Rapports 18–28 · aucune transaction réelle</div>
+      <div class="provenance-row"><span class="source">DATA-ONLY EXOGÈNE</span>CEX secondaire · aucun compte, clé, custody ou ordre</div>
+      <p class="alert">0 USDT reçu · 0 liquide · 0 investi · 0 engagé · valeur nette réelle 0.</p>
+    </section>
+  </section>
+</main>
+<dialog id="report-drawer" class="report-drawer" aria-labelledby="drawer-title">
+  <form method="dialog" class="drawer-bar"><span class="eyebrow">LEARNING REPORT / SOURCE PUBLIQUE</span><button class="secondary compact-button" value="close">FERMER</button></form>
+  <div id="drawer-content"><h2 id="drawer-title">Rapport</h2></div>
+</dialog>
+</body>
+</html>

@@ -1,6 +1,6 @@
 (()=>{'use strict';
 const STORE_KEY='forge:forge-capital:demo:v1';
-const RELEASE='cyber-ops-v1';
+const RELEASE='matrix-learning-v1';
 const MANDATE={venue:'HYPERLIQUID PERPS',doctrine:'ON-CHAIN ONLY',humanValidationRequired:false,browserSigning:false,execution:false,cexAccounts:false};
 const clone=value=>JSON.parse(JSON.stringify(value));
 const now=()=>new Date().toISOString();

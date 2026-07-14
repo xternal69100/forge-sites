@@ -19,7 +19,7 @@
   padding: .7rem .8rem;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(10, 16, 12, .72);
+  background: #0a100c;
 }
 
 .role-index {
@@ -72,7 +72,7 @@
   margin-top: .35rem;
   border-radius: 50%;
   background: var(--green);
-  box-shadow: 0 0 0 4px rgba(108, 255, 143, .1);
+  box-shadow: 0 0 0 4px #173d25;
 }
 
 .metric.compact {

@@ -1,8 +1,9 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
+  "release": "matrix-learning-v1",
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-14T00:08:54Z",
+  "generatedAt": "2026-07-14T00:23:01Z",
   "source": "Registre Forge Capital sanitizé + documents allowlistés + Hyperliquid public on-chain ; historiques Kraken DATA-ONLY EXOGÈNES",
   "capital": {
     "authorized_usdt": 100,
@@ -98,36 +99,8 @@
   ],
   "learnings": [
     {
-      "domain": "web",
-      "learning": "[2026-07-10][web] Tant qu’aucun canal de contact réel n’est autorisé/configuré, une landing publique doit faire converger tous ses CTA vers un formulaire mock honnête : validation navigateur, soumission interceptée localement, confirmation "
-    },
-    {
-      "domain": "web",
-      "learning": "[2026-07-11][web] Une vitrine trust-sensitive devient plus crédible lorsqu’elle montre séparément le gate de publication, ce qui existe comme documentation/processus et ce qui n’est pas encore branché ; une checklist locale sans collecte pe"
-    },
-    {
-      "domain": "web",
-      "learning": "[2026-07-11][web] Pour démontrer un onboarding d’actif privé sensible sans collecter de données, persister uniquement des types/statuts de preuves synthétiques, imposer des identités example.test, relier client et admin par un store namespa"
-    },
-    {
-      "domain": "web",
-      "learning": "[2026-07-11][web] Un moteur promotionnel de démo reste auditable s’il persiste l’éligibilité et l’usage unique, applique un ordre explicite sous-total → pourcentage → crédit plafonné → total non négatif, lie chaque écriture à la réservation"
-    },
-    {
-      "domain": "web",
-      "learning": "[2026-07-11][web] Pour une démo statique client/admin, les validateurs indépendants doivent partager un seul contrat canonique (route, bannière, clé de store et reset) : deux assertions divergentes sur demo/ vs demo/index.html peuvent créer"
-    },
-    {
-      "domain": "web",
-      "learning": "[2026-07-12][web] Pour clôturer un contrôle de propagation publique, utiliser un cache-buster inédit et vérifier après interaction la version embarquée, les valeurs métier, l’overflow et toute la console (JavaScript + ressources). Une erreu"
-    },
-    {
-      "domain": "process",
-      "learning": "[2026-07-10][financement] Pour une offre agentique vaudoise sans pilote signé, un budget de référence utile doit être débloqué par jalons et séparer capital social, exploitation et coussin conformité/BFR ; FIT Digital se pré-filtre via Inno"
-    },
-    {
-      "domain": "process",
-      "learning": "[2026-07-08][financement] Pour une startup digitale locale encore en validation dans le canton de Vaud, un séquençage capital fondateur → FIT Digital Grant/Seed → dette bancaire seulement après premiers signaux de traction évite de surcharg"
+      "domain": "preuve",
+      "learning": "Forge Capital : le P&L PAPER reste séparé du capital réel."
     }
   ],
   "risks": [
@@ -254,7 +227,7 @@
     "freshness": {
       "label": "DIFFÉRÉ — DERNIER CYCLE LOCAL",
       "cycleGeneratedAt": "2026-07-13T23:56:32.359880+00:00",
-      "snapshotGeneratedAt": "2026-07-14T00:08:54Z"
+      "snapshotGeneratedAt": "2026-07-14T00:23:01Z"
     },
     "sourceSummary": {
       "httpSuccess": 11,
@@ -406,6 +379,588 @@
       "status": "FAIL_CLOSED",
       "requiredField": "proofId"
     }
+  },
+  "learningReports": [
+    {
+      "id": "LR-18",
+      "title": "Sélection a posteriori : faux edge",
+      "classification": "VETO",
+      "method": "Rejeu 4 h de fenêtres chevauchantes",
+      "dataset": "OHLC publics BTC/ETH/SOL",
+      "window": "48 cycles ; fenêtres chevauchantes",
+      "costs": "Frais et slippage modélisés ; séparation train/test absente",
+      "benchmark": "BTC buy-and-hold net prévu pour l’expérience suivante",
+      "trades": null,
+      "gates": [
+        {
+          "name": "anti-cherry-picking",
+          "outcome": "FAIL"
+        },
+        {
+          "name": "split chronologique",
+          "outcome": "FAIL"
+        }
+      ],
+      "conclusion": "Les meilleurs shorts apparents sont sélectionnés après observation ; aucune validation.",
+      "proof": "Agrégat PAPER moyen −0,2990 USDT ; capital réel inchangé.",
+      "source": "Rapport 18"
+    },
+    {
+      "id": "LR-19",
+      "title": "Walk-forward spot 1 h",
+      "classification": "VETO",
+      "method": "Train / validation / test chronologiques ; paramètres train-only",
+      "dataset": "OHLC publics, trois actifs",
+      "window": "30 jours ; test verrouillé de 7,5 jours",
+      "costs": "Base positive de 0,010421 USDT, négative dès le stress moyen",
+      "benchmark": "BTC buy-and-hold net sur la même fenêtre",
+      "trades": 1,
+      "gates": [
+        {
+          "name": "excès vs BTC",
+          "outcome": "PASS"
+        },
+        {
+          "name": "coûts stressés",
+          "outcome": "FAIL"
+        },
+        {
+          "name": "diversité actifs",
+          "outcome": "FAIL"
+        }
+      ],
+      "conclusion": "Marge économique quasi nulle et une seule observation OOS : configuration arrêtée.",
+      "proof": "Verdict mécanique NO-GO ; replay déterministe documenté.",
+      "source": "Rapport 19"
+    },
+    {
+      "id": "LR-22",
+      "title": "Liquidation intrabar sous stress 100×",
+      "classification": "VETO",
+      "method": "Stress pédagogique avec maintenance et liquidation intrabar",
+      "dataset": "OHLC déjà étudiés ; rejeu diagnostique",
+      "window": "Période réutilisée, non OOS",
+      "costs": "0,10 % par côté, spread 10 bps, slippage 5 bps ; liquidation 25 bps",
+      "benchmark": "BTC buy-and-hold net sur la même période",
+      "trades": 59,
+      "gates": [
+        {
+          "name": "réconciliation liquidation",
+          "outcome": "PASS"
+        },
+        {
+          "name": "performance nette",
+          "outcome": "FAIL"
+        }
+      ],
+      "conclusion": "Sept liquidations et sous-performance BTC ; le levier 100× reste interdit.",
+      "proof": "28 tests passés ; P&L PAPER −16,165667 USDT.",
+      "source": "Rapport 22"
+    },
+    {
+      "id": "LR-23",
+      "title": "Walk-forward spot 4 h",
+      "classification": "VETO",
+      "method": "Quatre folds expansifs ; sélection train-only",
+      "dataset": "OHLC publics BTC/ETH/SOL",
+      "window": "Environ 120 jours ; quatre tests de 20 jours",
+      "costs": "Base +0,273964 ; moyen −2,949675 ; sévère −8,867134 USDT",
+      "benchmark": "BTC buy-and-hold net apparié à chaque fold",
+      "trades": 29,
+      "gates": [
+        {
+          "name": "sept gates",
+          "outcome": "PASS"
+        },
+        {
+          "name": "positif tous coûts",
+          "outcome": "FAIL"
+        }
+      ],
+      "conclusion": "Battre un BTC baissier ne compense pas une perte sous coûts sévères.",
+      "proof": "Quatre folds actifs, trois actifs ; verdict mécanique NO-GO.",
+      "source": "Rapport 23"
+    },
+    {
+      "id": "LR-25",
+      "title": "Perps walk-forward 1 h",
+      "classification": "VETO",
+      "method": "Quatre folds, train expansif, funding horaire aligné",
+      "dataset": "Données publiques Hyperliquid BTC/ETH/SOL",
+      "window": "90 jours ; quatre OOS de 10 jours",
+      "costs": "Base −3,6138 ; sévère −31,2839 USDT ; funding comptabilisé",
+      "benchmark": "BTC buy-and-hold 1× net",
+      "trades": "48 base ; 49 sévère",
+      "gates": [
+        {
+          "name": "activité et directions",
+          "outcome": "PASS"
+        },
+        {
+          "name": "P&L base",
+          "outcome": "FAIL"
+        },
+        {
+          "name": "P&L sévère",
+          "outcome": "FAIL"
+        }
+      ],
+      "conclusion": "Trois folds perdants et coûts destructeurs : aucun chemin vers le moteur réel.",
+      "proof": "Verdict mécanique NO_GO live dans l’artefact PAPER.",
+      "source": "Rapport 25"
+    },
+    {
+      "id": "LR-26",
+      "title": "Walk-forward liquidation-aware",
+      "classification": "VETO",
+      "method": "Trois folds avec maintenance, funding et priorité liquidation intrabar",
+      "dataset": "Public Hyperliquid, trois actifs",
+      "window": "Trois folds ; 60 jours OOS",
+      "costs": "Base +5,527140 ; sévère −7,306306 USDT",
+      "benchmark": "BTC buy-and-hold 1× par fold",
+      "trades": 64,
+      "gates": [
+        {
+          "name": "sept gates",
+          "outcome": "PASS"
+        },
+        {
+          "name": "rentabilité tous coûts",
+          "outcome": "FAIL"
+        }
+      ],
+      "conclusion": "Le chemin de liquidation est auditable, mais l’avantage disparaît au stress.",
+      "proof": "Zéro liquidation observée à 3× ; test forcé de réconciliation passé.",
+      "source": "Rapport 26"
+    },
+    {
+      "id": "LR-27",
+      "title": "Filtre de régime diagnostique",
+      "classification": "VETO",
+      "method": "Tendances 24 h / 168 h et volatilité 72 h préenregistrées",
+      "dataset": "Dataset du rapport 26 réutilisé",
+      "window": "Trois folds ; non OOS frais",
+      "costs": "Base +5,841206 ; sévère −5,943039 USDT",
+      "benchmark": "BTC buy-and-hold 1× sur les mêmes OOS",
+      "trades": 53,
+      "gates": [
+        {
+          "name": "six gates",
+          "outcome": "PASS"
+        },
+        {
+          "name": "quatre gates robustesse",
+          "outcome": "FAIL"
+        }
+      ],
+      "conclusion": "Amélioration diagnostique insuffisante ; la réutilisation interdit toute promotion.",
+      "proof": "Un seul fold et un seul actif positifs sous stress sévère.",
+      "source": "Rapport 27"
+    },
+    {
+      "id": "LR-28",
+      "title": "Shadow-forward figé",
+      "classification": "NOOP",
+      "method": "Configuration figée avant résultat ; données strictement post-cutoff",
+      "dataset": "Bougies publiques Hyperliquid",
+      "window": "9 barres, 13 juillet 11:00–19:00 UTC",
+      "costs": "Frais, spread, slippage, funding, maintenance et liquidation rejoués",
+      "benchmark": "BTC net sur la même fenêtre",
+      "trades": 1,
+      "gates": [
+        {
+          "name": "P&L sévère",
+          "outcome": "PASS"
+        },
+        {
+          "name": "minimum trades",
+          "outcome": "FAIL"
+        },
+        {
+          "name": "diversité",
+          "outcome": "FAIL"
+        }
+      ],
+      "conclusion": "Une position courte positive ne prouve rien ; attendre un forward réellement profond.",
+      "proof": "4/8 gates passés ; Mode réel interdit.",
+      "source": "Rapport 28"
+    }
+  ],
+  "methodology": [
+    {
+      "step": "01",
+      "name": "Walk-forward chronologique",
+      "human": "On entraîne sur le passé, puis on avance vers une fenêtre jamais utilisée pour choisir les paramètres.",
+      "source": "Rapports 19, 23, 25–28"
+    },
+    {
+      "step": "02",
+      "name": "Train-only",
+      "human": "Une configuration est choisie uniquement sur le train ; aucun réglage après lecture de l’OOS.",
+      "source": "Rapports 19, 23, 25–28"
+    },
+    {
+      "step": "03",
+      "name": "Funding aligné",
+      "human": "Le funding publié est appliqué heure par heure, sans emprunter une valeur future ni combler un trou.",
+      "source": "Rapports 25–28"
+    },
+    {
+      "step": "04",
+      "name": "Liquidation intrabar",
+      "human": "Si une barre touche liquidation et stop, la liquidation passe d’abord : hypothèse volontairement conservatrice.",
+      "source": "Rapports 22, 26–28"
+    },
+    {
+      "step": "05",
+      "name": "Coûts sévères",
+      "human": "Frais, spread, slippage et surcharge de funding doivent laisser un résultat positif, sinon veto.",
+      "source": "Rapports 19, 23, 25–28"
+    },
+    {
+      "step": "06",
+      "name": "Benchmark BTC",
+      "human": "Le résultat est comparé à BTC buy-and-hold net sur la même fenêtre, avec l’écart de risque explicitement signalé.",
+      "source": "Rapports 19, 22, 23, 25–28"
+    },
+    {
+      "step": "07",
+      "name": "Anti-leakage",
+      "human": "Toute fenêtre déjà consommée devient diagnostique ; elle ne redevient pas fraîche sous un nouveau nom.",
+      "source": "Rapports 27, 41"
+    },
+    {
+      "step": "08",
+      "name": "Shadow-forward figé",
+      "human": "Le protocole est gelé avant l’arrivée de nouvelles données ; retoucher après résultat crée une nouvelle version.",
+      "source": "Rapports 28, 41"
+    },
+    {
+      "step": "09",
+      "name": "Council → Factory → audits",
+      "human": "Le Council formule ou retient ; la Factory ne produit qu’après passage, puis coûts, leakage et portefeuille auditent séparément.",
+      "source": "Rapport 44"
+    },
+    {
+      "step": "10",
+      "name": "Red-Team final",
+      "human": "Un veto individuel suffit. Le Red-Team ne vote pas un faux consensus et l’Experiment Runner reste bloqué sans preuves runtime.",
+      "source": "Rapports 44–45"
+    }
+  ],
+  "strategyTape": [
+    {
+      "sequence": 1,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Strategy Post-Mortem Learner",
+      "method": "Rejeu 4 h de fenêtres chevauchantes",
+      "status": "REJETÉ",
+      "message": "Les meilleurs shorts apparents sont sélectionnés après observation ; aucune validation.",
+      "source": "Rapport 18",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 2,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Strategy Post-Mortem Learner",
+      "method": "Train / validation / test chronologiques ; paramètres train-only",
+      "status": "REJETÉ",
+      "message": "Marge économique quasi nulle et une seule observation OOS : configuration arrêtée.",
+      "source": "Rapport 19",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 3,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Strategy Post-Mortem Learner",
+      "method": "Stress pédagogique avec maintenance et liquidation intrabar",
+      "status": "REJETÉ",
+      "message": "Sept liquidations et sous-performance BTC ; le levier 100× reste interdit.",
+      "source": "Rapport 22",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 4,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Strategy Post-Mortem Learner",
+      "method": "Quatre folds expansifs ; sélection train-only",
+      "status": "REJETÉ",
+      "message": "Battre un BTC baissier ne compense pas une perte sous coûts sévères.",
+      "source": "Rapport 23",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 5,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Strategy Post-Mortem Learner",
+      "method": "Quatre folds, train expansif, funding horaire aligné",
+      "status": "REJETÉ",
+      "message": "Trois folds perdants et coûts destructeurs : aucun chemin vers le moteur réel.",
+      "source": "Rapport 25",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 6,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Strategy Post-Mortem Learner",
+      "method": "Trois folds avec maintenance, funding et priorité liquidation intrabar",
+      "status": "REJETÉ",
+      "message": "Le chemin de liquidation est auditable, mais l’avantage disparaît au stress.",
+      "source": "Rapport 26",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 7,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Strategy Post-Mortem Learner",
+      "method": "Tendances 24 h / 168 h et volatilité 72 h préenregistrées",
+      "status": "REJETÉ",
+      "message": "Amélioration diagnostique insuffisante ; la réutilisation interdit toute promotion.",
+      "source": "Rapport 27",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 8,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "NOOP",
+      "role": "Strategy Post-Mortem Learner",
+      "method": "Configuration figée avant résultat ; données strictement post-cutoff",
+      "status": "ATTENTE",
+      "message": "Une position courte positive ne prouve rien ; attendre un forward réellement profond.",
+      "source": "Rapport 28",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 9,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "TRACE D’APPRENTISSAGE",
+      "role": "Coordinator/Auditor",
+      "method": "anti-leakage",
+      "status": "APPRIS",
+      "message": "Une fenêtre consommée reste diagnostique.",
+      "source": "Rapports 41, 44–45",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 10,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "RESEARCH",
+      "role": "Hypothesis Council",
+      "method": "Council",
+      "status": "HOLD",
+      "message": "Le Council retient faute de preuve promouvable.",
+      "source": "Rapports 41, 44–45",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 11,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "NOOP",
+      "role": "Strategy Factory",
+      "method": "Factory",
+      "status": "NOOP",
+      "message": "Aucun draft après le HOLD du Council.",
+      "source": "Rapports 41, 44–45",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 12,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Cost/Execution Modeler",
+      "method": "coûts sévères",
+      "status": "VETO",
+      "message": "Les coûts sévères bloquent la promotion.",
+      "source": "Rapports 41, 44–45",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 13,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Dataset Leakage/Power Auditor",
+      "method": "anti-leakage",
+      "status": "VETO",
+      "message": "La fraîcheur et la puissance ne sont pas prouvées.",
+      "source": "Rapports 41, 44–45",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 14,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "VETO",
+      "role": "Portfolio Correlation/Risk",
+      "method": "risque portefeuille",
+      "status": "VETO",
+      "message": "Le risque indépendant n’est pas franchi.",
+      "source": "Rapports 41, 44–45",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 15,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "NOOP",
+      "role": "Experiment Runner",
+      "method": "runtime guard",
+      "status": "PAUSED",
+      "message": "Budget, Trial et Dataset ne sont pas prouvés.",
+      "source": "Rapports 41, 44–45",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    },
+    {
+      "sequence": 16,
+      "mode": "ARTEFACT_REPLAY",
+      "classification": "PAPER",
+      "role": "Hyperliquid Microstructure",
+      "method": "read-only",
+      "status": "OBSERVÉ",
+      "message": "Top-of-book public observé sans chemin d’exécution.",
+      "source": "Rapports 41, 44–45",
+      "replayedAt": "2026-07-14T00:23:01Z"
+    }
+  ],
+  "agentActivity": [
+    {
+      "role": "Macro/Event Intel",
+      "state": "LIVRÉ",
+      "latestArtifact": "analyse macro officielle",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Crypto News Intel",
+      "state": "LIVRÉ",
+      "latestArtifact": "collecte classée, sans titre publié",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Hyperliquid Microstructure",
+      "state": "LIVRÉ",
+      "latestArtifact": "snapshot public read-only",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Funding/Basis Analyst",
+      "state": "LIVRÉ",
+      "latestArtifact": "analyse funding et basis",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Volatility/Regime Scientist",
+      "state": "LIVRÉ",
+      "latestArtifact": "analyse volatilité et régime",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Academic Strategy Miner",
+      "state": "LIVRÉ",
+      "latestArtifact": "revue académique sourcée",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Cross-Asset Researcher",
+      "state": "NOOP",
+      "latestArtifact": "aucune preuve promouvable",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Strategy Post-Mortem Learner",
+      "state": "LIVRÉ",
+      "latestArtifact": "post-mortem shadow-forward",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Hypothesis Council",
+      "state": "HOLD",
+      "latestArtifact": "candidat retenu hors expérimentation",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Strategy Factory",
+      "state": "NOOP",
+      "latestArtifact": "aucun draft après HOLD",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Experiment Runner",
+      "state": "PAUSED",
+      "latestArtifact": "runtime non prêt",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Cost/Execution Modeler",
+      "state": "VETO",
+      "latestArtifact": "revue coûts",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Dataset Leakage/Power Auditor",
+      "state": "VETO",
+      "latestArtifact": "revue leakage et puissance",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Portfolio Correlation/Risk",
+      "state": "VETO",
+      "latestArtifact": "revue portefeuille",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Adversarial Red-Team",
+      "state": "BLOCKED",
+      "latestArtifact": "gate amont non franchi",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "Coordinator/Auditor",
+      "state": "STOP_FAIL_CLOSED",
+      "latestArtifact": "diagnostic runtime",
+      "source": "Rapports 44–45"
+    },
+    {
+      "role": "News Sentinel",
+      "state": "LIVRÉ",
+      "latestArtifact": "collecte déterministe",
+      "source": "Rapports 44–45"
+    }
+  ],
+  "decisionSynthesis": {
+    "champion": "CASH/NOOP",
+    "learned": [
+      "Les marges positives fragiles disparaissent sous coûts sévères.",
+      "Le walk-forward train-only et le shadow-forward empêchent de recycler un faux edge.",
+      "La liquidation et le funding doivent être comptabilisés avant toute lecture de performance."
+    ],
+    "failed": [
+      "Robustesse aux coûts.",
+      "Profondeur statistique et diversité des actifs.",
+      "Fraîcheur OOS et readiness runtime."
+    ],
+    "next": [
+      "Conserver CASH/NOOP.",
+      "Collecter un shadow-forward figé réellement nouveau.",
+      "Ne reprendre Experiment Runner qu’avec budget, Trial et Dataset prouvés."
+    ],
+    "source": "Rapports 18–28 et 41–45"
+  },
+  "runtimeGate": {
+    "mode": "PAPER_ONLY",
+    "status": "STOP_FAIL_CLOSED",
+    "experimentRunner": "PAUSED",
+    "readyForExperiment": false,
+    "schedulerTokenUsage": "UNKNOWN",
+    "missingProofs": [
+      "runtime budget",
+      "Trial Ledger réservé",
+      "Dataset Registry ouvert"
+    ],
+    "source": "Rapport 45"
   },
   "transactionClasses": [
     "ON-CHAIN LIVE",
