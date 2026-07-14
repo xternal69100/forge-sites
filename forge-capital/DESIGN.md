@@ -97,21 +97,20 @@ Hyperliquid public est la source live primaire et read-only. Toute référence C
 
 ## Layout
 
-La composition desktop plein écran est volontairement asymétrique :
+La composition desktop plein écran est volontairement asymétrique et évite les lignes de grille de hauteur couplée :
 
 - barre système et truth strip compactes ;
 - ticker Hyperliquid horizontal ;
-- colonne gauche : top-of-book puis synthèse décisionnelle ;
-- centre : Learning Reports et Method Lab ;
-- colonne focale haute : Strategy Tape vertical ;
-- rail droit : runtime gate et Agent Mesh ;
-- provenance en fermeture de grille.
+- pile gauche large : top-of-book, synthèse décisionnelle, Learning Reports puis provenance ;
+- pile centrale focale : Strategy Tape verticale dans un viewport borné à 900 px, puis Method Lab ;
+- pile droite : runtime gate puis Agent Roster ;
+- chaque pile avance indépendamment pour supprimer les zones mortes créées par un masonry simulé en grid rows.
 
-À 390 px, la grille devient une colonne sans overflow du document. Les zones de données gèrent leur propre scroll. Les champs de la Strategy Tape se simplifient sans perdre classification, rôle, statut, message et source.
+À 390 px, les trois piles deviennent une colonne sans overflow du document. La Strategy Tape est bornée à 620 px et anime son replay dans ce viewport. Ses champs se simplifient sans perdre classification, rôle, statut, message et source.
 
 ## Strategy Tape
 
-La tape n’invente aucun événement. `private/export_snapshot.py` transforme des rapports et états réels en vues `ARTEFACT_REPLAY`, ordonnées et bornées à 32 lignes. La copie DOM qui boucle l’animation est `aria-hidden` et ne modifie pas le compteur de snapshot.
+La tape n’invente aucun événement. `private/export_snapshot.py` applique une conservation stricte : **un rapport persistant = une trace publique = un identifiant de source unique**. Aucun minimum d’activité n’est imposé. La copie DOM qui boucle l’animation est `aria-hidden`, confinée dans le viewport et ne modifie ni le compteur ni le snapshot.
 
 Contrôles obligatoires : filtres par rôle, méthode et statut ; pause/reprise ; compteur `filtré / total`. Avec `prefers-reduced-motion: reduce`, animation et clone sont retirés, le bouton commence en pause et le viewport devient scrollable.
 
