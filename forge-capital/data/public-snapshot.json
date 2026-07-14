@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-13T23:59:14Z",
+  "generatedAt": "2026-07-14T00:08:54Z",
   "source": "Registre Forge Capital sanitizé + documents allowlistés + Hyperliquid public on-chain ; historiques Kraken DATA-ONLY EXOGÈNES",
   "capital": {
     "authorized_usdt": 100,
@@ -38,8 +38,8 @@
       "status": "LIVRÉ"
     },
     {
-      "mission": "Recontrôle de propagation du snapshot final : l’UI et le snapshot schema v3 généré à 00:45 sont publics et testés, mais l’export final generatedAt=2026-07-13T01:00:05Z restait en attente après 17 sondes cache-bustées sur 8 minutes ; ne pas ",
-      "status": "EN COURS"
+      "mission": "Recontrôle de propagation public : les six artefacts statiques sont octet-pour-octet identiques",
+      "status": "LIVRÉ"
     },
     {
       "mission": "Scanner de marché spot reproductible et walk-forward : données publiques Kraken XBT/ETH/SOL,",
@@ -254,7 +254,7 @@
     "freshness": {
       "label": "DIFFÉRÉ — DERNIER CYCLE LOCAL",
       "cycleGeneratedAt": "2026-07-13T23:56:32.359880+00:00",
-      "snapshotGeneratedAt": "2026-07-13T23:59:14Z"
+      "snapshotGeneratedAt": "2026-07-14T00:08:54Z"
     },
     "sourceSummary": {
       "httpSuccess": 11,
