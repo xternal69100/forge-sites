@@ -2,8 +2,8 @@
   "schemaVersion": 3,
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-13T22:23:05Z",
-  "source": "Registre Forge Capital sanitizé + documents allowlistés + données publiques Hyperliquid on-chain primaires",
+  "generatedAt": "2026-07-13T23:59:14Z",
+  "source": "Registre Forge Capital sanitizé + documents allowlistés + Hyperliquid public on-chain ; historiques Kraken DATA-ONLY EXOGÈNES",
   "capital": {
     "authorized_usdt": 100,
     "received_usdt": 0,
@@ -26,7 +26,7 @@
       "status": "LIVRÉ"
     },
     {
-      "mission": "Transactions live/étudiées : lecture seule de l’API publique Hyperliquid on-chain ; historique CEX au plus DATA-ONLY EXOGÈNE secondaire.",
+      "mission": "Transactions live/étudiées : connexion en lecture seule à Hyperliquid public on-chain et au",
       "status": "LIVRÉ"
     },
     {
@@ -42,7 +42,7 @@
       "status": "EN COURS"
     },
     {
-      "mission": "Scanner historique reproductible : anciennes données CEX reclassées DATA-ONLY EXOGÈNE secondaire ; activité/custody/hedge exclusivement on-chain.",
+      "mission": "Scanner de marché spot reproductible et walk-forward : données publiques Kraken XBT/ETH/SOL,",
       "status": "LIVRÉ"
     },
     {
@@ -192,8 +192,14 @@
       "state": "Ouvert, non exposé"
     }
   ],
+  "liveMarketSource": {
+    "source": "Hyperliquid Info API publique",
+    "classification": "ON-CHAIN LIVE",
+    "access": "LECTURE SEULE — SANS COMPTE NI CLÉ",
+    "execution": "AUCUNE"
+  },
   "marketObservation": {
-    "source": "Hyperliquid public on-chain (snapshot différé)",
+    "source": "Kraken OHLC public — HISTORIQUE DATA-ONLY EXOGÈNE",
     "observedAt": "2026-07-13T04:06:12.066685+00:00",
     "freshness": "DIFFÉRÉ",
     "execution": "AUCUNE"
@@ -228,18 +234,27 @@
   "agentCell": {
     "mode": "PAPER_ONLY",
     "roles": [
-      "News Sentinel",
-      "Macro/Crypto Researcher",
-      "Strategy Scout",
+      "Macro/Event Intel",
+      "Crypto News Intel",
+      "Hyperliquid Microstructure",
+      "Funding/Basis Analyst",
+      "Volatility/Regime Scientist",
+      "Academic Strategy Miner",
+      "Cross-Asset Researcher",
+      "Strategy Post-Mortem Learner",
+      "Hypothesis Council",
       "Strategy Factory",
-      "Red-Team Validator",
-      "Portfolio/Risk",
+      "Experiment Runner",
+      "Cost/Execution Modeler",
+      "Dataset Leakage/Power Auditor",
+      "Portfolio Correlation/Risk",
+      "Adversarial Red-Team",
       "Coordinator/Auditor"
     ],
     "freshness": {
       "label": "DIFFÉRÉ — DERNIER CYCLE LOCAL",
-      "cycleGeneratedAt": "2026-07-13T22:07:42.109843+00:00",
-      "snapshotGeneratedAt": "2026-07-13T22:23:05Z"
+      "cycleGeneratedAt": "2026-07-13T23:56:32.359880+00:00",
+      "snapshotGeneratedAt": "2026-07-13T23:59:14Z"
     },
     "sourceSummary": {
       "httpSuccess": 11,
@@ -315,9 +330,9 @@
     ],
     "sourceDisclaimer": "11 sources HTTP réussies prouvent la collecte technique; elles n’impliquent ni edge ni performance.",
     "counts": {
-      "observed": 214,
+      "observed": 215,
       "primaryEvents": 99,
-      "secondaryEvents": 89,
+      "secondaryEvents": 90,
       "corroboratedSecondaryEvents": 9,
       "quarantinedEvents": 26,
       "researchQueue": 3,
@@ -364,7 +379,7 @@
     "lifecycle": [
       {
         "stage": "OBSERVÉ",
-        "count": 214
+        "count": 215
       },
       {
         "stage": "RESEARCH_QUEUE",
