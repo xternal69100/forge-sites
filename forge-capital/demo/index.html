@@ -22,7 +22,7 @@
 <div class="truth-strip" aria-label="Classes de vérité">
   <span id="market-status" class="tag delayed"><span class="dot"></span>DIFFÉRÉ · CONNEXION</span>
   <span class="tag paper">PAPER</span><span class="tag research">RESEARCH</span><span class="tag veto">VETO</span><span class="tag noop">NOOP</span>
-  <span class="tag cex">AUCUN COMPTE CEX · DATA-ONLY EXOGÈNE</span>
+  <span class="tag cex">ON-CHAIN ONLY · AUCUN COMPTE CEX · DATA-ONLY EXOGÈNE</span>
 </div>
 <main id="cockpit" class="matrix-shell">
   <header class="ops-header matrix-command">
@@ -39,70 +39,76 @@
       <div class="ticker-asset" data-coin="SOL"><small>SOL / USD</small><strong data-mid>—</strong><span data-freshness>DIFFÉRÉ</span></div>
     </section>
 
-    <section id="order-books" class="panel market-book">
-      <div class="panel-head"><h2>TOP-OF-BOOK</h2><span id="hl-health" class="tag delayed">CONNEXION</span></div>
-      <div class="book book-head"><strong>ACTIF</strong><strong>BID</strong><strong>ASK</strong></div>
-      <div class="book" data-book="BTC"><span>BTC</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div>
-      <div class="book" data-book="ETH"><span>ETH</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div>
-      <div class="book" data-book="SOL"><span>SOL</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div>
-      <p class="tiny">API officielle <code>l2Book</code> · meilleur bid/ask seulement · fallback différé sans valeur conservée.</p>
-    </section>
+    <div class="matrix-column matrix-column-left">
+      <section id="order-books" class="panel market-book">
+        <div class="panel-head"><h2>TOP-OF-BOOK</h2><span id="hl-health" class="tag delayed">CONNEXION</span></div>
+        <div class="book book-head"><strong>ACTIF</strong><strong>BID</strong><strong>ASK</strong></div>
+        <div class="book" data-book="BTC"><span>BTC</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div>
+        <div class="book" data-book="ETH"><span>ETH</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div>
+        <div class="book" data-book="SOL"><span>SOL</span><span class="bid" data-bid>—</span><span class="ask" data-ask>—</span></div>
+        <p class="tiny">API officielle <code>l2Book</code> · meilleur bid/ask seulement · fallback différé sans valeur conservée.</p>
+      </section>
 
-    <section id="market-radar" class="panel strategy-tape" aria-labelledby="tape-title">
-      <div class="panel-head"><div><div class="eyebrow">REPLAY BORNÉ / PAS UN FLUX D’ORDRES</div><h2 id="tape-title">STRATEGY TAPE</h2></div><span id="tape-count" class="counter">—</span></div>
-      <div class="tape-controls" aria-label="Filtres du replay">
-        <label>Rôle<select id="tape-role"><option value="">TOUS</option></select></label>
-        <label>Méthode<select id="tape-method"><option value="">TOUTES</option></select></label>
-        <label>Statut<select id="tape-status"><option value="">TOUS</option></select></label>
-        <button id="tape-pause" class="secondary compact-button" type="button" aria-pressed="false">PAUSE</button>
-      </div>
-      <div id="tape-viewport" class="tape-viewport" aria-live="polite"><div id="tape-track" class="tape-track"><p class="muted">Chargement du snapshot public…</p></div></div>
-      <p class="tape-legend"><span>TRACE D’APPRENTISSAGE</span><span>PAPER</span><span>RESEARCH</span><span>VETO</span><span>NOOP</span></p>
-      <p class="tiny">Chaque ligne est une vue de replay d’un artefact réel, classée <code>ARTEFACT_REPLAY</code>. Le compteur reste celui du snapshot et ne monte jamais artificiellement.</p>
-    </section>
+      <section id="risk-map" class="panel decision-synthesis">
+        <div class="panel-head"><h2>SYNTHÈSE DÉCISIONNELLE</h2><span class="tag noop">CASH/NOOP</span></div>
+        <div id="decision-synthesis" class="decision-columns">
+          <div><h3>Ce qui a été appris</h3><ul id="learned-list"><li>Chargement…</li></ul></div>
+          <div><h3>Ce qui a échoué</h3><ul id="failed-list"><li>Chargement…</li></ul></div>
+          <div><h3>Ce qui change ensuite</h3><ul id="next-list"><li>Chargement…</li></ul></div>
+        </div>
+      </section>
 
-    <section id="risk-map" class="panel decision-synthesis">
-      <div class="panel-head"><h2>SYNTHÈSE DÉCISIONNELLE</h2><span class="tag noop">CASH/NOOP</span></div>
-      <div id="decision-synthesis" class="decision-columns">
-        <div><h3>Ce qui a été appris</h3><ul id="learned-list"><li>Chargement…</li></ul></div>
-        <div><h3>Ce qui a échoué</h3><ul id="failed-list"><li>Chargement…</li></ul></div>
-        <div><h3>Ce qui change ensuite</h3><ul id="next-list"><li>Chargement…</li></ul></div>
-      </div>
-    </section>
+      <section id="learning-reports" class="panel learning-reports">
+        <div class="panel-head"><div><div class="eyebrow">POURQUOI RETENIR / REJETER</div><h2>LEARNING REPORTS</h2></div><span class="tag veto">PREUVE AVANT SCORE</span></div>
+        <div id="report-grid" class="report-grid"><p class="muted">Chargement des rapports sourcés…</p></div>
+      </section>
 
-    <section id="learning-reports" class="panel learning-reports">
-      <div class="panel-head"><div><div class="eyebrow">POURQUOI RETENIR / REJETER</div><h2>LEARNING REPORTS</h2></div><span class="tag veto">PREUVE AVANT SCORE</span></div>
-      <div id="report-grid" class="report-grid"><p class="muted">Chargement des rapports sourcés…</p></div>
-    </section>
+      <section id="provenance-ledger" class="panel provenance-ledger">
+        <div class="panel-head"><h2>PROVENANCE / FRONTIÈRES</h2><span id="snapshot-health" class="tag delayed">DIFFÉRÉ</span></div>
+        <div class="provenance-row"><span class="source">ON-CHAIN LIVE</span>Hyperliquid Info API publique · lecture seule</div>
+        <div class="provenance-row"><span class="source">DIFFÉRÉ</span><span id="snapshot-provenance">Snapshot public sanitizé</span></div>
+        <div class="provenance-row"><span class="source">PAPER</span>Rapports 18–28 · aucune transaction réelle</div>
+        <div class="provenance-row"><span class="source">DATA-ONLY EXOGÈNE</span>CEX secondaire · aucun compte, clé, custody ou ordre</div>
+        <p class="alert">0 USDT reçu · 0 liquide · 0 investi · 0 engagé · valeur nette réelle 0.</p>
+      </section>
+    </div>
 
-    <section id="market-topology" class="panel method-lab">
-      <div class="panel-head"><div><div class="eyebrow">PROTOCOLE EN FRANÇAIS HUMAIN</div><h2>METHOD LAB</h2></div><span class="tag research">FAIL CLOSED</span></div>
-      <div id="method-lab" class="method-chain"><p class="muted">Chargement de la méthodologie…</p></div>
-    </section>
+    <div class="matrix-column matrix-column-center">
+      <section id="market-radar" class="panel strategy-tape" aria-labelledby="tape-title">
+        <div class="panel-head"><div><div class="eyebrow">REPLAY BORNÉ / PAS UN FLUX D’ORDRES</div><h2 id="tape-title">STRATEGY TAPE</h2></div><span id="tape-count" class="counter">—</span></div>
+        <div class="tape-controls" aria-label="Filtres du replay">
+          <label>Rôle<select id="tape-role"><option value="">TOUS</option></select></label>
+          <label>Méthode<select id="tape-method"><option value="">TOUTES</option></select></label>
+          <label>Statut<select id="tape-status"><option value="">TOUS</option></select></label>
+          <button id="tape-pause" class="secondary compact-button" type="button" aria-pressed="false">PAUSE</button>
+        </div>
+        <div id="tape-viewport" class="tape-viewport" aria-live="polite"><div id="tape-track" class="tape-track"><p class="muted">Chargement du snapshot public…</p></div></div>
+        <p class="tape-legend"><span>TRACE D’APPRENTISSAGE</span><span>PAPER</span><span>RESEARCH</span><span>VETO</span><span>NOOP</span></p>
+        <p class="tiny">Chaque ligne correspond exactement à un rapport persistant, classé <code>ARTEFACT_REPLAY</code>. L’animation boucle visuellement mais ne crée, ne duplique et ne compte aucun nouvel événement.</p>
+      </section>
 
-    <section id="agent-cell" class="panel agent-mesh" data-bind="agentCell.roles agentCell.sourceHealth agentCell.lifecycle agentCell.verdicts">
-      <div class="panel-head"><div><div class="eyebrow">16 RÔLES + SENTINEL / AUCUN FAUX CONSENSUS</div><h2>AGENT MESH</h2></div><span class="tag paper">PAPER_ONLY</span></div>
-      <div id="agent-roles" class="agent-summary"><span>Équipe Forge Capital</span><strong>17 composants</strong></div>
-      <div id="agent-source-health" class="tiny">Collecte technique différée ; elle n’implique ni edge ni performance.</div>
-      <div id="agent-lifecycle" class="sr-only">OBSERVÉ · RESEARCH_QUEUE · DRAFT_PROTOCOL · PREREGISTERED_PAPER · PAPER · EXÉCUTÉ</div>
-      <div id="agent-verdicts" class="sr-only">Aucune promotion sans gates.</div>
-      <div id="agent-mesh" class="mesh-list"><p class="muted">Chargement des états dérivables…</p></div>
-    </section>
+      <section id="market-topology" class="panel method-lab">
+        <div class="panel-head"><div><div class="eyebrow">PROTOCOLE EN FRANÇAIS HUMAIN</div><h2>METHOD LAB</h2></div><span class="tag research">FAIL CLOSED</span></div>
+        <div id="method-lab" class="method-chain"><p class="muted">Chargement de la méthodologie…</p></div>
+      </section>
+    </div>
 
-    <section id="bot-health" class="panel runtime-gate">
-      <div class="panel-head"><h2>RUNTIME GATE</h2><span class="tag veto">STOP_FAIL_CLOSED</span></div>
-      <dl id="runtime-gate" class="runtime-list"><div><dt>Experiment Runner</dt><dd>PAUSED</dd></div><div><dt>Token scheduler</dt><dd>UNKNOWN</dd></div></dl>
-      <p class="alert">Aucune expérience tant que runtime budget, Trial Ledger et Dataset Registry ne sont pas prouvés.</p>
-    </section>
+    <div class="matrix-column matrix-column-right">
+      <section id="bot-health" class="panel runtime-gate">
+        <div class="panel-head"><h2>RUNTIME GATE</h2><span class="tag veto">STOP_FAIL_CLOSED</span></div>
+        <dl id="runtime-gate" class="runtime-list"><div><dt>Experiment Runner</dt><dd>PAUSED</dd></div><div><dt>Token scheduler</dt><dd>UNKNOWN</dd></div></dl>
+        <p class="alert">Aucune expérience tant que runtime budget, Trial Ledger et Dataset Registry ne sont pas prouvés.</p>
+      </section>
 
-    <section id="provenance-ledger" class="panel provenance-ledger">
-      <div class="panel-head"><h2>PROVENANCE / FRONTIÈRES</h2><span id="snapshot-health" class="tag delayed">DIFFÉRÉ</span></div>
-      <div class="provenance-row"><span class="source">ON-CHAIN LIVE</span>Hyperliquid Info API publique · lecture seule</div>
-      <div class="provenance-row"><span class="source">DIFFÉRÉ</span><span id="snapshot-provenance">Snapshot public sanitizé</span></div>
-      <div class="provenance-row"><span class="source">PAPER</span>Rapports 18–28 · aucune transaction réelle</div>
-      <div class="provenance-row"><span class="source">DATA-ONLY EXOGÈNE</span>CEX secondaire · aucun compte, clé, custody ou ordre</div>
-      <p class="alert">0 USDT reçu · 0 liquide · 0 investi · 0 engagé · valeur nette réelle 0.</p>
-    </section>
+      <section id="agent-cell" class="panel agent-mesh" data-bind="agentCell.roles agentCell.sourceHealth agentCell.lifecycle agentCell.verdicts">
+        <div class="panel-head"><div><div class="eyebrow">16 RÔLES + SENTINEL / STATUTS DOCUMENTÉS</div><h2>AGENT ROSTER</h2></div><span class="tag paper">PAPER_ONLY</span></div>
+        <div id="agent-roles" class="agent-summary"><span>Équipe Forge Capital · résultats · apprentissages · flux étudiés</span><strong>17 composants</strong></div>
+        <div id="agent-source-health" class="tiny">Roster dérivé des rapports 44–45, pas un flux de terminaux ni une preuve d’activité. La collecte technique n’implique ni edge ni performance.</div>
+        <div id="agent-lifecycle" class="sr-only">OBSERVÉ · RESEARCH_QUEUE · DRAFT_PROTOCOL · PREREGISTERED_PAPER · PAPER · EXÉCUTÉ</div>
+        <div id="agent-verdicts" class="sr-only">Aucune promotion sans gates.</div>
+        <div id="agent-mesh" class="mesh-list"><p class="muted">Chargement des états dérivables…</p></div>
+      </section>
+    </div>
   </section>
 </main>
 <dialog id="report-drawer" class="report-drawer" aria-labelledby="drawer-title">

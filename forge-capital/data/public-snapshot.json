@@ -3,7 +3,7 @@
   "release": "matrix-learning-v1",
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-14T00:23:01Z",
+  "generatedAt": "2026-07-14T00:37:15Z",
   "source": "Registre Forge Capital sanitizé + documents allowlistés + Hyperliquid public on-chain ; historiques Kraken DATA-ONLY EXOGÈNES",
   "capital": {
     "authorized_usdt": 100,
@@ -227,7 +227,7 @@
     "freshness": {
       "label": "DIFFÉRÉ — DERNIER CYCLE LOCAL",
       "cycleGeneratedAt": "2026-07-13T23:56:32.359880+00:00",
-      "snapshotGeneratedAt": "2026-07-14T00:23:01Z"
+      "snapshotGeneratedAt": "2026-07-14T00:37:15Z"
     },
     "sourceSummary": {
       "httpSuccess": 11,
@@ -403,7 +403,8 @@
       ],
       "conclusion": "Les meilleurs shorts apparents sont sélectionnés après observation ; aucune validation.",
       "proof": "Agrégat PAPER moyen −0,2990 USDT ; capital réel inchangé.",
-      "source": "Rapport 18"
+      "source": "Rapport 18",
+      "sourceAlias": "FC-REPORT-18"
     },
     {
       "id": "LR-19",
@@ -431,7 +432,8 @@
       ],
       "conclusion": "Marge économique quasi nulle et une seule observation OOS : configuration arrêtée.",
       "proof": "Verdict mécanique NO-GO ; replay déterministe documenté.",
-      "source": "Rapport 19"
+      "source": "Rapport 19",
+      "sourceAlias": "FC-REPORT-19"
     },
     {
       "id": "LR-22",
@@ -455,7 +457,8 @@
       ],
       "conclusion": "Sept liquidations et sous-performance BTC ; le levier 100× reste interdit.",
       "proof": "28 tests passés ; P&L PAPER −16,165667 USDT.",
-      "source": "Rapport 22"
+      "source": "Rapport 22",
+      "sourceAlias": "FC-REPORT-22"
     },
     {
       "id": "LR-23",
@@ -479,7 +482,8 @@
       ],
       "conclusion": "Battre un BTC baissier ne compense pas une perte sous coûts sévères.",
       "proof": "Quatre folds actifs, trois actifs ; verdict mécanique NO-GO.",
-      "source": "Rapport 23"
+      "source": "Rapport 23",
+      "sourceAlias": "FC-REPORT-23"
     },
     {
       "id": "LR-25",
@@ -507,7 +511,8 @@
       ],
       "conclusion": "Trois folds perdants et coûts destructeurs : aucun chemin vers le moteur réel.",
       "proof": "Verdict mécanique NO_GO live dans l’artefact PAPER.",
-      "source": "Rapport 25"
+      "source": "Rapport 25",
+      "sourceAlias": "FC-REPORT-25"
     },
     {
       "id": "LR-26",
@@ -531,7 +536,8 @@
       ],
       "conclusion": "Le chemin de liquidation est auditable, mais l’avantage disparaît au stress.",
       "proof": "Zéro liquidation observée à 3× ; test forcé de réconciliation passé.",
-      "source": "Rapport 26"
+      "source": "Rapport 26",
+      "sourceAlias": "FC-REPORT-26"
     },
     {
       "id": "LR-27",
@@ -555,7 +561,8 @@
       ],
       "conclusion": "Amélioration diagnostique insuffisante ; la réutilisation interdit toute promotion.",
       "proof": "Un seul fold et un seul actif positifs sous stress sévère.",
-      "source": "Rapport 27"
+      "source": "Rapport 27",
+      "sourceAlias": "FC-REPORT-27"
     },
     {
       "id": "LR-28",
@@ -583,7 +590,8 @@
       ],
       "conclusion": "Une position courte positive ne prouve rien ; attendre un forward réellement profond.",
       "proof": "4/8 gates passés ; Mode réel interdit.",
-      "source": "Rapport 28"
+      "source": "Rapport 28",
+      "sourceAlias": "FC-REPORT-28"
     }
   ],
   "methodology": [
@@ -650,180 +658,236 @@
   ],
   "strategyTape": [
     {
-      "sequence": 1,
-      "mode": "ARTEFACT_REPLAY",
+      "publicEventId": "FC-TRACE-LR-18",
+      "truthClass": "VETO_EVENT",
+      "displayLabel": "TRACE D’APPRENTISSAGE · VETO",
       "classification": "VETO",
+      "methodId": "ANTI_CHERRY_PICKING",
+      "researchStage": "PAPER_EVALUATED",
+      "terminalStatus": "VETO",
+      "decisionVerdict": "NO_GO",
+      "mode": "ARTEFACT_REPLAY",
+      "synthetic": true,
+      "sequence": 1,
+      "occurredAt": null,
+      "recordedAt": null,
+      "snapshotGeneratedAt": "2026-07-14T00:37:15Z",
+      "freshnessState": "TIMELESS",
+      "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
+      "sourceClass": "REPORT",
+      "sourceAlias": "FC-REPORT-18",
+      "proofLevel": "E1_ARTIFACT",
+      "evidenceRefs": [
+        "LR-18"
+      ],
       "role": "Strategy Post-Mortem Learner",
       "method": "Rejeu 4 h de fenêtres chevauchantes",
       "status": "REJETÉ",
       "message": "Les meilleurs shorts apparents sont sélectionnés après observation ; aucune validation.",
-      "source": "Rapport 18",
-      "replayedAt": "2026-07-14T00:23:01Z"
+      "reportRef": "LR-18"
     },
     {
-      "sequence": 2,
-      "mode": "ARTEFACT_REPLAY",
+      "publicEventId": "FC-TRACE-LR-19",
+      "truthClass": "VETO_EVENT",
+      "displayLabel": "TRACE D’APPRENTISSAGE · VETO",
       "classification": "VETO",
+      "methodId": "WALK_FORWARD",
+      "researchStage": "PAPER_EVALUATED",
+      "terminalStatus": "VETO",
+      "decisionVerdict": "NO_GO",
+      "mode": "ARTEFACT_REPLAY",
+      "synthetic": true,
+      "sequence": 2,
+      "occurredAt": null,
+      "recordedAt": null,
+      "snapshotGeneratedAt": "2026-07-14T00:37:15Z",
+      "freshnessState": "TIMELESS",
+      "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
+      "sourceClass": "REPORT",
+      "sourceAlias": "FC-REPORT-19",
+      "proofLevel": "E1_ARTIFACT",
+      "evidenceRefs": [
+        "LR-19"
+      ],
       "role": "Strategy Post-Mortem Learner",
       "method": "Train / validation / test chronologiques ; paramètres train-only",
       "status": "REJETÉ",
       "message": "Marge économique quasi nulle et une seule observation OOS : configuration arrêtée.",
-      "source": "Rapport 19",
-      "replayedAt": "2026-07-14T00:23:01Z"
+      "reportRef": "LR-19"
     },
     {
-      "sequence": 3,
-      "mode": "ARTEFACT_REPLAY",
+      "publicEventId": "FC-TRACE-LR-22",
+      "truthClass": "VETO_EVENT",
+      "displayLabel": "TRACE D’APPRENTISSAGE · VETO",
       "classification": "VETO",
+      "methodId": "LIQUIDATION_STRESS",
+      "researchStage": "PAPER_EVALUATED",
+      "terminalStatus": "VETO",
+      "decisionVerdict": "NO_GO",
+      "mode": "ARTEFACT_REPLAY",
+      "synthetic": true,
+      "sequence": 3,
+      "occurredAt": null,
+      "recordedAt": null,
+      "snapshotGeneratedAt": "2026-07-14T00:37:15Z",
+      "freshnessState": "TIMELESS",
+      "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
+      "sourceClass": "REPORT",
+      "sourceAlias": "FC-REPORT-22",
+      "proofLevel": "E1_ARTIFACT",
+      "evidenceRefs": [
+        "LR-22"
+      ],
       "role": "Strategy Post-Mortem Learner",
       "method": "Stress pédagogique avec maintenance et liquidation intrabar",
       "status": "REJETÉ",
       "message": "Sept liquidations et sous-performance BTC ; le levier 100× reste interdit.",
-      "source": "Rapport 22",
-      "replayedAt": "2026-07-14T00:23:01Z"
+      "reportRef": "LR-22"
     },
     {
-      "sequence": 4,
-      "mode": "ARTEFACT_REPLAY",
+      "publicEventId": "FC-TRACE-LR-23",
+      "truthClass": "VETO_EVENT",
+      "displayLabel": "TRACE D’APPRENTISSAGE · VETO",
       "classification": "VETO",
+      "methodId": "WALK_FORWARD",
+      "researchStage": "PAPER_EVALUATED",
+      "terminalStatus": "VETO",
+      "decisionVerdict": "NO_GO",
+      "mode": "ARTEFACT_REPLAY",
+      "synthetic": true,
+      "sequence": 4,
+      "occurredAt": null,
+      "recordedAt": null,
+      "snapshotGeneratedAt": "2026-07-14T00:37:15Z",
+      "freshnessState": "TIMELESS",
+      "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
+      "sourceClass": "REPORT",
+      "sourceAlias": "FC-REPORT-23",
+      "proofLevel": "E1_ARTIFACT",
+      "evidenceRefs": [
+        "LR-23"
+      ],
       "role": "Strategy Post-Mortem Learner",
       "method": "Quatre folds expansifs ; sélection train-only",
       "status": "REJETÉ",
       "message": "Battre un BTC baissier ne compense pas une perte sous coûts sévères.",
-      "source": "Rapport 23",
-      "replayedAt": "2026-07-14T00:23:01Z"
+      "reportRef": "LR-23"
     },
     {
-      "sequence": 5,
-      "mode": "ARTEFACT_REPLAY",
+      "publicEventId": "FC-TRACE-LR-25",
+      "truthClass": "VETO_EVENT",
+      "displayLabel": "TRACE D’APPRENTISSAGE · VETO",
       "classification": "VETO",
+      "methodId": "FUNDING_ALIGNED_WALK_FORWARD",
+      "researchStage": "PAPER_EVALUATED",
+      "terminalStatus": "VETO",
+      "decisionVerdict": "NO_GO",
+      "mode": "ARTEFACT_REPLAY",
+      "synthetic": true,
+      "sequence": 5,
+      "occurredAt": null,
+      "recordedAt": null,
+      "snapshotGeneratedAt": "2026-07-14T00:37:15Z",
+      "freshnessState": "TIMELESS",
+      "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
+      "sourceClass": "REPORT",
+      "sourceAlias": "FC-REPORT-25",
+      "proofLevel": "E1_ARTIFACT",
+      "evidenceRefs": [
+        "LR-25"
+      ],
       "role": "Strategy Post-Mortem Learner",
       "method": "Quatre folds, train expansif, funding horaire aligné",
       "status": "REJETÉ",
       "message": "Trois folds perdants et coûts destructeurs : aucun chemin vers le moteur réel.",
-      "source": "Rapport 25",
-      "replayedAt": "2026-07-14T00:23:01Z"
+      "reportRef": "LR-25"
     },
     {
-      "sequence": 6,
-      "mode": "ARTEFACT_REPLAY",
+      "publicEventId": "FC-TRACE-LR-26",
+      "truthClass": "VETO_EVENT",
+      "displayLabel": "TRACE D’APPRENTISSAGE · VETO",
       "classification": "VETO",
+      "methodId": "LIQUIDATION_AWARE",
+      "researchStage": "PAPER_EVALUATED",
+      "terminalStatus": "VETO",
+      "decisionVerdict": "NO_GO",
+      "mode": "ARTEFACT_REPLAY",
+      "synthetic": true,
+      "sequence": 6,
+      "occurredAt": null,
+      "recordedAt": null,
+      "snapshotGeneratedAt": "2026-07-14T00:37:15Z",
+      "freshnessState": "TIMELESS",
+      "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
+      "sourceClass": "REPORT",
+      "sourceAlias": "FC-REPORT-26",
+      "proofLevel": "E1_ARTIFACT",
+      "evidenceRefs": [
+        "LR-26"
+      ],
       "role": "Strategy Post-Mortem Learner",
       "method": "Trois folds avec maintenance, funding et priorité liquidation intrabar",
       "status": "REJETÉ",
       "message": "Le chemin de liquidation est auditable, mais l’avantage disparaît au stress.",
-      "source": "Rapport 26",
-      "replayedAt": "2026-07-14T00:23:01Z"
+      "reportRef": "LR-26"
     },
     {
-      "sequence": 7,
-      "mode": "ARTEFACT_REPLAY",
+      "publicEventId": "FC-TRACE-LR-27",
+      "truthClass": "VETO_EVENT",
+      "displayLabel": "TRACE D’APPRENTISSAGE · VETO",
       "classification": "VETO",
+      "methodId": "REGIME_DIAGNOSTIC",
+      "researchStage": "PAPER_EVALUATED",
+      "terminalStatus": "VETO",
+      "decisionVerdict": "NO_GO",
+      "mode": "ARTEFACT_REPLAY",
+      "synthetic": true,
+      "sequence": 7,
+      "occurredAt": null,
+      "recordedAt": null,
+      "snapshotGeneratedAt": "2026-07-14T00:37:15Z",
+      "freshnessState": "TIMELESS",
+      "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
+      "sourceClass": "REPORT",
+      "sourceAlias": "FC-REPORT-27",
+      "proofLevel": "E1_ARTIFACT",
+      "evidenceRefs": [
+        "LR-27"
+      ],
       "role": "Strategy Post-Mortem Learner",
       "method": "Tendances 24 h / 168 h et volatilité 72 h préenregistrées",
       "status": "REJETÉ",
       "message": "Amélioration diagnostique insuffisante ; la réutilisation interdit toute promotion.",
-      "source": "Rapport 27",
-      "replayedAt": "2026-07-14T00:23:01Z"
+      "reportRef": "LR-27"
     },
     {
-      "sequence": 8,
-      "mode": "ARTEFACT_REPLAY",
+      "publicEventId": "FC-TRACE-LR-28",
+      "truthClass": "NOOP_EVENT",
+      "displayLabel": "TRACE D’APPRENTISSAGE · NOOP",
       "classification": "NOOP",
+      "methodId": "SHADOW_FORWARD_FROZEN",
+      "researchStage": "SHADOW_FROZEN",
+      "terminalStatus": "NOOP",
+      "decisionVerdict": "PENDING_DATA",
+      "mode": "ARTEFACT_REPLAY",
+      "synthetic": true,
+      "sequence": 8,
+      "occurredAt": null,
+      "recordedAt": null,
+      "snapshotGeneratedAt": "2026-07-14T00:37:15Z",
+      "freshnessState": "TIMELESS",
+      "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
+      "sourceClass": "REPORT",
+      "sourceAlias": "FC-REPORT-28",
+      "proofLevel": "E1_ARTIFACT",
+      "evidenceRefs": [
+        "LR-28"
+      ],
       "role": "Strategy Post-Mortem Learner",
       "method": "Configuration figée avant résultat ; données strictement post-cutoff",
       "status": "ATTENTE",
       "message": "Une position courte positive ne prouve rien ; attendre un forward réellement profond.",
-      "source": "Rapport 28",
-      "replayedAt": "2026-07-14T00:23:01Z"
-    },
-    {
-      "sequence": 9,
-      "mode": "ARTEFACT_REPLAY",
-      "classification": "TRACE D’APPRENTISSAGE",
-      "role": "Coordinator/Auditor",
-      "method": "anti-leakage",
-      "status": "APPRIS",
-      "message": "Une fenêtre consommée reste diagnostique.",
-      "source": "Rapports 41, 44–45",
-      "replayedAt": "2026-07-14T00:23:01Z"
-    },
-    {
-      "sequence": 10,
-      "mode": "ARTEFACT_REPLAY",
-      "classification": "RESEARCH",
-      "role": "Hypothesis Council",
-      "method": "Council",
-      "status": "HOLD",
-      "message": "Le Council retient faute de preuve promouvable.",
-      "source": "Rapports 41, 44–45",
-      "replayedAt": "2026-07-14T00:23:01Z"
-    },
-    {
-      "sequence": 11,
-      "mode": "ARTEFACT_REPLAY",
-      "classification": "NOOP",
-      "role": "Strategy Factory",
-      "method": "Factory",
-      "status": "NOOP",
-      "message": "Aucun draft après le HOLD du Council.",
-      "source": "Rapports 41, 44–45",
-      "replayedAt": "2026-07-14T00:23:01Z"
-    },
-    {
-      "sequence": 12,
-      "mode": "ARTEFACT_REPLAY",
-      "classification": "VETO",
-      "role": "Cost/Execution Modeler",
-      "method": "coûts sévères",
-      "status": "VETO",
-      "message": "Les coûts sévères bloquent la promotion.",
-      "source": "Rapports 41, 44–45",
-      "replayedAt": "2026-07-14T00:23:01Z"
-    },
-    {
-      "sequence": 13,
-      "mode": "ARTEFACT_REPLAY",
-      "classification": "VETO",
-      "role": "Dataset Leakage/Power Auditor",
-      "method": "anti-leakage",
-      "status": "VETO",
-      "message": "La fraîcheur et la puissance ne sont pas prouvées.",
-      "source": "Rapports 41, 44–45",
-      "replayedAt": "2026-07-14T00:23:01Z"
-    },
-    {
-      "sequence": 14,
-      "mode": "ARTEFACT_REPLAY",
-      "classification": "VETO",
-      "role": "Portfolio Correlation/Risk",
-      "method": "risque portefeuille",
-      "status": "VETO",
-      "message": "Le risque indépendant n’est pas franchi.",
-      "source": "Rapports 41, 44–45",
-      "replayedAt": "2026-07-14T00:23:01Z"
-    },
-    {
-      "sequence": 15,
-      "mode": "ARTEFACT_REPLAY",
-      "classification": "NOOP",
-      "role": "Experiment Runner",
-      "method": "runtime guard",
-      "status": "PAUSED",
-      "message": "Budget, Trial et Dataset ne sont pas prouvés.",
-      "source": "Rapports 41, 44–45",
-      "replayedAt": "2026-07-14T00:23:01Z"
-    },
-    {
-      "sequence": 16,
-      "mode": "ARTEFACT_REPLAY",
-      "classification": "PAPER",
-      "role": "Hyperliquid Microstructure",
-      "method": "read-only",
-      "status": "OBSERVÉ",
-      "message": "Top-of-book public observé sans chemin d’exécution.",
-      "source": "Rapports 41, 44–45",
-      "replayedAt": "2026-07-14T00:23:01Z"
+      "reportRef": "LR-28"
     }
   ],
   "agentActivity": [
