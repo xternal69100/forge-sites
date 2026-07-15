@@ -2,7 +2,7 @@
 
 Cette maquette fonctionne avec deux pages statiques :
 
-- `index.html` : choix du pilote Atelier Intervention, configuration étroite, faux checkout, activation simulée ;
+- `index.html` : choix de l'Édition Fondatrice Coach, configuration fictive, faux checkout, activation simulée ;
 - `admin.html` : KPIs, souscriptions, workflows, filtres, détail, statuts, journal et reset ;
 - `../demo.html` : console de preuve interne historique, conservée séparément du parcours client.
 
@@ -22,7 +22,7 @@ Forme validée à chaque lecture :
 {
   version: 1,
   subscriptions: [{
-    id, company, contact, email, offer, price,
+    id, company, contact, email, offer, price, monthlyPrice,
     paymentStatus, status, workflowId, createdAt
   }],
   workflows: [{
@@ -43,18 +43,18 @@ Un store absent ou malformé est remplacé et persisté par un `emptyStore` vali
 - `CLOS_SIMULÉ` : clôture fictive ;
 - `SIMULÉ — AUCUN DÉBIT` : statut de paiement immuable de la maquette.
 
-Chaque création et changement de statut ajoute une entrée au journal local. L’événement navigateur `storage` rafraîchit l’administration lorsqu’une autre fenêtre modifie le store.
+Chaque création et changement de statut ajoute une entrée au journal local. L'événement navigateur `storage` rafraîchit l'administration lorsqu'une autre fenêtre modifie le store.
 
 ## Reset
 
-`Vider le store de démo` ouvre une confirmation, puis remplace le store par des tableaux vides. Il ne supprime ni cookie distant, ni compte, ni paiement : il n’existe aucun système distant dans cette démo.
+`Vider le store de démo` ouvre une confirmation, puis remplace le store par des tableaux vides. Il ne supprime ni cookie distant, ni compte, ni paiement : il n'existe aucun système distant dans cette démo.
 
 ## Limites intentionnelles
 
 - aucune carte bancaire ni champ assimilé ;
 - aucun provider de paiement, backend, API, connecteur ou envoi ;
 - aucune souscription, facture, activation ou donnée réelle ;
-- persistance limitée au navigateur et à l’origine courante ;
+- persistance limitée au navigateur et à l'origine courante ;
 - les données ne sont pas synchronisées entre appareils ou navigateurs ;
 - Tailwind CDN et Google Fonts sont les seuls chargements réseau de présentation ; le parcours applicatif reste 100 % local ;
 - le stockage `file://` dépend du navigateur : si celui-ci isole chaque fichier, utiliser un serveur statique local pour partager la même origine.
