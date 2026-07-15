@@ -973,7 +973,14 @@
         trust: 'Support hôte ultra-réactif'
       }
     ];
-    listings.forEach((listing, index) => Object.assign(listing, pricingCatalog[index], {id:index + 1, guests:8}));
+    listings.forEach((listing, index) => {
+      const pricing = pricingCatalog[index];
+      Object.assign(listing, pricing, {
+        id: index + 1,
+        guests: 8,
+        guestTotal2h: pricing.rentalValueG
+      });
+    });
 
     const grid = document.getElementById('listingGrid');
     const resultsCount = document.getElementById('resultsCount');
