@@ -14,13 +14,13 @@
       },
       "fontFamily": {
         "h1": [
-           "KeraVolt Optical"
+          "Manrope"
         ],
         "h2": [
-           "KeraVolt Optical"
+          "Manrope"
         ],
         "h3": [
-           "KeraVolt Optical"
+          "Manrope"
         ],
         "body-lg": [
           "Inter"
@@ -30,9 +30,6 @@
         ],
         "label": [
           "Inter"
-         ],
-         "accent": [
-           "Elanovre"
         ]
       },
       "fontSize": {

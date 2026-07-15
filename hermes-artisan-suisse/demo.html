@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Démo opératoire — Hermes Artisan Suisse</title>
   <meta name="description" content="Démonstration publique, interactive et entièrement fictive de la file opératoire human-in-the-loop Hermes Artisan Suisse." />
-  <style>
-    @font-face{font-family:'KeraVolt Optical';src:url('https://xternal69100.github.io/forge-sites/studio-typographique/assets/fonts/KeraVoltOptical-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-    @font-face{font-family:'Elanovre';src:url('https://xternal69100.github.io/forge-sites/studio-typographique/assets/fonts/Elanovre-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-  </style>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' x='6' font-size='46'%3E%F0%9F%9B%A0%EF%B8%8F%3C/text%3E%3C/svg%3E" />
   <script>
     const tailwindConsoleWarn = console.warn;
@@ -23,7 +20,7 @@
     console.warn = tailwindConsoleWarn;
     tailwind.config = { theme: { extend: {
       colors: { primary:'#1E3A5F', primarySoft:'#D8E4F0', secondary:'#667085', tertiary:'#8C4F22', neutral:'#F6F3EE', surface:'#FFFFFF', ink:'#0F172A', muted:'#E8E1D7', success:'#22543D' },
-      fontFamily: { display:['KeraVolt Optical','system-ui','sans-serif'], body:['Inter','system-ui','sans-serif'], accent:['Elanovre','system-ui','sans-serif'] },
+      fontFamily: { display:['Manrope','system-ui','sans-serif'], body:['Inter','system-ui','sans-serif'] },
       borderRadius: { sm:'12px', md:'18px', lg:'30px', xl:'40px' },
       spacing: { xs:'8px', sm:'12px', md:'20px', lg:'32px', xl:'56px', '2xl':'80px' },
       boxShadow: { calm:'0 18px 50px rgba(15,23,42,.08)', card:'0 24px 60px rgba(15,23,42,.10)' }
@@ -177,7 +174,7 @@
     </section>
   </main>
 
-  <footer class="border-t border-primary/10 px-4 py-8 sm:px-6 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-3 text-sm leading-6 text-secondary sm:flex-row sm:items-center sm:justify-between"><p><strong>DÉMO — DONNÉES FICTIVES — AUCUNE TRACTION RÉELLE</strong><br>Hermes Artisan Suisse · Démo opératoire publique fictive, sans backend ni stockage.</p><a class="font-semibold text-primary underline decoration-primary/30 underline-offset-4" href="index.html">Retour à la présentation du pilote</a></div><p class="mx-auto mt-3 max-w-7xl text-center text-xs leading-5 text-secondary/60">Fonte KeraVolt Optical par le <a href="https://xternal69100.github.io/forge-sites/studio-typographique/" class="underline hover:text-primary" target="_blank" rel="noopener">Studio Typographique Forge</a> — OFL 1.1</p></footer>
+  <footer class="border-t border-primary/10 px-4 py-8 sm:px-6 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-3 text-sm leading-6 text-secondary sm:flex-row sm:items-center sm:justify-between"><p><strong>DÉMO — DONNÉES FICTIVES — AUCUNE TRACTION RÉELLE</strong><br>Hermes Artisan Suisse · Démo opératoire publique fictive, sans backend ni stockage.</p><a class="font-semibold text-primary underline decoration-primary/30 underline-offset-4" href="index.html">Retour à la présentation du pilote</a></div></footer>
 
   <script>
     const cases = [
