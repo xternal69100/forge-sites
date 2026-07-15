@@ -14,19 +14,19 @@ colors:
   success: "#22543D"
 typography:
   h1:
-    fontFamily: Manrope
+    fontFamily: KeraVolt Optical
     fontSize: 3.75rem
     fontWeight: 800
     lineHeight: 1.02
     letterSpacing: "-0.035em"
   h2:
-    fontFamily: Manrope
+    fontFamily: KeraVolt Optical
     fontSize: 2.4rem
     fontWeight: 800
     lineHeight: 1.08
     letterSpacing: "-0.025em"
   h3:
-    fontFamily: Manrope
+    fontFamily: KeraVolt Optical
     fontSize: 1.5rem
     fontWeight: 700
     lineHeight: 1.15
@@ -129,7 +129,7 @@ Atelier Confiance mélange sérieux suisse, lisibilité SaaS moderne et chaleur 
 - **Success (`#22543D`)** : validation, stabilité et garde-fous tenus.
 
 ## Typography
-- **Manrope** pour les titres : compacte, nette, contemporaine, avec un vrai impact premium sans agressivité.
+- **KeraVolt Optical** pour les titres : monumentale, précise, signature visuelle du Studio Typographique Forge.
 - **Inter** pour le texte : lisibilité maximale sur mobile comme sur desktop.
 - Les titres sont francs, les paragraphes respirent, les labels sont en capitales espacées.
 - Les grands titres doivent porter la promesse opératoire ; le corps de texte doit toujours rester concret, jamais marketing pour le marketing.

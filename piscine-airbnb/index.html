@@ -6,9 +6,22 @@
   <title>Location de piscines privées sans hébergement — Poolbnb Léman</title>
   <meta name="description" content="Louez une piscine privée autour du Léman à l’heure ou à la journée, sans hébergement : bassin et espaces extérieurs autorisés uniquement." />
   <meta name="theme-color" content="#CC3450" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'KeraVolt Optical';
+      src: url('https://xternal69100.github.io/forge-sites/studio-typographique/assets/fonts/KeraVoltOptical-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Elanovre';
+      src: url('https://xternal69100.github.io/forge-sites/studio-typographique/assets/fonts/Elanovre-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23CC3450'/%3E%3Ctext x='50' y='63' font-size='54' text-anchor='middle'%3E%F0%9F%8F%8A%3C/text%3E%3C/svg%3E" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,7 +30,7 @@
         extend: {
           fontFamily: {
             sans: ['DM Sans', 'system-ui', 'sans-serif'],
-            serif: ['Cormorant Garamond', 'serif']
+            serif: ['KeraVolt Optical', 'Georgia', 'serif']
           },
           colors: {
             primary: '#CC3450',
@@ -62,6 +75,7 @@
         radial-gradient(circle at right 15%, rgba(15,118,110,0.16), transparent 30%),
         linear-gradient(135deg, #fff9f6 0%, #ffffff 45%, #f7fbff 100%);
     }
+    .font-elanovre { font-family: 'Elanovre', system-ui, sans-serif; }
     .listing-gradient-1 { background: linear-gradient(145deg, #ffe3e8 0%, #fff0e9 45%, #ffffff 100%); }
     .listing-gradient-2 { background: linear-gradient(145deg, #dff6ff 0%, #e7fff7 50%, #ffffff 100%); }
     .listing-gradient-3 { background: linear-gradient(145deg, #f0e8ff 0%, #edf2ff 52%, #ffffff 100%); }
@@ -1275,6 +1289,6 @@
     updateHostScore();
     setHeroAudience('guest');
   </script>
-  <footer style="background:#161A21;color:#fff;padding:30px max(22px,calc((100% - 1280px)/2));font-size:13px"><strong>Poolbnb Démo SA — société fictive, non constituée et non inscrite au registre du commerce</strong><p>Adresse de démonstration — non réelle · legal@poolbnb.example.test · RC/IDE : placeholders non valables.</p><a style="color:#fff" href="demo/legal.html">Mentions légales</a> · <a style="color:#fff" href="demo/legal.html#cgu">CGU — statut démo</a> · <a style="color:#fff" href="demo/legal.html#confidentialite">Confidentialité — statut démo</a></footer>
+  <footer style="background:#161A21;color:#fff;padding:30px max(22px,calc((100% - 1280px)/2));font-size:13px"><strong>Poolbnb Démo SA — société fictive, non constituée et non inscrite au registre du commerce</strong><p>Adresse de démonstration — non réelle · legal@poolbnb.example.test · RC/IDE : placeholders non valables.</p><a style="color:#fff" href="demo/legal.html">Mentions légales</a> · <a style="color:#fff" href="demo/legal.html#cgu">CGU — statut démo</a> · <a style="color:#fff" href="demo/legal.html#confidentialite">Confidentialité — statut démo</a><br>Fonte KeraVolt Optical par le <a href="https://xternal69100.github.io/forge-sites/studio-typographique/" class="underline" style="color:#fff">Studio Typographique Forge</a> — OFL 1.1</footer>
 </body>
 </html>

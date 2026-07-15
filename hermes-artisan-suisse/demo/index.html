@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Démo client — Édition Fondatrice Coach</title>
   <meta name="description" content="Parcours fictif de souscription et d’activation de l’Édition Fondatrice Coach.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    @font-face{font-family:'KeraVolt Optical';src:url('https://xternal69100.github.io/forge-sites/studio-typographique/assets/fonts/KeraVoltOptical-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'Elanovre';src:url('https://xternal69100.github.io/forge-sites/studio-typographique/assets/fonts/Elanovre-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+  </style>
   <script>const tailwindConsoleWarn=console.warn;console.warn=(...args)=>{if(!String(args[0]).includes('cdn.tailwindcss.com should not be used in production'))tailwindConsoleWarn(...args);};</script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>console.warn=tailwindConsoleWarn;tailwind.config={theme:{extend:{colors:{primary:'#1E3A5F',primarySoft:'#D8E4F0',secondary:'#667085',tertiary:'#8C4F22',neutral:'#F6F3EE',ink:'#0F172A',muted:'#E8E1D7',success:'#22543D'},fontFamily:{display:['Manrope','sans-serif'],body:['Inter','sans-serif']},borderRadius:{md:'18px',lg:'30px',xl:'40px'},boxShadow:{calm:'0 18px 50px rgba(15,23,42,.08)'}}}};</script>
+  <script>console.warn=tailwindConsoleWarn;tailwind.config={theme:{extend:{colors:{primary:'#1E3A5F',primarySoft:'#D8E4F0',secondary:'#667085',tertiary:'#8C4F22',neutral:'#F6F3EE',ink:'#0F172A',muted:'#E8E1D7',success:'#22543D'},fontFamily:{display:['KeraVolt Optical','sans-serif'],body:['Inter','sans-serif'],accent:['Elanovre','sans-serif']},borderRadius:{md:'18px',lg:'30px',xl:'40px'},boxShadow:{calm:'0 18px 50px rgba(15,23,42,.08)'}}}};</script>
   <style>
     html{overflow-x:hidden} body{font-family:Inter,system-ui,sans-serif;background:#F6F3EE;color:#0F172A;text-wrap:pretty;overflow-x:hidden}.step[hidden]{display:none}.step-dot[aria-current="step"]{background:#1E3A5F;color:#fff;border-color:#1E3A5F}.choice:has(input:checked){border-color:#1E3A5F;background:#D8E4F0;box-shadow:inset 4px 0 #1E3A5F}input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid rgba(30,58,95,.35);outline-offset:3px}.field-error{color:#8C4F22;font-size:.8rem;font-weight:700;margin-top:.35rem;min-height:1.1rem}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
@@ -89,7 +90,7 @@
       </div>
     </div>
   </main>
-  <footer class="border-t border-primary/10 bg-white px-4 py-7 text-center text-xs font-bold uppercase tracking-[.07em] text-tertiary">Mode démonstration — aucun débit réel</footer>
+  <footer class="border-t border-primary/10 bg-white px-4 py-7 text-center text-xs font-bold uppercase tracking-[.07em] text-tertiary">Mode démonstration — aucun débit réel<br><span class="mt-2 block font-normal normal-case tracking-normal text-secondary/60 text-[10px]">Fonte KeraVolt Optical par le <a href="https://xternal69100.github.io/forge-sites/studio-typographique/" class="underline hover:text-primary" target="_blank" rel="noopener">Studio Typographique Forge</a> — OFL 1.1</span></footer>
 
   <script>
   (()=>{'use strict';
