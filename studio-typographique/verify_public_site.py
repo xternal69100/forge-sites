@@ -25,31 +25,6 @@ EXPECTED = {
         "KeraVoltOptical-Regular.otf": "683e6a43149bd589f22a316e8c99e5d9c227ecac2d90f4f215ddd1d725c840b2",
         "KeraVoltOptical-Regular.woff2": "b649534a3d04f24918474adda690007c0866a6077864d01a79db6d55153ea162",
     },
-    "downloads/Cervalune-Open-Edition-v1.100.zip": {
-        "Cervalune-Regular.ttf": "78a82099a858f368c7e071888cb0d49f3fa2c65ed829828b3d8f1094b81de329",
-        "Cervalune-Regular.otf": "f096d61201cfff8c12fff706a83446c0b2ed708fe065de1b9e3d2406f0cf4648",
-        "Cervalune-Regular.woff2": "2a3e52d7079b61ac5a026c8e699b23a393eaff5ef799a84c7f614e88ae8753bd",
-    },
-    "downloads/Modulune-System-Open-Edition-v1.000.zip": {
-        "ModuluneSystem-Regular.ttf": "034f25671b57781fd0f532f09755747b56a468ffcfb8e2a34a7d74db60adaf07",
-        "ModuluneSystem-Regular.otf": "1fa7259eccdfe2cf50879469f3471674409a24536a3b3ec08333470999802f61",
-        "ModuluneSystem-Regular.woff2": "9ac1b966a1d427f189b4f36bb86e91bdd01f7ef7c606a008339e593cd08ab062",
-    },
-    "downloads/Brisacline-Display-Open-Edition-v1.000.zip": {
-        "BrisaclineDisplay-Regular.ttf": "754947602c16aad8074bc6a54e6326fa1bde3f3db2da878a94fe48c3f4b83a8f",
-        "BrisaclineDisplay-Regular.otf": "e326035050bdc91c62c5d65faec5b2a8038b31da39aa4fc55715e1697d771694",
-        "BrisaclineDisplay-Regular.woff2": "c4554a69c265956c74b46b5709839ae22edd5bb30f344295041dac2d002c5c57",
-    },
-    "downloads/Hexavox-Mono-V2-Open-Edition-v1.100.zip": {
-        "HexavoxMonoV2-Regular.ttf": "e1aa07fa6ca978de2e0bd250f20141855867ca25523bc4ba67b704b451fd2435",
-        "HexavoxMonoV2-Regular.otf": "2bb76cdd39e12197101d45eb261549d9eaac64a11bd35a69e7ab97bed0dd7bc5",
-        "HexavoxMonoV2-Regular.woff2": "fff90089b306175cec79e49e575bf72683d6c3d0db42ee72a2232e0c6ba268d7",
-    },
-    "downloads/Riftora-Experimental-Open-Edition-v1.000.zip": {
-        "RiftoraExperimental-Regular.ttf": "402a62beccfc338146ceff0173ef6ea82e15b25e00bcc968a4339ea76952125a",
-        "RiftoraExperimental-Regular.otf": "424362ebf6f7d087c22fd11b4ee763a5248c5bbccad26ebe507369abbad03d91",
-        "RiftoraExperimental-Regular.woff2": "c2db2c5169ef6f03203c2d3a527bc0e1513bd462e2240c2f14cf49fd9a75c81b",
-    },
 }
 REQUIRED = {
     "index.html", "demo/index.html", "demo/admin.html", "demo/store.js",
@@ -129,7 +104,7 @@ def validate_copy() -> None:
     admin = (ROOT / "demo/admin.html").read_text(encoding="utf-8")
     store = (ROOT / "demo/store.js").read_text(encoding="utf-8")
     css = (ROOT / "assets/site.css").read_text(encoding="utf-8").replace(" ", "")
-    for needle in ("Elanovre", "KeraVolt Optical", "Cervalune", "Modulune System", "Brisacline Display", "Hexavox Mono V2", "Riftora Experimental", "studio-open-5-20260717", "7 Open Editions publiques", "SIL Open Font License 1.1", "CHF 0", "aucun Reserved Font Name"):
+    for needle in ("Elanovre", "KeraVolt Optical", "studio-quality-recall-20260717", "Audit qualité en cours", "5 éditions récentes retirées", "SIL Open Font License 1.1", "CHF 0"):
         check(needle in landing, f"mention catalogue absente: {needle}")
     for needle in ("Mode démonstration — aucun débit réel", "aucune carte", "CHF 0"):
         check(needle.lower() in demo.lower(), f"mention démo absente: {needle}")
@@ -139,13 +114,14 @@ def validate_copy() -> None:
     check("stripe" not in (demo + store).lower() and "paypal" not in (demo + store).lower(), "provider de paiement détecté")
     check(COPYRIGHT in landing, "notice copyright absente du catalogue")
     check("[hidden]{display:none!important}" in css, "le CSS doit préserver l’attribut hidden des filtres")
-    for family, font_file in (("Cervalune", "Cervalune-Regular.woff2"), ("Modulune System", "ModuluneSystem-Regular.woff2"), ("Brisacline Display", "BrisaclineDisplay-Regular.woff2"), ("Hexavox Mono V2", "HexavoxMonoV2-Regular.woff2"), ("Riftora Experimental", "RiftoraExperimental-Regular.woff2")):
+    for family, font_file in (("Elanovre", "Elanovre-Regular.woff2"), ("KeraVolt Optical", "KeraVoltOptical-Regular.woff2")):
         css_family = family.replace(" ", "")
         check(f"font-family:{css_family}" in css or f"font-family:'{css_family}'" in css, f"{family} doit être réellement déclarée dans le CSS")
         check(f"fonts/{font_file}" in css, f"WOFF2 absent du CSS: {font_file}")
         check(family in store, f"famille absente du store: {family}")
-    for archive in ("Cervalune-Open-Edition-v1.100.zip", "Modulune-System-Open-Edition-v1.000.zip", "Brisacline-Display-Open-Edition-v1.000.zip", "Hexavox-Mono-V2-Open-Edition-v1.100.zip", "Riftora-Experimental-Open-Edition-v1.000.zip"):
-        check(archive in store, f"paquet absent du store: {archive}")
+    rejected = ("Cervalune", "Modulune System", "Brisacline Display", "Hexavox Mono V2", "Riftora Experimental")
+    for family in rejected:
+        check(family not in landing + demo + admin + store, f"famille rappelée encore exposée: {family}")
 
 
 def validate_zips() -> int:
@@ -179,6 +155,7 @@ def run_commands() -> list[str]:
         ["node", "--check", "demo/customer.js"],
         ["node", "--check", "demo/admin.js"],
         ["node", "demo/verify_store.js"],
+        [sys.executable, "../bin/check_editorial_publication.py"],
     ]
     outputs = []
     for command in commands:

@@ -2,7 +2,7 @@
   'use strict';
   const presets = {
     title: 'Écrire le mouvement, tailler la lumière.',
-    paragraph: 'Sept dessins originaux donnent une voix différente au même texte. Ces éditions ouvertes permettent de les utiliser, les étudier et les modifier selon la SIL Open Font License 1.1.',
+    paragraph: 'Deux dessins historiques restent disponibles provisoirement pendant leur contre-revue qualité. Les cinq éditions récentes ont été rappelées et ne doivent plus être proposées au téléchargement.',
     glyphs: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 ÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ œŒæÆ'
   };
   const cards = [...document.querySelectorAll('.font-card')];

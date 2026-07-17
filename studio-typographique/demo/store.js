@@ -6,15 +6,10 @@
   'use strict';
   const KEY = 'forge:studio-typographique:demo:v1';
   const STATUSES = ['Nouvelle', 'Vérifiée', 'Archivée'];
-  const FAMILIES = ['Elanovre', 'KeraVolt Optical', 'Cervalune', 'Modulune System', 'Brisacline Display', 'Hexavox Mono V2', 'Riftora Experimental'];
+  const FAMILIES = ['Elanovre', 'KeraVolt Optical'];
   const PACKS = {
     Elanovre: '../downloads/Elanovre-Open-Edition-v1.000.zip',
-    'KeraVolt Optical': '../downloads/KeraVolt-Optical-Open-Edition-v1.100.zip',
-    Cervalune: '../downloads/Cervalune-Open-Edition-v1.100.zip',
-    'Modulune System': '../downloads/Modulune-System-Open-Edition-v1.000.zip',
-    'Brisacline Display': '../downloads/Brisacline-Display-Open-Edition-v1.000.zip',
-    'Hexavox Mono V2': '../downloads/Hexavox-Mono-V2-Open-Edition-v1.100.zip',
-    'Riftora Experimental': '../downloads/Riftora-Experimental-Open-Edition-v1.000.zip'
+    'KeraVolt Optical': '../downloads/KeraVolt-Optical-Open-Edition-v1.100.zip'
   };
   function baseline() { return { version: 1, orders: [] }; }
   function validOrder(order) {
