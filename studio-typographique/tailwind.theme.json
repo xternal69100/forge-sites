@@ -15,11 +15,11 @@
         "danger": "#8e2e24"
       },
       "fontFamily": {
-        "elanovre": [
-          "Elanovre, Arial, sans-serif"
+        "display": [
+          "Georgia, serif"
         ],
-        "keravolt": [
-          "KeraVolt Optical, Impact, sans-serif"
+        "secondary": [
+          "Georgia, serif"
         ],
         "h1": [
           "Georgia, serif"

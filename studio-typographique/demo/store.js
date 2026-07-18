@@ -6,11 +6,8 @@
   'use strict';
   const KEY = 'forge:studio-typographique:demo:v1';
   const STATUSES = ['Nouvelle', 'Vérifiée', 'Archivée'];
-  const FAMILIES = ['Elanovre', 'KeraVolt Optical'];
-  const PACKS = {
-    Elanovre: '../downloads/Elanovre-Open-Edition-v1.000.zip',
-    'KeraVolt Optical': '../downloads/KeraVolt-Optical-Open-Edition-v1.100.zip'
-  };
+  const FAMILIES = [];
+  const PACKS = {};
   function baseline() { return { version: 1, orders: [] }; }
   function validOrder(order) {
     return !!order && typeof order.id === 'string' && FAMILIES.includes(order.family) &&
@@ -39,7 +36,7 @@
     }
     function addOrder(input) {
       const order = { id:String(input.id), createdAt:String(input.createdAt), family:String(input.family), name:String(input.name), email:String(input.email).toLowerCase(), amountCHF:0, status:'Nouvelle', pack:PACKS[input.family] || '' };
-      if (!validOrder(order) || !order.pack) throw new Error('Essai de démonstration invalide');
+      if (!validOrder(order) || !order.pack) throw new Error('Catalogue fermé : aucune édition autorisée');
       const state = read(); state.orders.unshift(order); save(state); return order;
     }
     function updateStatus(id, status) {

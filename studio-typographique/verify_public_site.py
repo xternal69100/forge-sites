@@ -1,36 +1,28 @@
 #!/usr/bin/env python3
-"""Validateur public, sans dépendance tierce, pour Forge Open Editions."""
+"""Validateur fail-closed de la copie publique locale après rappel qualité."""
 from __future__ import annotations
 
-import hashlib
 import json
 import subprocess
 import sys
-import zipfile
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
-COPYRIGHT = "Copyright 2026 The Studio Typographique Forge Project Authors"
 STORE_KEY = "forge:studio-typographique:demo:v1"
-EXPECTED = {
-    "downloads/Elanovre-Open-Edition-v1.000.zip": {
-        "Elanovre-Regular.ttf": "6bdbb174249edec2de480ccda3212cf471518f6b301df70bb1ee883d9ee6133f",
-        "Elanovre-Regular.otf": "01433752aaa46806660f35eae4978ee03488c255ba4c96e8dcb103bfb305413d",
-        "Elanovre-Regular.woff2": "b61bd6330074f3d25c7d2d47bd9916d44158984d0fc6a2af6862fe2374ca4a08",
-    },
-    "downloads/KeraVolt-Optical-Open-Edition-v1.100.zip": {
-        "KeraVoltOptical-Regular.ttf": "0049c87b5df568a7f3cff992490318e7c3ff9123b4f3ac27c21091a14335e179",
-        "KeraVoltOptical-Regular.otf": "683e6a43149bd589f22a316e8c99e5d9c227ecac2d90f4f215ddd1d725c840b2",
-        "KeraVoltOptical-Regular.woff2": "b649534a3d04f24918474adda690007c0866a6077864d01a79db6d55153ea162",
-    },
-}
 REQUIRED = {
     "index.html", "demo/index.html", "demo/admin.html", "demo/store.js",
     "demo/customer.js", "demo/admin.js", "demo/verify_store.js", "assets/site.css",
     "assets/catalog.js", "DESIGN.md", "tokens.json", "tailwind.theme.json",
 }
+RECALLED_ARTIFACTS = {
+    "downloads/Elanovre-Open-Edition-v1.000.zip",
+    "downloads/KeraVolt-Optical-Open-Edition-v1.100.zip",
+    "assets/fonts/Elanovre-Regular.woff2",
+    "assets/fonts/KeraVoltOptical-Regular.woff2",
+}
+
 
 class PageParser(HTMLParser):
     def __init__(self) -> None:
@@ -38,6 +30,7 @@ class PageParser(HTMLParser):
         self.refs: list[str] = []
         self.text: list[str] = []
         self._hidden_depth = 0
+
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = dict(attrs)
         if tag in {"script", "style"}:
@@ -46,16 +39,14 @@ class PageParser(HTMLParser):
             value = values.get(key)
             if value:
                 self.refs.append(value)
+
     def handle_endtag(self, tag: str) -> None:
         if tag in {"script", "style"} and self._hidden_depth:
             self._hidden_depth -= 1
+
     def handle_data(self, data: str) -> None:
         if not self._hidden_depth:
             self.text.append(data)
-
-
-def sha(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest()
 
 
 def check(condition: bool, message: str) -> None:
@@ -86,15 +77,13 @@ def validate_html() -> tuple[int, int]:
     return len(pages), refs_checked
 
 
-def validate_public_boundary() -> int:
-    files = [p for p in ROOT.rglob("*") if p.is_file()]
-    banned_suffixes = {".png", ".pyc", ".log"}
-    banned_names = {"provenance.json", "sbom.spdx.json", "manifest.sha256", "fiche.md", "qa-visuelle.md"}
+def validate_boundary() -> int:
+    files = [path for path in ROOT.rglob("*") if path.is_file()]
+    banned_suffixes = {".png", ".pyc", ".log", ".zip", ".woff", ".woff2", ".ttf", ".otf"}
     for path in files:
-        lower = path.name.lower()
-        check(path.suffix.lower() not in banned_suffixes, f"format privé/interdit dans site: {path.relative_to(ROOT)}")
-        check(lower not in banned_names, f"métadonnée interne dans site: {path.relative_to(ROOT)}")
-        check("generate_font" not in lower and "specimen-private" not in lower and "prepublication" not in lower, f"artefact privé dans site: {path.relative_to(ROOT)}")
+        check(path.suffix.lower() not in banned_suffixes, f"binaire rappelé ou format privé dans site: {path.relative_to(ROOT)}")
+    for rel in RECALLED_ARTIFACTS:
+        check(not (ROOT / rel).exists(), f"artefact rappelé encore présent: {rel}")
     return len(files)
 
 
@@ -103,49 +92,19 @@ def validate_copy() -> None:
     demo = (ROOT / "demo/index.html").read_text(encoding="utf-8")
     admin = (ROOT / "demo/admin.html").read_text(encoding="utf-8")
     store = (ROOT / "demo/store.js").read_text(encoding="utf-8")
-    css = (ROOT / "assets/site.css").read_text(encoding="utf-8").replace(" ", "")
-    for needle in ("Elanovre", "KeraVolt Optical", "studio-quality-recall-20260717", "Audit qualité en cours", "5 éditions récentes retirées", "SIL Open Font License 1.1", "CHF 0"):
-        check(needle in landing, f"mention catalogue absente: {needle}")
-    for needle in ("Mode démonstration — aucun débit réel", "aucune carte", "CHF 0"):
+    css = (ROOT / "assets/site.css").read_text(encoding="utf-8")
+    for needle in ("studio-quality-recall-20260718", "Catalogue momentanément vide", "7 éditions retirées", "0 famille disponible", "aucun binaire distribué"):
+        check(needle.lower() in landing.lower(), f"mention de rappel absente: {needle}")
+    for needle in ("Mode démonstration — aucun débit réel", "aucune carte", "aucune distribution", "Inventaire vide"):
         check(needle.lower() in demo.lower(), f"mention démo absente: {needle}")
     check("aucune transmission" in admin.lower(), "divulgation admin absente")
     check(STORE_KEY in store, "clé de store exacte absente")
-    check("orders: []" in store, "baseline vide absente")
+    check("const FAMILIES = [];" in store and "const PACKS = {};" in store, "allowlist ou paquets non vides")
+    check("@font-face" not in css and "fonts/" not in css, "police rappelée encore chargée par le CSS")
     check("stripe" not in (demo + store).lower() and "paypal" not in (demo + store).lower(), "provider de paiement détecté")
-    check(COPYRIGHT in landing, "notice copyright absente du catalogue")
-    check("[hidden]{display:none!important}" in css, "le CSS doit préserver l’attribut hidden des filtres")
-    for family, font_file in (("Elanovre", "Elanovre-Regular.woff2"), ("KeraVolt Optical", "KeraVoltOptical-Regular.woff2")):
-        css_family = family.replace(" ", "")
-        check(f"font-family:{css_family}" in css or f"font-family:'{css_family}'" in css, f"{family} doit être réellement déclarée dans le CSS")
-        check(f"fonts/{font_file}" in css, f"WOFF2 absent du CSS: {font_file}")
-        check(family in store, f"famille absente du store: {family}")
-    rejected = ("Cervalune", "Modulune System", "Brisacline Display", "Hexavox Mono V2", "Riftora Experimental")
-    for family in rejected:
-        check(family not in landing + demo + admin + store, f"famille rappelée encore exposée: {family}")
-
-
-def validate_zips() -> int:
-    verified = 0
-    for rel, fonts in EXPECTED.items():
-        path = ROOT / rel
-        check(path.exists(), f"ZIP absent: {rel}")
-        with zipfile.ZipFile(path) as archive:
-            names = set(archive.namelist())
-            expected_names = set(fonts) | {"OFL.txt", "README-FR.md"}
-            check(names == expected_names, f"contenu ZIP inattendu {rel}: {sorted(names)}")
-            check(archive.testzip() is None, f"entrée ZIP corrompue: {rel}")
-            for name, digest in fonts.items():
-                check(sha(archive.read(name)) == digest, f"hash binaire incorrect: {rel}/{name}")
-                verified += 1
-            ofl = archive.read("OFL.txt").decode("utf-8")
-            header = ofl.split("-----------------------------------------------------------", 1)[0]
-            check(ofl.startswith(COPYRIGHT + "\n\n"), f"notice OFL incorrecte: {rel}")
-            check("SIL OPEN FONT LICENSE Version 1.1" in ofl, f"texte OFL 1.1 absent: {rel}")
-            check("with Reserved Font Name" not in header, f"Reserved Font Name déclaré: {rel}")
-            readme = archive.read("README-FR.md").decode("utf-8")
-            for phrase in ("label d’édition", "clearance de marque", "titularité vérifiée", "licence de ce paquet porte sur les fichiers"):
-                check(phrase in readme, f"réserve absente de {rel}: {phrase}")
-    return verified
+    exposed = landing + demo + admin + store
+    for family in ("Elanovre", "KeraVolt Optical", "Cervalune", "Modulune System", "Brisacline Display", "Hexavox Mono V2", "Riftora Experimental"):
+        check(family not in exposed, f"famille rappelée encore exposée: {family}")
 
 
 def run_commands() -> list[str]:
@@ -167,25 +126,24 @@ def run_commands() -> list[str]:
 
 
 def main() -> int:
-    missing = sorted(REQUIRED - {str(p.relative_to(ROOT)) for p in ROOT.rglob("*") if p.is_file()})
+    missing = sorted(REQUIRED - {str(path.relative_to(ROOT)) for path in ROOT.rglob("*") if path.is_file()})
     check(not missing, f"fichiers requis absents: {missing}")
     pages, refs = validate_html()
-    file_count = validate_public_boundary()
+    file_count = validate_boundary()
     validate_copy()
-    binaries = validate_zips()
     outputs = run_commands()
     json.loads((ROOT / "tokens.json").read_text(encoding="utf-8"))
     json.loads((ROOT / "tailwind.theme.json").read_text(encoding="utf-8"))
-    print(f"PUBLIC SITE PASS — {pages} pages HTML, {refs} liens locaux, {file_count} fichiers publics.")
-    print(f"PACKAGES PASS — {len(EXPECTED)} ZIP, {binaries} binaires hashés, contenu exact 5/5, OFL 1.1 sans RFN déclaré.")
+    print(f"PUBLIC SITE PASS — {pages} pages HTML, {refs} liens locaux, {file_count} fichiers publics, 0 binaire distribué.")
     for output in outputs:
         print(output)
-    print("BASELINE PASS — store version 1 laissé vide par le harness.")
+    print("BASELINE PASS — catalogue, allowlist, paquets et store vides.")
     return 0
+
 
 if __name__ == "__main__":
     try:
         raise SystemExit(main())
-    except (AssertionError, OSError, ValueError, zipfile.BadZipFile) as exc:
+    except (AssertionError, OSError, ValueError) as exc:
         print(f"PUBLIC SITE FAIL — {exc}", file=sys.stderr)
         raise SystemExit(1)

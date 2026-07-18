@@ -15,14 +15,14 @@ colors:
   success: "#1D6440"
   danger: "#8E2E24"
 typography:
-  elanovre:
-    fontFamily: Elanovre, Arial, sans-serif
+  display:
+    fontFamily: Georgia, serif
     fontSize: 4rem
     fontWeight: 400
-    lineHeight: 0.98
+    lineHeight: 1.02
     letterSpacing: "-0.02em"
-  keravolt:
-    fontFamily: KeraVolt Optical, Impact, sans-serif
+  secondary:
+    fontFamily: Georgia, serif
     fontSize: 4rem
     fontWeight: 400
     lineHeight: 0.94
@@ -120,7 +120,7 @@ Forge Open Editions est un catalogue public de fontes réelles, téléchargeable
 
 ## Typography
 
-Elanovre et KeraVolt Optical sont chargées depuis leurs WOFF2 publiés et réservées aux spécimens. Georgia structure les titres éditoriaux ; Arial garde les commandes sobres, robustes et locales. Une fonte d’interface ne doit jamais imiter ou neutraliser la singularité des deux familles.
+Les familles rappelées ne sont plus chargées par le site. Georgia structure les titres éditoriaux ; Arial garde les commandes sobres, robustes et locales. Toute réintroduction d’une fonte de spécimen exige une nouvelle contre-revue indépendante et un allowlist explicite.
 
 ## Layout
 
