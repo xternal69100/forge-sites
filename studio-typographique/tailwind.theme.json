@@ -35,14 +35,14 @@
         ]
       },
       "fontSize": {
-        "elanovre": [
+        "display": [
           "4rem",
           {
             "letterSpacing": "-0.02em",
             "fontWeight": "400"
           }
         ],
-        "keravolt": [
+        "secondary": [
           "4rem",
           {
             "letterSpacing": "-0.015em",
