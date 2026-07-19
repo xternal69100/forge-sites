@@ -1,12 +1,12 @@
 {
   "schemaVersion": 4,
-  "release": "matrix-learning-v1",
+  "release": "clair-capital-v2",
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-14T01:01:09Z",
+  "generatedAt": "2026-07-19T11:25:12Z",
   "source": "Registre Forge Capital sanitizé + documents allowlistés + Hyperliquid public on-chain ; historiques Kraken DATA-ONLY EXOGÈNES",
   "capital": {
-    "authorized_usdt": 100,
+    "authorized_usdt": 1000,
     "received_usdt": 0,
     "liquid_usdt": 0,
     "invested_usdt": 0,
@@ -66,35 +66,35 @@
   "results": [
     {
       "type": "JOURNAL SANITIZÉ",
-      "result": "Décision : appliquer le mandat v2 — perps on-chain Hyperliquid, long/short, levier et décisions de trading autonomes. Les limites spot, réserve 40, arrêt à 10 et validation humaine par ordre de la v1 sont supprimées."
+      "result": "Décision : CONTINUER la collecte PAPER causale ; ne lancer aucun backtest avant 30 événements indépendants et ne promouvoir aucune stratégie."
     },
     {
       "type": "JOURNAL SANITIZÉ",
-      "result": "Capital réel : 100 USDT autorisés ; 0 reçu, liquide, investi, engagé ou net ; P&L/frais réels 0."
+      "result": "Décision : COLLECTFORWARDONLY; aucune évaluation avant 30 événements uniques disposant du"
     },
     {
       "type": "JOURNAL SANITIZÉ",
-      "result": "Décision : NO-GO ; ne rien exécuter et ne pas réinterpréter l’excès sur un BTC baissier comme un edge robuste."
+      "result": "Décision : COLLECTFORWARDONLY; continuer la profondeur causale sans évaluer l'edge."
     },
     {
       "type": "JOURNAL SANITIZÉ",
-      "result": "Capital réel : 100 USDT autorisés ; 0 reçu, liquide, investi, engagé ou net ; P&L/frais réels 0."
+      "result": "Décision : COLLECTFORWARDONLY; poursuivre la profondeur causale, sans évaluer l'edge."
     },
     {
       "type": "JOURNAL SANITIZÉ",
-      "result": "Décision : NO-GO ; ne pas retoucher les OOS observés et ne produire aucun ticket réel."
+      "result": "Décision : COLLECTFORWARDONLY; poursuivre la profondeur causale, sans évaluer l'edge."
     },
     {
       "type": "JOURNAL SANITIZÉ",
-      "result": "Capital réel : 100 USDT autorisés ; 0 reçu, liquide, investi, engagé ou net ; P&L/frais réels 0."
+      "result": "Décision : COLLECTFORWARDONLY; poursuivre la profondeur causale, sans évaluer l'edge."
     },
     {
       "type": "JOURNAL SANITIZÉ",
-      "result": "Décision : NO-GO réel ; poursuivre la configuration figée sans retuning."
+      "result": "Décision : retirer toute sortie décisionnelle du mapper historique et rendre les tests hermétiques avant tout nouveau rejeu financier."
     },
     {
       "type": "JOURNAL SANITIZÉ",
-      "result": "Capital réel : 100 USDT autorisés ; 0 reçu, liquide, investi, engagé ou net ; P&L/frais réels 0."
+      "result": "Décision : SPECIFICATIONREADY / IMPLEMENTATIONREQUIRED / CASHNOOP / LIVENOGO."
     }
   ],
   "learnings": [
@@ -226,8 +226,8 @@
     ],
     "freshness": {
       "label": "DIFFÉRÉ — DERNIER CYCLE LOCAL",
-      "cycleGeneratedAt": "2026-07-14T00:37:58.683249+00:00",
-      "snapshotGeneratedAt": "2026-07-14T01:01:09Z"
+      "cycleGeneratedAt": "2026-07-14T13:57:01.812907+00:00",
+      "snapshotGeneratedAt": "2026-07-19T11:25:12Z"
     },
     "sourceSummary": {
       "httpSuccess": 11,
@@ -305,9 +305,9 @@
     "counts": {
       "observed": 215,
       "primaryEvents": 99,
-      "secondaryEvents": 90,
-      "corroboratedSecondaryEvents": 9,
-      "quarantinedEvents": 26,
+      "secondaryEvents": 89,
+      "corroboratedSecondaryEvents": 11,
+      "quarantinedEvents": 27,
       "researchQueue": 3,
       "preregisteredPaper": 3,
       "decisions": 3,
@@ -671,7 +671,7 @@
       "sequence": 1,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-14T01:01:09Z",
+      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -700,7 +700,7 @@
       "sequence": 2,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-14T01:01:09Z",
+      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -729,7 +729,7 @@
       "sequence": 3,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-14T01:01:09Z",
+      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -758,7 +758,7 @@
       "sequence": 4,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-14T01:01:09Z",
+      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -787,7 +787,7 @@
       "sequence": 5,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-14T01:01:09Z",
+      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -816,7 +816,7 @@
       "sequence": 6,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-14T01:01:09Z",
+      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -845,7 +845,7 @@
       "sequence": 7,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-14T01:01:09Z",
+      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -874,7 +874,7 @@
       "sequence": 8,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-14T01:01:09Z",
+      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -1025,6 +1025,233 @@
       "Dataset Registry ouvert"
     ],
     "source": "Rapport 45"
+  },
+  "humanDashboard": {
+    "asOf": "2026-07-19",
+    "referenceDesign": {
+      "name": "Seline Analytics",
+      "source": "Refero",
+      "theme": "Bureau d’analyste calme sur papier chaud"
+    },
+    "scores": {
+      "projectQuality": 9.28,
+      "tradingReadiness": 0,
+      "separation": "La qualité du projet ne mesure ni l’edge ni la probabilité de gain."
+    },
+    "money": {
+      "authorizedUsdt": 1000,
+      "receivedUsdt": 0,
+      "observedOnConfiguredAccountUsdt": 0,
+      "netValueUsdt": 0,
+      "truth": "Capital autorisé ≠ capital reçu. Aucun P&L PAPER n’est ajouté au capital réel."
+    },
+    "activation": {
+      "canActivate": false,
+      "verdict": "NON — LIVE INTERDIT",
+      "champion": "CASH/NOOP",
+      "reason": "Aucun avantage statistique rentable n’est validé et aucune des sept conditions d’activation n’est remplie."
+    },
+    "tactics": [
+      {
+        "id": "T01",
+        "name": "Lead-lag Polymarket → Hyperliquid",
+        "status": "EN CONSTRUCTION",
+        "category": "Piste prioritaire",
+        "evidence": "Lignée v2 spécifiée ; mapper observation-only ; aucune évaluation de l’edge.",
+        "result": "Pas encore testable : collecteur v2 et paires temporelles à implémenter.",
+        "next": "Implémenter la lignée canonique v2 par TDD puis collecter du forward neuf.",
+        "liveEligible": false
+      },
+      {
+        "id": "T02",
+        "name": "Dislocation après liquidation",
+        "status": "À PRÉINSCRIRE",
+        "category": "Recherche",
+        "evidence": "Mécanisme plausible, mais anciennes spécifications mises en quarantaine.",
+        "result": "Aucune lignée G1–G11 valide et aucun résultat admissible.",
+        "next": "Écrire une préinscription indépendante avant toute lecture de résultats.",
+        "liveEligible": false
+      },
+      {
+        "id": "T03",
+        "name": "Rupture OI / funding et divergence",
+        "status": "À ÉTUDIER",
+        "category": "Filtre de stress",
+        "evidence": "Données publiques disponibles ; le funding simple a déjà échoué.",
+        "result": "Aucun test causal de change-point validé.",
+        "next": "Tester comme filtre, jamais comme carry autonome.",
+        "liveEligible": false
+      },
+      {
+        "id": "T04",
+        "name": "Dispersion résiduelle et leader-lag",
+        "status": "À ÉTUDIER",
+        "category": "Recherche",
+        "evidence": "Peut réduire le bêta ; dispersion BTC/ETH/SOL déjà NO-GO.",
+        "result": "Univers et neutralisation insuffisants.",
+        "next": "Préinscrire un univers élargi et une neutralisation explicite.",
+        "liveEligible": false
+      },
+      {
+        "id": "T05",
+        "name": "Maker post-only avec filtre adverse selection",
+        "status": "À SIMULER",
+        "category": "Exécution",
+        "evidence": "Économie de frais possible, mais fills, file d’attente et inventaire non prouvés.",
+        "result": "Aucun simulateur conservateur de fills disponible.",
+        "next": "Construire un simulateur avant toute promotion.",
+        "liveEligible": false
+      },
+      {
+        "id": "T06",
+        "name": "Déséquilibre du carnet et CVD",
+        "status": "À ÉTUDIER",
+        "category": "Microstructure",
+        "evidence": "Signal plausible mais sensible à la latence et au spoofing.",
+        "result": "Aucun edge net démontré.",
+        "next": "Utiliser d’abord comme filtre complémentaire.",
+        "liveEligible": false
+      },
+      {
+        "id": "T07",
+        "name": "Volatilité HAR-RV et compression",
+        "status": "FILTRE UNIQUEMENT",
+        "category": "Régime et sizing",
+        "evidence": "Pertinent pour le régime ; insuffisant comme alpha autonome.",
+        "result": "Pas de promotion comme stratégie indépendante.",
+        "next": "Conserver pour filtrer ou dimensionner une autre tactique.",
+        "liveEligible": false
+      },
+      {
+        "id": "T08",
+        "name": "Funding simple BTC / ETH / SOL",
+        "status": "ARRÊTÉE",
+        "category": "Tactique rejetée",
+        "evidence": "Résultats négatifs sous coûts sévères.",
+        "result": "L’avantage disparaît avec frais, slippage et funding réalistes.",
+        "next": "Ne pas relancer comme stratégie autonome.",
+        "liveEligible": false
+      },
+      {
+        "id": "T09",
+        "name": "Momentum et breakout génériques",
+        "status": "ARRÊTÉE",
+        "category": "Tactique rejetée",
+        "evidence": "Walk-forward et shadow-forward insuffisants ; coûts dominants.",
+        "result": "NO-GO confirmé ; une seule opération positive ne prouve rien.",
+        "next": "Ne pas recycler sans hypothèse réellement distincte.",
+        "liveEligible": false
+      }
+    ],
+    "activationGates": [
+      {
+        "id": "G1",
+        "label": "Avantage rentable sous coûts sévères",
+        "state": "ÉCHEC",
+        "reason": "Aucune tactique n’a démontré un résultat net robuste.",
+        "evidence": "Rapports 25, 27, 28 et 55"
+      },
+      {
+        "id": "G2",
+        "label": "Données forward indépendantes",
+        "state": "BLOQUÉ",
+        "reason": "La lignée v2 est spécifiée mais pas implémentée ni collectée.",
+        "evidence": "Rapport 70"
+      },
+      {
+        "id": "G3",
+        "label": "Council et Red-Team alignés",
+        "state": "ÉCHEC",
+        "reason": "Ancien gate HOLD/VETO, non aligné sur la lignée actuelle.",
+        "evidence": "Rapports 44, 45 et 67"
+      },
+      {
+        "id": "G4",
+        "label": "Garde live mécanique",
+        "state": "BLOQUÉ",
+        "reason": "Le LiveAuthorizationGuard central reste à implémenter.",
+        "evidence": "E02, rapport 67"
+      },
+      {
+        "id": "G5",
+        "label": "Smoke testnet signé",
+        "state": "BLOQUÉ",
+        "reason": "Aucun wallet API testnet séparé ni smoke test PASS.",
+        "evidence": "Cadre de risque v2 et rapport 67"
+      },
+      {
+        "id": "G6",
+        "label": "Capital et compte réconciliés",
+        "state": "BLOQUÉ",
+        "reason": "1 000 USDT autorisés mais 0 reçu et 0 observé sur le compte configuré.",
+        "evidence": "Registre et audit 67"
+      },
+      {
+        "id": "G7",
+        "label": "Risque runtime complet",
+        "state": "BLOQUÉ",
+        "reason": "Heat, drawdown, positions existantes et kill switch ne sont pas tous imposés avant ordre.",
+        "evidence": "E02 et cadre de risque v2"
+      }
+    ],
+    "remediations": [
+      {
+        "id": "E01",
+        "label": "Faux GO supprimés du mapper",
+        "state": "CORRIGÉ",
+        "proof": "Observation-only, aucun sizing ni direction."
+      },
+      {
+        "id": "E06",
+        "label": "Tests rendus hermétiques",
+        "state": "CORRIGÉ",
+        "proof": "153/153 PASS et trois snapshots immuables."
+      },
+      {
+        "id": "E03-E05",
+        "label": "Lignée forward v2",
+        "state": "SPÉCIFIÉE",
+        "proof": "Cadence 60 min et writer unique définis ; implémentation manquante."
+      },
+      {
+        "id": "E02",
+        "label": "Garde live central",
+        "state": "OUVERT",
+        "proof": "Aucune preuve d’implémentation runtime."
+      }
+    ],
+    "nextActions": [
+      {
+        "order": 1,
+        "label": "Implémenter la lignée forward v2",
+        "why": "Créer une donnée causalement exploitable et archivée."
+      },
+      {
+        "order": 2,
+        "label": "Collecter des paires temporelles réellement nouvelles",
+        "why": "Mesurer le lead-lag sans backfill ni fuite."
+      },
+      {
+        "order": 3,
+        "label": "Implémenter le garde live fail-closed",
+        "why": "Rendre les règles de risque mécaniques avant tout ordre."
+      },
+      {
+        "order": 4,
+        "label": "Provisionner et valider le testnet",
+        "why": "Prouver ouverture, stop, annulation, clôture et retour à plat."
+      },
+      {
+        "order": 5,
+        "label": "Réconcilier capital et compte",
+        "why": "Dimensionner uniquement à partir d’une equity réellement observée."
+      }
+    ],
+    "sourceRefs": [
+      "Rapports 25, 27, 28, 55, 67, 69 et 70",
+      "Cadre de risque v2",
+      "Registre Forge Capital"
+    ]
   },
   "transactionClasses": [
     "ON-CHAIN LIVE",

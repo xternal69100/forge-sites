@@ -1,164 +1,84 @@
 ---
-version: matrix-learning-v1
-name: Forge Capital Matrix Learning — ON-CHAIN ONLY
-description: Cockpit Matrix dense pétrole/cyan/vert, orienté Monitor / Operate, qui rejoue des artefacts PAPER bornés et sépare observation live, recherche, veto et exécution prouvée.
+version: clair-capital-v2
+name: Forge Capital — cockpit humain
+reference: Seline Analytics via Refero
+theme: Bureau d’analyste calme sur papier chaud
 colors:
-  primary: "#020908"
-  petrol: "#051311"
-  panel: "#071A17"
-  panelStrong: "#0A231E"
-  line: "#17483E"
-  matrix: "#65FF9A"
-  cyan: "#35E7FF"
-  cyanSoft: "#A8F7FF"
-  text: "#E4FFF3"
-  muted: "#7FA99B"
-  warning: "#FFB347"
-  danger: "#FF6574"
-typography:
-  display:
-    fontFamily: Arial Narrow, Impact, Arial, sans-serif
-    fontSize: 4.8rem
-    fontWeight: 900
-    lineHeight: 0.88
-    letterSpacing: "0.045em"
-  h1:
-    fontFamily: Arial Narrow, Impact, Arial, sans-serif
-    fontSize: 3rem
-    fontWeight: 900
-    lineHeight: 0.92
-    letterSpacing: "0.045em"
-  body:
-    fontFamily: Arial, Helvetica, sans-serif
-    fontSize: 0.875rem
-    fontWeight: 400
-    lineHeight: 1.45
-    letterSpacing: "0em"
-  data:
-    fontFamily: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace
-    fontSize: 0.75rem
-    fontWeight: 700
-    lineHeight: 1.4
-    letterSpacing: "0.04em"
-rounded:
-  sm: 1px
-  md: 2px
-  lg: 4px
-spacing:
-  xs: 4px
-  sm: 8px
-  md: 12px
-  lg: 20px
-  xl: 32px
-components:
-  button-primary:
-    backgroundColor: "{colors.cyan}"
-    textColor: "{colors.primary}"
-    rounded: "{rounded.sm}"
-    padding: 12px
-  button-secondary:
-    backgroundColor: "{colors.petrol}"
-    textColor: "{colors.cyan}"
-    rounded: "{rounded.sm}"
-    padding: 12px
-  panel:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.sm}"
-    padding: 12px
-  status-replay:
-    backgroundColor: "{colors.panelStrong}"
-    textColor: "{colors.matrix}"
-    rounded: "{rounded.sm}"
-    padding: 4px
-  status-veto:
-    backgroundColor: "{colors.panelStrong}"
-    textColor: "{colors.danger}"
-    rounded: "{rounded.sm}"
-    padding: 4px
+  paper: "#F7F6F2"
+  surface: "#FFFFFF"
+  ink: "#202124"
+  muted: "#6E706F"
+  line: "#DEDDD7"
+  cyan: "#00A9C7"
+  cyanSoft: "#DFF7FB"
+  danger: "#B73A3A"
+  dangerSoft: "#FFF0EE"
+  warning: "#9B6713"
+  warningSoft: "#FFF5DB"
+  success: "#24704A"
+  successSoft: "#E8F5ED"
+fonts:
+  sans: "Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif"
+  mono: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
 ---
 
-## Overview
+# Direction
 
-`matrix-learning-v1` est la surface primaire **Monitor / Operate** de Forge Capital. Ce n’est pas une landing SaaS : la route cockpit affiche immédiatement l’état de décision, le marché public read-only, les traces de recherche, les méthodes, les gates et les agents.
+Le cockpit **clair-capital-v2** reprend le système Refero de **Seline Analytics** : fond chaud, cartes blanches, encre sombre, bordures fines, typographie sans-serif et cyan réservé aux actions et à la donnée fraîche. L’objectif n’est plus de simuler un terminal, mais de rendre une décision financière difficile compréhensible en moins d’une minute.
 
-Le modèle mental est une salle d’observabilité financière : dense, asymétrique, opaque et lisible. Le vert Matrix signale une chaîne d’apprentissage/provenance, le cyan les données et actions de lecture, le rouge un veto ou une preuve manquante. Aucun grand slogan marketing, chiffre décoratif, glassmorphism ou violet.
+## North star
 
-## Contrat de vérité
+> Un bureau d’analyste calme où l’utilisateur sait immédiatement combien d’argent est réel, quelles tactiques sont encore étudiées et pourquoi le trading live reste autorisé ou interdit.
 
-Quatre axes ne doivent jamais se confondre :
+## Hiérarchie obligatoire
 
-1. **Marché** : `ON-CHAIN LIVE` uniquement après succès actuel de l’Info API Hyperliquid. Le fallback efface les valeurs et dit `DIFFÉRÉ`.
-2. **Recherche** : `TRACE D’APPRENTISSAGE`, `PAPER`, `RESEARCH`, `VETO` ou `NOOP` ; jamais ordre, fill ou transaction réelle.
-3. **Capital** : 0 reçu, 0 liquide, 0 investi, 0 engagé, valeur nette réelle 0.
-4. **Exécution** : absente du navigateur. `EXÉCUTÉ AVEC PREUVE` reste le gate du store DÉMO, avec `proofId`, `proofSource`, `proofTimestamp`.
+1. **Décision d’activation** — réponse textuelle, jamais seulement une couleur.
+2. **Argent** — autorisé, reçu, observé et valeur nette séparés.
+3. **Qualité vs préparation** — deux indicateurs qui ne sont jamais moyennés.
+4. **Tactiques** — statut, preuve, conclusion et prochaine étape.
+5. **Gates live** — sept conditions conjonctives.
+6. **Apprentissages** — les échecs restent des résultats utiles.
+7. **Actions suivantes** — ordre clair, sans promesse de rendement.
 
-Hyperliquid public est la source live primaire et read-only. Toute référence CEX éventuelle est **DATA-ONLY EXOGÈNE**, secondaire, sans compte, clé, custody, dépôt, ordre, signature, provider ou hedge.
+## Règles de vérité
 
-## Layout
+- `ON-CHAIN LIVE` désigne uniquement une observation réussie de l’API publique Hyperliquid.
+- `PAPER` ne devient jamais capital, P&L réel, ordre ou fill.
+- `DIFFÉRÉ` efface les valeurs live plutôt que de conserver silencieusement un ancien prix.
+- `EXÉCUTÉ AVEC PREUVE` appartient au faux parcours local et exige une fixture complète.
+- `CASH/NOOP` reste champion tant qu’un gate échoue.
+- Le score qualité projet ne mesure ni edge, ni probabilité de gain, ni trading readiness.
 
-La composition desktop plein écran est volontairement asymétrique et évite les lignes de grille de hauteur couplée :
+## Composition
 
-- barre système et truth strip compactes ;
-- ticker Hyperliquid horizontal ;
-- pile gauche large : top-of-book, synthèse décisionnelle, Learning Reports puis provenance ;
-- pile centrale focale : Strategy Tape verticale dans un viewport borné à 900 px, puis Method Lab ;
-- pile droite : runtime gate puis Agent Roster ;
-- chaque pile avance indépendamment pour supprimer les zones mortes créées par un masonry simulé en grid rows.
-
-À 390 px, les trois piles deviennent une colonne sans overflow du document. La Strategy Tape est bornée à 620 px et anime son replay dans ce viewport. Ses champs se simplifient sans perdre classification, rôle, statut, message et source.
-
-## Strategy Tape
-
-La tape n’invente aucun événement. `private/export_snapshot.py` applique une conservation stricte : **un rapport persistant = une trace publique = un identifiant de source unique**. Aucun minimum d’activité n’est imposé. La copie DOM qui boucle l’animation est `aria-hidden`, confinée dans le viewport et ne modifie ni le compteur ni le snapshot.
-
-Contrôles obligatoires : filtres par rôle, méthode et statut ; pause/reprise ; compteur `filtré / total`. Avec `prefers-reduced-motion: reduce`, animation et clone sont retirés, le bouton commence en pause et le viewport devient scrollable.
-
-## Learning Reports
-
-Chaque carte donne : classification, source, méthode, conclusion et nombre de trades uniquement si documenté. Le drawer détaille dataset, fenêtre, coûts/stress, benchmark, gates PASS/FAIL et preuve générique. Un nombre absent est affiché `NON DISPONIBLE`, jamais complété par estimation.
-
-## Method Lab
-
-La chaîne en langage humain est fixe et sourcée : walk-forward chronologique → train-only → funding aligné → liquidation intrabar conservatrice → coûts sévères → benchmark BTC → anti-leakage → shadow-forward figé → Council → Factory → audits indépendants → Red-Team. Un veto individuel suffit ; aucun consensus synthétique n’est fabriqué.
-
-## Agent Mesh et décision
-
-Le mesh rend 16 rôles + News Sentinel. Chaque ligne porte uniquement un état, une livraison/latest artifact générique et une source lorsque ces éléments sont dérivables des rapports 44–45. Aucun pourcentage de consensus, score d’agent ou métrique de production n’est inventé.
-
-La synthèse humaine répond toujours à : **Ce qui a été appris**, **Ce qui a échoué**, **Ce qui change ensuite**. `CASH/NOOP` est champion. L’Experiment Runner reste `PAUSED` et le runtime `STOP_FAIL_CLOSED` jusqu’à preuve du runtime budget, du Trial Ledger et du Dataset Registry.
-
-## Colors & Depth
-
-- **Primary / Petrol** : matière de fond, presque noire et légèrement verte.
-- **Panel / Panel Strong** : surfaces strictement opaques.
-- **Matrix** : apprentissage, provenance positive, chaînes méthodologiques.
-- **Cyan** : observation live et interaction read-only.
-- **Danger** : veto, pause, fail-closed.
-- **Warning** : attente ou NOOP explicite.
-
-La profondeur vient des traits, contrastes, décalages internes et densité. Pas de blur, verre, halo géant, ombre molle ou gradient violet. Les statuts sont écrits : la couleur ne porte jamais seule le sens.
-
-## Surfaces préservées
-
-- `site/index.html` : index opérationnel et routes, sans hero SaaS.
-- `site/demo/index.html` : cockpit Matrix primaire.
-- `site/demo/transaction.html` : parcours DÉMO local, PAPER et ticket non signé/non transmis.
-- `site/demo/admin.html` : filtres, journal, proof gate et reset exact.
-- store canonique : `forge:forge-capital:demo:v1`.
+- Sidebar stable et compacte ; navigation en français.
+- Largeur de lecture généreuse, sans mur de widgets.
+- Verdict sombre unique comme point focal.
+- Quatre KPI essentiels seulement.
+- Tactiques en lignes scannables ; détail dans une modale.
+- Gates en liste, pas en jauge décorative.
+- Mobile : une colonne, aucun débordement horizontal.
 
 ## Do
 
-- Sourcer chaque rapport et trace.
-- Afficher explicitement snapshot/replay, PAPER et capital réel.
-- Conserver la tape bornée et pausée en reduced motion.
-- Effacer les prix live si un seul élément du batch Hyperliquid échoue.
-- Présenter les méthodes en français humain et les gates sans euphémisme.
+- Utiliser des phrases courtes et concrètes.
+- Afficher la preuve et la source à côté de la conclusion.
+- Réserver le cyan à la navigation, à la donnée fraîche et aux étapes actives.
+- Employer rouge, ambre et vert avec un libellé textuel.
+- Garder les surfaces opaques et les séparateurs fins.
 
 ## Don’t
 
-- Ne jamais faire passer une trace de recherche pour un ordre, fill ou performance live.
-- Ne jamais incrémenter artificiellement un compteur pour créer de l’activité.
-- Ne jamais publier titre de news, ID candidat interne, chemin absolu, prompt, token ou thread ID.
-- Ne jamais demander ou stocker secret, clé, signature, compte ou identité.
-- Ne jamais déduire edge, consensus, position ou santé depuis une simple collecte HTTP.
+- Aucun ticker animé, bande Matrix, faux flux d’activité ou terminal théâtral.
+- Aucun gradient, glassmorphism, halo ou violet SaaS.
+- Aucun score financier inventé.
+- Aucun sigle non expliqué comme titre principal.
+- Aucun contrôle navigateur pour signer, transmettre ou trader.
+
+## Surfaces
+
+- `site/index.html` — accueil et verdict synthétique.
+- `site/demo/index.html` — dashboard principal.
+- `site/demo/transaction.html` — parcours local complet sans provider réel.
+- `site/demo/admin.html` — filtres et journal local.
+- `site/data/public-snapshot.json` — projection publique allowlistée.
