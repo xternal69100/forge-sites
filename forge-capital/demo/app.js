@@ -1,11 +1,11 @@
 (()=>{'use strict';
 const STORE_KEY='forge:forge-capital:demo:v1';
-const RELEASE='matrix-learning-v1';
+const RELEASE='clair-capital-v2';
 const MANDATE={venue:'HYPERLIQUID PERPS',doctrine:'ON-CHAIN ONLY',humanValidationRequired:false,browserSigning:false,execution:false,cexAccounts:false};
 const clone=value=>JSON.parse(JSON.stringify(value));
 const now=()=>new Date().toISOString();
 const uid=prefix=>`${prefix}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2,6).toUpperCase()}`;
-function baseline(){return {version:3,release:RELEASE,mandate:clone(MANDATE),capital:{authorized_usdt:100,received_usdt:0,liquid_usdt:0,invested_usdt:0,committed_usdt:0,net_value_usdt:0},transactions:[{id:'OBS-DEMO-001',title:'Observation initiale — fixture DÉMO',asset:'BTC/USDC',venue:'HYPERLIQUID PERPS',status:'DIFFÉRÉ',mode:'DÉMO',createdAt:'2026-07-13T22:23:05Z',proofId:'',proofSource:'',proofTimestamp:'',note:'Snapshot public différé, aucune activité ni exécution.'}],journal:[{id:'EVT-DEMO-001',at:'2026-07-13T22:23:05Z',type:'BASELINE',message:'Baseline ON-CHAIN ONLY chargée · 0 USDT reçu · aucune exécution.'}]};}
+function baseline(){return {version:3,release:RELEASE,mandate:clone(MANDATE),capital:{authorized_usdt:1000,received_usdt:0,liquid_usdt:0,invested_usdt:0,committed_usdt:0,net_value_usdt:0},transactions:[{id:'OBS-DEMO-001',title:'Observation initiale — fixture DÉMO',asset:'BTC/USDC',venue:'HYPERLIQUID PERPS',status:'DIFFÉRÉ',mode:'DÉMO',createdAt:'2026-07-13T22:23:05Z',proofId:'',proofSource:'',proofTimestamp:'',note:'Snapshot public différé, aucune activité ni exécution.'}],journal:[{id:'EVT-DEMO-001',at:'2026-07-13T22:23:05Z',type:'BASELINE',message:'Baseline ON-CHAIN ONLY chargée · 0 USDT reçu · aucune exécution.'}]};}
 function valid(store){return Boolean(store&&store.version===3&&store.release===RELEASE&&store.mandate?.doctrine==='ON-CHAIN ONLY'&&Array.isArray(store.transactions)&&Array.isArray(store.journal)&&store.capital);}
 function emit(store){if(typeof window.dispatchEvent==='function')window.dispatchEvent(new CustomEvent('forge-capital-change',{detail:clone(store)}));}
 function saveStore(store){if(!valid(store))throw new Error('Store Forge Capital v3 invalide');localStorage.setItem(STORE_KEY,JSON.stringify(store));emit(store);return store;}

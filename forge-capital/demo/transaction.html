@@ -1,10 +1,66 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Faux parcours Forge Capital : signal, étude, PAPER ou rejet et ticket non signé."><title>Forge Capital — Transaction Lab</title><link rel="stylesheet" href="styles.css"><script defer src="app.js"></script></head>
-<body data-release="matrix-learning-v1"><a class="skip" href="#lab">Aller au lab</a><header class="system-bar"><div class="bar-inner"><a class="brand" href="../"><span class="brand-mark">FC</span><span>TRANSACTION LAB</span></a><span class="release">matrix-learning-v1 · ON-CHAIN ONLY</span><nav class="nav"><a href="./">Cockpit</a><a href="admin.html">Administration</a></nav></div></header><div class="truth-strip" aria-label="Classes de vérité"><span class="tag">CLASSE · ON-CHAIN LIVE</span><span class="tag delayed">DIFFÉRÉ</span><span class="tag paper">PAPER</span><span class="tag proof">EXÉCUTÉ AVEC PREUVE</span><span class="tag cex">AUCUN COMPTE CEX</span></div>
-<main id="lab" class="shell"><div class="ops-header"><div><div class="eyebrow">Faux parcours complet · aucun ordre</div><h1>Signal → étude → PAPER.</h1></div><p class="tiny">DÉMO locale · HYPERLIQUID PERPS · aucun secret, signature, dépôt ou transmission.</p></div><div class="lab-grid"><section class="form-panel"><div class="steps" aria-label="Progression"><span class="step active"></span><span class="step"></span><span class="step"></span><span class="step"></span></div>
-<div data-step="1"><div class="eyebrow">01 · Observer</div><h2>Créer un signal DÉMO</h2><div class="form-grid"><label>Actif<select id="asset"><option>BTC/USDC</option><option>ETH/USDC</option><option>SOL/USDC</option></select></label><label>Source<select id="signal-source"><option>Hyperliquid public · ON-CHAIN</option><option>Snapshot public · DIFFÉRÉ</option><option>DATA-ONLY EXOGÈNE · secondaire</option></select></label></div><label style="margin-top:.7rem">Hypothèse synthétique<textarea id="signal-title" rows="3">Signal public DÉMO — aucune recommandation</textarea></label><div class="actions"><button id="create-signal" type="button">Créer le signal local</button></div></div>
-<div data-step="2" hidden><div class="eyebrow">02 · Étudier</div><h2>Documenter sans agir</h2><p class="alert">Le capital réel reste séparé : 0 USDT reçu dans le snapshot. Cette étape n’accède à aucun wallet.</p><label>Note d’étude<textarea id="study-note" rows="4">Étude DÉMO : coûts, liquidité, funding et risques à vérifier. Aucune exécution.</textarea></label><div class="actions"><button id="study-signal" type="button">Marquer ÉTUDIÉ</button></div></div>
-<div data-step="3" hidden><div class="eyebrow">03 · Décider en simulation</div><h2>PAPER ou REJETÉ</h2><p class="lead">Une décision PAPER est un apprentissage fictif. Elle ne modifie ni le capital réel ni la valeur nette.</p><div class="actions"><button id="paper-signal" type="button">Classer PAPER</button><button id="reject-signal" class="secondary" type="button">Classer REJETÉ</button></div></div>
-<div data-step="4" hidden><div class="eyebrow">04 · Résultat</div><h2>Parcours enregistré.</h2><div id="lab-confirmation" class="alert" role="status"></div><div class="actions"><button id="make-ticket" type="button">Créer un ticket non signé</button><a class="button secondary" href="admin.html">Voir dans l’administration</a><button id="restart-lab" class="secondary" type="button">Nouveau signal</button></div><p class="tiny">TICKET À VALIDER signifie : signed=false · transmitted=false · execution=false. Il n’existe aucun bouton Signer, Acheter, Vendre ou d’exécution.</p></div><p id="lab-status" class="status-message" role="alert"></p></section>
-<aside class="panel"><div class="panel-head"><h2>Contrat de vérité</h2><span class="tag paper">PAPER</span></div><div class="summary-row">Venue cible<br><strong>HYPERLIQUID PERPS</strong></div><div class="summary-row">Doctrine<br><strong>ON-CHAIN ONLY · AUCUN COMPTE CEX</strong></div><div class="summary-row">Exécution navigateur<br><strong>AUCUNE</strong></div><div class="summary-row">Gate exécuté<br><strong>proofId + proofSource + proofTimestamp</strong></div><div class="summary-row">CEX éventuelle<br><strong>DATA-ONLY EXOGÈNE SECONDAIRE</strong></div></aside></div></main>
-<script>document.addEventListener('DOMContentLoaded',()=>{const M=window.ForgeCapitalMatrix;let id='',step=1;const panels=[...document.querySelectorAll('[data-step]')],bars=[...document.querySelectorAll('.step')],status=document.querySelector('#lab-status');function show(n){step=n;panels.forEach(p=>p.hidden=Number(p.dataset.step)!==n);bars.forEach((b,i)=>b.classList.toggle('active',i<n));status.textContent='';}document.querySelector('#create-signal').onclick=()=>{try{const item=M.createSignal({title:document.querySelector('#signal-title').value,asset:document.querySelector('#asset').value});id=item.id;show(2)}catch(e){status.textContent=e.message}};document.querySelector('#study-signal').onclick=()=>{try{M.studySignal(id,document.querySelector('#study-note').value);show(3)}catch(e){status.textContent=e.message}};function decide(value){try{const item=M.decideSignal(id,value);document.querySelector('#lab-confirmation').textContent=`${item.id} · ${item.asset} · ${item.status} · aucune transmission`;show(4)}catch(e){status.textContent=e.message}}document.querySelector('#paper-signal').onclick=()=>decide('PAPER');document.querySelector('#reject-signal').onclick=()=>decide('REJETÉ');document.querySelector('#make-ticket').onclick=()=>{try{const item=M.createUnsignedTicket(id);document.querySelector('#lab-confirmation').textContent=`${item.id} · TICKET À VALIDER · non signé · non transmis · non exécutable`;document.querySelector('#make-ticket').disabled=true}catch(e){status.textContent=e.message}};document.querySelector('#restart-lab').onclick=()=>{id='';document.querySelector('#make-ticket').disabled=false;show(1)};show(1)});</script></body></html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Parcours transactionnel simulé Forge Capital, entièrement local et sans provider réel.">
+  <title>Forge Capital — Parcours démo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-release="clair-capital-v2">
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Navigation Forge Capital">
+    <a class="brand" href="../"><span class="brand-mark">FC</span><span class="brand-copy">Forge Capital<small>Parcours démo</small></span></a>
+    <nav class="side-nav"><a href="./"><span class="nav-icon">◉</span><span>Vue d’ensemble</span></a><a href="transaction.html" aria-current="page"><span class="nav-icon">→</span><span>Parcours démo</span></a><a href="admin.html"><span class="nav-icon">⚙</span><span>Administration</span></a><a href="../"><span class="nav-icon">⌂</span><span>Accueil</span></a></nav>
+    <div class="side-meta"><div class="doctrine"><strong>Simulation locale</strong>Aucun provider, ordre, compte, secret, signature ou fonds.</div><div class="doctrine"><strong>Doctrine</strong>ON-CHAIN ONLY<br>AUCUN COMPTE CEX</div></div>
+  </aside>
+  <main class="main">
+    <header class="page-head"><div><h1>Faux parcours transactionnel</h1><p>Tester le chemin observation → étude → PAPER → ticket non signé → preuve fictive, sans aucune capacité d’exécution.</p></div><span class="status info">DÉMO LOCALE</span></header>
+    <div class="truth-note"><strong>Important :</strong> tout reste dans le navigateur. HYPERLIQUID PERPS est uniquement un libellé de venue. Aucune donnée n’est transmise.</div>
+
+    <section class="form-layout section">
+      <article class="card form-card">
+        <h2>1. Créer une observation</h2><p>Point de départ d’une simulation entièrement fictive.</p>
+        <form id="signal-form">
+          <div class="field"><label for="signal-title">Titre de l’observation</label><input id="signal-title" value="Signal de démonstration" required></div>
+          <div class="field"><label for="signal-asset">Actif observé</label><select id="signal-asset"><option>BTC/USDC</option><option>ETH/USDC</option><option>SOL/USDC</option></select></div>
+          <button class="button primary" type="submit">Enregistrer l’observation</button>
+        </form>
+      </article>
+      <aside class="card form-card"><h2>État du parcours</h2><p id="journey-state">Aucune simulation en cours.</p><div id="journey-record" class="records"></div></aside>
+    </section>
+
+    <section class="card form-card section">
+      <h2>2. Faire progresser la simulation</h2><p>Chaque étape reste locale et explicitement non exécutable.</p>
+      <div class="form-actions">
+        <button id="study-button" class="button" type="button" disabled>Marquer comme étudiée</button>
+        <button id="paper-button" class="button" type="button" disabled>Classer en PAPER</button>
+        <button id="ticket-button" class="button" type="button" disabled>Préparer un ticket non signé</button>
+        <button id="proof-button" class="button" type="button" disabled>Ajouter une preuve fictive</button>
+        <button id="close-button" class="button primary" type="button" disabled>Clôturer la simulation</button>
+      </div>
+      <div class="notice">Classes disponibles : OBSERVÉ · ÉTUDIÉ · PAPER · TICKET À VALIDER · EXÉCUTÉ AVEC PREUVE. La dernière classe décrit uniquement une fixture DÉMO comportant proofId, proofSource et proofTimestamp.</div>
+    </section>
+
+    <section class="card form-card section"><h2>Ce que cette démo ne fait jamais</h2><div class="learning-grid"><div class="learning-card"><h3>Aucun secret</h3><p>Ni clé privée, ni seed, ni token, ni connexion wallet.</p></div><div class="learning-card"><h3>Aucun ordre</h3><p>Le navigateur ne contient aucune méthode de trading.</p></div><div class="learning-card"><h3>Aucun argent</h3><p>Capital réel reçu : 0 USDT. Valeur nette réelle : 0 USDT.</p></div></div></section>
+    <footer class="footer"><span>Forge Capital · clair-capital-v2</span><span>PAPER · DIFFÉRÉ · EXÉCUTÉ AVEC PREUVE</span></footer>
+  </main>
+</div>
+<script>
+window.addEventListener('DOMContentLoaded',()=>{
+  const api=window.ForgeCapitalMatrix;
+  let currentId='';
+  const state=document.querySelector('#journey-state'),record=document.querySelector('#journey-record');
+  const buttons={study:document.querySelector('#study-button'),paper:document.querySelector('#paper-button'),ticket:document.querySelector('#ticket-button'),proof:document.querySelector('#proof-button'),close:document.querySelector('#close-button')};
+  function show(item){currentId=item.id;state.textContent=`Étape actuelle : ${item.status}`;record.innerHTML=`<article class="record"><div class="record-head"><strong>${api.escapeHTML(item.title)}</strong><span class="status info">${api.escapeHTML(item.status)}</span></div><p>${api.escapeHTML(item.asset)} · HYPERLIQUID PERPS · DÉMO</p></article>`;buttons.study.disabled=item.status!=='OBSERVÉ';buttons.paper.disabled=item.status!=='ÉTUDIÉ';buttons.ticket.disabled=!['ÉTUDIÉ','PAPER'].includes(item.status);buttons.proof.disabled=item.status!=='TICKET À VALIDER';buttons.close.disabled=!(item.proofId&&item.proofSource&&item.proofTimestamp);}
+  document.querySelector('#signal-form').addEventListener('submit',event=>{event.preventDefault();show(api.createSignal({title:document.querySelector('#signal-title').value,asset:document.querySelector('#signal-asset').value}));});
+  buttons.study.addEventListener('click',()=>show(api.studySignal(currentId,'Étude DÉMO, sans thèse live ni capital.')));
+  buttons.paper.addEventListener('click',()=>show(api.decideSignal(currentId,'PAPER')));
+  buttons.ticket.addEventListener('click',()=>show(api.createUnsignedTicket(currentId)));
+  buttons.proof.addEventListener('click',()=>show(api.addProof(currentId,'PRF-DEMO-001','fixture locale',new Date().toISOString())));
+  buttons.close.addEventListener('click',()=>show(api.updateStatus(currentId,'EXÉCUTÉ AVEC PREUVE')));
+});
+</script>
+</body>
+</html>

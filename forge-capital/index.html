@@ -3,24 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Forge Capital Matrix Learning : index opérationnel public, Hyperliquid read-only, recherche PAPER et preuves sourcées.">
-  <title>Forge Capital — Matrix Learning v1</title>
+  <meta name="description" content="Forge Capital : état du capital, recherche PAPER et décision d’activation du trading.">
+  <title>Forge Capital — Comprendre avant d’activer</title>
   <link rel="stylesheet" href="demo/styles.css">
 </head>
-<body data-release="matrix-learning-v1">
-<a class="skip" href="#main">Aller au contenu</a>
-<header class="system-bar"><div class="bar-inner"><a class="brand" href="./"><span class="brand-mark">FC</span><span>FORGE CAPITAL</span></a><span class="release">matrix-learning-v1 · MONITOR / OPERATE</span><nav class="nav" aria-label="Navigation"><a href="demo/">Cockpit</a><a href="demo/transaction.html">Transaction Lab</a><a href="demo/admin.html">Administration</a></nav></div></header>
-<div class="truth-strip"><span class="tag live">HYPERLIQUID PUBLIC · READ ONLY</span><span class="tag paper">PAPER</span><span class="tag noop">CASH/NOOP</span><span class="tag veto">Experiment Runner · PAUSED</span><span class="tag cex">ON-CHAIN ONLY · AUCUN COMPTE CEX</span></div>
-<main id="main" class="landing-shell">
-  <section class="landing-command">
-    <article class="manifest-panel"><div><div class="eyebrow">SURFACE PRIMAIRE / MATRICE D’APPRENTISSAGE</div><h1>Observer les méthodes. Pas vendre un rêve.</h1></div><p>Le cockpit rejoue des artefacts Forge Capital bornés : stratégies rejetées, gates, coûts sévères, benchmark BTC, shadow-forward, agents et décisions. Aucune trace n’est présentée comme ordre ou fill réel.</p><div class="actions"><a class="button" href="demo/">OUVRIR MATRIX LEARNING</a><a class="button secondary" href="demo/transaction.html">TRANSACTION LAB DÉMO</a></div></article>
-    <aside class="manifest-panel"><div><div class="eyebrow">ÉTAT DE DÉCISION</div><h2>CASH/NOOP RESTE CHAMPION</h2></div><div class="manifest-kpis"><div><span>CAPITAL RÉEL</span><strong>0 REÇU</strong></div><div><span>EXPERIMENT RUNNER</span><strong>PAUSED</strong></div><div><span>EXÉCUTION NAVIGATEUR</span><strong>AUCUNE</strong></div></div><p class="alert">Runtime budget, Trial Ledger et Dataset Registry non prouvés : STOP_FAIL_CLOSED.</p></aside>
-  </section>
-  <section class="route-grid" aria-label="Surfaces publiques">
-    <a class="route-card" href="demo/"><span class="route-no">01</span><h2>Matrix cockpit</h2><p>Strategy Tape filtrable, Learning Reports, Method Lab, 16 rôles + Sentinel, top-of-book public.</p></a>
-    <a class="route-card" href="demo/transaction.html"><span class="route-no">02</span><h2>Transaction Lab</h2><p>Parcours local PAPER, ticket non signé et non transmis ; aucun provider d’exécution.</p></a>
-    <a class="route-card" href="demo/admin.html"><span class="route-no">03</span><h2>Admin / Proof</h2><p>Store canonique <code>forge:forge-capital:demo:v1</code>, journal, preuve DÉMO, reset exact.</p></a>
-  </section>
-</main>
+<body data-release="clair-capital-v2">
+<div class="landing">
+  <nav class="landing-nav" aria-label="Navigation principale">
+    <a class="brand" href="./"><span class="brand-mark">FC</span><span class="brand-copy">Forge Capital<small>clair-capital-v2</small></span></a>
+    <div class="landing-actions"><a class="button" href="demo/transaction.html">Parcours démo</a><a class="button" href="demo/admin.html">Administration</a><a class="button primary" href="demo/">Ouvrir le tableau de bord</a></div>
+  </nav>
+
+  <main>
+    <section class="landing-intro">
+      <span class="status danger">NON — LIVE INTERDIT</span>
+      <h1>Comprendre le projet avant d’activer le trading.</h1>
+      <p>Un tableau de bord entièrement en français qui sépare le capital réel, les résultats PAPER, les tactiques à l’étude et les preuves encore manquantes.</p>
+    </section>
+
+    <section class="landing-grid" aria-label="Résumé du projet">
+      <article class="card landing-card"><span>Capital autorisé</span><strong>1 000 USDT</strong><p>0 USDT reçu et 0 USDT observé sur le compte configuré. Autorisé ne veut pas dire déposé.</p></article>
+      <article class="card landing-card"><span>Qualité du projet</span><strong>9,28 / 10</strong><p>Cette note évalue les livrables et la méthode. Elle ne mesure pas la probabilité de gagner.</p></article>
+      <article class="card landing-card"><span>Préparation au trading</span><strong style="color:var(--red)">0 / 10</strong><p>Aucun edge validé, aucun smoke testnet et aucune garde live centrale complète.</p></article>
+    </section>
+
+    <section class="section two-col">
+      <article class="card progress-card"><h3>Ce qui avance</h3><div class="remediation"><span class="remediation-id">E01</span><strong>Faux signaux GO supprimés</strong><span class="status success">CORRIGÉ</span><p>Le mapper produit seulement des observations PAPER.</p></div><div class="remediation"><span class="remediation-id">E06</span><strong>Tests hermétiques</strong><span class="status success">CORRIGÉ</span><p>153/153 tests et snapshots immuables.</p></div><div class="remediation"><span class="remediation-id">V2</span><strong>Nouvelle lignée forward</strong><span class="status info">SPÉCIFIÉE</span><p>L’implémentation et la collecte restent à faire.</p></div></article>
+      <article class="card progress-card"><h3>Ce qui interdit le live</h3><div class="remediation"><span class="remediation-id">01</span><strong>Aucun edge robuste</strong><span class="status danger">ÉCHEC</span><p>Les coûts sévères détruisent les tactiques testées.</p></div><div class="remediation"><span class="remediation-id">02</span><strong>Testnet non validé</strong><span class="status danger">BLOQUÉ</span><p>Ouverture, stop, annulation et retour à plat non prouvés.</p></div><div class="remediation"><span class="remediation-id">03</span><strong>Capital non réconcilié</strong><span class="status danger">BLOQUÉ</span><p>Le compte public configuré reste à zéro.</p></div></article>
+    </section>
+
+    <div class="truth-note">Doctrine : <strong>ON-CHAIN ONLY · AUCUN COMPTE CEX</strong>. Hyperliquid est observé via son API publique. PAPER, DIFFÉRÉ et EXÉCUTÉ AVEC PREUVE restent des catégories distinctes.</div>
+  </main>
+  <footer class="footer"><span>Design inspiré de Seline Analytics via Refero</span><span><a href="demo/">Tableau de bord</a> · <a href="demo/transaction.html">Faux parcours transactionnel</a> · <a href="demo/admin.html">Administration</a></span></footer>
+</div>
 </body>
 </html>
