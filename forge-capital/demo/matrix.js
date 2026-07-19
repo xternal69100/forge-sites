@@ -97,7 +97,7 @@ async function loadMarket(){
       const card=document.querySelector(`[data-coin="${coin}"]`),value=Number(mids[coin]);
       if(!card||!Number.isFinite(value)||value<=0)throw new Error(`Prix ${coin} absent`);
       card.querySelector('[data-mid]').textContent=new Intl.NumberFormat('fr-CH',{style:'currency',currency:'USD',maximumFractionDigits:value>1000?0:2}).format(value);
-      card.querySelector('[data-freshness]').textContent='ON-CHAIN LIVE · maintenant';
+      card.querySelector('[data-freshness]').textContent='PRIX PUBLIC HYPERLIQUID · LECTURE SEULE';
     }
   }catch(error){
     document.querySelectorAll('[data-coin]').forEach(card=>{card.querySelector('[data-mid]').textContent='Indisponible';card.querySelector('[data-freshness]').textContent='DIFFÉRÉ · aucune valeur conservée';});

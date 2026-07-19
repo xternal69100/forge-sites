@@ -3,7 +3,7 @@
   "release": "clair-capital-v2",
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-19T11:25:12Z",
+  "generatedAt": "2026-07-19T11:37:43Z",
   "source": "Registre Forge Capital sanitizé + documents allowlistés + Hyperliquid public on-chain ; historiques Kraken DATA-ONLY EXOGÈNES",
   "capital": {
     "authorized_usdt": 1000,
@@ -227,7 +227,7 @@
     "freshness": {
       "label": "DIFFÉRÉ — DERNIER CYCLE LOCAL",
       "cycleGeneratedAt": "2026-07-14T13:57:01.812907+00:00",
-      "snapshotGeneratedAt": "2026-07-19T11:25:12Z"
+      "snapshotGeneratedAt": "2026-07-19T11:37:43Z"
     },
     "sourceSummary": {
       "httpSuccess": 11,
@@ -671,7 +671,7 @@
       "sequence": 1,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
+      "snapshotGeneratedAt": "2026-07-19T11:37:43Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -700,7 +700,7 @@
       "sequence": 2,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
+      "snapshotGeneratedAt": "2026-07-19T11:37:43Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -729,7 +729,7 @@
       "sequence": 3,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
+      "snapshotGeneratedAt": "2026-07-19T11:37:43Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -758,7 +758,7 @@
       "sequence": 4,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
+      "snapshotGeneratedAt": "2026-07-19T11:37:43Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -787,7 +787,7 @@
       "sequence": 5,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
+      "snapshotGeneratedAt": "2026-07-19T11:37:43Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -816,7 +816,7 @@
       "sequence": 6,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
+      "snapshotGeneratedAt": "2026-07-19T11:37:43Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -845,7 +845,7 @@
       "sequence": 7,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
+      "snapshotGeneratedAt": "2026-07-19T11:37:43Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -874,7 +874,7 @@
       "sequence": 8,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:25:12Z",
+      "snapshotGeneratedAt": "2026-07-19T11:37:43Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -1057,9 +1057,9 @@
         "name": "Lead-lag Polymarket → Hyperliquid",
         "status": "EN CONSTRUCTION",
         "category": "Piste prioritaire",
-        "evidence": "Lignée v2 spécifiée ; mapper observation-only ; aucune évaluation de l’edge.",
-        "result": "Pas encore testable : collecteur v2 et paires temporelles à implémenter.",
-        "next": "Implémenter la lignée canonique v2 par TDD puis collecter du forward neuf.",
+        "evidence": "V1 diagnostic-only : journal 48 séquences contre manifeste 26, 125/150 event IDs vus une seule fois. V2 spécifiée mais non implémentée.",
+        "result": "Pas encore testable : collecteur v2, writer unique et paires feature/label à implémenter.",
+        "next": "Rendre le gate GREEN+APPROVED, puis implémenter les 15 tests RED sans évaluer l’avantage.",
         "liveEligible": false
       },
       {
@@ -1155,8 +1155,8 @@
         "id": "G2",
         "label": "Données forward indépendantes",
         "state": "BLOQUÉ",
-        "reason": "La lignée v2 est spécifiée mais pas implémentée ni collectée.",
-        "evidence": "Rapport 70"
+        "reason": "V1 divergente : journal 48 / manifeste 26 et 125/150 IDs vus une seule fois. La v2 est spécifiée mais pas implémentée.",
+        "evidence": "Journal et manifeste v1 ; rapport 70"
       },
       {
         "id": "G3",
