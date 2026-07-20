@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <script defer src="app.js"></script>
   <script defer src="matrix.js"></script>
+  <script defer src="surveillance.js"></script>
 </head>
 <body data-release="clair-capital-v2">
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -19,6 +20,7 @@
     </a>
     <nav class="side-nav">
       <a href="#vue-ensemble" aria-current="page"><span class="nav-icon">◉</span><span>Vue d’ensemble</span></a>
+      <a href="#surveillance"><span class="nav-icon">🛡</span><span>Surveillance</span></a>
       <a href="#tactiques"><span class="nav-icon">◎</span><span>Tactiques</span></a>
       <a href="#activation"><span class="nav-icon">◇</span><span>Activation</span></a>
       <a href="#apprentissages"><span class="nav-icon">□</span><span>Apprentissages</span></a>
@@ -63,6 +65,41 @@
       <div class="market-asset" data-coin="BTC"><small><span>Bitcoin</span><em>BTC</em></small><strong data-mid>—</strong><small data-freshness>Connexion…</small></div>
       <div class="market-asset" data-coin="ETH"><small><span>Ethereum</span><em>ETH</em></small><strong data-mid>—</strong><small data-freshness>Connexion…</small></div>
       <div class="market-asset" data-coin="SOL"><small><span>Solana</span><em>SOL</em></small><strong data-mid>—</strong><small data-freshness>Connexion…</small></div>
+    </section>
+
+    <section id="surveillance" class="section">
+      <div class="section-head"><div><h2>Surveillance active — Hack Sentinel</h2><p>Tokens DeFi sous surveillance pour vulnérabilités aux hacks. Les événements et trades affichés sont <strong>simulés (PAPER)</strong>. Aucun ordre réel n'est émis.</p></div><span id="surveillance-status" class="section-count">Chargement…</span></div>
+      <div class="card">
+        <div class="surveillance-toolbar">
+          <button class="filter-button" type="button" data-surv-filter="all" aria-pressed="true">Tous</button>
+          <button class="filter-button" type="button" data-surv-filter="alert" aria-pressed="false">En alerte</button>
+          <button class="filter-button" type="button" data-surv-filter="monitoring" aria-pressed="false">Surveillance</button>
+        </div>
+        <div class="surveillance-table-wrap">
+          <table id="surveillance-table" class="surveillance-table">
+            <thead><tr><th>Token</th><th>Score risque</th><th>TVL</th><th>Flags</th><th>Événements</th><th>Statut</th></tr></thead>
+            <tbody id="surveillance-body"><tr><td colspan="6">Chargement…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <h3>Événements simulés actifs</h3>
+        <div class="surveillance-table-wrap">
+          <table class="surveillance-table">
+            <thead><tr><th>ID</th><th>Scénario</th><th>Sévérité</th><th>Token</th><th>Injection</th><th>Action recommandée</th></tr></thead>
+            <tbody id="events-body"><tr><td colspan="6">Aucun événement actif</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <h3>Parcours décisionnel — Dernières pistes d'audit</h3>
+        <div class="surveillance-table-wrap">
+          <table class="surveillance-table">
+            <thead><tr><th>Piste</th><th>Token</th><th>Action</th><th>Latence totale</th><th>P&L estimé</th><th>Statut</th></tr></thead>
+            <tbody id="trails-body"><tr><td colspan="6">Aucune piste récente</td></tr></tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
     <section id="tactiques" class="section">

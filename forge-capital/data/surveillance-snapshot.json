@@ -1,0 +1,527 @@
+{
+  "schema": "forge-capital-hack-sentinel-surveillance-v1",
+  "generated_at": "2026-07-20T10:17:47.375335+00:00",
+  "mode": "PAPER_SURVEILLANCE_ONLY",
+  "warning": "TOUTES LES OPÉRATIONS SONT SIMULÉES. AUCUN ORDRE RÉEL.",
+  "summary": {
+    "tokens_under_surveillance": 12,
+    "tokens_in_alert": 0,
+    "active_simulated_events": 15,
+    "decision_trails_24h": 15,
+    "total_tvl_at_risk_billions": 73.4
+  },
+  "watchlist": [
+    {
+      "token": "AAVE",
+      "name": "Aave",
+      "price": 90.72,
+      "risk_score": 82,
+      "tvl_billion": 12.5,
+      "category": "LENDING",
+      "active_events": 5,
+      "latest_event_severity": "critical",
+      "status": "short_simulated",
+      "vulnerability_flags": [
+        "PROXY",
+        "BRIDGE"
+      ]
+    },
+    {
+      "token": "UNI",
+      "name": "Uniswap",
+      "price": 3.45,
+      "risk_score": 65,
+      "tvl_billion": 5.2,
+      "category": "DEX",
+      "active_events": 0,
+      "latest_event_severity": null,
+      "status": "monitoring",
+      "vulnerability_flags": [
+        "DEV_WALLET",
+        "BRIDGE"
+      ]
+    },
+    {
+      "token": "ENA",
+      "name": "Ethena",
+      "price": 0.08,
+      "risk_score": 88,
+      "tvl_billion": 3.8,
+      "category": "STABLECOIN_YIELD",
+      "active_events": 5,
+      "latest_event_severity": "high",
+      "status": "short_simulated",
+      "vulnerability_flags": [
+        "MINT",
+        "DEV_WALLET",
+        "PROXY"
+      ]
+    },
+    {
+      "token": "CRV",
+      "name": "Curve DAO",
+      "price": 0.22,
+      "risk_score": 75,
+      "tvl_billion": 1.9,
+      "category": "DEX_STABLESWAP",
+      "active_events": 5,
+      "latest_event_severity": "high",
+      "status": "short_simulated",
+      "vulnerability_flags": [
+        "DEV_WALLET",
+        "BRIDGE"
+      ]
+    },
+    {
+      "token": "LDO",
+      "name": "Lido DAO",
+      "price": 0.36,
+      "risk_score": 90,
+      "tvl_billion": 28.0,
+      "category": "LIQUID_STAKING",
+      "active_events": 0,
+      "latest_event_severity": null,
+      "status": "monitoring",
+      "vulnerability_flags": [
+        "PROXY",
+        "BRIDGE"
+      ]
+    },
+    {
+      "token": "PENDLE",
+      "name": "Pendle",
+      "price": 1.55,
+      "risk_score": 60,
+      "tvl_billion": 1.2,
+      "category": "YIELD_TRADING",
+      "active_events": 0,
+      "latest_event_severity": null,
+      "status": "monitoring",
+      "vulnerability_flags": [
+        "PROXY"
+      ]
+    },
+    {
+      "token": "JUP",
+      "name": "Jupiter",
+      "price": 0.2,
+      "risk_score": 55,
+      "tvl_billion": 1.5,
+      "category": "DEX_AGGREGATOR",
+      "active_events": 0,
+      "latest_event_severity": null,
+      "status": "monitoring",
+      "vulnerability_flags": [
+        "DEV_WALLET",
+        "PROXY"
+      ]
+    },
+    {
+      "token": "JTO",
+      "name": "Jito",
+      "price": 0.6,
+      "risk_score": 72,
+      "tvl_billion": 2.1,
+      "category": "LIQUID_STAKING",
+      "active_events": 0,
+      "latest_event_severity": null,
+      "status": "monitoring",
+      "vulnerability_flags": [
+        "PROXY"
+      ]
+    },
+    {
+      "token": "EIGEN",
+      "name": "EigenLayer",
+      "price": 0.23,
+      "risk_score": 85,
+      "tvl_billion": 14.0,
+      "category": "RESTAKING",
+      "active_events": 0,
+      "latest_event_severity": null,
+      "status": "monitoring",
+      "vulnerability_flags": [
+        "DEV_WALLET",
+        "PROXY"
+      ]
+    },
+    {
+      "token": "SUSHI",
+      "name": "SushiSwap",
+      "price": 0.17,
+      "risk_score": 50,
+      "tvl_billion": 0.4,
+      "category": "DEX",
+      "active_events": 0,
+      "latest_event_severity": null,
+      "status": "monitoring",
+      "vulnerability_flags": [
+        "DEV_WALLET",
+        "BRIDGE"
+      ]
+    },
+    {
+      "token": "MORPHO",
+      "name": "Morpho",
+      "price": 2.0,
+      "risk_score": 68,
+      "tvl_billion": 2.5,
+      "category": "LENDING",
+      "active_events": 0,
+      "latest_event_severity": null,
+      "status": "monitoring",
+      "vulnerability_flags": [
+        "PROXY"
+      ]
+    },
+    {
+      "token": "RUNE",
+      "name": "THORChain",
+      "price": 0.44,
+      "risk_score": 78,
+      "tvl_billion": 0.3,
+      "category": "CROSS_CHAIN_DEX",
+      "active_events": 0,
+      "latest_event_severity": null,
+      "status": "monitoring",
+      "vulnerability_flags": [
+        "BRIDGE"
+      ]
+    }
+  ],
+  "active_events": [
+    {
+      "event_id": "ef01d4d983c17bfb7d66",
+      "scenario": "Manipulation d'oracle — liquidation en cascade",
+      "severity": "high",
+      "token": "CRV",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.945008+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_CAUTIOUS"
+    },
+    {
+      "event_id": "dbdd2b73fbe03dce35ff",
+      "scenario": "Drain de bridge — tokens wrapped compromis",
+      "severity": "critical",
+      "token": "AAVE",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.943315+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_IMMEDIATE"
+    },
+    {
+      "event_id": "c7eea9eb555a24e5caf1",
+      "scenario": "Wallet développeur compromis — dump massif",
+      "severity": "high",
+      "token": "CRV",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.944591+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_CAUTIOUS"
+    },
+    {
+      "event_id": "c2fd5382da86bc984297",
+      "scenario": "Upgrade proxy malveillant — prise de contrôle",
+      "severity": "critical",
+      "token": "AAVE",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.943805+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_IMMEDIATE"
+    },
+    {
+      "event_id": "b79a0d5844f1ee0a0928",
+      "scenario": "Manipulation d'oracle — liquidation en cascade",
+      "severity": "high",
+      "token": "ENA",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.944873+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_CAUTIOUS"
+    },
+    {
+      "event_id": "a53d0ed62fe57f73bdec",
+      "scenario": "Manipulation d'oracle — liquidation en cascade",
+      "severity": "high",
+      "token": "AAVE",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.944733+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_CAUTIOUS"
+    },
+    {
+      "event_id": "a15daaf2e32fce7efb5c",
+      "scenario": "Drain de bridge — tokens wrapped compromis",
+      "severity": "critical",
+      "token": "ENA",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.943495+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_IMMEDIATE"
+    },
+    {
+      "event_id": "9fe6ad8a8684621d3258",
+      "scenario": "Mint non autorisé — dilution massive",
+      "severity": "critical",
+      "token": "CRV",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.943154+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_IMMEDIATE"
+    },
+    {
+      "event_id": "9968aa72ce59a880b2c4",
+      "scenario": "Upgrade proxy malveillant — prise de contrôle",
+      "severity": "critical",
+      "token": "CRV",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.944098+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_IMMEDIATE"
+    },
+    {
+      "event_id": "83be8970e169630abe24",
+      "scenario": "Drain de bridge — tokens wrapped compromis",
+      "severity": "critical",
+      "token": "CRV",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.943653+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_IMMEDIATE"
+    },
+    {
+      "event_id": "7ad082234e1a692acf49",
+      "scenario": "Mint non autorisé — dilution massive",
+      "severity": "critical",
+      "token": "AAVE",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.942773+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_IMMEDIATE"
+    },
+    {
+      "event_id": "77792c29e5a8e5a36114",
+      "scenario": "Wallet développeur compromis — dump massif",
+      "severity": "high",
+      "token": "ENA",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.944420+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_CAUTIOUS"
+    },
+    {
+      "event_id": "6660e10ff7b4d768eecf",
+      "scenario": "Upgrade proxy malveillant — prise de contrôle",
+      "severity": "critical",
+      "token": "ENA",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.943957+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_IMMEDIATE"
+    },
+    {
+      "event_id": "2d35a275cddf9b6ab0a5",
+      "scenario": "Mint non autorisé — dilution massive",
+      "severity": "critical",
+      "token": "ENA",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.942996+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_IMMEDIATE"
+    },
+    {
+      "event_id": "1f0016eeb59903a17350",
+      "scenario": "Wallet développeur compromis — dump massif",
+      "severity": "high",
+      "token": "AAVE",
+      "is_simulation": true,
+      "injected_at": "2026-07-20T10:17:32.944259+00:00",
+      "status": "INJECTED",
+      "recommended_action": "SHORT_CAUTIOUS"
+    }
+  ],
+  "recent_trails": [
+    {
+      "trail_id": "f496a295a3b02c1c992ee2ab",
+      "event_id": "dbdd2b73fbe03dce35ff",
+      "processed_at": "2026-07-20T10:17:33.484316+00:00",
+      "total_latency_ms": 120400,
+      "action": "SHORT_SIMULATED",
+      "token": "AAVE",
+      "direction": "SHORT",
+      "size_usdc": 60,
+      "estimated_pnl_usdc": 105.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "dcd99756890b0080a2685b58",
+      "event_id": "83be8970e169630abe24",
+      "processed_at": "2026-07-20T10:17:33.176564+00:00",
+      "total_latency_ms": 120400,
+      "action": "SHORT_SIMULATED",
+      "token": "CRV",
+      "direction": "SHORT",
+      "size_usdc": 60,
+      "estimated_pnl_usdc": 105.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "c5289c130d293d1db02465fc",
+      "event_id": "a15daaf2e32fce7efb5c",
+      "processed_at": "2026-07-20T10:17:33.287094+00:00",
+      "total_latency_ms": 120400,
+      "action": "SHORT_SIMULATED",
+      "token": "ENA",
+      "direction": "SHORT",
+      "size_usdc": 60,
+      "estimated_pnl_usdc": 105.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "c1bffeed8df498ca6a8eeff3",
+      "event_id": "c7eea9eb555a24e5caf1",
+      "processed_at": "2026-07-20T10:17:33.443032+00:00",
+      "total_latency_ms": 180400,
+      "action": "SHORT_SIMULATED_CAUTIOUS",
+      "token": "CRV",
+      "direction": "SHORT",
+      "size_usdc": 40,
+      "estimated_pnl_usdc": 24.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "b064b92a198b0e196967d051",
+      "event_id": "9fe6ad8a8684621d3258",
+      "processed_at": "2026-07-20T10:17:33.251288+00:00",
+      "total_latency_ms": 45400,
+      "action": "SHORT_SIMULATED",
+      "token": "CRV",
+      "direction": "SHORT",
+      "size_usdc": 80,
+      "estimated_pnl_usdc": 280.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "ab0a2f8b7f2a2e4b0c9c1608",
+      "event_id": "7ad082234e1a692acf49",
+      "processed_at": "2026-07-20T10:17:33.140147+00:00",
+      "total_latency_ms": 45400,
+      "action": "SHORT_SIMULATED",
+      "token": "AAVE",
+      "direction": "SHORT",
+      "size_usdc": 80,
+      "estimated_pnl_usdc": 280.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "97780656aae69319f7dd65ed",
+      "event_id": "c2fd5382da86bc984297",
+      "processed_at": "2026-07-20T10:17:33.404472+00:00",
+      "total_latency_ms": 90400,
+      "action": "SHORT_SIMULATED",
+      "token": "AAVE",
+      "direction": "SHORT",
+      "size_usdc": 100,
+      "estimated_pnl_usdc": 175.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "82a6ed8c7167edb2b952c7ba",
+      "event_id": "a53d0ed62fe57f73bdec",
+      "processed_at": "2026-07-20T10:17:33.325052+00:00",
+      "total_latency_ms": 60400,
+      "action": "SHORT_SIMULATED_CAUTIOUS",
+      "token": "AAVE",
+      "direction": "SHORT",
+      "size_usdc": 50,
+      "estimated_pnl_usdc": 100.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "63e3f2b755eefe3b3701b145",
+      "event_id": "77792c29e5a8e5a36114",
+      "processed_at": "2026-07-20T10:17:33.102942+00:00",
+      "total_latency_ms": 180400,
+      "action": "SHORT_SIMULATED_CAUTIOUS",
+      "token": "ENA",
+      "direction": "SHORT",
+      "size_usdc": 40,
+      "estimated_pnl_usdc": 24.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "61908129e4b8a50e9b304a0b",
+      "event_id": "ef01d4d983c17bfb7d66",
+      "processed_at": "2026-07-20T10:17:33.523422+00:00",
+      "total_latency_ms": 60400,
+      "action": "SHORT_SIMULATED_CAUTIOUS",
+      "token": "CRV",
+      "direction": "SHORT",
+      "size_usdc": 50,
+      "estimated_pnl_usdc": 100.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "5539e7fb9c3c0daa68e68a9d",
+      "event_id": "2d35a275cddf9b6ab0a5",
+      "processed_at": "2026-07-20T10:17:33.026758+00:00",
+      "total_latency_ms": 45400,
+      "action": "SHORT_SIMULATED",
+      "token": "ENA",
+      "direction": "SHORT",
+      "size_usdc": 80,
+      "estimated_pnl_usdc": 280.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "3e88a4c966049d086e42a34c",
+      "event_id": "1f0016eeb59903a17350",
+      "processed_at": "2026-07-20T10:17:32.987702+00:00",
+      "total_latency_ms": 180400,
+      "action": "SHORT_SIMULATED_CAUTIOUS",
+      "token": "AAVE",
+      "direction": "SHORT",
+      "size_usdc": 40,
+      "estimated_pnl_usdc": 24.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "277ca7d3ce77436f62c021cd",
+      "event_id": "6660e10ff7b4d768eecf",
+      "processed_at": "2026-07-20T10:17:33.063756+00:00",
+      "total_latency_ms": 90400,
+      "action": "SHORT_SIMULATED",
+      "token": "ENA",
+      "direction": "SHORT",
+      "size_usdc": 100,
+      "estimated_pnl_usdc": 175.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "2465f12a8a0f0edc35642bf8",
+      "event_id": "b79a0d5844f1ee0a0928",
+      "processed_at": "2026-07-20T10:17:33.365033+00:00",
+      "total_latency_ms": 60400,
+      "action": "SHORT_SIMULATED_CAUTIOUS",
+      "token": "ENA",
+      "direction": "SHORT",
+      "size_usdc": 50,
+      "estimated_pnl_usdc": 100.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    },
+    {
+      "trail_id": "2186a136efd330736db00093",
+      "event_id": "9968aa72ce59a880b2c4",
+      "processed_at": "2026-07-20T10:17:33.213285+00:00",
+      "total_latency_ms": 90400,
+      "action": "SHORT_SIMULATED",
+      "token": "CRV",
+      "direction": "SHORT",
+      "size_usdc": 100,
+      "estimated_pnl_usdc": 175.0,
+      "status": "SIMULATED_ONLY_NO_REAL_TRADE"
+    }
+  ],
+  "audit_hash": "f04a3a73ff9ae5ba44159596c3415d5a5b45d670f38b11bb7c6b088234161c3f"
+}
