@@ -3,7 +3,7 @@
   "release": "clair-capital-v2",
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-22T23:06:03Z",
+  "generatedAt": "2026-07-22T23:31:19Z",
   "source": "Registre Forge Capital sanitizé + documents allowlistés + Hyperliquid public on-chain ; historiques Kraken DATA-ONLY EXOGÈNES",
   "capital": {
     "authorized_usdt": 1000,
@@ -227,7 +227,7 @@
     "freshness": {
       "label": "DIFFÉRÉ — DERNIER CYCLE LOCAL",
       "cycleGeneratedAt": "2026-07-14T13:57:01.812907+00:00",
-      "snapshotGeneratedAt": "2026-07-22T23:06:03Z"
+      "snapshotGeneratedAt": "2026-07-22T23:31:19Z"
     },
     "sourceSummary": {
       "httpSuccess": 11,
@@ -671,7 +671,7 @@
       "sequence": 1,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
+      "snapshotGeneratedAt": "2026-07-22T23:31:19Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -700,7 +700,7 @@
       "sequence": 2,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
+      "snapshotGeneratedAt": "2026-07-22T23:31:19Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -729,7 +729,7 @@
       "sequence": 3,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
+      "snapshotGeneratedAt": "2026-07-22T23:31:19Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -758,7 +758,7 @@
       "sequence": 4,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
+      "snapshotGeneratedAt": "2026-07-22T23:31:19Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -787,7 +787,7 @@
       "sequence": 5,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
+      "snapshotGeneratedAt": "2026-07-22T23:31:19Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -816,7 +816,7 @@
       "sequence": 6,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
+      "snapshotGeneratedAt": "2026-07-22T23:31:19Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -845,7 +845,7 @@
       "sequence": 7,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
+      "snapshotGeneratedAt": "2026-07-22T23:31:19Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -874,7 +874,7 @@
       "sequence": 8,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
+      "snapshotGeneratedAt": "2026-07-22T23:31:19Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -1031,25 +1031,25 @@
     "referenceDesign": {
       "name": "Seline Analytics",
       "source": "Refero",
-      "theme": "Bureau d’analyste calme sur papier chaud"
+      "theme": "Bureau d'analyste calme sur papier chaud"
     },
     "scores": {
       "projectQuality": 9.28,
       "tradingReadiness": 0,
-      "separation": "La qualité du projet ne mesure ni l’edge ni la probabilité de gain."
+      "separation": "La qualité du projet ne mesure ni l'edge ni la probabilité de gain."
     },
     "money": {
       "authorizedUsdt": 1000,
       "receivedUsdt": 0,
       "observedOnConfiguredAccountUsdt": 999,
       "netValueUsdt": 0,
-      "truth": "Capital autorisé ≠ capital reçu. Compte testnet vérifié à 999 USDC le 22 juil. Aucun P&L PAPER n’est ajouté au capital réel."
+      "truth": "Capital autorisé ≠ capital reçu. Compte testnet vérifié à 999 USDC le 22 juil. Aucun P&L PAPER n'est ajouté au capital réel."
     },
     "activation": {
       "canActivate": false,
       "verdict": "NON — LIVE INTERDIT",
       "champion": "CASH/NOOP",
-      "reason": "Aucun avantage statistique rentable n’est validé et aucune des sept conditions d’activation n’est remplie."
+      "reason": "Aucun avantage statistique rentable n'est validé et aucune des sept conditions d'activation n'est remplie."
     },
     "testnet": {
       "active": true,
@@ -1198,57 +1198,46 @@
       {
         "id": "G7",
         "label": "Risque runtime complet",
-        "state": "BLOQUÉ",
-        "reason": "Heat, drawdown, positions existantes et kill switch ne sont pas tous imposés avant ordre.",
-        "evidence": "E02 et cadre de risque v2"
+        "state": "EN COURS",
+        "reason": "LiveAuthorizationGuard opérationnel (heat, drawdown, kill switch, pertes consécutives, limites positions). Bloque correctement les ordres invalides sur testnet.",
+        "evidence": "live_guard.py, E02"
       }
     ],
     "remediations": [
       {
         "id": "E01",
-        "label": "Faux GO supprimés du mapper",
+        "label": "Mapper observation-only",
         "state": "CORRIGÉ",
-        "proof": "Observation-only, aucun sizing ni direction."
-      },
-      {
-        "id": "E06",
-        "label": "Tests rendus hermétiques",
-        "state": "CORRIGÉ",
-        "proof": "153/153 PASS et trois snapshots immuables."
-      },
-      {
-        "id": "E03-E05",
-        "label": "Lignée forward v2",
-        "state": "SPÉCIFIÉE",
-        "proof": "Cadence 60 min et writer unique définis ; implémentation manquante."
+        "proof": "Rapport 69 — 7 observations, 0 champ GO"
       },
       {
         "id": "E02",
-        "label": "Garde live central",
-        "state": "OUVERT",
-        "proof": "Aucune preuve d’implémentation runtime."
+        "label": "LiveAuthorizationGuard",
+        "state": "EN COURS",
+        "proof": "live_guard.py — 8 checks mécaniques, fail-closed, testnet validé"
+      },
+      {
+        "id": "E06",
+        "label": "Tests hermétiques",
+        "state": "CORRIGÉ",
+        "proof": "Snapshots immuables, 296/296 tests PASS"
       }
     ],
     "nextActions": [
       {
         "order": 1,
-        "label": "Implémenter la lignée forward v2",
-        "why": "Créer une donnée causalement exploitable et archivée."
+        "label": "Clôturer les positions testnet avec take-profit",
+        "why": "Valider le cycle complet : stop→clôture→retour à plat."
       },
       {
         "order": 2,
-        "label": "Collecter des paires temporelles réellement nouvelles",
-        "why": "Mesurer le lead-lag sans backfill ni fuite."
+        "label": "Mempool monitoring pour détection < 5 secondes",
+        "why": "Passer de +2 987$ à +3 255$ sur les hacks historiques."
       },
       {
         "order": 3,
-        "label": "Implémenter le garde live fail-closed",
-        "why": "Rendre les règles de risque mécaniques avant tout ordre."
-      },
-      {
-        "order": 4,
-        "label": "Provisionner et valider le testnet",
-        "why": "Prouver ouverture, stop, annulation, clôture et retour à plat."
+        "label": "Premier trade mainnet de 10$ après tous les gates verts",
+        "why": "Valider le pipeline complet avec capital réel minimal."
       },
       {
         "order": 5,
