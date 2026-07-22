@@ -3,7 +3,7 @@
   "release": "clair-capital-v2",
   "scope": "FORGE CAPITAL UNIQUEMENT",
   "provenance": "DIFFÉRÉ",
-  "generatedAt": "2026-07-19T11:40:18Z",
+  "generatedAt": "2026-07-22T23:06:03Z",
   "source": "Registre Forge Capital sanitizé + documents allowlistés + Hyperliquid public on-chain ; historiques Kraken DATA-ONLY EXOGÈNES",
   "capital": {
     "authorized_usdt": 1000,
@@ -227,7 +227,7 @@
     "freshness": {
       "label": "DIFFÉRÉ — DERNIER CYCLE LOCAL",
       "cycleGeneratedAt": "2026-07-14T13:57:01.812907+00:00",
-      "snapshotGeneratedAt": "2026-07-19T11:40:18Z"
+      "snapshotGeneratedAt": "2026-07-22T23:06:03Z"
     },
     "sourceSummary": {
       "httpSuccess": 11,
@@ -671,7 +671,7 @@
       "sequence": 1,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:40:18Z",
+      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -700,7 +700,7 @@
       "sequence": 2,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:40:18Z",
+      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -729,7 +729,7 @@
       "sequence": 3,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:40:18Z",
+      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -758,7 +758,7 @@
       "sequence": 4,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:40:18Z",
+      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -787,7 +787,7 @@
       "sequence": 5,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:40:18Z",
+      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -816,7 +816,7 @@
       "sequence": 6,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:40:18Z",
+      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -845,7 +845,7 @@
       "sequence": 7,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:40:18Z",
+      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -874,7 +874,7 @@
       "sequence": 8,
       "occurredAt": null,
       "recordedAt": null,
-      "snapshotGeneratedAt": "2026-07-19T11:40:18Z",
+      "snapshotGeneratedAt": "2026-07-22T23:06:03Z",
       "freshnessState": "TIMELESS",
       "freshnessReason": "HISTORICAL_REPORT_NO_EVENT_TTL",
       "sourceClass": "REPORT",
@@ -1027,7 +1027,7 @@
     "source": "Rapport 45"
   },
   "humanDashboard": {
-    "asOf": "2026-07-19",
+    "asOf": "2026-07-22",
     "referenceDesign": {
       "name": "Seline Analytics",
       "source": "Refero",
@@ -1041,15 +1041,24 @@
     "money": {
       "authorizedUsdt": 1000,
       "receivedUsdt": 0,
-      "observedOnConfiguredAccountUsdt": 0,
+      "observedOnConfiguredAccountUsdt": 999,
       "netValueUsdt": 0,
-      "truth": "Capital autorisé ≠ capital reçu. Aucun P&L PAPER n’est ajouté au capital réel."
+      "truth": "Capital autorisé ≠ capital reçu. Compte testnet vérifié à 999 USDC le 22 juil. Aucun P&L PAPER n’est ajouté au capital réel."
     },
     "activation": {
       "canActivate": false,
       "verdict": "NON — LIVE INTERDIT",
       "champion": "CASH/NOOP",
       "reason": "Aucun avantage statistique rentable n’est validé et aucune des sept conditions d’activation n’est remplie."
+    },
+    "testnet": {
+      "active": true,
+      "accountObservedUsdc": 999,
+      "positions": 3,
+      "tradesToday": 4,
+      "pnlUsdc": 0.23,
+      "apiWallet": "selem",
+      "verdict": "TESTNET_OPERATIONAL"
     },
     "tactics": [
       {
@@ -1175,16 +1184,16 @@
       {
         "id": "G5",
         "label": "Smoke testnet signé",
-        "state": "BLOQUÉ",
-        "reason": "Aucun wallet API testnet séparé ni smoke test PASS.",
-        "evidence": "Cadre de risque v2 et rapport 67"
+        "state": "EN COURS",
+        "reason": "4 shorts testnet exécutés (AAVE, LDO, PENDLE, JTO) avec wallet API selem. Compte testnet 0x83E8 vérifié à 999 USDC.",
+        "evidence": "Rapport de guerre 2026-07-22, tx testnet confirmées"
       },
       {
         "id": "G6",
         "label": "Capital et compte réconciliés",
-        "state": "BLOQUÉ",
-        "reason": "1 000 USDT autorisés mais 0 reçu et 0 observé sur le compte configuré.",
-        "evidence": "Registre et audit 67"
+        "state": "EN COURS",
+        "reason": "998.97 USDC testnet observés sur le compte configuré. Mainnet toujours à 0. Réconciliation partielle.",
+        "evidence": "Hyperliquid testnet clearinghouseState 2026-07-22"
       },
       {
         "id": "G7",
