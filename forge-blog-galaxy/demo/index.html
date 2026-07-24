@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://stack-pme.example.test/demo/">
+    <title>Démo locale — Stack PME</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body data-page="customer">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="demo-banner">Mode démonstration — aucun débit réel</div>
+    <main id="contenu" class="page-shell demo-main">
+      <p><a href="../index.html">← Retour à Stack PME</a></p>
+      <div class="demo-layout">
+        <section class="form-card" aria-labelledby="demo-title">
+          <p class="eyebrow">Scénario synthétique, conservé uniquement dans ce navigateur</p>
+          <h1 id="demo-title">Préparer une décision fictive</h1>
+          <p>Ce parcours ne commande aucun service et ne traite aucune donnée réelle.</p>
+          <form id="scenario-form">
+            <div class="field"><label for="team">Taille d'équipe</label><select id="team" name="team"><option value="5">5 personnes</option><option value="20">20 personnes</option><option value="50">50 personnes</option></select></div>
+            <div class="field"><label for="decision">Décision prioritaire</label><select id="decision" name="decision"><option value="choisir">Choisir</option><option value="deployer">Déployer</option><option value="quitter">Quitter</option></select></div>
+            <div class="field"><label for="scenario">Nom du scénario fictif</label><input id="scenario" name="scenario" required maxlength="80" value="Atelier Exemple (démo)"></div>
+            <button class="button button-primary" type="submit">Préparer le récapitulatif</button>
+          </form>
+          <section id="checkout" class="checkout" data-testid="checkout" hidden aria-live="polite"><h2>Récapitulatif fictif</h2><p id="checkout-details"></p><p><strong>0 CHF</strong> · aucun débit réel</p><button id="confirm-order" class="button button-primary" type="button" data-testid="confirm-order">Enregistrer la demande fictive</button></section>
+          <section id="confirmation" class="confirmation" data-testid="confirmation" hidden aria-live="polite"><h2>Demande fictive enregistrée</h2><p>Référence : <strong id="reference" data-testid="reference"></strong></p><p><a href="admin.html">Ouvrir la vue administration</a></p></section>
+        </section>
+        <aside class="demo-aside"><div class="notice"><h2>Limite de la démo</h2><p>La demande est synthétique et locale. Elle sert uniquement à vérifier le parcours client → administration avant toute publication.</p></div></aside>
+      </div>
+    </main>
+    <script src="demo-store.js"></script>
+    <script src="demo-ui.js"></script>
+  </body>
+</html>

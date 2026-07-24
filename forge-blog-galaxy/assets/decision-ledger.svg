@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" role="img" aria-labelledby="title desc">
+  <title id="title">Registre de décision Stack PME</title>
+  <desc id="desc">Une composition abstraite de fiches de preuve, tailles d'équipe et critères de décision.</desc>
+  <rect width="760" height="620" rx="28" fill="#0E3B32"/>
+  <path d="M66 0v620M0 82h760" stroke="#C8E45A" stroke-width="2" opacity=".65"/>
+  <text x="96" y="52" fill="#FFFCF6" font-family="system-ui,sans-serif" font-size="16" font-weight="700" letter-spacing="2">REGISTRE 01 · DÉCISION CRM</text>
+  <g transform="translate(96 118)">
+    <rect width="568" height="124" rx="14" fill="#FFFCF6"/>
+    <circle cx="46" cy="42" r="16" fill="#C8E45A"/>
+    <text x="78" y="48" fill="#17231F" font-family="Georgia,serif" font-size="28" font-weight="700">5 personnes</text>
+    <text x="30" y="91" fill="#52605A" font-family="system-ui,sans-serif" font-size="16">Charge d’administration · sortie · limites du plan</text>
+  </g>
+  <g transform="translate(96 264)">
+    <rect width="568" height="124" rx="14" fill="#E9E4D8"/>
+    <circle cx="46" cy="42" r="16" fill="#B8C1B6"/>
+    <text x="78" y="48" fill="#17231F" font-family="Georgia,serif" font-size="28" font-weight="700">20 personnes</text>
+    <text x="30" y="91" fill="#52605A" font-family="system-ui,sans-serif" font-size="16">Migration · rôles · reporting · réversibilité</text>
+  </g>
+  <g transform="translate(96 410)">
+    <rect width="568" height="124" rx="14" fill="#FFFCF6"/>
+    <circle cx="46" cy="42" r="16" fill="#B8C1B6"/>
+    <text x="78" y="48" fill="#17231F" font-family="Georgia,serif" font-size="28" font-weight="700">50 personnes</text>
+    <text x="30" y="91" fill="#52605A" font-family="system-ui,sans-serif" font-size="16">Gouvernance · intégrations · coût total en CHF</text>
+  </g>
+  <text x="96" y="582" fill="#FFFCF6" font-family="system-ui,sans-serif" font-size="14">Chaque conclusion garde sa date, sa méthode et sa limite.</text>
+</svg>
